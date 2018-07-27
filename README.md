@@ -1,9 +1,10 @@
-# Dotvim2
+# Dotvim3
 
 ## What?
 
-This is the second incarnation of my dotvim configuration
+This is the third incarnation of my dotvim configuration
 
+V2 can be found [here](https://github.com/astrails/dotvim2)
 V1 can be found [here](https://github.com/astrails/dotvim)
 
 > **IMPORTANT:** Please be sure to read the [installation](#installation) section!
