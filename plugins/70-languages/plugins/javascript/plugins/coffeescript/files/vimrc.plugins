@@ -1,3 +1,0 @@
-call dein#add('kchmck/vim-coffee-script')
-call dein#add('vitaly/vim-literate-coffeescript')
-call dein#add('mtscout6/vim-cjsx')

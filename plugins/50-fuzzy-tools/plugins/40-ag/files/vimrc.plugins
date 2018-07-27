@@ -1,1 +1,5 @@
-nmap <leader>k :Ag<space>
+" smart search
+"
+noremap <plug>search(ag) :Ag<space>
+map <plug>search(smart) <plug>search(ag)
+nmap <leader>/ <plug>search(smart)

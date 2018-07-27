@@ -1,0 +1,4 @@
+Plug 'sbdchd/neoformat'
+
+command! AutoFormat au BufWritePre <buffer> Neoformat
+command! NoAutoFormat au! BufWritePre <buffer>

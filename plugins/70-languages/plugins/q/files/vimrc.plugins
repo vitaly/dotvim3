@@ -1,0 +1,12 @@
+Plug 'vitaly/vim-qkdb-syntax'
+
+function! s:qModeSetup()
+  let b:delimitMate_quotes = '"'
+  if !&diff
+    set foldmethod=indent
+  endif
+endfunction
+augroup qmodesetup
+  au!
+  au FileType q call s:qModeSetup()
+augroup END

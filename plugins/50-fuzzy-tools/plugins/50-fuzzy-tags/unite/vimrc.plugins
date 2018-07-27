@@ -1,1 +1,1 @@
-nmap <leader>t :Unite -start-insert -no-split -buffer-name=Tags tag<cr>
+map <plug>search-tags :Unite -start-insert -no-split -buffer-name=Tags tag<cr>

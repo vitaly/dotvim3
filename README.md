@@ -63,13 +63,9 @@ change you can see the exact difference.
 > setup configurable. Just look at any `prompt.sh` file inside `plugins`
 > directory. Oh, and **pull requests are welcome ;)**.
 
-### dein
+### Vim-Plug
 
-NeoBundle was replaced with dein. This time around it seems that this time
-around vim plugin managers are ten a penny.
-So I just went with [dein](https://github.com/Shougo/dein.vim), which is the
-replacement from the author of NeoBundle. NeoBundle was fast, Dein supposed to
-be faster still.
+NeoBundle was replaced with dein. Which was now replaced with vim-plug.
 
 ### TBD
 
@@ -219,8 +215,6 @@ The plugins are loaded according to their sort order.
     *   TBD: vimbits
 
 *   [General Plugins](#general)
-    *   [vim-airline](#airline)
-        better looking statusline
     *   [greplace.vim](#greplace.vim)
     *   [nerdtree](#nerdtree)
     *   [nerdtree-git](#nerdtree-git)
@@ -253,7 +247,7 @@ The plugins are loaded according to their sort order.
     *   [The Silver Search](#vim-ag)
         `ag` searching integration
     *   [Line search](#fuzzy-lines)
-    *   [Tags search](#fuzzy-tags)
+*   [Tags search](#fuzzy-tags)
     *   [Yank history search](#fuzzy-yank)
 
 *   [Plugins for Developers](#devplugins)
@@ -266,19 +260,9 @@ The plugins are loaded according to their sort order.
     *   [vim-gitgutter](#gitgutter)
         git diff in the gutter (sign column) and stages/reverts hunks
     *   [vim-surround](#vim-surround)
-    *   [syntastic](#syntastic) syntax checking on save
     *   [tmux-navigator](#tmux-navigator)
 
 *   [Development languages and syntax support](#languages)
-    *   [HTML Support](#html)
-        *   [vim-emmet](#vim-emmet) vim-emmet for highspeed HTML editing
-
-    *   [Ruby Support](#ruby)
-        *   [vim-bundler](#vim-bundler) bundler integration
-        *   [vim-rake](#vim-rake) rake integration
-        *   [vim-textobj-rubyblock](#vim-textobj-rubyblock) A custom text object for selecting ruby blocks (ar/ir)
-        *   [vim-ruby-refactoring](#vim-ruby-refactoring)
-        *   [blockle.vim](#blockle) toggle ruby blocks style
 
         *   [Ruby on Rails Support](#rails)
             *   [vim-rails](#vim-rails)
@@ -313,16 +297,6 @@ TBD
 <a name=general>
 ## "General" Plugins:
 
-*   <a name=airline>[vim-airline](https://github.com/bling/vim-airline) ([top](#top))
-
-    Lean & mean status/tabline for vim that's light as air.
-
-    A better replacement for vim-powerline. Optimized for speed; it loads in
-    under a millisecond.
-
-    [Install fonts](https://github.com/bling/vim-airline#integrating-with-powerline-fonts)
-    for best results.
-
 *   <a name=greplace.vim>[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
 
     Replace a pattern across multiple files interactively
@@ -340,9 +314,9 @@ TBD
 
     vim script to give you a tree explorer
 
-    * `Ctrl-P` - open directory browser (**Note:** this is now handled by
+    * `<leader>ft` - toggle directory browser (**Note:** this is now handled by
       [nerdtree-tabs](#nerdtreetabs) (see below))
-    * `,p` - to find and highlight the currently open file in the tree
+    * `<leader>0` - to find and highlight the currently open file in the tree
 
 *   <a name=nerdtree-git>[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
 
@@ -367,23 +341,24 @@ TBD
 
     NERDTree and tabs together in Vim, painlessly
 
-    * `Ctrl-P` - open directory browser
+    * `<leader>ft` - toggle directory browser
+    * `<leader>0` - open directory browser and find the current file in it
 
 *   <a name=nerdcommenter>[nerdcommenter](http://github.com/scrooloose/nerdcommenter) ([top](#top))
 
     Vim plugin for intensely orgasmic commenting
 
-    * `,/` - toggle comment
-    * `,cc` - add commenting
-    * `,cu` - Uncomment
+    * `<leader>;` - toggle comment
+    * `<leader>cc` - add commenting
+    * `<leader>cu` - Uncomment
     * check docs for more
 
 *   <a name=vim-session>[vim-session](https://github.com/xolox/vim-session) ([top](#top))
 
     Extended session management for Vim (`:mksession` on steroids)
 
-    * `,SS` - `:SaveSession`
-    * `,SO` - `:OpenSession`
+    * `<leader>SS` - `:SaveSession`
+    * `<leader>SO` - `:OpenSession`
 
 
     When runnin in a graphical vim:
@@ -403,7 +378,7 @@ TBD
 
     Graphs your vim undo tree in a side window.
 
-    * `u` - toggle undo window
+    * `<leader>u` - toggle undo window
 
     * `:h undotree.txt` - more help
 
@@ -412,11 +387,6 @@ TBD
     Utl.vim brings the benefits of URL-based hyperlinking to plain text,
 
     `:h utl` for help.
-
-    Bindings:
-
-    * `,o` - types `:Utl `. you still need to press enter to `o`pen url. This way
-      it allows to type other commands if needed.
 
 *   <a name=xterm-color-table>[xterm-color-table](https://github.com/guns/xterm-color-table.vim) ([top](#top))
 
@@ -433,15 +403,6 @@ TBD
 
 <a name=completion>
 ## Completion
-
-*   <a name=youcompleteme>[YouCompleteMe](http://valloric.github.io/YouCompleteMe) ([top](#top))
-
-    A code-completion engine for Vim
-
-    See [documentation](http://valloric.github.io/YouCompleteMe).
-
-    > Note: to get rid of the "missing .tern-project file" warning, create a
-    > global `~/.tern-project` file. see `:h .tern-sub-project`.
 
 
 <a name=fuzzy-search>
@@ -463,7 +424,7 @@ TBD
 
         Unite source to display outline of the current file.
 
-        * `,O` - `:Unite outline` - show file outline
+        * `<leader>O` - `:Unite outline` - show file outline
 
     *   <a name=unite-colorscheme>[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
 
@@ -489,38 +450,41 @@ TBD
 
 *   <a name=fuzzy-files>File search ([top](#top))
 
-    * `,,` - `:Files` - fuzzy find files using FZF
+    * `<leader>ff` - `:Files` - fuzzy find files using FZF
 
 
 *   <a name=fuzzy-buffers>Buffer search ([top](#top))
 
-    * `,b` - `:Unite buffer` - fuzzy search open buffers
+    * `<leader>bb` - `:Unite buffer` - fuzzy search open buffers
 
 *   <a name=fuzzy-quickfix>Quickfix search ([top](#top))
 
-    * `,q` - `:CtrlPQuickfix` - fuzzy find within quickfix buffer
+    * `<leader>sq` - `:CtrlPQuickfix` - fuzzy find within quickfix buffer
 
-*   <a name=vim-ag>[vim-ag](https://github.com/rking/ag.vim) ([top](#top))
+*   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
 
-    Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+    The Silver Searcher (ag) is a code-searching tool similar to ack, but faster..
 
-    * `,k` - `:Ag ` - open prompt for entering search term
+    The actual vim integration is provided by [FZF](#fzf)
+
+    * `<leader>/` - `:Ag ` - open prompt for entering search term
+
 
 *   <a name=fuzzy-lines>Line search ([top](#top))
 
-    * `,l` - `:Lines` - fuzzy search lines in all opened buffers using FZF
+    * `<leader>sl` - `:Lines` - fuzzy search lines in all opened buffers using FZF
 
 *   <a name=fuzzy-tags>Tags search ([top](#top))
 
-    * `,,` - `:Tags` - fuzzy find tag with FZF
-    * `\t` - `:Btags` - fuzzy find bugger tag with FZF
+    * `<leader>t` - `:Tags` - fuzzy find tag with FZF
+    * `<leader>t` - `:Btags` - fuzzy find buffer tag with FZF
 
 *   <a name=fuzzy-yank>Yank history search ([top](#top))
 
     [YankRing.vim](http://github.com/vim-scripts/YankRing.vim) Maintains a history of previous yanks, changes and deletes
 
-    * `,y` to show the yankring
-    * `,[`/`,]` - to cycle the just-pasted text though the yankring.
+    * `<leader>sy` to show the yankring
+    * `<leader>[`/`,]` - to cycle the just-pasted text though the yankring.
     * `:h yankring.txt` and `:h yankring-tutorial` for more
 
 
@@ -558,11 +522,11 @@ TBD
 
          :grep with git-grep as 'grepprg'.
 
-    *    `,g`
+    *    `<leader>gg`
 
          shortcut to run :Ggrep
 
-    *   `//`
+    *   `<leader>gw`
 
         global git search for the word under the cursor for for selection (in visual mode)
 
@@ -616,9 +580,11 @@ TBD
     Bindings:
 
     * `]c` - jump to next hunk
+    * `<localleader>n` - jump to next hunk
     * `[c` - jump to previous hunk
-    * `,hs` - stage hunk
-    * `,hr` - revert hunk
+    * `<localleader>p` - jump to previous hunk
+    * `<leader>hs` - stage hunk
+    * `<leader>hr` - revert hunk
 
     There are quite some customization options. see help.
 
@@ -632,14 +598,6 @@ TBD
     * `ysMovementX` - surround movement with X
 
     You should REALLY read the docs if you want to use this one
-
-*   <a name=syntastic>[syntastic](http://github.com/scrooloose/syntastic) ([top](#top))
-
-    syntax checking plugin
-
-    it will display the number of syntax errors in the current file in the vim's status line.
-
-    * use `:Errors` to display a window detailing the errors
 
 *   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
 
@@ -660,76 +618,6 @@ TBD
 
 <a name=languages>
 ## Development languages and syntax support
-
-<a name=html>
-### HTML
-
-*   <a name=emmet>[Emmet](https://github.com/mattn/emmet-vim) ([top](#top))
-
-    [emmet.io](http://emmet.io) like html/css workflow plugin.
-
-    *   `<Ctrl-y>,` - expand emmet abbreviation. .e.g try it with `div>p#foo$*3>a`
-
-    > Note: it even works with HAML
-
-<a name=ruby>
-### Ruby Support
-
-*   <a name=vim-bundler>[vim-bundler](https://github.com/tpope/vim-bundler) ([top](#top))
-
-    Lightweight support for Ruby's Bundler
-
-    * `gf` - when standing over a gem name in a Gemfile will go to gem's directory
-    * `:Bopen NAME` - does bundle open NAME - opens gem NAME's lib diretory in the current window.
-    * `:Bundle` - runs bundler
-
-*   <a name=vim-rake>[vim-rake](https://github.com/tpope/vim-rake) ([top](#top))
-
-    TBD
-
-*   <a name=vim-textobj-rubyblock>[vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock) ([top](#top))
-
-    A custom text object for selecting ruby blocks.
-
-    In other words it teaches vim to understand what is ruby block, just like vim already understands what is word, paragraph, sentence etc.
-
-    It works with begin/end, if/else/end etc.
-
-    * `var` - select ruby block around the cursor including begin/end
-    * `vir` - select insides of a ruby block around the cursor not including begin/end
-    * `dar` - delete ruby block around the cursor
-    * etc...
-
-    Some 'trickier' usage patterns.
-
-    * `varar` - select the ruby block that is around the ruby block that is around the cursor. including begin/end
-    * `vararir` - select insides of the ruby block that is around the ruby block that is around the cursor. not including begin/end
-    * ...
-
-
-*   <a name=vim-ruby-refactoring>[vim-ruby-refactoring](https://github.com/ecomba/vim-ruby-refactoring) ([top](#top))
-
-    Refactoring tool for Ruby in vim!
-
-    * `,rap`  :RAddParameter           - Add Parameter(s) to a method
-    * `,rcpc` :RConvertPostConditional - Convert Post Conditional
-    * `,rel`  :RExtractLet             - Extract to Let (Rspec)
-    * `,rec`  :RExtractConstant        - Extract Constant (visual selection)
-    * `,relv` :RExtractLocalVariable   - Extract Local Variable (visual selection)
-    * `,rit`  :RInlineTemp             - Inline Temp. replace temp parameter by direct function call
-    * `,rrlv` :RRenameLocalVariable    - Rename Local Variable (visual selection/variable under the cursor
-    * `,rriv` :RRenameInstanceVariable - Rename Instance Variable (visual selection)
-    * `,rem`  :RExtractMethod          - Extract Method (visual selection)
-
-*   <a name=blockle)>[blockle.vim](https://github.com/vim-scripts/blockle.vim) ([top](#top))
-
-    Toggle ruby blocks style, e.g `{}` to `do .. end`
-
-    * `,B` - toggle block style
-
-    > NOTE: there is an unfortunate interaction with delimitMate, the opening
-    > brase gets completed. i.e. you get `{} ... }`
-
 
 <a name=rails>
 #### Ruby on Rails Support
@@ -769,13 +657,13 @@ TBD
 
     Bindings:
 
-    * `,r` - `RunNearestSpec`
+    * `<localleader>r` - `RunNearestSpec`
 
 *   <a name=i18n>[vim-i18n](https://github.com/stefanoverna/vim-i18n) ([top](#top))
 
     Extracts i18n strings from source files into .yml file.
 
-    * `,z` - extract selected string
+    * `<leader>z` - extract selected string
 
 *   <a name=vimscript>[vimscript] ([top](#top))
 

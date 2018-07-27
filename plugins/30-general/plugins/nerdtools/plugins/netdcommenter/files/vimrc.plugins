@@ -1,5 +1,9 @@
-call dein#add('scrooloose/nerdcommenter')
+Plug 'scrooloose/nerdcommenter'
 
-" ,/ to invert comment on the current line/selection
-nmap <leader>/ :call NERDComment(0, "invert")<cr>
-vmap <leader>/ :call NERDComment(0, "invert")<cr>
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
+
+" invert comment on the current line/selection
+map <plug>comment(invert) <Plug>NERDCommenterInvert
+nmap <leader>; <plug>comment(invert)
+vmap <leader>; <plug>comment(invert)
