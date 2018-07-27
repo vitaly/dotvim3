@@ -1,3 +1,5 @@
+scriptencoding utf8
+
 Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/unite.vim'
