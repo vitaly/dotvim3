@@ -1,18 +1,29 @@
+(
+cd "$VIM_DIR"
+
+# remove old version leftovers
 OLD_FILES="
 vimrc.before gvimrc.before
 vimrc.bindings gvimrc.bindings
 filetype.vim
+README.index.md README.content.md
 "
-COMMON_FILES="
+rm -fv $OLD_FILES
+
+MANAGED_DIRS="after/plugin ftplugin colors"
+mkdir -pv $MANAGED_DIRS
+
+MANAGED_FILES="
+README.md
 .gitignore
 vimrc vimrc.plugins vimrc.after
 gvimrc.plugins gvimrc.after
-README.md README.index.md README.content.md
-"
-COMMON_DIRS="
-after ftplugin colors
-snippets
-spell
+after/plugin/after.vim
+colors/buttercream.vim colors/colorzone.vim
+ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim
 "
 
-( cd "$VIM_DIR"; rm -f $OLD_FILES $COMMON_FILES; rm -rf $COMMON_DIRS; touch $COMMON_FILES )
+# prepare empty placeholders for managed files
+rm -f $MANAGED_FILES
+touch $MANAGED_FILES
+)
