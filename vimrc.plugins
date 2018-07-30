@@ -1,0 +1,425 @@
+
+" plugins/10-init/files/vimrc.plugins -------------------
+
+scriptencoding utf8
+
+Plug 'junegunn/vim-plug'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/unite.vim'
+
+" plugins/20-settings/files/vimrc.plugins -------------------
+
+let mapleader = " "
+let maplocalleader = ","
+let timeoutlen=5000
+
+" plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
+
+Plug 'vim-scripts/greplace.vim'
+
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/files/vimrc.plugins -------------------
+
+Plug 'scrooloose/nerdtree'
+
+" Tells the NERD tree to respect 'wildignore'.
+let NERDTreeRespectWildIgnore=1
+let NERDTreeCascadeSingleChildDir=0
+
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.plugins -------------------
+
+Plug 'jistr/vim-nerdtree-tabs'
+
+" nerdtree with tabs
+" display the [F]ile browser [T]ree
+map <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
+" show current file in the tree
+map <plug>file-tree(find) :NERDTreeFind<CR>
+
+" plugins/30-general/plugins/nerdtools/plugins/netdcommenter/files/vimrc.plugins -------------------
+
+Plug 'scrooloose/nerdcommenter'
+
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
+
+" invert comment on the current line/selection
+map <plug>comment(invert) <Plug>NERDCommenterInvert
+nmap <leader>; <plug>comment(invert)
+vmap <leader>; <plug>comment(invert)
+
+" plugins/30-general/plugins/repeat/files/vimrc.plugins -------------------
+
+" replacement for the repeat mapping (.) to support plugins
+Plug 'tpope/vim-repeat'
+
+" plugins/30-general/plugins/session/files/vimrc.plugins -------------------
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+nmap <leader>SS :SaveSession
+nmap <leader>SO :OpenSession
+if has('gui_running')
+  nmap <leader>SR :RestartVim<CR>
+endif
+
+" plugins/30-general/plugins/statusline/lightline/files/vimrc.plugins -------------------
+
+Plug 'itchyny/lightline.vim'
+noremap <silent> <plug>toggle(statusline) :call lightline#toggle()<cr>
+let g:status_line_plugin = 'lightline'
+
+" plugins/30-general/plugins/switch/files/vimrc.plugins -------------------
+
+Plug 'AndrewRadev/switch.vim'
+
+" making some of the switches defined for ruby work in HAML files
+autocmd FileType haml let b:switch_definitions =
+      \ [
+      \   g:switch_builtins.ruby_hash_style,
+      \   g:switch_builtins.ruby_string,
+      \   g:switch_builtins.true_false,
+      \   g:switch_builtins.true_false,
+      \ ]
+
+nnoremap ` :Switch<cr>
+
+" plugins/30-general/plugins/undotree/files/vimrc.plugins -------------------
+
+Plug 'mbbill/undotree'
+
+nmap <leader>u :UndotreeToggle<CR>
+"g:undotree_SetFocusWhenToggle
+nmap g= :later<cr>
+
+" plugins/30-general/plugins/utl/files/vimrc.plugins -------------------
+
+Plug 'vim-scripts/utl.vim'
+
+if has("mac")
+  let g:utl_cfg_hdl_scm_http_system = "!open '%u'"
+end
+
+" plugins/30-general/plugins/vimwiki/files/vimrc.plugins -------------------
+
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+let g:vimwiki_folding = "list"
+
+" plugins/30-general/plugins/xterm-color-table/files/vimrc.plugins -------------------
+
+Plug 'guns/xterm-color-table.vim'
+
+" plugins/40-completion/plugins/snippets/files/vimrc.plugins -------------------
+
+Plug 'SirVer/ultisnips'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" plugins/40-completion/plugins/snippets/plugins/vim-snippets/files/vimrc.plugins -------------------
+
+Plug 'honza/vim-snippets'
+
+
+" plugins/40-completion/plugins/supertab/files/vimrc.plugins -------------------
+
+Plug 'ervandew/supertab'
+
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" plugins/40-completion/engine/deoplete/files/vimrc.plugins -------------------
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/context_filetype.vim'
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
+Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+let g:LanguageClient_diagnosticsList = "Location"
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ }
+
+" plugins/40-completion/engine/deoplete/plugins/neco-vim/files/vimrc.plugins -------------------
+
+" https://github.com/Shougo/neco-vim
+Plug 'Shougo/neco-vim'
+
+" plugins/40-completion/engine/deoplete/plugins/tmux-complete/files/vimrc.plugins -------------------
+
+Plug 'wellle/tmux-complete.vim'
+
+" plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.plugins -------------------
+
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/neoyank.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'tsukkee/unite-tag'
+
+if executable('ag')
+  let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
+endif
+
+map <plug>show(outline) :Unite -start-insert -no-split -buffer-name=Outline outline<cr>
+nmap <leader>O <plug>show(outline)
+
+" plugins/50-fuzzy-tools/plugins/00-unite/plugins/10-unite-colorscheme/files/vimrc.plugins -------------------
+
+Plug 'ujihisa/unite-colorscheme'
+
+command! THEME Unite -start-insert -auto-preview colorscheme
+
+" plugins/50-fuzzy-tools/plugins/01-ctrlp/files/vimrc.plugins -------------------
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+let g:ctrlp_clear_cache_on_exit = 1
+
+let g:ctrlp_max_height = 20
+
+" jump to buffer in the same tab if already open
+let g:ctrlp_switch_buffer = 0
+
+" if in git repo - use git file listing command, should be faster
+" using this option overrides standard CtrlP ignore list based on vim wildignore
+" so use 'grep -v ...' to exclude common image and font files from the search
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard -cod | grep -viE "\.(png|gif|jpg|gz|woff|eot|tiff|ttf|otf)$"']
+
+" open multiple files with <c-z> to mark and <c-o> to open. v - opening in
+" vertical splits; j - jump to first open buffer; r - open first in current buffer
+let g:ctrlp_open_multiple_files = 'hjr'
+
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'mixed', 'line']
+
+let g:ctrlp_working_path_mode = 'ra'
+
+" prevent CtrlP from adding the default map
+let g:ctrlp_map = ''
+
+" plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.plugins -------------------
+
+Plug 'junegunn/fzf.vim'
+
+if executable("ag") && ('' == $FZF_DEFAULT_COMMAND)
+  let $FZF_DEFAULT_COMMAND = "ag --follow --nocolor --nogroup -g ''"
+endif
+
+" plugins/50-fuzzy-tools/plugins/02-fzf/install.sh -------------------
+
+set rtp+=/usr/local/opt/fzf/
+
+" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.plugins -------------------
+
+map <plug>fuzzy-file(find) :Files<cr>
+
+" plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/files/vimrc.plugins -------------------
+
+nmap <leader>bb <plug>fuzzy(buffer)
+
+" plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/unite/vimrc.plugins -------------------
+
+noremap <plug>fuzzy(buffer) :Unite -start-insert -no-split -buffer-name=buffer buffer<cr>
+
+" plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/ctrlp/vimrc.plugins -------------------
+
+" [S]earch [Q]uickfix
+nmap <leader>sq :CtrlPQuickfix<cr>
+
+" plugins/50-fuzzy-tools/plugins/40-ag/files/vimrc.plugins -------------------
+
+" smart search
+"
+noremap <plug>search(ag) :Ag<space>
+map <plug>search(smart) <plug>search(ag)
+nmap <leader>/ <plug>search(smart)
+
+" plugins/50-fuzzy-tools/plugins/40-fuzzy-lines/fzf/vimrc.plugins -------------------
+
+" [S]earch [L]ine
+nmap <leader>sl :Lines<cr>
+
+" plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/fzf/vimrc.plugins -------------------
+
+map <plug>search-tags :Tags<cr>
+map <plug>search-buffer-tags :BTags<cr>
+
+" plugins/50-fuzzy-tools/plugins/60-fuzzy-yank/yankring/vimrc.plugins -------------------
+
+Plug 'vim-scripts/YankRing.vim'
+
+let g:yankring_replace_n_pkey = '<leader>['
+let g:yankring_replace_n_nkey = '<leader>]'
+
+" put the yankring_history file in ~/.backup
+let g:yankring_history_dir = expand('~/.backup')
+
+let g:yankring_max_history = 1000
+
+" show the [Y]ankring
+nmap <leader>sy :YRShow<cr>
+
+let g:yankring_window_height = 20
+
+" plugins/60-development/plugins/delimitmate/files/vimrc.plugins -------------------
+
+Plug 'Raimondi/delimitMate'
+
+" Turns on/off the expansion of <Space>
+let g:delimitMate_expand_space = 1
+
+" Turns on/off the expansion of <CR>
+let g:delimitMate_expand_cr = 1
+
+" plugins/60-development/plugins/editorconfig/files/vimrc.plugins -------------------
+
+Plug 'editorconfig/editorconfig-vim'
+
+" plugins/60-development/plugins/endwise/files/vimrc.plugins -------------------
+
+" end certain structures automatically, e.g. begin/end etc.
+Plug 'tpope/vim-endwise'
+
+" plugins/60-development/plugins/fugitive/files/vimrc.plugins -------------------
+
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/Merginal'
+Plug 'tpope/vim-rhubarb'
+
+" [G]it [G]grep
+noremap <plug>git(grep) :silent Ggrep<space>
+nmap <leader>gg <plug>git(grep)
+
+" [G]rep [W]ord
+" for global git search for word under the cursor (with highlight)
+noremap <plug>git(grep-word) :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+nmap <leader>gw <plug>git(grep-word)
+
+" [G]rep current selection in visual mode
+noremap <plug>git(grep-selection) y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+vmap <leader>g <plug>git(grep-selection)
+
+noremap <plug>git(status) :Gstatus<CR>
+nmap <leader>gs  <plug>git(status)
+
+noremap <plug>git(diff) :Gdiff<CR>
+nmap <leader>gd  <plug>git(diff)
+
+" plugins/60-development/plugins/git-gutter/files/vimrc.plugins -------------------
+
+Plug 'airblade/vim-gitgutter'
+
+" plugins/60-development/plugins/gitignore/files/vimrc.plugins -------------------
+
+" hide .gitignore-d files from vim
+Plug 'vitaly/vim-gitignore'
+
+" plugins/60-development/plugins/gutentags/files/vimrc.plugins -------------------
+
+Plug 'ludovicchabant/vim-gutentags'
+
+" plugins/60-development/plugins/neoformat/files/vimrc.plugins -------------------
+
+Plug 'sbdchd/neoformat'
+
+command! AutoFormat au BufWritePre <buffer> Neoformat
+command! NoAutoFormat au! BufWritePre <buffer>
+
+" plugins/60-development/plugins/surround/files/vimrc.plugins -------------------
+
+Plug 'tpope/vim-surround'
+
+" plugins/60-development/plugins/syntastic/ale/files/vimrc.plugins -------------------
+
+Plug 'w0rp/ale'
+
+if exists('g:status_line_plugin') && 'lightline' == g:status_line_plugin
+  Plug 'maximbaz/lightline-ale'
+endif
+
+" plugins/60-development/plugins/tmux-navigator/files/vimrc.plugins -------------------
+
+Plug 'christoomey/vim-tmux-navigator'
+
+" plugins/70-languages/plugins/0-polyglot/files/vimrc.plugins -------------------
+
+Plug 'sheerun/vim-polyglot'
+
+" plugins/70-languages/plugins/q/files/vimrc.plugins -------------------
+
+Plug 'vitaly/vim-qkdb-syntax'
+
+function! s:qModeSetup()
+  let b:delimitMate_quotes = '"'
+  if !&diff
+    set foldmethod=indent
+  endif
+endfunction
+augroup qmodesetup
+  au!
+  au FileType q call s:qModeSetup()
+augroup END
+" plugins/70-languages/plugins/rails/files/vimrc.plugins -------------------
+
+" Rails support
+Plug 'tpope/vim-rails', {'for': 'ruby'}
+
+" apidock.com docs integration
+Plug 'vitaly/apidock.vim', {'for': 'ruby'}
+
+" lightweight Rspec runner for Vim
+Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+
+" Rails i18n extraction plugin
+Plug 'stefanoverna/vim-i18n', {'for': 'ruby'}
+
+Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
+
+" vim-[R]spec
+map <plug>rspec(nearest) :call RunNearestSpec()<CR>
+" map <localleader>r <plug>rspec(nearest)
+
+" plugins/70-languages/plugins/tasks/files/vimrc.plugins -------------------
+
+Plug 'irrationalistic/vim-tasks'
+
+autocmd BufNewFile,BufReadPost todo set filetype=tasks
+
+" plugins/80-color-themes/files/vimrc.plugins -------------------
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'tpope/vim-vividchalk'
+Plug 'nanotech/jellybeans.vim'
+Plug 'lifepillar/vim-solarized8'
+
+" plugins/99-final/plugins/10-local-configs/files/vimrc.plugins -------------------
+
+if filereadable(expand("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
+endif
+
+" plugins/99-final/plugins/20-gvim-configs/files/vimrc.plugins -------------------
+
+if has('gui_running')
+  source ~/.vim/gvimrc.plugins
+end

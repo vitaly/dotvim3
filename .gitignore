@@ -1,10 +1,8 @@
-dist
-todo
-.envrc
-tmp
+
+# plugins/10-init/files/.gitignore -------------------
+
+dein
+.config.new
+sessions
 tags
-doc/
-GTAGS
-GPATH
-GRTAGS
-.yardoc/
+bundle/*
