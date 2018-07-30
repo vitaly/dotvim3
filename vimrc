@@ -36,12 +36,7 @@ set textwidth=0         " Do not wrap words (insert)
 set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
-set ruler               " line and column number of the cursor position
-set wildmenu            " enhanced command completion
 set visualbell          " use visual bell instead of beeping
-set laststatus=2        " always show the status line
-"set listchars=tab:▷⋅,trail:·,eol:$
-set listchars=tab:▷⋅,trail:·
 set list
 
 " highlight spell errors
@@ -54,16 +49,12 @@ set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jp
 set shell=/bin/bash     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
-set history=10000
-set autoread            " automatically read file that has been changed on disk and doesn't have changes in vim
-set backspace=indent,eol,start
 set guioptions-=T       " disable toolbar"
 set completeopt=menuone,preview
 let bash_is_sh=1        " syntax shell files as bash scripts
 set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
 set modelines=5         " number of lines to check for vim: directives at the start/end of file
 "set fixdel                 " fix terminal code for delete (if delete is broken but backspace works)
-set autoindent          " automatically indent new line
 
 set ts=4                " number of spaces in a tab
 set sw=4                " number of spaces for indent
@@ -79,7 +70,6 @@ endif
 set mousehide                           " Hide mouse pointer on insert mode."
 
 " search settings
-set incsearch           " Incremental search
 set hlsearch            " Highlight search match
 set ignorecase          " Do case insensitive matching
 set smartcase           " do not ignore if search pattern has CAPS
@@ -103,9 +93,6 @@ set nofoldenable        " dont fold by default "
 " concealing
 set concealcursor=n
 set conceallevel=2
-
-" extended '%' mapping for if/then/else/end etc
-runtime macros/matchit.vim
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -246,6 +233,3 @@ nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
-
-" keep at least  5 lines above/below cursor (when scrolling)
-set scrolloff=5

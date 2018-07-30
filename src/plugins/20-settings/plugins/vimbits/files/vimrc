@@ -37,6 +37,3 @@ nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
-
-" keep at least  5 lines above/below cursor (when scrolling)
-set scrolloff=5

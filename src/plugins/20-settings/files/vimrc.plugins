@@ -1,3 +1,5 @@
+Plug 'tpope/vim-sensible'
+
 let mapleader = " "
 let maplocalleader = ","
 let timeoutlen=5000

@@ -7,7 +7,13 @@ Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/unite.vim'
 
+" plugins/15-sensible/files/vimrc.plugins -------------------
+
+Plug 'tpope/vim-sensible'
+
 " plugins/20-settings/files/vimrc.plugins -------------------
+
+Plug 'tpope/vim-sensible'
 
 let mapleader = " "
 let maplocalleader = ","
