@@ -213,6 +213,9 @@ The plugins are loaded according to their sort order.
 *   [Plugins for Developers](#devplugins)
     *   [delimitMate](#delimitMate)
         automatic closing of quotes, parenthesis, brackets, etc.
+    *   [EasyAlign](#EasyAlign)
+        A simple, easy-to-use Vim alignment plugin.
+
     *   [editorconfig](#editorconfig)
     *   [vim-endwise](#vim-endwise)
     *   [vim-fugitive](#vim-fugitive)
@@ -454,6 +457,10 @@ TBD
 *   <a name=delimitMate>[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
 
     auto-completion for quotes, parens, brackets, etc. in insert mode.
+
+*   <a name=EasyAlign>[EasyAlign](https://github.com/junegunn/vim-easy-align) ([top](#top))
+
+    Press `ENTER` in visual selection mode to start interactive EasyAlign session. See docs for details.
 
 *   <a name=editorconfig>[editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) ([top](#top))
 

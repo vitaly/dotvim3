@@ -296,6 +296,13 @@ let g:delimitMate_expand_space = 1
 " Turns on/off the expansion of <CR>
 let g:delimitMate_expand_cr = 1
 
+" plugins/60-development/plugins/easy-align/files/vimrc.plugins -------------------
+
+Plug 'junegunn/vim-easy-align'
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(LiveEasyAlign)
+
 " plugins/60-development/plugins/editorconfig/files/vimrc.plugins -------------------
 
 Plug 'editorconfig/editorconfig-vim'
