@@ -1,30 +1,48 @@
-export VIM_DIR ?= dist
+export VIM_DIR ?= ${PWD}
+
+SRC := cd src &&
 
 configure:
-	@bin/generate.sh
+	${SRC} bin/generate.sh
+.PHONY: configure
 
 vconfigure:
-	@bin/generate.sh -v
+	${SRC} bin/generate.sh -v
+.PHONY: vconfigure
 
 reconfigure:
-	@bin/generate.sh -f
+	${SRC} bin/generate.sh -f
+.PHONY: reconfigure
 
 edit: ${VIM_DIR}/.config
-	@vim ${VIM_DIR}/.config
+	vim ${VIM_DIR}/.config
+.PHONY: edit
 
 install: configure
 	vim +'PlugInstall' +qa
+.PHONY: install
 
-clean:
-	@you can manually remove directory ${VIM_DIR}/bundle
+# TODO: generate list by make configure
+GENERATED := README.md after/plugin/after.vim autoload/plug.vim colors/buttercream.vim colors/colorzone.vim ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim gvimrc.after gvimrc.plugins vimrc vimrc.after vimrc.plugins
+
+clean-generated:
+	rm -f ${GENERATED}
+.PHONY: clean-generated
+
+clean-bundle:
+	rm -rf bundle/*
+.PHONY: clean-bundle
+
+clean-all: clean-generated clean-bundle
+.PHONY: clean-all
 
 update:
 	vim +'PlugUpdate'
+.PHONY: update
 
 upgrade:
 	vim +'PlugUpgrade'
-
-.PHONY: configure reconfigure install clean reinstall update
+.PHONY: upgrade
 
 # YCM_DIR = ${VIM_DIR}/dein/repos/github.com/Valloric/YouCompleteMe
 

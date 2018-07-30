@@ -55,7 +55,7 @@ END
 
 function no_vimrc()
 {
-  test ! -f ~/.vimrc
+  test ! -e ~/.vimrc
 }
 
 function no_vimrc_warning()
