@@ -1,5 +1,7 @@
 # Dotvim3
 
+> WARNING: Work in progress, do not (yet) use ;)
+
 ## What?
 
 This is the third incarnation of my dotvim configuration
