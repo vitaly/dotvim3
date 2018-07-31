@@ -3,6 +3,8 @@ README.md
 after/plugin/after.vim
 colors/buttercream.vim
 colors/colorzone.vim
+deps/install.sh
+deps/upgrade.sh
 ftplugin/gitcommit.vim
 ftplugin/javascript.vim
 ftplugin/vim.vim

@@ -19,6 +19,7 @@ edit: ${VIM_DIR}/.config
 .PHONY: edit
 
 install: configure
+	./deps/install.sh
 	vim +'PlugInstall' +qa
 .PHONY: install
 
@@ -41,6 +42,7 @@ update:
 .PHONY: update
 
 upgrade:
+	./deps/upgrade.sh
 	vim +'PlugUpgrade'
 .PHONY: upgrade
 
