@@ -1,0 +1,17 @@
+noremap                           <plug>lang(type-info) :call LanguageClient#textDocument_hover()<CR>
+nmap    <silent>  <localleader>K  <plug>lang(type-info)
+
+noremap                           <plug>lang(goto)      :call LanguageClient#textDocument_definition()<CR>
+nmap    <silent>  <localleader>lg <plug>lang(goto)
+
+noremap                           <plug>lang(rename)    :call LanguageClient#textDocument_rename()<CR>
+nmap    <silent>  <localleader>lR <plug>lang(rename)
+
+noremap                           <plug>lang(sym)       :call LanguageClient#textDocument_documentSymbol()<CR>
+nmap    <silent>  <localleader>ls <plug>lang(sym)
+
+noremap                           <plug>lang(refs)      :call LanguageClient#textDocument_references()<CR>
+nmap    <silent>  <localleader>lr <plug>lang(refs)
+
+noremap                           <plug>lang(actions)   :call LanguageClient#textDocument_codeAction()<CR>
+nmap    <silent>  <localleader>la <plug>lang(actions)
