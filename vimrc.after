@@ -22,17 +22,6 @@ set timeoutlen=500
 " must be in 'after' to prevent yankring overriding it
 nnoremap Y y$
 
-" plugins/30-general/plugins/nerdtools/plugins/nerdtree/files/vimrc.after -------------------
-
-if maparg('<plug>file-tree(toggle)') != ''
-  " display the [F]ile browser [T]ree
-  nmap <leader>ft <plug>file-tree(toggle)
-endif
-if maparg('<plug>file-tree(find)') != ''
-  " show current file in the tree
-  nmap <leader>0 <plug>file-tree(find)
-endif
-
 " plugins/30-general/plugins/statusline/files/vimrc.after -------------------
 
 if maparg('<plug>toggle(statusline)') != ''

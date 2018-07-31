@@ -43,14 +43,6 @@ let timeoutlen=5000
 
 Plug 'vim-scripts/greplace.vim'
 
-" plugins/30-general/plugins/nerdtools/plugins/nerdtree/files/vimrc.plugins -------------------
-
-Plug 'scrooloose/nerdtree'
-
-" Tells the NERD tree to respect 'wildignore'.
-let NERDTreeRespectWildIgnore=1
-let NERDTreeCascadeSingleChildDir=0
-
 " plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -59,11 +51,16 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'jistr/vim-nerdtree-tabs'
 
-" nerdtree with tabs
-" display the [F]ile browser [T]ree
-map <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
-" show current file in the tree
-map <plug>file-tree(find) :NERDTreeFind<CR>
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.plugins -------------------
+
+Plug 'scrooloose/nerdtree'
+
+" Tells the NERD tree to respect 'wildignore'.
+let NERDTreeRespectWildIgnore=1
+let NERDTreeCascadeSingleChildDir=0
+
+let g:NERDTreeHijackNetrw = 1
+let g:NERDTreeQuitOnOpen = 1
 
 " plugins/30-general/plugins/nerdtools/plugins/netdcommenter/files/vimrc.plugins -------------------
 

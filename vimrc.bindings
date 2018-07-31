@@ -106,6 +106,27 @@ nmap     <leader>wm        <plug>window(only)
 
 nnoremap <leader><space> :
 
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
+
+" nerdtree with tabs
+" display the [F]ile browser [T]ree
+map <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
+
+" show current file in the tree
+map <plug>file-tree(find) :NERDTreeFind<CR>
+
+" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
+
+if maparg('<plug>file-tree(toggle)') != ''
+  " display the [F]ile browser [T]ree
+  nmap <leader>ft <plug>file-tree(toggle)
+endif
+
+if maparg('<plug>file-tree(find)') != ''
+  " show current file in the tree
+  nmap <leader>0 <plug>file-tree(find)
+endif
+
 " plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
 nmap <plug>window(up)    :TmuxNavigateUp<CR>
