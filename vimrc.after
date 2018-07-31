@@ -1,4 +1,21 @@
 
+" plugins/10-init/plugins/leader-guide/files/vimrc.after -------------------
+
+source ~/.vim/vimrc.bindings
+
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
+
+map <leader>. <plug>leaderguide-global
+map <localleader>. <plug>leaderguide-buffer
+
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+nnoremap <localleader> :<c-u>LeaderGuide  ','<CR>
+
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+vnoremap <localleader> :<c-u>LeaderGuideVisual  ','<CR>
+
+set timeoutlen=500
+
 " plugins/20-settings/files/vimrc.after -------------------
 
 " make Y consistent with C and D

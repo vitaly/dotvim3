@@ -7,6 +7,26 @@ Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/unite.vim'
 
+" plugins/10-init/plugins/leader-guide/files/vimrc.plugins -------------------
+
+Plug 'hecal3/vim-leader-guide'
+
+" let g:leaderGuide_vertical = 1
+
+let g:lmap      = {}
+let g:llmap     = {}
+let g:topdict   = {}
+let g:topdict[' '] = g:lmap
+let g:topdict[','] = g:llmap
+
+function! s:my_displayfunc()
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
+endfunction
+let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
+
 " plugins/15-sensible/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-sensible'
@@ -97,6 +117,10 @@ autocmd FileType haml let b:switch_definitions =
 
 nnoremap ` :Switch<cr>
 
+" plugins/30-general/plugins/tmux-navigator/files/vimrc.plugins -------------------
+
+Plug 'christoomey/vim-tmux-navigator'
+
 " plugins/30-general/plugins/undotree/files/vimrc.plugins -------------------
 
 Plug 'mbbill/undotree'
@@ -127,6 +151,10 @@ Plug 'blindFS/vim-taskwarrior'
 " plugins/30-general/plugins/xterm-color-table/files/vimrc.plugins -------------------
 
 Plug 'guns/xterm-color-table.vim'
+
+" plugins/30-general/plugins/zoomwintab/files/vimrc.plugins -------------------
+
+Plug 'troydm/zoomwintab.vim'
 
 " plugins/40-completion/plugins/snippets/files/vimrc.plugins -------------------
 
@@ -374,10 +402,6 @@ Plug 'w0rp/ale'
 if exists('g:status_line_plugin') && 'lightline' == g:status_line_plugin
   Plug 'maximbaz/lightline-ale'
 endif
-
-" plugins/60-development/plugins/tmux-navigator/files/vimrc.plugins -------------------
-
-Plug 'christoomey/vim-tmux-navigator'
 
 " plugins/70-languages/plugins/0-polyglot/files/vimrc.plugins -------------------
 

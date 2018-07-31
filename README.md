@@ -186,6 +186,7 @@ The plugins are loaded according to their sort order.
         Extended session management for Vim (:mksession on steroids)
     *   [vim-switch](#vim-switch)
         Simple Vim plugin to switch segments of text with predefined replacements.
+    *   [tmux-navigator](#tmux-navigator)
     *   [UndoTree](#undotree)
     *   [Utl.vim](#utl.vim)
         url based hyperlinks for text files
@@ -223,7 +224,6 @@ The plugins are loaded according to their sort order.
     *   [vim-gitgutter](#gitgutter)
         git diff in the gutter (sign column) and stages/reverts hunks
     *   [vim-surround](#vim-surround)
-    *   [tmux-navigator](#tmux-navigator)
 
 *   [Development languages and syntax support](#languages)
 
@@ -336,6 +336,22 @@ TBD
     etc. See `:h switch` for more.
 
     * `\`` - `:Switch<cr>`
+
+*   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
+
+    tmux + vim = love
+
+    to change default mappings define:
+
+        let g:tmux_navigator_no_mappings = 1
+
+    The default mappings are:
+
+    *   `Ctrl-h` - `:TmuxNavigateLeft<cr>`
+    *   `Ctrl-j` - `:TmuxNavigateDown<cr>`
+    *   `Ctrl-k` - `:TmuxNavigateUp<cr>`
+    *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
+    *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
 *   <a name=undotree>[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
 
@@ -565,22 +581,6 @@ TBD
     * `ysMovementX` - surround movement with X
 
     You should REALLY read the docs if you want to use this one
-
-*   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
-
-    tmux + vim = love
-
-    to change default mappings define:
-
-        let g:tmux_navigator_no_mappings = 1
-
-    The default mappings are:
-
-    *   `Ctrl-h` - `:TmuxNavigateLeft<cr>`
-    *   `Ctrl-j` - `:TmuxNavigateDown<cr>`
-    *   `Ctrl-k` - `:TmuxNavigateUp<cr>`
-    *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
-    *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
 
 <a name=languages>

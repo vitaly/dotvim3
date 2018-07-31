@@ -17,6 +17,7 @@ MANAGED_FILES="
 README.md
 .gitignore
 vimrc vimrc.plugins vimrc.after
+vimrc.bindings
 gvimrc.plugins gvimrc.after
 after/plugin/after.vim
 colors/buttercream.vim colors/colorzone.vim

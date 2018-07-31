@@ -1,0 +1,17 @@
+Plug 'hecal3/vim-leader-guide'
+
+" let g:leaderGuide_vertical = 1
+
+let g:lmap      = {}
+let g:llmap     = {}
+let g:topdict   = {}
+let g:topdict[' '] = g:lmap
+let g:topdict[','] = g:llmap
+
+function! s:my_displayfunc()
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
+endfunction
+let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]

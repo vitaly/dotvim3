@@ -1,0 +1,2 @@
+" FIXME: can we make this active only in a Ruby ftype?
+let g:llmap.a   = { 'name': 'Apidock'        }

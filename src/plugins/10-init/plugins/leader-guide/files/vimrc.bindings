@@ -1,0 +1,104 @@
+" TODO: move sub-menu configs into appropriate plugins
+let g:lmap.b    = { 'name': 'Buffer'         }
+let g:lmap.c    = { 'name': 'Comment'        }
+let g:lmap.f    = { 'name': 'File'           }
+let g:lmap.f.e  = { 'name': 'Edit'           }
+let g:lmap.s    = { 'name': 'Search'         }
+let g:lmap.S    = { 'name': 'Session'        }
+let g:lmap.s.t  = { 'name': 'Tags'           }
+let g:lmap.t    = { 'name': 'Tags / Tabs'    }
+let g:lmap.T    = { 'name': 'Toggle'         }
+let g:lmap.T.c  = { 'name': 'Conceal'        }
+let g:lmap.w    = { 'name': 'Window/Wiki'    }
+let g:lmap.x    = { 'name': 'Text'           }
+let g:lmap.x.d  = { 'name': 'Delete'         }
+
+let g:llmap.l   = { 'name': 'Language'       }
+
+nnoremap                   <plug>redraw             :redraw!<cr>
+nmap     <leader>rr        <plug>redraw
+
+noremap                    <plug>tab(new)           :tabnew<cr>
+nmap     <leader>tn        <plug>tab(new)
+
+map                        <plug>tab(new-file)      <plug>tab(new)<plug>fuzzy-file(find)
+nmap     <leader>tf        <plug>tab(new-file)
+
+nnoremap                   <plug>buffer(next)       :bn<cr>
+nmap     <leader>bn        <plug>buffer(next)
+
+nnoremap                   <plug>buffer(prev)       :bp<cr>
+nmap     <leader>bp        <plug>buffer(prev)
+
+nnoremap                   <plug>file(save)         :w<cr>
+nmap     <leader>fs        <plug>file(save)
+
+nnoremap                   <plug>file(save-all)     :wa<cr>
+nmap     <leader>fS        <plug>file(save-all)
+
+nnoremap                   <plug>quit(all)          :qa<cr>
+nmap     <leader>qq        <plug>quit(all)
+
+nnoremap                   <plug>(.vimrc.after)     :e ~/.vimrc.after<cr>
+nmap     <leader>fed       <plug>(.vimrc.after)
+
+nnoremap                   <plug>(.vimrc.local)     :e ~/.vimrc.local<cr>
+nmap     <leader>fel       <plug>(.vimrc.local)
+
+nnoremap                   <plug>(.vimrc.plugins)   :e ~/.vimrc.plugins<cr>
+nmap     <leader>fep       <plug>(.vimrc.plugins)
+
+nnoremap                   <plug>(.vim/vimrc)       :e ~/.vim/vimrc<cr>
+nmap     <leader>fev       <plug>(.vim/vimrc)
+
+nnoremap                   <plug>(.config/nvim)     :e ~/.config/nvim<cr>
+nmap     <leader>fen       <plug>(.config/nvim)
+
+nnoremap                   <plug>window(h-max)      <C-w><bar>
+nmap     <leader>w<bar>    <plug>window(h-max)
+
+nnoremap                   <plug>window(v-max)      <C-w>_
+nmap     <leader>w_        <plug>window(v-max)
+
+nnoremap                   <plug>windows-balance    <C-w>=
+nmap     <leader>w=        <plug>windows-balance
+
+nnoremap                   <plug>windows-swap       <C-w>x
+nmap     <leader>wx        <plug>windows-swap
+
+nnoremap                   <plug>window(maximize)   <C-w>_<C-w><Bar>
+nmap     <leader>wz        <plug>window(maximize)
+nmap     <C-w>z            <plug>window(maximize)
+
+nmap                       <plug>window(move-up)    <c-w>K
+nmap     <leader>wK        <plug>window(move-up)
+
+nmap                       <plug>window(move-down)  <c-w>J
+nmap     <leader>wJ        <plug>window(move-down)
+
+nmap                       <plug>window(move-left)  <c-w>H
+nmap     <leader>wH        <plug>window(move-left)
+
+nmap                       <plug>window(move-right) <c-w>L
+nmap     <leader>wL        <plug>window(move-right)
+
+nnoremap                   <plug>window(h-split)    :split<cr><c-w>j
+nmap     <leader>ws        <plug>window(h-split)
+nmap     <leader>w-        <plug>window(h-split)
+
+nnoremap                   <plug>window(v-split)    :vsplit<cr><c-w>l
+nmap     <leader>wv        <plug>window(v-split)
+nmap     <leader>w<Bslash> <plug>window(v-split)
+
+nnoremap                   <plug>window(delete)     :q<cr>
+nmap     <leader>wd        <plug>window(delete)
+nmap     <leader>wq        <plug>window(delete)
+nmap     <leader>qw        <plug>window(delete)
+
+nnoremap                   <plug>buffer(delete)     :bd<cr>
+nmap     <leader>bd        <plug>buffer(delete)
+
+nnoremap                   <plug>window(only)       <C-w>o
+nmap     <leader>wm        <plug>window(only)
+
+nnoremap <leader><space> :
