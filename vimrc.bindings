@@ -120,6 +120,13 @@ nmap <leader>wh         <plug>window(left)
 nmap <plug>window(right) :TmuxNavigateRight<CR>
 nmap <leader>wl         <plug>window(right)
 
+" plugins/30-general/plugins/vim-sneak/files/vimrc.bindings -------------------
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
 " plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 
 nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>

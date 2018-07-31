@@ -137,6 +137,10 @@ if has("mac")
   let g:utl_cfg_hdl_scm_http_system = "!open '%u'"
 end
 
+" plugins/30-general/plugins/vim-sneak/files/vimrc.plugins -------------------
+
+Plug 'justinmk/vim-sneak'
+
 " plugins/30-general/plugins/vimwiki/files/vimrc.plugins -------------------
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
