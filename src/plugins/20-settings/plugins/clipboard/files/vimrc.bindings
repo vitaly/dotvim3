@@ -1,0 +1,11 @@
+set clipboard=unnamedplus
+fu! Toggle_clipboard()
+  if 'unnamedplus' == &clipboard
+    set clipboard=
+  else
+    set clipboard=unnamedplus
+  endif
+endfu
+
+noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>toggle(clipboard)

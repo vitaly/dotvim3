@@ -4,7 +4,7 @@ cd "$VIM_DIR"
 # remove old version leftovers
 OLD_FILES="
 vimrc.before gvimrc.before
-vimrc.bindings gvimrc.bindings
+gvimrc.bindings
 filetype.vim
 README.index.md README.content.md
 "

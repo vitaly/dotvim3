@@ -106,6 +106,50 @@ nmap     <leader>wm        <plug>window(only)
 
 nnoremap <leader><space> :
 
+" plugins/20-settings/files/vimrc.bindings -------------------
+
+set concealcursor=
+fu! Toggle_concealcursor()
+  if '' == &concealcursor
+    set concealcursor=n
+  else
+    set concealcursor=
+  endif
+endfu
+map <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
+nmap <leader>Tcc <plug>toggle(conceal-cursor)
+
+set conceallevel=2
+fu! Toggle_conceallevel()
+  if 0 == &conceallevel
+    set conceallevel=2
+  else
+    set conceallevel=0
+  endif
+endfu
+map <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
+nmap <leader>Tcl <plug>toggle(conceal-level)
+
+noremap <silent> <plug>toggle(relativenumber) :set relativenumber!<cr>
+nmap <leader>Tr <plug>toggle(relativenumber)
+
+noremap <silent> <plug>toggle(readonly) :set ro!<cr>
+nmap <leader>TR <plug>toggle(readonly)
+
+" plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
+
+set clipboard=unnamedplus
+fu! Toggle_clipboard()
+  if 'unnamedplus' == &clipboard
+    set clipboard=
+  else
+    set clipboard=unnamedplus
+  endif
+endfu
+
+noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>toggle(clipboard)
+
 " plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 
 " nerdtree with tabs
