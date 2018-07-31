@@ -1,0 +1,9 @@
+command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)
+command! -bar -bang OMaps call fzf#vim#maps("o", <bang>0)
+command! -bar -bang VMaps call fzf#vim#maps("x", <bang>0)
+command! -bar -bang CMaps call fzf#vim#maps("c", <bang>0)
+
+nmap <leader>?  <plug>(fzf-maps-n)
+xmap <leader>?  <plug>(fzf-maps-x)
+omap <leader>?  <plug>(fzf-maps-o)
+imap <c-x><tab> <plug>(fzf-maps-i)

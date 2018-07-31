@@ -125,6 +125,18 @@ nmap <leader>wl         <plug>window(right)
 nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>
 nmap     <leader>wo <plug>window(zoom)
 
+" plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
+
+command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)
+command! -bar -bang OMaps call fzf#vim#maps("o", <bang>0)
+command! -bar -bang VMaps call fzf#vim#maps("x", <bang>0)
+command! -bar -bang CMaps call fzf#vim#maps("c", <bang>0)
+
+nmap <leader>?  <plug>(fzf-maps-n)
+xmap <leader>?  <plug>(fzf-maps-x)
+omap <leader>?  <plug>(fzf-maps-o)
+imap <c-x><tab> <plug>(fzf-maps-i)
+
 " plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
 
 nnoremap <plug>fuzzy-file(find) :Files<cr>
