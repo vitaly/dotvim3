@@ -20,7 +20,7 @@ vimrc vimrc.plugins vimrc.after
 gvimrc.plugins gvimrc.after
 after/plugin/after.vim
 colors/buttercream.vim colors/colorzone.vim
-ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim
+ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim ftplugin/vimwiki.vim
 "
 
 # prepare empty placeholders for managed files

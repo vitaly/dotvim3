@@ -1,2 +1,8 @@
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 let g:vimwiki_folding = "list"
+
+Plug 'tbabej/taskwiki'
+let g:taskwiki_disable_concealcursor = 1
+
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'blindFS/vim-taskwarrior'
