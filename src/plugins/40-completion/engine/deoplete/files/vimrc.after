@@ -1,0 +1,4 @@
+let deoplete#tag#cache_limit_size = 5000000
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+
+let g:deoplete#keyword_patterns = {}

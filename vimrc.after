@@ -40,6 +40,13 @@ if maparg('<plug>toggle(statusline)') != ''
 endif
 set noshowmode
 
+" plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
+
+let deoplete#tag#cache_limit_size = 5000000
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+
+let g:deoplete#keyword_patterns = {}
+
 " plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
