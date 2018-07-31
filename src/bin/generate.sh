@@ -53,29 +53,6 @@ END
   ask bool vimdir_warning "I understand" y
 }
 
-function no_vimrc()
-{
-  test ! -e ~/.vimrc
-}
-
-function no_vimrc_warning()
-{
-  desc <<END
-You don't have ~/.vimrc file. Newer versions of Vim can use ~/.vim/vimrc, but older versions require ~/.vimrc
-so you might need to create a link.
-END
-
-enum ignore "- I'll handle the link myself"
-enum link "  - create link ~/.vimrc -> '$VIM_DIR/vimrc'"
-
-ask enum vimrc_link "How to handle missing ~/.vimrc link?"
-
-case $vimrc_link in
-  ignore) ;;
-  link) ln -sfvn "$VIM_DIR/vimrc" ~/.vimrc
-esac
-}
-
 function init_vimdir()
 {
   [ -n "$VIM_DIR" ] || die "please define VIM_DIR"
@@ -92,10 +69,6 @@ function init_vimdir()
 
   if non_standard_dir; then
     non_standard_dir_warning
-  fi
-
-  if no_vimrc; then
-    no_vimrc_warning
   fi
 }
 
