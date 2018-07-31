@@ -23,17 +23,17 @@ install: configure
 .PHONY: install
 
 # TODO: generate list by make configure
-GENERATED := README.md after/plugin/after.vim autoload/plug.vim colors/buttercream.vim colors/colorzone.vim ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim gvimrc.after gvimrc.plugins vimrc vimrc.after vimrc.plugins
+GENERATED := $(shell cat src/plugins/00-cleanup/lists/managed-files)
 
-clean-generated:
+clean:
 	rm -f ${GENERATED}
-.PHONY: clean-generated
+.PHONY: clean
 
 clean-bundle:
 	rm -rf bundle/*
 .PHONY: clean-bundle
 
-clean-all: clean-generated clean-bundle
+clean-all: clean clean-bundle
 .PHONY: clean-all
 
 update:

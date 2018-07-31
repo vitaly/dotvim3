@@ -1,0 +1,4 @@
+local/vimrc
+local/vimrc.after
+local/vimrc.bindings
+local/vimrc.plugins

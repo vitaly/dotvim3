@@ -53,12 +53,4 @@ endif
 
 " plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
-if filereadable(expand("~/.vimrc.after"))
-    source ~/.vimrc.after
-endif
-
-" plugins/99-final/plugins/20-gvim-configs/files/vimrc.after -------------------
-
-if has('gui_running')
-  source ~/.vim/gvimrc.after
-end
+source ~/.vim/local/vimrc.after

@@ -1,0 +1,13 @@
+.gitignore
+README.md
+after/plugin/after.vim
+colors/buttercream.vim
+colors/colorzone.vim
+ftplugin/gitcommit.vim
+ftplugin/javascript.vim
+ftplugin/vim.vim
+ftplugin/vimwiki.vim
+vimrc
+vimrc.after
+vimrc.bindings
+vimrc.plugins

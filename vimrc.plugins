@@ -454,12 +454,4 @@ Plug 'lifepillar/vim-solarized8'
 
 " plugins/99-final/plugins/10-local-configs/files/vimrc.plugins -------------------
 
-if filereadable(expand("~/.vimrc.plugins"))
-    source ~/.vimrc.plugins
-endif
-
-" plugins/99-final/plugins/20-gvim-configs/files/vimrc.plugins -------------------
-
-if has('gui_running')
-  source ~/.vim/gvimrc.plugins
-end
+source ~/.vim/local/vimrc.plugins

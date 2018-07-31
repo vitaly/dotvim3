@@ -248,3 +248,7 @@ endif
 
 " FIXME: can we make this active only in a Ruby ftype?
 let g:llmap.a   = { 'name': 'Apidock'        }
+
+" plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
+
+source ~/.vim/local/vimrc.bindings

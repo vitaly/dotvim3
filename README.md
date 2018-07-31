@@ -45,6 +45,19 @@ with Vim8 but I do not test it. If it doesn't work, please let me know.
 
 Dein was replaced with [Plug](https://github.com/junegunn/vim-plug).
 
+### local customization files handling
+
+instead of sourcing `~/.vimrc.after`, `~/.vimrc.plugins`, etc., we now source
+`~/.vim/local/XXX` at the end of `~/.vimrc/XXX` for each of `vimrc`,
+`vimrc.after`, `vimrc.plugins`, and `vimrc.bindings`.
+
+`~/local/*` files are created but not managed, you can modify them to your
+liking, they will not be overwritten during the installation.
+
+If you want to restore the old functionality, you can manually source `~/.vimrc.after` from `~/.vim/local/vimrc.after`, etc.
+
+> Note gvim.* files are no longer used, you can restore functionality manyally using `if has('gui_running') ...`
+
 ### TBD
 
 <a name=installation>

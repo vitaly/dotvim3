@@ -233,3 +233,7 @@ nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+
+" plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
+
+source ~/.vim/local/vimrc
