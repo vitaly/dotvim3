@@ -1,0 +1,4 @@
+set background=light
+source ~/.vim/local/my/vimrc.colors
+
+call Theme('default')

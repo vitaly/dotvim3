@@ -1,0 +1,278 @@
+scriptencoding utf8
+
+" set t_Co=256
+" set t_AB=^[[48;5;%dm
+" set t_AF=^[[38;5;%dm
+" set notermguicolors
+
+set cursorline
+set cursorcolumn
+
+set foldcolumn=2
+
+set relativenumber!
+
+" inoremap kj <esc>l
+
+" highlight helper
+
+fu! ShowHighlight()
+  echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+endfu
+map ,L :call ShowHighlight()<cr>
+command! HI call ShowHighlight()<cr>
+
+set modeline
+
+" to use :Run command    - will pipe to quickfix window
+" command -nargs=+ Run :cexpr system('<args>') | copen
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""" COLORS """""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" if 0 ==  argc()
+"   if getcwd() == "/Users/vitaly/my/config/dotvim2"
+"     silent OpenTabSession vim2
+"   endif
+" endif
+
+
+let NERDTreeSortOrder=['*']
+
+nmap <leader>i :set paste<cr>o
+
+" highlight column after textwidth
+set cc=+1
+
+" nunmap <leader>t
+" nmap <leader>t :Tags<cr>
+
+
+let g:ycm_filepath_completion_use_working_dir = 1
+
+" disable intro message
+set shortmess+=I
+
+nmap ,Q :qa<cr>
+
+set virtualedit=all
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+nmap <leader>H :Helptags<cr>
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:gutentags_project_root += [ '.ctags.d', 'tags' ]
+" echo g:gutentags_project_root
+
+set mouse=nvc
+
+" :GutentagsToggleTrace
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_missing = 0
+
+" nvim-only config
+if has("nvim")
+  nmap <leader>Z :term zsh<cr>
+
+  highlight TermCursor ctermfg=red guifg=red
+  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  tnoremap <leader><ESC> <C-\><C-n>
+endif
+
+
+
+
+
+
+
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" inoremap <expr><tab> pumvisible() ? "\<c-y>" : "\<tab>"
+
+" inoremap <expr><c-j> pumvisible() ? "\<down>" : "\<c-j>"
+" inoremap <expr><c-k> pumvisible() ? "\<up>" : "\<c-k>"
+
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-h> <left>
+inoremap <c-l> <right>
+
+cnoremap <c-k> <up>
+cnoremap <c-j> <down>
+
+
+let g:over#command_line#search#enable_move_cursor = 1
+
+
+
+
+
+
+
+"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+
+
+
+
+
+nmap <leader>bm :messages<cr>
+
+
+
+
+
+
+function! s:checkDiffModeEnter()
+  if &diff && ! exists('b:diffMode')
+    let b:diffMode=1
+    doautocmd User DiffModeEnter
+  endif
+endfunction
+
+function! s:checkDiffModeLeave()
+  if ! &diff && exists('b:diffMode')
+    unlet b:diffMode
+    doautocmd User DiffModeLeave
+  endif
+endfunction
+
+function! s:onDiffModeEnter()
+  echom "diff enter"
+
+  nmap <buffer> <localleader>du :diffupdate<CR>
+  nmap <buffer> <localleader>dp :diffput<CR>
+  nmap <buffer> <localleader>dg :diffget<CR>
+  nmap <buffer> <localleader>n ]c
+  nmap <buffer> <localleader>p [c
+endfunction
+
+function! s:onDiffModeLeave()
+    echom "diff leave"
+
+  nunmap <buffer> <localleader>du
+  nunmap <buffer> <localleader>dp
+  nunmap <buffer> <localleader>dg
+  nunmap <buffer> <localleader>n
+  nunmap <buffer> <localleader>p
+endfunction
+
+augroup diffbindings
+  au!
+  au FilterWritePre          * call s:checkDiffModeEnter()
+  au FilterWritePre,BufWrite * call s:checkDiffModeLeave()
+
+  au User DiffModeEnter call s:onDiffModeEnter()
+  au User DiffModeLeave call s:onDiffModeLeave()
+augroup END
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" ORG MODE """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:org_todo_keywords = [['TODO', 'NOW', 'NEXT', 'WAIT', '|', 'DONE', 'SKIP', 'CANCELED', 'ARCHIVED']]
+let g:org_todo_keyword_faces = [
+      \ ['WAIT', 'red'],
+      \ ['NEXT', 'blue'],
+      \ ['SKIP', 'yellow'],
+      \ ['CANCELED', 'grey'],
+      \]
+
+" au FileType org nmap <buffer> <localleader>tn <Plug>OrgTodoForward
+" au FileType org nmap <buffer> <localleader>tp <Plug>OrgTodoBackward
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"let &errorformat ='%-C,%E  [%n] %#%f:%l: %.%#,%C%m,%Z%p^'
+
+set makeprg=make
+nmap <leader>M <c-w><c-s>:te make<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+let g:SuperTabDefaultCompletionType = "context"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" NEOPLETE CONFIG """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:deoplete#keyword_patterns.q = '[.a-zA-Z_]\k*'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" IndentLine Settings """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:indentLine_char = '┊'
+" let g:indentLine_char = '.'
+" let g:indentLine_color_term = 30
+" let g:indentLine_bgcolor_term = 10
+" exe "IndentLinesToggle"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source ~/.vim/local/my/vimrc.colors
+if has('gui_running')
+  set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h8
+  source ~/.vim/local/my/vimrc.gui.dark
+else
+  source ~/.vim/local/my/vimrc.term.light
+  " source ~/.vim/local/my/vimrc.term.dark
+end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source ~/.vim/local/my/vimrc.preview
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AirlineTheme light
+" AirlineTheme cool
+" AirlineTheme one
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" au! CursorHold *.js nested exe "silent! ptag " . expand("<cword>")
+" au! CursorHold *.js nested call LanguageClient#textDocument_hover()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neoformat_enabled_javascript = ['prettier']
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

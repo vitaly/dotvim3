@@ -1,0 +1,21 @@
+set background=dark
+source ~/.vim/local/my/vimrc.colors
+
+call ResetThemeFix()
+
+call Theme('dark', 'base16-atelierseaside')
+
+" call Theme('dark', 'rakr')
+" call Theme('dark', 'CandyPaper')
+" call Theme('dark', 'one')
+" call Theme('dark', 'Tomorrow-Night-Eighties')
+" call Theme('dark', 'Tomorrow-Night-Bright')
+" call Theme('dark', 'afterglow')
+" call Theme('dark', 'vividchalk')
+" call Theme('dark', 'space-vim-dark')
+" call Theme('dark', 'rdark-terminal2')
+" call Theme('dark', 'two-firewatch')
+" call Theme('dark', 'onedark')
+" call Theme('dark', 'jellybeans')
+" call Theme('dark', '')
+" call Theme('dark', '')
