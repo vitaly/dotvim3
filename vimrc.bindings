@@ -125,6 +125,21 @@ nmap <leader>wl         <plug>window(right)
 nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>
 nmap     <leader>wo <plug>window(zoom)
 
+" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
+
+nnoremap <plug>fuzzy-file(find) :Files<cr>
+
+" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/common/vimrc.bindings -------------------
+
+if maparg('<plug>fuzzy-file(find)') != ''
+  nmap <leader>ff <plug>fuzzy-file(find)
+  nmap ,,         <Plug>fuzzy-file(find)
+endif
+
+if maparg('<plug>fuzzy-file(no-cache)') != ''
+  nmap <leader>fF <plug>fuzzy-file(no-cache)
+endif
+
 " plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?

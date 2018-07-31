@@ -14,3 +14,4 @@ else
 fi
 
 copy_files "$(this_dir)/$fuzzy_files"
+copy_files "$(this_dir)/common"

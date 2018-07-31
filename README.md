@@ -425,11 +425,11 @@ TBD
     This plugin has lots of options, see `:h ctrlp` for more.
 
 *   <a name=fzf>[FZF](https://github.com/junegunn/fzf) ([top](#top))
+    * `<leader>ff` - `:Files` - fuzzy find files using FZF
 
 
 *   <a name=fuzzy-files>File search ([top](#top))
 
-    * `<leader>ff` - `:Files` - fuzzy find files using FZF
 
 
 *   <a name=fuzzy-buffers>Buffer search ([top](#top))

@@ -268,10 +268,6 @@ endif
 
 set rtp+=/usr/local/opt/fzf/
 
-" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.plugins -------------------
-
-map <plug>fuzzy-file(find) :Files<cr>
-
 " plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/files/vimrc.plugins -------------------
 
 nmap <leader>bb <plug>fuzzy(buffer)

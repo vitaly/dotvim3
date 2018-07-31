@@ -44,15 +44,6 @@ set noshowmode
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/files/vimrc.after -------------------
-
-if maparg('<plug>fuzzy-file(find)') != ''
-  nmap <leader>ff <plug>fuzzy-file(find)
-endif
-if maparg('<plug>fuzzy-file(no-cache)') != ''
-  nmap <leader>fF <plug>fuzzy-file(no-cache)
-endif
-
 " plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.after -------------------
 
 if maparg('<plug>search-tags') != ''
