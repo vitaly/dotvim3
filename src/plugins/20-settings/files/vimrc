@@ -20,6 +20,7 @@ set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set visualbell          " use visual bell instead of beeping
+set listchars=tab:→⋅,trail:·,nbsp:+
 set list
 
 " highlight spell errors
