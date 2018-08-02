@@ -17,6 +17,7 @@ let g:lmap.w    = { 'name': 'Window/Wiki'    }
 let g:lmap.x    = { 'name': 'Text'           }
 let g:lmap.x.d  = { 'name': 'Delete'         }
 
+let g:llmap.e   = { 'name': 'Eval'           }
 let g:llmap.l   = { 'name': 'Language'       }
 
 nnoremap                   <plug>redraw             :redraw!<cr>
