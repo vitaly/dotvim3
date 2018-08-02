@@ -1,4 +1,5 @@
 " TODO: move sub-menu configs into appropriate plugins
+let g:lmap.a    = { 'name': 'App'            }
 let g:lmap.b    = { 'name': 'Buffer'         }
 let g:lmap.c    = { 'name': 'Comment'        }
 let g:lmap.f    = { 'name': 'File'           }
@@ -13,6 +14,7 @@ let g:lmap.w    = { 'name': 'Window/Wiki'    }
 let g:lmap.x    = { 'name': 'Text'           }
 let g:lmap.x.d  = { 'name': 'Delete'         }
 
+let g:llmap.e   = { 'name': 'Eval'           }
 let g:llmap.l   = { 'name': 'Language'       }
 
 nnoremap                   <plug>redraw             :redraw!<cr>
@@ -39,17 +41,17 @@ nmap     <leader>fS        <plug>file(save-all)
 nnoremap                   <plug>quit(all)          :qa<cr>
 nmap     <leader>qq        <plug>quit(all)
 
-nnoremap                   <plug>(.vimrc.after)     :e ~/.vimrc.after<cr>
-nmap     <leader>fed       <plug>(.vimrc.after)
+nnoremap                   <plug>(loca.after)       :e ~/.vim/local/vimrc.after<cr>
+nmap     <leader>fed       <plug>(loca.after)
 
-nnoremap                   <plug>(.vimrc.local)     :e ~/.vimrc.local<cr>
-nmap     <leader>fel       <plug>(.vimrc.local)
+nnoremap                   <plug>(.vim/local)       :e ~/.vim/local<cr>
+nmap     <leader>fel       <plug>(.vim/local)
 
-nnoremap                   <plug>(.vimrc.plugins)   :e ~/.vimrc.plugins<cr>
-nmap     <leader>fep       <plug>(.vimrc.plugins)
+nnoremap                   <plug>(local.plugins)    :e ~/.vim/local/vimrc.plugins<cr>
+nmap     <leader>fep       <plug>(local.plugins)
 
-nnoremap                   <plug>(.vim/vimrc)       :e ~/.vim/vimrc<cr>
-nmap     <leader>fev       <plug>(.vim/vimrc)
+nnoremap                   <plug>(.vim/)            :e ~/.vim/<cr>
+nmap     <leader>fev       <plug>(.vim/)
 
 nnoremap                   <plug>(.config/nvim)     :e ~/.config/nvim<cr>
 nmap     <leader>fen       <plug>(.config/nvim)
