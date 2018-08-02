@@ -37,7 +37,7 @@ clean-bundle:
 clean-all: clean clean-bundle
 .PHONY: clean-all
 
-update:
+update: configure
 	./deps/update.sh
 	vim +'PlugUpdate'
 .PHONY: update
