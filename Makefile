@@ -37,28 +37,7 @@ clean-bundle:
 clean-all: clean clean-bundle
 .PHONY: clean-all
 
-update: configure
-	./deps/update.sh
-	vim +'PlugUpdate'
-.PHONY: update
-
 upgrade:
-	vim +'PlugUpgrade'
+	./deps/upgrade.sh
+	vim +'PlugUpgrade' +'PlugUpdate'
 .PHONY: upgrade
-
-# YCM_DIR = ${VIM_DIR}/dein/repos/github.com/Valloric/YouCompleteMe
-
-# ${YCM_DIR}:
-	# mkdir -p ${VIM_DIR}/dein/repos/github.com/Valloric
-	# cd ${VIM_DIR}/dein/repos/github.com/Valloric
-	# git clone https://github.com/Valloric/YouCompleteMe.git YouCompleteMe
-
-# ycm-git: ${YCM_DIR}
-	# cd $< && git submodule update --init --recursive
-
-# ycm-install: ycm-git
-	# cd ${YCM_DIR} && ./install.py --clang-completer --tern-completer
-
-# completion: ycm-install
-
-# .PHONY: ycm-git ycm-install completion
