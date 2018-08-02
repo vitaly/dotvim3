@@ -2,5 +2,8 @@
 " plugins/70-languages/plugins/vimscript/files/vim.vim -------------------
 
 " [E]val [L]ine
-nmap <buffer> <localleader>ee yy:@"<CR>
-nmap <buffer> <localleader>rr :so %<cr>
+nnoremap <buffer>                 <plug>eval(line)   yy:@"<CR>
+nmap     <buffer> <localleader>ee <plug>eval(line)
+
+nnoremap <buffer>                 <plug>eval(buffer) :so %<cr>
+nmap     <buffer> <localleader>eb <plug>eval(buffer)
