@@ -27,10 +27,6 @@ function! s:my_displayfunc()
 endfunction
 let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
 
-" plugins/15-sensible/files/vimrc.plugins -------------------
-
-Plug 'tpope/vim-sensible'
-
 " plugins/20-settings/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-sensible'
