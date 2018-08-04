@@ -39,6 +39,10 @@ let mapleader = " "
 let maplocalleader = ","
 let timeoutlen=5000
 
+" plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
+
+Plug 'blueyed/vim-diminactive'
+
 " plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
 Plug 'vim-scripts/greplace.vim'

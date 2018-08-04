@@ -118,8 +118,6 @@ nmap <leader>TT <plug>toggle(tagbar)
 " Plug 'xolox/vim-notes'
 " let g:notes_directories = ['~/notes']
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 
 
@@ -134,10 +132,6 @@ let g:gutentags_define_advanced_commands = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'blueyed/vim-diminactive'
-let g:diminactive_use_colorcolumn = 0
-let g:diminactive_use_syntax = 1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
