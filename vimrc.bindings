@@ -158,13 +158,13 @@ nmap    <silent> <leader>TC <plug>toggle(clipboard)
 " 1 - use syntax
 " 2 - use colorcolumns
 fu s:updateDiminactive()
-  if s:diminavtive_mode == 1
+  if g:diminavtive_mode == 1
 
     let g:diminactive_use_colorcolumn = 0
     let g:diminactive_use_syntax = 1
     exe "DimInactiveOn"
 
-  elseif s:diminavtive_mode == 2
+  elseif g:diminavtive_mode == 2
 
     let g:diminactive_use_colorcolumn = 1
     let g:diminactive_use_syntax = 0
@@ -179,19 +179,19 @@ fu s:updateDiminactive()
   endif
 endfu
 
-if (!exists("s:diminactive_mode"))
-  let s:diminavtive_mode = 1
+if (!exists("g:diminactive_mode"))
+  let g:diminavtive_mode = 1
 endif
 call s:updateDiminactive()
 
 " cycle 0, 1, 2
 fu s:cycleDiminitive()
 
-  let s:diminavtive_mode = max([0, s:diminavtive_mode + 1])
-  echo s:diminavtive_mode
+  let g:diminavtive_mode = max([0, g:diminavtive_mode + 1])
+  echo g:diminavtive_mode
 
-  if s:diminavtive_mode > 2
-    let s:diminavtive_mode = 0
+  if g:diminavtive_mode > 2
+    let g:diminavtive_mode = 0
   endif
 
   call s:updateDiminactive()
