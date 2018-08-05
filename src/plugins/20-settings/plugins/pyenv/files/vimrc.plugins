@@ -1,0 +1,3 @@
+Plug 'lambdalisue/vim-pyenv'
+
+source ~/.vim/vimrc.pyenv

@@ -1,0 +1,2 @@
+let g:python_host_prog='/Users/vitaly/.pyenv/versions/vim-python2/bin/python'
+let g:python3_host_prog='/Users/vitaly/.pyenv/versions/python3_env/bin/python'

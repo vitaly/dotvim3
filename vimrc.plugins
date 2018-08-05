@@ -35,6 +35,12 @@ let mapleader = " "
 let maplocalleader = ","
 let timeoutlen=5000
 
+" plugins/20-settings/plugins/pyenv/files/vimrc.plugins -------------------
+
+Plug 'lambdalisue/vim-pyenv'
+
+source ~/.vim/vimrc.pyenv
+
 " plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
 
 Plug 'blueyed/vim-diminactive'
