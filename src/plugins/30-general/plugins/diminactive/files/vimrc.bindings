@@ -2,13 +2,13 @@
 " 1 - use syntax
 " 2 - use colorcolumns
 fu s:updateDiminactive()
-  if g:diminavtive_mode == 1
+  if g:diminactive_mode == 1
 
     let g:diminactive_use_colorcolumn = 0
     let g:diminactive_use_syntax = 1
     exe "DimInactiveOn"
 
-  elseif g:diminavtive_mode == 2
+  elseif g:diminactive_mode == 2
 
     let g:diminactive_use_colorcolumn = 1
     let g:diminactive_use_syntax = 0
@@ -24,18 +24,18 @@ fu s:updateDiminactive()
 endfu
 
 if (!exists("g:diminactive_mode"))
-  let g:diminavtive_mode = 1
+  let g:diminactive_mode = 1
 endif
 call s:updateDiminactive()
 
 " cycle 0, 1, 2
 fu s:cycleDiminitive()
 
-  let g:diminavtive_mode = max([0, g:diminavtive_mode + 1])
-  echo g:diminavtive_mode
+  let g:diminactive_mode = max([0, g:diminactive_mode + 1])
+  echo g:diminactive_mode
 
-  if g:diminavtive_mode > 2
-    let g:diminavtive_mode = 0
+  if g:diminactive_mode > 2
+    let g:diminactive_mode = 0
   endif
 
   call s:updateDiminactive()

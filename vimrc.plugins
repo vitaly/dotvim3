@@ -39,9 +39,9 @@ let timeoutlen=5000
 
 Plug 'blueyed/vim-diminactive'
 
-" plugins/30-general/plugins/diminactive/mode/off/vimrc.plugins -------------------
+" plugins/30-general/plugins/diminactive/mode/colors/vimrc.plugins -------------------
 
-let g:diminavtive_mode = 0
+let g:diminactive_mode = 2
 
 " plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
