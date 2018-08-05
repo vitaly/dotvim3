@@ -30,12 +30,12 @@ if ! compgen -G "$HOME/.pyenv/versions/3.*" > /dev/null; then
   pyenv install-latest 3
 fi
 
-if [ ! -e ~/.pyenv/versions/python3_env ]; then
+if [ ! -e ~/.pyenv/versions/$python3_env ]; then
   v=$(cd $(pyenv root)/versions; ls -d 3.* | sort -n | tail -1)
-  pyenv virtualenv $v python3_env
+  pyenv virtualenv $v $python3_env
 fi
 
-pyenv shell python3_env
+pyenv shell $python3_env
 pip3 install neovim
 
 echo "let g:python3_host_prog='$(pyenv which python)'" >> vimrc.pyenv
