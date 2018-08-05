@@ -1,5 +1,5 @@
 
-" plugins/80-color-themes/files/colorzone.vim -------------------
+" src/plugins/80-color-themes/files/colors/colorzone.vim -------------------
 
 " Vim color file
 " Maintainer:	Ricky Wu <richiewu at live dot com>

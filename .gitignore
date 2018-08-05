@@ -1,5 +1,5 @@
 
-# plugins/10-init/files/.gitignore -------------------
+# src/plugins/10-init/files/.gitignore -------------------
 
 dein
 .config.new

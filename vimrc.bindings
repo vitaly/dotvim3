@@ -1,5 +1,5 @@
 
-" plugins/10-init/plugins/leader-guide/files/vimrc.bindings -------------------
+" src/plugins/10-init/plugins/leader-guide/files/vimrc.bindings -------------------
 
 " TODO: move sub-menu configs into appropriate plugins
 let g:lmap.a    = { 'name': 'App'            }
@@ -108,7 +108,7 @@ nmap     <leader>wm        <plug>window(only)
 
 nnoremap <leader><space> :
 
-" plugins/20-settings/files/vimrc.bindings -------------------
+" src/plugins/20-settings/files/vimrc.bindings -------------------
 
 set concealcursor=
 fu! Toggle_concealcursor()
@@ -138,7 +138,7 @@ nmap <leader>Tr <plug>toggle(relativenumber)
 noremap <silent> <plug>toggle(readonly) :set ro!<cr>
 nmap <leader>TR <plug>toggle(readonly)
 
-" plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
+" src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
 
 set clipboard=unnamedplus
 fu! Toggle_clipboard()
@@ -152,7 +152,7 @@ endfu
 noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
 nmap    <silent> <leader>TC <plug>toggle(clipboard)
 
-" plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
 
 " 0 - disabled
 " 1 - use syntax
@@ -200,7 +200,7 @@ endfu
 nnoremap             <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
 nmap     <leader>Td  <plug>toggle(diminactive)
 
-" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 
 " nerdtree with tabs
 " display the [F]ile browser [T]ree
@@ -209,7 +209,7 @@ map <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
 " show current file in the tree
 map <plug>file-tree(find) :NERDTreeFind<CR>
 
-" plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
 
 if maparg('<plug>file-tree(toggle)') != ''
   " display the [F]ile browser [T]ree
@@ -221,7 +221,7 @@ if maparg('<plug>file-tree(find)') != ''
   nmap <leader>0 <plug>file-tree(find)
 endif
 
-" plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
 nmap <plug>window(up)    :TmuxNavigateUp<CR>
 nmap <leader>wk         <plug>window(up)
@@ -235,19 +235,19 @@ nmap <leader>wh         <plug>window(left)
 nmap <plug>window(right) :TmuxNavigateRight<CR>
 nmap <leader>wl         <plug>window(right)
 
-" plugins/30-general/plugins/vim-sneak/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/vim-sneak/files/vimrc.bindings -------------------
 
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
-" plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
+" src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 
 nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>
 nmap     <leader>wo <plug>window(zoom)
 
-" plugins/40-completion/engine/deoplete/files/vimrc.bindings -------------------
+" src/plugins/40-completion/engine/deoplete/files/vimrc.bindings -------------------
 
 noremap                           <plug>lang(type-info) :call LanguageClient#textDocument_hover()<CR>
 nmap    <silent>  <localleader>K  <plug>lang(type-info)
@@ -267,7 +267,7 @@ nmap    <silent>  <localleader>lr <plug>lang(refs)
 noremap                           <plug>lang(actions)   :call LanguageClient#textDocument_codeAction()<CR>
 nmap    <silent>  <localleader>la <plug>lang(actions)
 
-" plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
+" src/plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
 
 command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)
 command! -bar -bang OMaps call fzf#vim#maps("o", <bang>0)
@@ -279,11 +279,11 @@ xmap <leader>?  <plug>(fzf-maps-x)
 omap <leader>?  <plug>(fzf-maps-o)
 imap <c-x><tab> <plug>(fzf-maps-i)
 
-" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
+" src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
 
 nnoremap <plug>fuzzy-file(find) :Files<cr>
 
-" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/common/vimrc.bindings -------------------
+" src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/common/vimrc.bindings -------------------
 
 if maparg('<plug>fuzzy-file(find)') != ''
   nmap <leader>ff <plug>fuzzy-file(find)
@@ -294,11 +294,11 @@ if maparg('<plug>fuzzy-file(no-cache)') != ''
   nmap <leader>fF <plug>fuzzy-file(no-cache)
 endif
 
-" plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
+" src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?
 let g:llmap.a   = { 'name': 'Apidock'        }
 
-" plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
 
 source ~/.vim/local/vimrc.bindings

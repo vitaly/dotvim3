@@ -1,5 +1,5 @@
 
-" plugins/10-init/plugins/leader-guide/files/vimrc.after -------------------
+" src/plugins/10-init/plugins/leader-guide/files/vimrc.after -------------------
 
 source ~/.vim/vimrc.bindings
 
@@ -16,31 +16,31 @@ vnoremap <localleader> :<c-u>LeaderGuideVisual  ','<CR>
 
 set timeoutlen=500
 
-" plugins/20-settings/files/vimrc.after -------------------
+" src/plugins/20-settings/files/vimrc.after -------------------
 
 " make Y consistent with C and D
 " must be in 'after' to prevent yankring overriding it
 nnoremap Y y$
 
-" plugins/30-general/plugins/statusline/files/vimrc.after -------------------
+" src/plugins/30-general/plugins/statusline/files/vimrc.after -------------------
 
 if maparg('<plug>toggle(statusline)') != ''
   nmap <leader>TS  <plug>toggle(statusline)
 endif
 set noshowmode
 
-" plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
+" src/plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
 
 let deoplete#tag#cache_limit_size = 5000000
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 let g:deoplete#keyword_patterns = {}
 
-" plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
+" src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.after -------------------
+" src/plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.after -------------------
 
 if maparg('<plug>search-tags') != ''
   nmap <leader>stt <plug>search-tags
@@ -51,6 +51,6 @@ if maparg('<plug>search-buffer-tags') != ''
   nmap <leader>tb <plug>search-buffer-tags
 endif
 
-" plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
 source ~/.vim/local/vimrc.after

@@ -1,5 +1,5 @@
 
-" plugins/10-init/files/after.vim -------------------
+" src/plugins/10-init/files/after/plugin/after.vim -------------------
 
 scriptencoding utf8
 

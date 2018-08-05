@@ -1,5 +1,5 @@
 
-" plugins/80-color-themes/files/buttercream.vim -------------------
+" src/plugins/80-color-themes/files/colors/buttercream.vim -------------------
 
 " Vim color file
 " vim: tw=0 ts=8 sw=4

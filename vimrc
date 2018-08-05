@@ -1,5 +1,5 @@
 
-" plugins/10-init/files/vimrc -------------------
+" src/plugins/10-init/files/vimrc -------------------
 
 scriptencoding utf8
 
@@ -13,7 +13,7 @@ source ~/.vim/vimrc.plugins
 
 call plug#end()
 
-" plugins/20-settings/files/vimrc -------------------
+" src/plugins/20-settings/files/vimrc -------------------
 
 syntax on
 
@@ -128,7 +128,7 @@ command QA qa
 command -nargs=* -complete=file W w <args>
 command -nargs=* -complete=file E e <args>
 
-" plugins/20-settings/plugins/clipboard/files/vimrc -------------------
+" src/plugins/20-settings/plugins/clipboard/files/vimrc -------------------
 
 " Writes to the unnamed register also writes to the * and + registers. This
 " makes it easy to interact with the system clipboard
@@ -138,7 +138,7 @@ else
   set clipboard=unnamed
 endif
 
-" plugins/20-settings/plugins/indent-level-navigation/files/vimrc -------------------
+" src/plugins/20-settings/plugins/indent-level-navigation/files/vimrc -------------------
 
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
@@ -187,13 +187,13 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>^
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
 
-" plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
+" src/plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
 
 if has('termguicolors')
   set termguicolors
 end
 
-" plugins/20-settings/plugins/vimbits/files/vimrc -------------------
+" src/plugins/20-settings/plugins/vimbits/files/vimrc -------------------
 
 " awesome stuff from vimbits.com
 
@@ -235,6 +235,6 @@ nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboar
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
 
-" plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
 source ~/.vim/local/vimrc

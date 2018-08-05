@@ -1,5 +1,5 @@
 
-" plugins/70-languages/plugins/vimscript/files/vim.vim -------------------
+" src/plugins/70-languages/plugins/vimscript/files/ftplugin/vim.vim -------------------
 
 " [E]val [L]ine
 nnoremap <buffer>                 <plug>eval(line)   yy:@"<CR>

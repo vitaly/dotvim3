@@ -1,5 +1,5 @@
 
-" plugins/30-general/plugins/vimwiki/files/vimwiki.vim -------------------
+" src/plugins/30-general/plugins/vimwiki/files/ftplugin/vimwiki.vim -------------------
 
 hi VimwikiHeader1 ctermfg=1 guifg=red
 hi VimwikiHeader2 ctermfg=2 guifg=green

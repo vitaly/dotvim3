@@ -232,8 +232,8 @@ if has('gui_running')
   set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h8
   source ~/.vim/local/my/vimrc.gui.dark
 else
-  source ~/.vim/local/my/vimrc.term.light
-  " source ~/.vim/local/my/vimrc.term.dark
+  " source ~/.vim/local/my/vimrc.term.light
+  source ~/.vim/local/my/vimrc.term.dark
 end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

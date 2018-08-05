@@ -1,5 +1,5 @@
 
-" plugins/20-settings/files/gitcommit.vim -------------------
+" src/plugins/20-settings/files/ftplugin/gitcommit.vim -------------------
 
 setlocal textwidth=72
 setlocal spell

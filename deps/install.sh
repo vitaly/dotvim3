@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# plugins/20-settings/plugins/pyenv/files/install.sh -------------------
+# src/plugins/20-settings/plugins/pyenv/files/deps/install.sh -------------------
 
 source .config
 
@@ -40,6 +40,6 @@ pip3 install neovim
 
 echo "let g:python3_host_prog='$(pyenv which python)'" >> vimrc.pyenv
 
-# plugins/30-general/plugins/vimwiki/files/install.sh -------------------
+# src/plugins/30-general/plugins/vimwiki/files/deps/install.sh -------------------
 
 pip3 install six git+git://github.com/robgolding63/tasklib@develop
