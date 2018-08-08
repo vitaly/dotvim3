@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # src/plugins/20-settings/plugins/pyenv/files/deps/install.sh -------------------
 

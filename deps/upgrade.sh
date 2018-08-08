@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # src/plugins/30-general/plugins/vimwiki/files/deps/upgrade.sh -------------------
 
