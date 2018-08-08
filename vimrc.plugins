@@ -45,9 +45,9 @@ source ~/.vim/vimrc.pyenv
 
 Plug 'blueyed/vim-diminactive'
 
-" src/plugins/30-general/plugins/diminactive/mode/colors/vimrc.plugins -------------------
+" src/plugins/30-general/plugins/diminactive/mode/off/vimrc.plugins -------------------
 
-let g:diminactive_mode = 2
+let g:diminactive_mode = 0
 
 " src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
