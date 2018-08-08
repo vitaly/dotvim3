@@ -126,7 +126,7 @@ nnoremap ` :Switch<cr>
 
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.plugins -------------------
 
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'vitaly/vim-tmux-navigator'
 
 " src/plugins/30-general/plugins/undotree/files/vimrc.plugins -------------------
 
