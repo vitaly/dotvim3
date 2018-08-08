@@ -17,7 +17,7 @@ touch $MANAGED_FILES
 LOCAL_FILES="$(cat src/plugins/00-cleanup/lists/local-files)"
 touch $LOCAL_FILES
 
-echo "#!/bin/bash" > deps/install.sh
-echo "#!/bin/bash" > deps/upgrade.sh
+echo "#!/bin/bash -e" > deps/install.sh
+echo "#!/bin/bash -e" > deps/upgrade.sh
 chmod +x deps/*
 )
