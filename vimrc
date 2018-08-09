@@ -238,3 +238,13 @@ nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to cli
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
 source ~/.vim/local/vimrc
+
+" src/plugins/99-final/plugins/98-exrc/files/vimrc -------------------
+
+" autoload local project .vimrc files
+set exrc
+
+" src/plugins/99-final/plugins/99-secure/files/vimrc -------------------
+
+" prevent .vimrc files from issuing unsecure commands
+set secure

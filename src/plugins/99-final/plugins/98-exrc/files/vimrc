@@ -1,0 +1,2 @@
+" autoload local project .vimrc files
+set exrc
