@@ -1,0 +1,15 @@
+source ~/.vim/local/my/theme/vimrc.colors
+
+if has('gui_running')
+  if "light" == &bg
+    source ~/.vim/local/my/theme/gui/vimrc.light
+  else
+    source ~/.vim/local/my/theme/gui/vimrc.dark
+  end
+else
+  if "light" == &bg
+    source ~/.vim/local/my/theme/term/vimrc.light
+  else
+    source ~/.vim/local/my/theme/term/vimrc.dark
+  end
+end

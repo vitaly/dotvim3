@@ -1,3 +1,0 @@
-set background=dark
-call Theme('onedark')
-" call Theme('jellybeans')
