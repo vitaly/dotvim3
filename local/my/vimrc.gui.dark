@@ -1,5 +1,3 @@
 set background=dark
-source ~/.vim/local/my/vimrc.colors
-
 call Theme('onedark')
 " call Theme('jellybeans')

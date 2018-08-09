@@ -1,6 +1,4 @@
 set background=light
-source ~/.vim/local/my/vimrc.colors
-
 call Theme('light', 'base16-atelierseaside')
 " call Theme('light', 'base16-atelierforest')
 " call Theme('light', 'gruvbox')

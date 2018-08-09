@@ -1,7 +1,4 @@
 set background=dark
-source ~/.vim/local/my/vimrc.colors
-
-call ResetThemeFix()
 
 " call Theme('dark', 'base16-atelierseaside')
 
