@@ -25,3 +25,28 @@ nmap     <leader>apu <plug>plug(Update)
 
 nnoremap             <plug>plug(Upgrade)  :PlugUpgrade<cr>
 nmap     <leader>apg <plug>plug(Upgrade)
+
+
+let g:lmap.a.a  = { 'name': 'ALE' }
+
+nmap <leader>aaF <plug>(ale_fix)
+nmap <leader>aaf <plug>(ale_first)
+nmap <leader>aan <plug>(ale_next_wrap)
+nmap <leader>aad <plug>(ale_detail)
+
+
+
+fu! ToggleBg()
+  if 'light' == &bg
+    echom 'dark'
+    set bg=dark
+  else
+    echom 'light'
+    set bg=light
+  endif
+  source ~/.vim/local/my/theme/vimrc.theme
+endfu
+
+
+nnoremap <plug>toggle(bg) :call ToggleBg()<cr>
+nmap <leader>Tb <plug>toggle(bg)
