@@ -1,17 +1,39 @@
 messages clear
 
-let s:onFix=''
+fu! s:theme()
+  try
+    return g:colors_name
+  catch /^Vim:E121/
+    return "unknown"
+  endtry
+endfu
 
-fu! s:fix()
-  if s:onFix != ''
-    exe s:onFix
+fu! s:handler()
+  return 's:' . substitute(s:theme(), '-', '_', 'g')
+endfu
+
+fu! s:handle()
+  if exists("*" . s:handler())
+    exe 'call ' . s:handler() . '()'
   endif
 endfu
 
 augroup colorschemeFixes
   au!
-  au ColorScheme * call s:fix()
+  au ColorScheme * call s:handle()
 augroup END
+
+"
+"   H     H     AA     N    N   DDDDD   L     EEEEEE  RRRR     SSSS
+"   H     H    A  A    #N   #   D    D  L     E       R   R   S
+"   HHHHHHH   AAAAAA   # N  #   D    D  L     EEEEE   RRRR     SSS
+"   H     H   A    A   #  N #   D    D  L     E       R  R        S
+"   H     H   A    A   #   N#   DDDDD   LLLLL EEEEEE  R   R   SSSS
+"
+
+fu! s:vividchalk()
+endfu
+
 
 fu! s:jellybeans()
   " hi CursorLine ctermbg=238
@@ -101,24 +123,6 @@ fu! s:base16_atelierseaside()
   hi StatusLine ctermfg=12 ctermbg=11 guifg=white guibg=#5e6e5e
 endfu
 
-fu! ResetThemeFix()
-    let s:onFix=''
-endfu
-
-fu! Theme(bg, name)
-  let fname='s:' . substitute(a:name, '-', '_', 'g')
-  if exists("*" . fname)
-    let s:onFix='call ' . fname . '()'
-  else
-    let s:onFix=''
-  endif
-  let bg = "set background=" . a:bg
-  exe bg
-  exe 'colorscheme ' . a:name
-endfu
-
-
-call ResetThemeFix()
 " hi IndentGuidesOdd
 "let g:indent_guides_auto_colors = 0
 "hi IndentGuidesOdd  ctermbg=37

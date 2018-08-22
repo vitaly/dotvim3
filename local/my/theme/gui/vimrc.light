@@ -1,1 +1,4 @@
-call Theme('default')
+set bg=light
+set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h8
+
+colorscheme default

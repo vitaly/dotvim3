@@ -1,3 +1,5 @@
+set bg=dark
 set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h8
-call Theme('onedark')
-" call Theme('jellybeans')
+
+colorscheme onedark
+colorscheme jellybeans

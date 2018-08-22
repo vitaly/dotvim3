@@ -1,17 +1,15 @@
+set bg=dark
 
-" call Theme('dark', 'base16-atelierseaside')
-
-" call Theme('dark', 'rakr')
-" call Theme('dark', 'CandyPaper')
-" call Theme('dark', 'one')
-" call Theme('dark', 'Tomorrow-Night-Eighties')
-" call Theme('dark', 'Tomorrow-Night-Bright')
-" call Theme('dark', 'afterglow')
-call Theme('dark', 'vividchalk')
-" call Theme('dark', 'space-vim-dark')
-" call Theme('dark', 'rdark-terminal2')
-" call Theme('dark', 'two-firewatch')
-" call Theme('dark', 'onedark')
-" call Theme('dark', 'jellybeans')
-" call Theme('dark', '')
-" call Theme('dark', '')
+" colorscheme base16-atelierseaside
+" colorscheme rakr
+" colorscheme CandyPaper
+" colorscheme one
+" colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Bright
+" colorscheme afterglow
+colorscheme vividchalk
+" colorscheme space-vim-dark
+" colorscheme rdark-terminal2
+" colorscheme two-firewatch
+" colorscheme onedark
+" colorscheme jelleybeans
