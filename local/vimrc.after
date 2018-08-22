@@ -153,8 +153,6 @@ function! s:checkDiffModeLeave()
 endfunction
 
 function! s:onDiffModeEnter()
-  echom "diff enter"
-
   nmap <buffer> <localleader>du :diffupdate<CR>
   nmap <buffer> <localleader>dp :diffput<CR>
   nmap <buffer> <localleader>dg :diffget<CR>
@@ -163,8 +161,6 @@ function! s:onDiffModeEnter()
 endfunction
 
 function! s:onDiffModeLeave()
-    echom "diff leave"
-
   nunmap <buffer> <localleader>du
   nunmap <buffer> <localleader>dp
   nunmap <buffer> <localleader>dg
@@ -229,8 +225,12 @@ let g:deoplete#keyword_patterns.q = '[.a-zA-Z_]\k*'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set background=light
-set background=dark
+
+if 'Light' == $ITERM_PROFILE
+  set bg=light
+else
+  set bg=dark
+endif
 source ~/.vim/local/my/theme/vimrc.theme
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

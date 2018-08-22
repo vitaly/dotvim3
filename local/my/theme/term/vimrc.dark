@@ -7,9 +7,10 @@ set bg=dark
 " colorscheme Tomorrow-Night-Eighties
 " colorscheme Tomorrow-Night-Bright
 " colorscheme afterglow
-colorscheme vividchalk
+"colorscheme vividchalk
 " colorscheme space-vim-dark
 " colorscheme rdark-terminal2
 " colorscheme two-firewatch
 " colorscheme onedark
 " colorscheme jelleybeans
+colorscheme onedark

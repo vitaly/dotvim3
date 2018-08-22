@@ -1,9 +1,9 @@
-set bg=dark
+set bg=light
 
 " colorscheme base16-atelierseaside
 " colorscheme base16-atelierforest
 " colorscheme gruvbox
 " colorscheme solarized8_light_low
 " colorscheme solarized8_light_high
-colorscheme default
-
+" colorscheme default
+colorscheme one
