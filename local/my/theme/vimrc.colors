@@ -1,5 +1,3 @@
-messages clear
-
 fu! s:theme()
   try
     return g:colors_name
