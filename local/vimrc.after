@@ -226,11 +226,6 @@ let g:deoplete#keyword_patterns.q = '[.a-zA-Z_]\k*'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if 'Light' == $ITERM_PROFILE
-  set bg=light
-else
-  set bg=dark
-endif
 source ~/.vim/local/my/theme/vimrc.theme
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

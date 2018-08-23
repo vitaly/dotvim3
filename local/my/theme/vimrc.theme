@@ -1,15 +1,25 @@
 source ~/.vim/local/my/theme/vimrc.colors
 
-if has('gui_running')
-  if "light" == &bg
-    source ~/.vim/local/my/theme/gui/vimrc.light
-  else
-    source ~/.vim/local/my/theme/gui/vimrc.dark
-  end
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
 else
-  if "light" == &bg
-    source ~/.vim/local/my/theme/term/vimrc.light
+  if 'Light' == $ITERM_PROFILE
+    set bg=light
   else
-    source ~/.vim/local/my/theme/term/vimrc.dark
+    set bg=dark
+  endif
+  if has('gui_running')
+    if "light" == &bg
+      source ~/.vim/local/my/theme/gui/vimrc.light
+    else
+      source ~/.vim/local/my/theme/gui/vimrc.dark
+    end
+  else
+    if "light" == &bg
+      source ~/.vim/local/my/theme/term/vimrc.light
+    else
+      source ~/.vim/local/my/theme/term/vimrc.dark
+    end
   end
-end
+endif

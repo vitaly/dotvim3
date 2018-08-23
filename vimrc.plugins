@@ -410,6 +410,8 @@ if exists('g:status_line_plugin') && 'lightline' == g:status_line_plugin
   Plug 'maximbaz/lightline-ale'
 endif
 
+let g:ale_fixers = { 'ruby': [ 'rubocop' ] }
+
 " src/plugins/70-languages/plugins/0-polyglot/files/vimrc.plugins -------------------
 
 Plug 'sheerun/vim-polyglot'

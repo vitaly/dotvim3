@@ -1,6 +1,6 @@
 dein
 .config.new
 sessions
-tags
+/tags
 bundle/*
 vimrc.pyenv
