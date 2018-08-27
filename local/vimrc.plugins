@@ -6,6 +6,7 @@ scriptencoding utf8
 "Plug 'powerman/vim-plugin-AnsiEsc'
 "Plug 'slashmili/alchemist.vim'
 
+source ~/.vim/local/my/vimrc.lightline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -137,13 +138,11 @@ Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EditorConfig_max_line_indicator = 'fill'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug ''
-"Plug ''
-"Plug ''
-"Plug ''
-"Plug ''
-"Plug ''
-"Plug ''
-"Plug ''
-"
-source ~/.vim/local/my/vimrc.lightline
+Plug 'shime/vim-livedown'
+let g:lmap.a.l  = { 'name': 'Livedown' }
+nnoremap             <plug>livedown(preview) :LivedownPreview<cr>
+nmap     <leader>alp <plug>livedown(preview)
+nnoremap             <plug>livedown(kill)    :LivedownKill<cr>
+nmap     <leader>alk <plug>livedown(kill)
+nnoremap             <plug>livedown(toggle)  :LivedownToggle<cr>
+nmap     <leader>alt <plug>livedown(toggle)
