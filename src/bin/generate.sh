@@ -49,6 +49,14 @@ END
   ask bool vimdir_warning "I understand" y
 }
 
+clean_manifest() {
+  if [ -f "${MANIFEST}" ]; then
+    cat ${MANIFEST} | ( cd "${VIM_DIR}" && xargs rm -f )
+  fi
+  rm -f "${MANIFEST}"
+  (set -x; touch "${MANIFEST}")
+}
+
 init_vimdir() {
   [ -n "$VIM_DIR" ] || die "please define VIM_DIR"
 
@@ -65,7 +73,11 @@ init_vimdir() {
   if non_standard_dir; then
     non_standard_dir_warning
   fi
+
+  clean_manifest
 }
+
+MANIFEST="${VIM_DIR}/.files"
 
 init_vimdir
 

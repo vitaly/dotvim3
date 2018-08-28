@@ -24,7 +24,8 @@ END
   detect_fzf
 done
 
-echo "set rtp+=$FZF_DIR" | append_to_file "vimrc.plugins" "$(this_file)"
+vim_banner "$(this_file)" >> "${VIM_DIR}/vimrc.plugins"
+echo "set rtp+=$FZF_DIR" >> "${VIM_DIR}/vimrc.plugins"
 
 if [ -z "$FZF_DEFAULT_COMMAND" -a -n "`which ag`" ]; then
   yellow

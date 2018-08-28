@@ -12,6 +12,7 @@ v() {
   fi
 }
 
+
 this_file() {
   echo "${BASH_SOURCE[1]}"
 }
@@ -20,43 +21,58 @@ this_dir() {
   dirname "${BASH_SOURCE[1]}"
 }
 
+ruby_banner() {
+      echo
+      echo "# $1 -------------------"
+      echo
+  }
+
+
+vim_banner() {
+    echo
+    echo "\" $1 -------------------"
+    echo
+}
+
 # banner FILE LABEL
 # 'FILE' is used to determin type of banner
 banner() {
   local file="$1"
-  local label="$2"
 
   case "$file" in
-    *.md)
-      ;;
-    *.rb|*.sh|*.gitignore)
-      echo
-      echo "# $label -------------------"
-      echo
-      ;;
-    *vimrc|*vimrc.*|*.vim)
-      echo
-      echo "\" $label -------------------"
-      echo
-      ;;
-    *)
-      ;;
+    *.md) ;;
+    *.rb|*.sh|*.gitignore) ruby_banner "$1";;
+    *vimrc|*vimrc.*|*.vim) vim_banner "$1";;
+    *) ;;
   esac
 }
 
 append_to_file() {
-  local file="$1"
-  local label="$2"
+  local base="$1"
+  local file="$2"
 
-  local destination="${VIM_DIR}/${file}"
+  local src="$base/$file"
+  local dst="${VIM_DIR}/${file}"
 
-  mkdir -pv "$(dirname "$destination")"
+  mkdir -pv "$(dirname "$dst")"
 
-  v cyan "-- $file -> $destination"
-  (
-    banner "$file" "$label"
-    cat
-  ) >> "$destination"
+  if ! grep -Fxq "$file" "${MANIFEST}"; then
+    # first time writing into this file during this run
+    rm -f "$dst"
+    touch "$dst"
+    echo "$file" >> "${MANIFEST}"
+    local empty=1
+  else
+    local empty=
+  fi
+
+  v cyan "-- $file -> $dst"
+
+  if [ ! -x "$src" -o -z "$empty"  ]; then
+    banner "src/$src" >> "$dst"
+  fi
+
+  cat "$src" >> "$dst"
 }
 
 # copy files from directory into target
@@ -80,7 +96,9 @@ _copy_files() {
   v blue $base
 
   for f in $(cd "$base" && find . -type f); do
-    cat "$base/$f" | append_to_file "$f" "src/$base/${f#./}"
+    f="${f#./}"
+
+    append_to_file "$base" "$f"
   done
 }
 

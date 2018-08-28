@@ -1,0 +1,17 @@
+deps/install.sh
+deps/upgrade.sh
+vimrc.plugins
+README.index.md
+README.content.md
+vimrc
+.gitignore
+after/plugin/after.vim
+vimrc.bindings
+vimrc.after
+ftplugin/gitcommit.vim
+ftplugin/vimwiki.vim
+ftplugin/javascript.vim
+ftplugin/ruby.vim
+ftplugin/vim.vim
+colors/colorzone.vim
+colors/buttercream.vim

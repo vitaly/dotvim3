@@ -16,8 +16,4 @@ touch $MANAGED_FILES
 # local customization files. make sure they exist, but do not manage their content
 LOCAL_FILES="$(cat src/plugins/00-cleanup/lists/local-files)"
 touch $LOCAL_FILES
-
-echo "#!/bin/bash -e" > deps/install.sh
-echo "#!/bin/bash -e" > deps/upgrade.sh
-chmod +x deps/*
 )
