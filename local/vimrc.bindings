@@ -3,7 +3,7 @@ scriptencoding utf8
 " map <plug>toggle(statusline) :AirlineToggle<cr>
 " nmap <leader>TS <plug>toggle(statusline)
 
-let g:lmap.a.p  = { 'name': 'Plug' }
+let g:leader_guide_map.a.p  = { 'name': 'Plug' }
 
 nnoremap             <plug>plug(Clean)    :PlugClean<cr>
 nmap     <leader>apc <plug>plug(Clean)
@@ -27,7 +27,7 @@ nnoremap             <plug>plug(Upgrade)  :PlugUpgrade<cr>
 nmap     <leader>apg <plug>plug(Upgrade)
 
 
-let g:lmap.a.a  = { 'name': 'ALE' }
+let g:leader_guide_map.a.a  = { 'name': 'ALE' }
 
 nmap <leader>aaF <plug>(ale_fix)
 nmap <leader>aaf <plug>(ale_first)

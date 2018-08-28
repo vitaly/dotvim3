@@ -21,27 +21,27 @@ function! s:my_displayfunc()
 endfunction
 let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
 
-let g:lmap      = {}
+let g:leader_guide_map      = {}
 let g:llmap     = {}
 let g:topdict   = {}
-let g:topdict[' '] = g:lmap
+let g:topdict[' '] = g:leader_guide_map
 let g:topdict[','] = g:llmap
 
 " TODO: move sub-menu configs into appropriate plugins
-let g:lmap.a    = { 'name': 'App'            }
-let g:lmap.b    = { 'name': 'Buffer'         }
-let g:lmap.c    = { 'name': 'Comment'        }
-let g:lmap.f    = { 'name': 'File'           }
-let g:lmap.f.e  = { 'name': 'Edit'           }
-let g:lmap.s    = { 'name': 'Search'         }
-let g:lmap.S    = { 'name': 'Session'        }
-let g:lmap.s.t  = { 'name': 'Tags'           }
-let g:lmap.t    = { 'name': 'Tags / Tabs'    }
-let g:lmap.T    = { 'name': 'Toggle'         }
-let g:lmap.T.c  = { 'name': 'conceal'        }
-let g:lmap.w    = { 'name': 'Window/Wiki'    }
-let g:lmap.x    = { 'name': 'Text'           }
-let g:lmap.x.d  = { 'name': 'Delete'         }
+let g:leader_guide_map.a    = { 'name': 'App'            }
+let g:leader_guide_map.b    = { 'name': 'Buffer'         }
+let g:leader_guide_map.c    = { 'name': 'Comment'        }
+let g:leader_guide_map.f    = { 'name': 'File'           }
+let g:leader_guide_map.f.e  = { 'name': 'Edit'           }
+let g:leader_guide_map.s    = { 'name': 'Search'         }
+let g:leader_guide_map.S    = { 'name': 'Session'        }
+let g:leader_guide_map.s.t  = { 'name': 'Tags'           }
+let g:leader_guide_map.t    = { 'name': 'Tags / Tabs'    }
+let g:leader_guide_map.T    = { 'name': 'Toggle'         }
+let g:leader_guide_map.T.c  = { 'name': 'conceal'        }
+let g:leader_guide_map.w    = { 'name': 'Window/Wiki'    }
+let g:leader_guide_map.x    = { 'name': 'Text'           }
+let g:leader_guide_map.x.d  = { 'name': 'Delete'         }
 
 let g:llmap.e   = { 'name': 'Eval'           }
 let g:llmap.l   = { 'name': 'Language'       }
