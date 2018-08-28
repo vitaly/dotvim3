@@ -1,5 +1,4 @@
-function verbose()
-{
+verbose() {
   if [ -n "$VERBOSE" ]; then
     true
   else
@@ -7,27 +6,23 @@ function verbose()
   fi
 }
 
-function v()
-{
+v() {
   if verbose; then
     "$@"
   fi
 }
 
-function this_file()
-{
+this_file() {
   echo "${BASH_SOURCE[1]}"
 }
 
-function this_dir()
-{
+this_dir() {
   dirname "${BASH_SOURCE[1]}"
 }
 
 # banner FILE LABEL
 # 'FILE' is used to determin type of banner
-function banner()
-{
+banner() {
   local file="$1"
   local label="$2"
 
@@ -49,8 +44,7 @@ function banner()
   esac
 }
 
-function append_to_file()
-{
+append_to_file() {
   local file="$1"
   local label="$2"
 
@@ -67,8 +61,7 @@ function append_to_file()
 
 # copy files from directory into target
 # will fail if directory doesn't exist
-function copy_files()
-{
+copy_files() {
   local base="$1"
   [ -d "$base" ] || die "directory $base not found"
 
@@ -77,8 +70,7 @@ function copy_files()
 
 # copy files from directory into target
 # will ignore if directory doesn't exist
-function _copy_files()
-{
+_copy_files() {
   local base="$1"
 
   if [ ! -d "$base" ]; then
@@ -92,8 +84,7 @@ function _copy_files()
   done
 }
 
-function load()
-{
+load() {
   v yellow "$1"
 
   if [ -f "$1/prompt.sh" ]; then
@@ -107,8 +98,7 @@ function load()
   if [ -f "$1/install.sh" ]; then source "$1/install.sh"; fi
 }
 
-function load_all()
-{
+load_all() {
   for d in "$@"; do
     load "$d"
   done

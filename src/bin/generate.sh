@@ -8,13 +8,11 @@ ASK_VERBOSE="$VERBOSE"
 
 source vendor/ask.sh/lib/ask.sh
 
-function non_dotvim2_dir()
-{
+non_dotvim2_dir() {
   [ -d "$VIM_DIR" -a ! -d "$VIM_DIR/bundle" ]
 }
 
-function non_dotvim2_dir_warning()
-{
+non_dotvim2_dir_warning() {
   red "> Your vim directory $VIM_DIR already exists but doesn't seem to be created by dotvim2"
   bold
   red -e "> Proceed at your own risk!!!\n"
@@ -34,13 +32,11 @@ function non_dotvim2_dir_warning()
   yellow -e "> WARNING: installing into non dotvim2 directory!\n\n\n"
 }
 
-function non_standard_dir()
-{
+non_standard_dir() {
   [ ! -d ~/.vim ] || [ "$VIM_DIR" != "$(cd ~/.vim; pwd)" ]
 }
 
-function non_standard_dir_warning()
-{
+non_standard_dir_warning() {
   desc <<END
 Your installation directory is $VIM_DIR
      Make sure you link:
@@ -53,8 +49,7 @@ END
   ask bool vimdir_warning "I understand" y
 }
 
-function init_vimdir()
-{
+init_vimdir() {
   [ -n "$VIM_DIR" ] || die "please define VIM_DIR"
 
   if non_dotvim2_dir; then
