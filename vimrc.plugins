@@ -21,30 +21,27 @@ function! s:my_displayfunc()
 endfunction
 let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
 
-let g:leader_guide_map      = {}
-let g:llmap     = {}
-let g:topdict   = {}
-let g:topdict[' '] = g:leader_guide_map
-let g:topdict[','] = g:llmap
+let g:leader_map_guide      = {}
+let g:local_leader_map_guide     = {}
 
 " TODO: move sub-menu configs into appropriate plugins
-let g:leader_guide_map.a    = { 'name': 'App'            }
-let g:leader_guide_map.b    = { 'name': 'Buffer'         }
-let g:leader_guide_map.c    = { 'name': 'Comment'        }
-let g:leader_guide_map.f    = { 'name': 'File'           }
-let g:leader_guide_map.f.e  = { 'name': 'Edit'           }
-let g:leader_guide_map.s    = { 'name': 'Search'         }
-let g:leader_guide_map.S    = { 'name': 'Session'        }
-let g:leader_guide_map.s.t  = { 'name': 'Tags'           }
-let g:leader_guide_map.t    = { 'name': 'Tags / Tabs'    }
-let g:leader_guide_map.T    = { 'name': 'Toggle'         }
-let g:leader_guide_map.T.c  = { 'name': 'conceal'        }
-let g:leader_guide_map.w    = { 'name': 'Window/Wiki'    }
-let g:leader_guide_map.x    = { 'name': 'Text'           }
-let g:leader_guide_map.x.d  = { 'name': 'Delete'         }
+let g:leader_map_guide.a    = { 'name': 'App'            }
+let g:leader_map_guide.b    = { 'name': 'Buffer'         }
+let g:leader_map_guide.c    = { 'name': 'Comment'        }
+let g:leader_map_guide.f    = { 'name': 'File'           }
+let g:leader_map_guide.f.e  = { 'name': 'Edit'           }
+let g:leader_map_guide.s    = { 'name': 'Search'         }
+let g:leader_map_guide.S    = { 'name': 'Session'        }
+let g:leader_map_guide.s.t  = { 'name': 'Tags'           }
+let g:leader_map_guide.t    = { 'name': 'Tags / Tabs'    }
+let g:leader_map_guide.T    = { 'name': 'Toggle'         }
+let g:leader_map_guide.T.c  = { 'name': 'conceal'        }
+let g:leader_map_guide.w    = { 'name': 'Window/Wiki'    }
+let g:leader_map_guide.x    = { 'name': 'Text'           }
+let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
 
-let g:llmap.e   = { 'name': 'Eval'           }
-let g:llmap.l   = { 'name': 'Language'       }
+let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
+let g:local_leader_map_guide.l   = { 'name': 'Language'       }
 
 
 " src/plugins/20-settings/files/vimrc.plugins -------------------

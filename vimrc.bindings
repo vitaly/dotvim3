@@ -278,7 +278,7 @@ endif
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?
-let g:llmap.a   = { 'name': 'Apidock'        }
+let g:local_leader_map_guide.a   = { 'name': 'Apidock'        }
 
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
 
