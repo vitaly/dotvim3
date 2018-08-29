@@ -1,11 +1,1 @@
 scriptencoding utf8
-
-" if &compatible
-  " set nocompatible
-" endif
-
-call plug#begin('~/.vim/bundle')
-
-source ~/.vim/vimrc.plugins
-
-call plug#end()

@@ -3,17 +3,11 @@
 
 scriptencoding utf8
 
+" src/plugins/20-settings/files/vimrc -------------------
+
 " if &compatible
   " set nocompatible
 " endif
-
-call plug#begin('~/.vim/bundle')
-
-source ~/.vim/vimrc.plugins
-
-call plug#end()
-
-" src/plugins/20-settings/files/vimrc -------------------
 
 syntax on
 
@@ -95,6 +89,9 @@ set nofoldenable        " dont fold by default "
 set concealcursor=n
 set conceallevel=2
 
+let mapleader = " "
+let maplocalleader = ","
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -127,6 +124,12 @@ command Qa qa
 command QA qa
 command -nargs=* -complete=file W w <args>
 command -nargs=* -complete=file E e <args>
+
+call plug#begin('~/.vim/bundle')
+
+source ~/.vim/vimrc.plugins
+
+call plug#end()
 
 " src/plugins/20-settings/plugins/clipboard/files/vimrc -------------------
 
@@ -234,6 +237,20 @@ nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+
+" src/plugins/30-general/plugins/leader-guide/files/vimrc -------------------
+
+
+function! s:my_displayfunc()
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
+endfunction
+let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
+
+call leaderGuide#register_prefix_descriptions("<space>", "g:leader_map_guide")
+call leaderGuide#register_prefix_descriptions(",", "g:local_leader_map_guide")
 
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 

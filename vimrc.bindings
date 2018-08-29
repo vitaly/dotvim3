@@ -1,94 +1,4 @@
 
-" src/plugins/10-init/plugins/leader-guide/files/vimrc.bindings -------------------
-
-nnoremap                   <plug>redraw             :redraw!<cr>
-nmap     <leader>rr        <plug>redraw
-
-noremap                    <plug>tab(new)           :tabnew<cr>
-nmap     <leader>tn        <plug>tab(new)
-
-map                        <plug>tab(new-file)      <plug>tab(new)<plug>fuzzy-file(find)
-nmap     <leader>tf        <plug>tab(new-file)
-
-nnoremap                   <plug>buffer(next)       :bn<cr>
-nmap     <leader>bn        <plug>buffer(next)
-
-nnoremap                   <plug>buffer(prev)       :bp<cr>
-nmap     <leader>bp        <plug>buffer(prev)
-
-nnoremap                   <plug>file(save)         :w<cr>
-nmap     <leader>fs        <plug>file(save)
-
-nnoremap                   <plug>file(save-all)     :wa<cr>
-nmap     <leader>fS        <plug>file(save-all)
-
-nnoremap                   <plug>quit(all)          :qa<cr>
-nmap     <leader>qq        <plug>quit(all)
-
-nnoremap                   <plug>(loca.after)       :e ~/.vim/local/vimrc.after<cr>
-nmap     <leader>fed       <plug>(loca.after)
-
-nnoremap                   <plug>(.vim/local)       :e ~/.vim/local<cr>
-nmap     <leader>fel       <plug>(.vim/local)
-
-nnoremap                   <plug>(local.plugins)    :e ~/.vim/local/vimrc.plugins<cr>
-nmap     <leader>fep       <plug>(local.plugins)
-
-nnoremap                   <plug>(.vim/)            :e ~/.vim/<cr>
-nmap     <leader>fev       <plug>(.vim/)
-
-nnoremap                   <plug>(.config/nvim)     :e ~/.config/nvim<cr>
-nmap     <leader>fen       <plug>(.config/nvim)
-
-nnoremap                   <plug>window(h-max)      <C-w><bar>
-nmap     <leader>w<bar>    <plug>window(h-max)
-
-nnoremap                   <plug>window(v-max)      <C-w>_
-nmap     <leader>w_        <plug>window(v-max)
-
-nnoremap                   <plug>windows-balance    <C-w>=
-nmap     <leader>w=        <plug>windows-balance
-
-nnoremap                   <plug>windows-swap       <C-w>x
-nmap     <leader>wx        <plug>windows-swap
-
-nnoremap                   <plug>window(maximize)   <C-w>_<C-w><Bar>
-nmap     <leader>wz        <plug>window(maximize)
-nmap     <C-w>z            <plug>window(maximize)
-
-nmap                       <plug>window(move-up)    <c-w>K
-nmap     <leader>wK        <plug>window(move-up)
-
-nmap                       <plug>window(move-down)  <c-w>J
-nmap     <leader>wJ        <plug>window(move-down)
-
-nmap                       <plug>window(move-left)  <c-w>H
-nmap     <leader>wH        <plug>window(move-left)
-
-nmap                       <plug>window(move-right) <c-w>L
-nmap     <leader>wL        <plug>window(move-right)
-
-nnoremap                   <plug>window(h-split)    :split<cr><c-w>j
-nmap     <leader>ws        <plug>window(h-split)
-nmap     <leader>w-        <plug>window(h-split)
-
-nnoremap                   <plug>window(v-split)    :vsplit<cr><c-w>l
-nmap     <leader>wv        <plug>window(v-split)
-nmap     <leader>w<Bslash> <plug>window(v-split)
-
-nnoremap                   <plug>window(delete)     :q<cr>
-nmap     <leader>wd        <plug>window(delete)
-nmap     <leader>wq        <plug>window(delete)
-nmap     <leader>qw        <plug>window(delete)
-
-nnoremap                   <plug>buffer(delete)     :bd<cr>
-nmap     <leader>bd        <plug>buffer(delete)
-
-nnoremap                   <plug>window(only)       <C-w>o
-nmap     <leader>wm        <plug>window(only)
-
-nnoremap <leader><space> :
-
 " src/plugins/20-settings/files/vimrc.bindings -------------------
 
 set concealcursor=
@@ -180,6 +90,96 @@ endfu
 
 nnoremap             <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
 nmap     <leader>Td  <plug>toggle(diminactive)
+
+" src/plugins/30-general/plugins/leader-guide/files/vimrc.bindings -------------------
+
+nnoremap                   <plug>redraw             :redraw!<cr>
+nmap     <leader>rr        <plug>redraw
+
+noremap                    <plug>tab(new)           :tabnew<cr>
+nmap     <leader>tn        <plug>tab(new)
+
+map                        <plug>tab(new-file)      <plug>tab(new)<plug>fuzzy-file(find)
+nmap     <leader>tf        <plug>tab(new-file)
+
+nnoremap                   <plug>buffer(next)       :bn<cr>
+nmap     <leader>bn        <plug>buffer(next)
+
+nnoremap                   <plug>buffer(prev)       :bp<cr>
+nmap     <leader>bp        <plug>buffer(prev)
+
+nnoremap                   <plug>file(save)         :w<cr>
+nmap     <leader>fs        <plug>file(save)
+
+nnoremap                   <plug>file(save-all)     :wa<cr>
+nmap     <leader>fS        <plug>file(save-all)
+
+nnoremap                   <plug>quit(all)          :qa<cr>
+nmap     <leader>qq        <plug>quit(all)
+
+nnoremap                   <plug>(loca.after)       :e ~/.vim/local/vimrc.after<cr>
+nmap     <leader>fed       <plug>(loca.after)
+
+nnoremap                   <plug>(.vim/local)       :e ~/.vim/local<cr>
+nmap     <leader>fel       <plug>(.vim/local)
+
+nnoremap                   <plug>(local.plugins)    :e ~/.vim/local/vimrc.plugins<cr>
+nmap     <leader>fep       <plug>(local.plugins)
+
+nnoremap                   <plug>(.vim/)            :e ~/.vim/<cr>
+nmap     <leader>fev       <plug>(.vim/)
+
+nnoremap                   <plug>(.config/nvim)     :e ~/.config/nvim<cr>
+nmap     <leader>fen       <plug>(.config/nvim)
+
+nnoremap                   <plug>window(h-max)      <C-w><bar>
+nmap     <leader>w<bar>    <plug>window(h-max)
+
+nnoremap                   <plug>window(v-max)      <C-w>_
+nmap     <leader>w_        <plug>window(v-max)
+
+nnoremap                   <plug>windows-balance    <C-w>=
+nmap     <leader>w=        <plug>windows-balance
+
+nnoremap                   <plug>windows-swap       <C-w>x
+nmap     <leader>wx        <plug>windows-swap
+
+nnoremap                   <plug>window(maximize)   <C-w>_<C-w><Bar>
+nmap     <leader>wz        <plug>window(maximize)
+nmap     <C-w>z            <plug>window(maximize)
+
+nmap                       <plug>window(move-up)    <c-w>K
+nmap     <leader>wK        <plug>window(move-up)
+
+nmap                       <plug>window(move-down)  <c-w>J
+nmap     <leader>wJ        <plug>window(move-down)
+
+nmap                       <plug>window(move-left)  <c-w>H
+nmap     <leader>wH        <plug>window(move-left)
+
+nmap                       <plug>window(move-right) <c-w>L
+nmap     <leader>wL        <plug>window(move-right)
+
+nnoremap                   <plug>window(h-split)    :split<cr><c-w>j
+nmap     <leader>ws        <plug>window(h-split)
+nmap     <leader>w-        <plug>window(h-split)
+
+nnoremap                   <plug>window(v-split)    :vsplit<cr><c-w>l
+nmap     <leader>wv        <plug>window(v-split)
+nmap     <leader>w<Bslash> <plug>window(v-split)
+
+nnoremap                   <plug>window(delete)     :q<cr>
+nmap     <leader>wd        <plug>window(delete)
+nmap     <leader>wq        <plug>window(delete)
+nmap     <leader>qw        <plug>window(delete)
+
+nnoremap                   <plug>buffer(delete)     :bd<cr>
+nmap     <leader>bd        <plug>buffer(delete)
+
+nnoremap                   <plug>window(only)       <C-w>o
+nmap     <leader>wm        <plug>window(only)
+
+nnoremap <leader><space> :
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 

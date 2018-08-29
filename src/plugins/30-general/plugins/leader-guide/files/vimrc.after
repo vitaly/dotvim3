@@ -1,0 +1,14 @@
+source ~/.vim/vimrc.bindings
+
+set timeoutlen=500
+
+nnoremap <plug>guide(global)  :<c-u>LeaderGuide '<Space>'<CR>
+nnoremap <plug>guide(local)   :<c-u>LeaderGuide ','<CR>
+vnoremap <plug>vguide(global) :<c-u>LeaderGuideVisual  '<space>'<CR>
+vnoremap <plug>vguide(local)  :<c-u>LeaderGuideVisual  ','<CR>
+
+map <silent> <leader>      <plug>guide(global)
+map <silent> <localleader> <plug>guide(local)
+
+vmap <silent> <leader>      <plug>vguide(global)
+vmap <silent> <localleader> <plug>vguide(local)

@@ -1,17 +1,7 @@
 Plug 'hecal3/vim-leader-guide'
 
-" let g:leaderGuide_vertical = 1
-
-function! s:my_displayfunc()
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
-endfunction
-let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
-
-let g:leader_map_guide      = {}
-let g:local_leader_map_guide     = {}
+let g:leader_map_guide = {}
+let g:local_leader_map_guide = {}
 
 " TODO: move sub-menu configs into appropriate plugins
 let g:leader_map_guide.a    = { 'name': 'App'            }
@@ -31,4 +21,3 @@ let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
 
 let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
 let g:local_leader_map_guide.l   = { 'name': 'Language'       }
-

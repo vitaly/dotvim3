@@ -7,43 +7,6 @@ Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/unite.vim'
 
-" src/plugins/10-init/plugins/leader-guide/files/vimrc.plugins -------------------
-
-Plug 'hecal3/vim-leader-guide'
-
-" let g:leaderGuide_vertical = 1
-
-function! s:my_displayfunc()
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
-endfunction
-let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
-
-let g:leader_map_guide      = {}
-let g:local_leader_map_guide     = {}
-
-" TODO: move sub-menu configs into appropriate plugins
-let g:leader_map_guide.a    = { 'name': 'App'            }
-let g:leader_map_guide.b    = { 'name': 'Buffer'         }
-let g:leader_map_guide.c    = { 'name': 'Comment'        }
-let g:leader_map_guide.f    = { 'name': 'File'           }
-let g:leader_map_guide.f.e  = { 'name': 'Edit'           }
-let g:leader_map_guide.s    = { 'name': 'Search'         }
-let g:leader_map_guide.S    = { 'name': 'Session'        }
-let g:leader_map_guide.s.t  = { 'name': 'Tags'           }
-let g:leader_map_guide.t    = { 'name': 'Tags / Tabs'    }
-let g:leader_map_guide.T    = { 'name': 'Toggle'         }
-let g:leader_map_guide.T.c  = { 'name': 'conceal'        }
-let g:leader_map_guide.w    = { 'name': 'Window/Wiki'    }
-let g:leader_map_guide.x    = { 'name': 'Text'           }
-let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
-
-let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
-let g:local_leader_map_guide.l   = { 'name': 'Language'       }
-
-
 " src/plugins/20-settings/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-sensible'
@@ -69,6 +32,32 @@ let g:diminactive_mode = 0
 " src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
 Plug 'vim-scripts/greplace.vim'
+
+" src/plugins/30-general/plugins/leader-guide/files/vimrc.plugins -------------------
+
+Plug 'hecal3/vim-leader-guide'
+
+let g:leader_map_guide = {}
+let g:local_leader_map_guide = {}
+
+" TODO: move sub-menu configs into appropriate plugins
+let g:leader_map_guide.a    = { 'name': 'App'            }
+let g:leader_map_guide.b    = { 'name': 'Buffer'         }
+let g:leader_map_guide.c    = { 'name': 'Comment'        }
+let g:leader_map_guide.f    = { 'name': 'File'           }
+let g:leader_map_guide.f.e  = { 'name': 'Edit'           }
+let g:leader_map_guide.s    = { 'name': 'Search'         }
+let g:leader_map_guide.S    = { 'name': 'Session'        }
+let g:leader_map_guide.s.t  = { 'name': 'Tags'           }
+let g:leader_map_guide.t    = { 'name': 'Tags / Tabs'    }
+let g:leader_map_guide.T    = { 'name': 'Toggle'         }
+let g:leader_map_guide.T.c  = { 'name': 'conceal'        }
+let g:leader_map_guide.w    = { 'name': 'Window/Wiki'    }
+let g:leader_map_guide.x    = { 'name': 'Text'           }
+let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
+
+let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
+let g:local_leader_map_guide.l   = { 'name': 'Language'       }
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
 
@@ -458,14 +447,16 @@ Plug 'vitaly/apidock.vim', {'for': 'ruby'}
 " lightweight Rspec runner for Vim
 Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
 
+map <plug>rspec(nearest) :call RunNearestSpec()<CR>
+" map <localleader>r <plug>rspec(nearest)
+
 " Rails i18n extraction plugin
 Plug 'stefanoverna/vim-i18n', {'for': 'ruby'}
 
+let g:ruby_refactoring_map_keys=0
 Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
 
-" vim-[R]spec
-map <plug>rspec(nearest) :call RunNearestSpec()<CR>
-" map <localleader>r <plug>rspec(nearest)
+
 
 " src/plugins/70-languages/plugins/tasks/files/vimrc.plugins -------------------
 

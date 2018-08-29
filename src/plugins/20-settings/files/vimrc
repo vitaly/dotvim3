@@ -1,3 +1,7 @@
+" if &compatible
+  " set nocompatible
+" endif
+
 syntax on
 
 " prevent vim from adding that stupid empty line at the end of every file
@@ -78,6 +82,9 @@ set nofoldenable        " dont fold by default "
 set concealcursor=n
 set conceallevel=2
 
+let mapleader = " "
+let maplocalleader = ","
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -110,3 +117,9 @@ command Qa qa
 command QA qa
 command -nargs=* -complete=file W w <args>
 command -nargs=* -complete=file E e <args>
+
+call plug#begin('~/.vim/bundle')
+
+source ~/.vim/vimrc.plugins
+
+call plug#end()
