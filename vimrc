@@ -228,8 +228,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
 
 " te[X]t [D]elete [W]hitespace
-noremap <plug>text(delete-whitespace) :%s/\s\+$//<cr>:let @/=''<cr>
-nmap     <leader>xdw                  <plug>text(delete-whitespace)
+noremap <plug>delete(whitespace) :%s/\s\+$//<cr>:let @/=''<cr>
+nmap     <leader>xdw                  <plug>delete(whitespace)
 
 " Copy current buffer path relative to root of VIM session to system clipboard
 nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
