@@ -21,7 +21,7 @@ if [ ! -e ~/.pyenv/versions/$python2_env ]; then
 fi
 
 pyenv shell $python2_env
-pip2 install neovim
+pip2 install --upgrade pip neovim
 
 echo "let g:python_host_prog='$(pyenv which python)'" > vimrc.pyenv
 
@@ -36,7 +36,7 @@ if [ ! -e ~/.pyenv/versions/$python3_env ]; then
 fi
 
 pyenv shell $python3_env
-pip3 install neovim
+pip3 install --upgrade pip neovim
 
 echo "let g:python3_host_prog='$(pyenv which python)'" >> vimrc.pyenv
 

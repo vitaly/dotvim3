@@ -2,6 +2,9 @@ export VIM_DIR ?= ${PWD}
 
 SRC := cd src &&
 
+default: install
+.PHONY: default
+
 configure:
 	${SRC} bin/generate.sh
 .PHONY: configure
@@ -19,8 +22,10 @@ edit: ${VIM_DIR}/.config
 .PHONY: edit
 
 install: configure
+	chmod +x ./deps/install.sh
 	./deps/install.sh
-	vim +'PlugInstall' +qa
+	vim +PlugInstall +UpdateRemotePlugins +qa
+	touch .done
 .PHONY: install
 
 # TODO: generate list by make configure
