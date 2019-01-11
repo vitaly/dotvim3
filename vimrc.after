@@ -51,6 +51,10 @@ if maparg('<plug>search-buffer-tags') != ''
   nmap <leader>tb <plug>search-buffer-tags
 endif
 
+" src/plugins/60-development/plugins/tags/files/vimrc.after -------------------
+
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
+
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
 source ~/.vim/local/vimrc.after
