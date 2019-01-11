@@ -33,10 +33,10 @@ Plug 'maksimr/vim-jsbeautify'
 
 
 
-Plug 'wsdjeg/FlyGrep.vim'
-
-nnoremap <plug>fly-grep       :FlyGrep<cr>
-nmap     <plug>search(smart) <plug>fly-grep
+" Plug 'wsdjeg/FlyGrep.vim'
+" nnoremap <plug>fly-grep       :FlyGrep<cr>
+" noremap  <plug>search(fly)  :FlyGrep<cr>
+" nmap     <plug>search(smart) <plug>search(fly)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

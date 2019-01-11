@@ -1,4 +1,4 @@
-func PreviewWord()
+func! PreviewWord()
   if &previewwindow     " don't do this in the preview window
     return
   endif
