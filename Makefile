@@ -25,7 +25,6 @@ install: configure
 	chmod +x ./deps/install.sh
 	./deps/install.sh
 	vim +PlugInstall +UpdateRemotePlugins +qa
-	touch .done
 .PHONY: install
 
 # TODO: generate list by make configure
