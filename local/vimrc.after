@@ -140,6 +140,7 @@ nmap <leader>bm :messages<cr>
 
 
 
+set diffopt-=internal
 function! s:checkDiffModeEnter()
   if &diff && ! exists('b:diffMode')
     let b:diffMode=1
