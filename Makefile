@@ -27,6 +27,10 @@ install: configure
 	vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
 
+update: configure
+	vim +PlugInstall +UpdateRemotePlugins +qa
+.PHONY: update
+
 # TODO: generate list by make configure
 GENERATED := $(shell cat src/plugins/00-cleanup/lists/managed-files)
 
