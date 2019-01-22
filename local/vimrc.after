@@ -88,11 +88,13 @@ let g:gutentags_generate_on_missing = 0
 
 " nvim-only config
 if has("nvim")
-  nmap <leader>Z :term zsh<cr>
+  nmap <leader>zz :term zsh<cr>:startinsert<cr>
+  nmap <leader>zb :term bash<cr>:startinsert<cr>
+  nmap <leader>zs :term sh<cr>:startinsert<cr>
 
   highlight TermCursor ctermfg=red guifg=red
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-  tnoremap <leader><ESC> <C-\><C-n>
+  tnoremap <Esc><Esc> <C-\><C-n>
 endif
 
 
