@@ -216,6 +216,14 @@ nmap <leader>wh         <plug>window(left)
 nmap <plug>window(right) :TmuxNavigateRight<CR>
 nmap <leader>wl         <plug>window(right)
 
+if has("nvim")
+  tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
+  tnoremap <silent> <m-j> <C-\><C-n>:TmuxNavigateDown<cr>
+  tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
+  tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
+  tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+endif
+
 " src/plugins/30-general/plugins/vim-sneak/files/vimrc.bindings -------------------
 
 map f <Plug>Sneak_f
