@@ -148,3 +148,5 @@ nnoremap             <plug>livedown(kill)    :LivedownKill<cr>
 nmap     <leader>alk <plug>livedown(kill)
 nnoremap             <plug>livedown(toggle)  :LivedownToggle<cr>
 nmap     <leader>alt <plug>livedown(toggle)
+
+Plug 'vim-scripts/groovyindent-unix'
