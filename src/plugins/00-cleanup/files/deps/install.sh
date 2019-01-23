@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
 if command -v gem > /dev/null; then
-  gem install neovim
+  if ! gem list neovim | grep -q neovim; then
+    gem install neovim
+  fi
 fi
