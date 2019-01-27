@@ -1,10 +1,19 @@
 source .config
 
-if [ ! -e  "$(pyenv root)"/plugins/pyenv-install-latest ]; then
-  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+if ! command -v pyenv; then
+  if [ -x "$HOME/.pyenv/bin/pyenv" ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+  else
+    echo "PYENV NOT FOUND"
+    exit 1
+  fi
 fi
 
 eval "$(pyenv init -)"
+
+if [ ! -e  "$(pyenv root)"/plugins/pyenv-install-latest ]; then
+  git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+fi
 
 # PYTHON 2
 if ! compgen -G "$HOME/.pyenv/versions/2.*" > /dev/null; then
