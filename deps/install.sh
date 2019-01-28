@@ -57,4 +57,10 @@ echo "let g:python3_host_prog='$(pyenv which python)'" >> vimrc.pyenv
 
 # src/plugins/30-general/plugins/vimwiki/files/deps/install.sh -------------------
 
-pip3 install six git+git://github.com/robgolding63/tasklib@develop
+if ! pip3 list | grep tasklib; then
+  pip3 install git+git://github.com/robgolding63/tasklib@develop
+fi
+
+if ! pip3 list | grep six; then
+  pip3 install six
+fi
