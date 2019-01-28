@@ -238,20 +238,6 @@ nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboar
 " Copy current buffer path without filename to system clipboard
 nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
 
-" src/plugins/30-general/plugins/leader-guide/files/vimrc -------------------
-
-
-function! s:my_displayfunc()
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
-endfunction
-let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
-
-call leaderGuide#register_prefix_descriptions("<space>", "g:leader_map_guide")
-call leaderGuide#register_prefix_descriptions(",", "g:local_leader_map_guide")
-
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
 source ~/.vim/local/vimrc

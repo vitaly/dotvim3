@@ -32,7 +32,7 @@ ifeq (${install_deps},y)
 install: deps
 endif
 install:
-	echo vim +PlugInstall +UpdateRemotePlugins +qa
+	vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
 
 update: configure

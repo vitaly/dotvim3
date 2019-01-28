@@ -1,4 +1,13 @@
-source ~/.vim/vimrc.bindings
+function! s:my_displayfunc()
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+  let g:leaderGuide#displayname =
+        \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
+endfunction
+let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
+
+call leaderGuide#register_prefix_descriptions("<space>", "g:leader_map_guide")
+call leaderGuide#register_prefix_descriptions(",", "g:local_leader_map_guide")
 
 set timeoutlen=500
 
