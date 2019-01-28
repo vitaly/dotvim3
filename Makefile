@@ -2,6 +2,8 @@ export VIM_DIR ?= ${PWD}
 
 SRC := cd src &&
 
+include .config
+
 default: install
 .PHONY: default
 
@@ -21,10 +23,16 @@ edit: ${VIM_DIR}/.config
 	vim ${VIM_DIR}/.config
 .PHONY: edit
 
+deps:
+	bash deps/install.sh
+.PHONY: deps
+
 install: configure
-	chmod +x ./deps/install.sh
-	./deps/install.sh
-	vim +PlugInstall +UpdateRemotePlugins +qa
+ifeq (${install_deps},y)
+install: deps
+endif
+install:
+	echo vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
 
 update: configure
