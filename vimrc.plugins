@@ -464,14 +464,6 @@ Plug 'irrationalistic/vim-tasks'
 
 autocmd BufNewFile,BufReadPost todo set filetype=tasks
 
-" src/plugins/80-color-themes/files/vimrc.plugins -------------------
-
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plug 'tpope/vim-vividchalk'
-Plug 'nanotech/jellybeans.vim'
-Plug 'lifepillar/vim-solarized8'
-
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.plugins -------------------
 
 source ~/.vim/local/vimrc.plugins

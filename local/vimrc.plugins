@@ -74,13 +74,12 @@ Plug 'tpope/vim-projectionist'
 " call neomake#configure#automake('rw', 1000)
 " nmap <localleader>m :Neomake!<cr>
 
-
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'flazz/vim-colorschemes'
+" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -12,5 +12,3 @@ vimrc.after
 ftplugin/vimwiki.vim
 ftplugin/javascript.vim
 ftplugin/vim.vim
-colors/colorzone.vim
-colors/buttercream.vim

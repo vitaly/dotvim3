@@ -248,7 +248,6 @@ The plugins are loaded according to their sort order.
             *   [vim-i18n](#i18n) Rails i18n extraction plugin
 
     *   [Vimscript](#vimscript)
-    *   [Themes](#themes)
 
 
 <a name=installation>
@@ -661,12 +660,3 @@ TBD
 *   <a name=vimscript>[vimscript] ([top](#top))
 
     *   `,x` - to execute the current line of vimscript
-
-*   <a name=themes>Themes ([top](#top))
-
-    The following colorschemes are available:
-
-    * solarized
-    * tomorrow
-    * vividchalk
-    * TBD
