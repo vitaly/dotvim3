@@ -7,5 +7,8 @@ if (exists("g:after_vim_loaded") && g:after_vim_loaded)
 endif
 let g:after_vim_loaded = 1
 
-source ~/.vim/vimrc.after
-source ~/.vim/vimrc.bindings
+
+if $SKIP_CONFIGS == ''
+  source ~/.vim/vimrc.after
+  source ~/.vim/vimrc.bindings
+endif

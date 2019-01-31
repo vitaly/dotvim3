@@ -4,7 +4,7 @@ SRC := cd src &&
 
 include .config
 
-default: install
+default: configure install
 .PHONY: default
 
 configure:
@@ -27,16 +27,16 @@ deps:
 	bash deps/install.sh
 .PHONY: deps
 
-install: configure
+install:
 ifeq (${install_deps},y)
 install: deps
 endif
 install:
-	vim +PlugInstall +UpdateRemotePlugins +qa
+	SKIP_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
 
-update: configure
-	vim +PlugInstall +UpdateRemotePlugins +qa
+update:
+	SKIP_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: update
 
 # TODO: generate list by make configure
