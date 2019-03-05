@@ -35,7 +35,6 @@ function finish()
 
 # SUPPORT FUNCTIONS
 
-DESC=
 function desc()
 {
   if [ -n "$*" ]; then
@@ -54,8 +53,14 @@ function desc_add()
   fi
 }
 
-ENUM_VALUES=()
-ENUM_DESCRIPTIONS=()
+
+function _reset() {
+  DESC=
+  ENUM_VALUES=()
+  ENUM_DESCRIPTIONS=()
+}
+_reset
+
 # enum VALUE DESCRIPTION
 function enum()
 {
@@ -253,7 +258,5 @@ function ask()
     fi
   done
 
-  DESC=
-  ENUM_VALUES=()
-  ENUM_DESCRIPTIONS=()
+  _reset
 }
