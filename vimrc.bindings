@@ -9,7 +9,7 @@ fu! Toggle_concealcursor()
     set concealcursor=
   endif
 endfu
-map <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
+noremap <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
 nmap <leader>Tcc <plug>toggle(conceal-cursor)
 
 set conceallevel=2
@@ -20,7 +20,7 @@ fu! Toggle_conceallevel()
     set conceallevel=0
   endif
 endfu
-map <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
+noremap <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
 nmap <leader>Tcl <plug>toggle(conceal-level)
 
 noremap <silent> <plug>toggle(relativenumber) :set relativenumber!<cr>
@@ -88,12 +88,12 @@ fu s:cycleDiminitive()
   call s:updateDiminactive()
 endfu
 
-nnoremap             <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
+noremap              <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
 nmap     <leader>Td  <plug>toggle(diminactive)
 
 " src/plugins/30-general/plugins/leader-guide/files/vimrc.bindings -------------------
 
-nnoremap                   <plug>redraw             :redraw!<cr>
+noremap                    <plug>redraw             :redraw!<cr>
 nmap     <leader>rr        <plug>redraw
 
 noremap                    <plug>tab(new)           :tabnew<cr>
@@ -102,49 +102,49 @@ nmap     <leader>tn        <plug>tab(new)
 map                        <plug>tab(new-file)      <plug>tab(new)<plug>fuzzy-file(find)
 nmap     <leader>tf        <plug>tab(new-file)
 
-nnoremap                   <plug>buffer(next)       :bn<cr>
+noremap                    <plug>buffer(next)       :bn<cr>
 nmap     <leader>bn        <plug>buffer(next)
 
-nnoremap                   <plug>buffer(prev)       :bp<cr>
+noremap                    <plug>buffer(prev)       :bp<cr>
 nmap     <leader>bp        <plug>buffer(prev)
 
-nnoremap                   <plug>file(save)         :w<cr>
+noremap                    <plug>file(save)         :w<cr>
 nmap     <leader>fs        <plug>file(save)
 
-nnoremap                   <plug>file(save-all)     :wa<cr>
+noremap                    <plug>file(save-all)     :wa<cr>
 nmap     <leader>fS        <plug>file(save-all)
 
-nnoremap                   <plug>quit(all)          :qa<cr>
+noremap                    <plug>quit(all)          :qa<cr>
 nmap     <leader>qq        <plug>quit(all)
 
-nnoremap                   <plug>(loca.after)       :e ~/.vim/local/vimrc.after<cr>
+noremap                    <plug>(loca.after)       :e ~/.vim/local/vimrc.after<cr>
 nmap     <leader>fed       <plug>(loca.after)
 
-nnoremap                   <plug>(.vim/local)       :e ~/.vim/local<cr>
+noremap                    <plug>(.vim/local)       :e ~/.vim/local<cr>
 nmap     <leader>fel       <plug>(.vim/local)
 
-nnoremap                   <plug>(local.plugins)    :e ~/.vim/local/vimrc.plugins<cr>
+noremap                    <plug>(local.plugins)    :e ~/.vim/local/vimrc.plugins<cr>
 nmap     <leader>fep       <plug>(local.plugins)
 
-nnoremap                   <plug>(.vim/)            :e ~/.vim/<cr>
+noremap                    <plug>(.vim/)            :e ~/.vim/<cr>
 nmap     <leader>fev       <plug>(.vim/)
 
-nnoremap                   <plug>(.config/nvim)     :e ~/.config/nvim<cr>
+noremap                    <plug>(.config/nvim)     :e ~/.config/nvim<cr>
 nmap     <leader>fen       <plug>(.config/nvim)
 
-nnoremap                   <plug>window(h-max)      <C-w><bar>
+noremap                    <plug>window(h-max)      <C-w><bar>
 nmap     <leader>w<bar>    <plug>window(h-max)
 
-nnoremap                   <plug>window(v-max)      <C-w>_
+noremap                    <plug>window(v-max)      <C-w>_
 nmap     <leader>w_        <plug>window(v-max)
 
-nnoremap                   <plug>windows-balance    <C-w>=
+noremap                    <plug>windows-balance    <C-w>=
 nmap     <leader>w=        <plug>windows-balance
 
-nnoremap                   <plug>windows-swap       <C-w>x
+noremap                    <plug>windows-swap       <C-w>x
 nmap     <leader>wx        <plug>windows-swap
 
-nnoremap                   <plug>window(maximize)   <C-w>_<C-w><Bar>
+noremap                    <plug>window(maximize)   <C-w>_<C-w><Bar>
 nmap     <leader>wz        <plug>window(maximize)
 nmap     <C-w>z            <plug>window(maximize)
 
@@ -160,23 +160,23 @@ nmap     <leader>wH        <plug>window(move-left)
 nmap                       <plug>window(move-right) <c-w>L
 nmap     <leader>wL        <plug>window(move-right)
 
-nnoremap                   <plug>window(h-split)    :split<cr><c-w>j
+noremap                    <plug>window(h-split)    :split<cr><c-w>j
 nmap     <leader>ws        <plug>window(h-split)
 nmap     <leader>w-        <plug>window(h-split)
 
-nnoremap                   <plug>window(v-split)    :vsplit<cr><c-w>l
+noremap                    <plug>window(v-split)    :vsplit<cr><c-w>l
 nmap     <leader>wv        <plug>window(v-split)
 nmap     <leader>w<Bslash> <plug>window(v-split)
 
-nnoremap                   <plug>window(delete)     :q<cr>
+noremap                    <plug>window(delete)     :q<cr>
 nmap     <leader>wd        <plug>window(delete)
 nmap     <leader>wq        <plug>window(delete)
 nmap     <leader>qw        <plug>window(delete)
 
-nnoremap                   <plug>buffer(delete)     :bd<cr>
+noremap                    <plug>buffer(delete)     :bd<cr>
 nmap     <leader>bd        <plug>buffer(delete)
 
-nnoremap                   <plug>window(only)       <C-w>o
+noremap                    <plug>window(only)       <C-w>o
 nmap     <leader>wm        <plug>window(only)
 
 nnoremap <leader><space> :
@@ -185,10 +185,10 @@ nnoremap <leader><space> :
 
 " nerdtree with tabs
 " display the [F]ile browser [T]ree
-map <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
+noremap <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
 
 " show current file in the tree
-map <plug>file-tree(find) :NERDTreeFind<CR>
+noremap <plug>file-tree(find) :NERDTreeFind<CR>
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
 
@@ -204,17 +204,17 @@ endif
 
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
-nmap <plug>window(up)    :TmuxNavigateUp<CR>
-nmap <leader>wk         <plug>window(up)
+noremap <plug>window(up)    :TmuxNavigateUp<CR>
+nmap    <leader>wk          <plug>window(up)
 
-nmap <plug>window(down)  :TmuxNavigateDown<CR>
-nmap <leader>wj         <plug>window(down)
+noremap <plug>window(down)  :TmuxNavigateDown<CR>
+nmap    <leader>wj          <plug>window(down)
 
-nmap <plug>window(left)  :TmuxNavigateLeft<CR>
-nmap <leader>wh         <plug>window(left)
+noremap <plug>window(left)  :TmuxNavigateLeft<CR>
+nmap    <leader>wh          <plug>window(left)
 
-nmap <plug>window(right) :TmuxNavigateRight<CR>
-nmap <leader>wl         <plug>window(right)
+noremap <plug>window(right) :TmuxNavigateRight<CR>
+nmap    <leader>wl          <plug>window(right)
 
 if has("nvim")
   tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
@@ -233,7 +233,7 @@ map T <Plug>Sneak_T
 
 " src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 
-nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>
+noremap             <plug>window(zoom) :ZoomWinTabToggle<CR>
 nmap     <leader>wo <plug>window(zoom)
 
 " src/plugins/40-completion/engine/deoplete/files/vimrc.bindings -------------------
@@ -270,7 +270,7 @@ imap <c-x><tab> <plug>(fzf-maps-i)
 
 " src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
 
-nnoremap <plug>fuzzy-file(find) :Files<cr>
+noremap <plug>fuzzy-file(find) :Files<cr>
 
 " src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/common/vimrc.bindings -------------------
 

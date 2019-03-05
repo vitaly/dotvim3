@@ -41,5 +41,5 @@ fu s:cycleDiminitive()
   call s:updateDiminactive()
 endfu
 
-nnoremap             <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
+noremap              <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
 nmap     <leader>Td  <plug>toggle(diminactive)

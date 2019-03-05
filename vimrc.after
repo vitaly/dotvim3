@@ -20,10 +20,10 @@ call leaderGuide#register_prefix_descriptions(",", "g:local_leader_map_guide")
 
 set timeoutlen=500
 
-nnoremap <plug>guide(global)  :<c-u>LeaderGuide '<Space>'<CR>
-nnoremap <plug>guide(local)   :<c-u>LeaderGuide ','<CR>
-vnoremap <plug>vguide(global) :<c-u>LeaderGuideVisual  '<space>'<CR>
-vnoremap <plug>vguide(local)  :<c-u>LeaderGuideVisual  ','<CR>
+noremap <plug>guide(global)  :<c-u>LeaderGuide '<Space>'<CR>
+noremap <plug>guide(local)   :<c-u>LeaderGuide ','<CR>
+noremap <plug>vguide(global) :<c-u>LeaderGuideVisual  '<space>'<CR>
+noremap <plug>vguide(local)  :<c-u>LeaderGuideVisual  ','<CR>
 
 map <silent> <leader>      <plug>guide(global)
 map <silent> <localleader> <plug>guide(local)

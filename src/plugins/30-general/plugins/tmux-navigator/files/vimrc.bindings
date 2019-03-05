@@ -1,14 +1,14 @@
-nmap <plug>window(up)    :TmuxNavigateUp<CR>
-nmap <leader>wk         <plug>window(up)
+noremap <plug>window(up)    :TmuxNavigateUp<CR>
+nmap    <leader>wk          <plug>window(up)
 
-nmap <plug>window(down)  :TmuxNavigateDown<CR>
-nmap <leader>wj         <plug>window(down)
+noremap <plug>window(down)  :TmuxNavigateDown<CR>
+nmap    <leader>wj          <plug>window(down)
 
-nmap <plug>window(left)  :TmuxNavigateLeft<CR>
-nmap <leader>wh         <plug>window(left)
+noremap <plug>window(left)  :TmuxNavigateLeft<CR>
+nmap    <leader>wh          <plug>window(left)
 
-nmap <plug>window(right) :TmuxNavigateRight<CR>
-nmap <leader>wl         <plug>window(right)
+noremap <plug>window(right) :TmuxNavigateRight<CR>
+nmap    <leader>wl          <plug>window(right)
 
 if has("nvim")
   tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>

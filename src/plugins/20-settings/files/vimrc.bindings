@@ -6,7 +6,7 @@ fu! Toggle_concealcursor()
     set concealcursor=
   endif
 endfu
-map <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
+noremap <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
 nmap <leader>Tcc <plug>toggle(conceal-cursor)
 
 set conceallevel=2
@@ -17,7 +17,7 @@ fu! Toggle_conceallevel()
     set conceallevel=0
   endif
 endfu
-map <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
+noremap <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
 nmap <leader>Tcl <plug>toggle(conceal-level)
 
 noremap <silent> <plug>toggle(relativenumber) :set relativenumber!<cr>

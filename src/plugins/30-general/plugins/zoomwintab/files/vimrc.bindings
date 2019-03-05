@@ -1,2 +1,2 @@
-nnoremap            <plug>window(zoom) :ZoomWinTabToggle<CR>
+noremap             <plug>window(zoom) :ZoomWinTabToggle<CR>
 nmap     <leader>wo <plug>window(zoom)
