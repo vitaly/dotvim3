@@ -31,7 +31,7 @@ let g:diminactive_mode = 0
 
 " src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
-Plug 'vim-scripts/greplace.vim'
+Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }
 
 " src/plugins/30-general/plugins/leader-guide/files/vimrc.plugins -------------------
 
@@ -388,7 +388,7 @@ Plug 'sheerun/vim-polyglot'
 
 " src/plugins/70-languages/plugins/q/files/vimrc.plugins -------------------
 
-Plug 'vitaly/vim-qkdb-syntax'
+Plug 'vitaly/vim-qkdb-syntax', { 'for': 'q' }
 
 function! s:qModeSetup()
   let b:delimitMate_quotes = '"'
@@ -400,6 +400,7 @@ augroup qmodesetup
   au!
   au FileType q call s:qModeSetup()
 augroup END
+
 " src/plugins/70-languages/plugins/rails/files/vimrc.plugins -------------------
 
 " Rails support
