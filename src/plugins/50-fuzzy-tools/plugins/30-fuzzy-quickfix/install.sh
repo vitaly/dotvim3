@@ -14,10 +14,6 @@ if is_true use_fzf; then
   enum fzf   "- use <Plug>fzf(quickfix)"
 fi
 
-if multi_enum; then
-  ask enum fuzzy_quickfix "quickfix search with?" 1
-else
-  fuzzy_quickfix="$(enum_value 1)"
-fi
+ask enum fuzzy_quickfix "quickfix search with?" 1
 
 copy_files "$(this_dir)/$fuzzy_quickfix"

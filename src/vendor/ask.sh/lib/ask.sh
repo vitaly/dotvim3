@@ -73,11 +73,6 @@ function enum_size()
   echo ${#ENUM_VALUES[@]}
 }
 
-function multi_enum()
-{
-  [ "$(enum_size)" -gt 1 ]
-}
-
 function dump_enum_values()
 {
   for i in "${ENUM_VALUES[@]}"; do
@@ -220,6 +215,9 @@ function ask()
         echo "$a"
       fi
 
+    elif [ "enum" == "$kind" -a 1 == "$(enum_size)" ]; then
+      # just a single enum option. no need to prompt
+      a="$(enum_value 1)"
     else
       if [ -n "$current" ]; then
         v="$current"

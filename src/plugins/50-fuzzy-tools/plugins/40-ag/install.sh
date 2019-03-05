@@ -8,10 +8,6 @@ is_true use_fzf  && \
 true && \
   enum vim-ag '  - use ":Ag" from vim-ag plugin'
 
-if multi_enum; then
-  ask enum ag "Which AG to use?" 1
-else
-  ag="$(enum_value 1)"
-fi
+ask enum ag "Which AG to use?" 1
 
 copy_files "$(this_dir)/$ag"
