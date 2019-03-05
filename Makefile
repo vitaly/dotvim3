@@ -4,7 +4,11 @@ SRC := cd src &&
 
 include .config
 
+ifeq (${install_deps},y)
+default: configure deps install
+else
 default: configure install
+endif
 .PHONY: default
 
 configure:
@@ -27,10 +31,6 @@ deps:
 	bash deps/install.sh
 .PHONY: deps
 
-install:
-ifeq (${install_deps},y)
-install: deps
-endif
 install:
 	SKIP_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
