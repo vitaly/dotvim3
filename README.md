@@ -212,7 +212,6 @@ The plugins are loaded according to their sort order.
         *   TBD: other Unite plugins
         *   [unite outline](#unite-outline)
         *   [unite-colorscheme](#unite-colorscheme)
-    *   [CtrlP](#ctrlp)
     *   [FZF](#fzf)
     *   [File search](#fuzzy-files)
     *   [Buffer search](#fuzzy-buffers)
@@ -427,13 +426,6 @@ TBD
         Then try to navigate up and down and see what happens ;)
 
         > Note: actually this command aliased as `:THEME`
-
-
-*   <a name=ctrlp>[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) ([top](#top))
-
-    Fuzzy file, buffer, mru, tag, etc finder.
-
-    This plugin has lots of options, see `:h ctrlp` for more.
 
 *   <a name=fzf>[FZF](https://github.com/junegunn/fzf) ([top](#top))
     * `<leader>ff` - `:Files` - fuzzy find files using FZF
