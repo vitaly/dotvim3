@@ -449,7 +449,7 @@ TBD
 
 *   <a name=fuzzy-quickfix>Quickfix search ([top](#top))
 
-    * `<leader>sq` - `:CtrlPQuickfix` - fuzzy find within quickfix buffer
+    * `<leader>sq` - `<Plug>search(quickfix)` - fuzzy find within quickfix buffer
 
 *   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
 

@@ -1,2 +1,1 @@
-" [S]earch [Q]uickfix
-nmap <leader>sq :CtrlPQuickfix<cr>
+noremap <plug>search(quickfix) :CtrlPQuickfix<cr>

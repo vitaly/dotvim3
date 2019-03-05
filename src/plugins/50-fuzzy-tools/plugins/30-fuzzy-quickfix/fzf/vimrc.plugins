@@ -1,0 +1,2 @@
+Plug 'fszymanski/fzf-quickfix', {'on': '<Plug>(fzf-quickfix)'}
+nmap <plug>search(quickfix) <plug>(fzf-quickfix)

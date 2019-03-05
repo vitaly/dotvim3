@@ -279,10 +279,15 @@ nmap <leader>bb <plug>fuzzy(buffer)
 
 noremap <plug>fuzzy(buffer) :Unite -start-insert -no-split -buffer-name=buffer buffer<cr>
 
-" src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/ctrlp/vimrc.plugins -------------------
+" src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/files/vimrc.plugins -------------------
 
 " [S]earch [Q]uickfix
-nmap <leader>sq :CtrlPQuickfix<cr>
+nmap <leader>sq <plug>search(quickfix)
+
+" src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/fzf/vimrc.plugins -------------------
+
+Plug 'fszymanski/fzf-quickfix', {'on': '<Plug>(fzf-quickfix)'}
+nmap <plug>search(quickfix) <plug>(fzf-quickfix)
 
 " src/plugins/50-fuzzy-tools/plugins/40-ag/files/vimrc.plugins -------------------
 
