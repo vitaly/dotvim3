@@ -95,20 +95,6 @@ vmap <leader>; <plug>comment(invert)
 " replacement for the repeat mapping (.) to support plugins
 Plug 'tpope/vim-repeat'
 
-" src/plugins/30-general/plugins/session/files/vimrc.plugins -------------------
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-
-let g:session_autosave = 'no'
-let g:session_autoload = 'no'
-
-nmap <leader>SS :SaveSession
-nmap <leader>SO :OpenSession
-if has('gui_running')
-  nmap <leader>SR :RestartVim<CR>
-endif
-
 " src/plugins/30-general/plugins/statusline/lightline/files/vimrc.plugins -------------------
 
 Plug 'itchyny/lightline.vim'

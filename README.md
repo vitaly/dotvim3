@@ -196,8 +196,6 @@ The plugins are loaded according to their sort order.
     *   [nerdcommenter](#nerdcommenter)
     *   [vim-repeat](http://github.com/tpope/vim-repeat)
         Use the repeat command "." with supported plugins
-    *   [vim-session](#vim-session)
-        Extended session management for Vim (:mksession on steroids)
     *   [vim-switch](#vim-switch)
         Simple Vim plugin to switch segments of text with predefined replacements.
     *   [tmux-navigator](#tmux-navigator)
@@ -340,18 +338,6 @@ TBD
     * `<leader>cc` - add commenting
     * `<leader>cu` - Uncomment
     * check docs for more
-
-*   <a name=vim-session>[vim-session](https://github.com/xolox/vim-session) ([top](#top))
-
-    Extended session management for Vim (`:mksession` on steroids)
-
-    * `<leader>SS` - `:SaveSession`
-    * `<leader>SO` - `:OpenSession`
-
-
-    When runnin in a graphical vim:
-
-    * `:RestartVim<CR>` - This command saves your current editing session, restarts Vim and restores your editing session.
 
 *   <a name=vim-switch>[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
 
