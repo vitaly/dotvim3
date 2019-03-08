@@ -32,11 +32,11 @@ deps:
 .PHONY: deps
 
 install:
-	SKIP_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
+	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: install
 
 update:
-	SKIP_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
+	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: update
 
 # TODO: generate list by make configure

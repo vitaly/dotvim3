@@ -8,7 +8,7 @@ endif
 let g:after_vim_loaded = 1
 
 
-if $SKIP_CONFIGS == ''
-  source ~/.vim/vimrc.after
+if $VIMRC_SKIP_AFTER_CONFIGS == ''
   source ~/.vim/vimrc.bindings
+  source ~/.vim/vimrc.after
 endif
