@@ -48,7 +48,7 @@ Dein was replaced with [Plug](https://github.com/junegunn/vim-plug).
 ### local customization files handling
 
 instead of sourcing `~/.vimrc.after`, `~/.vimrc.plugins`, etc., we now source
-`~/.vim/local/XXX` at the end of `~/.vimrc/XXX` for each of `vimrc`,
+`~/.vim/local/X` at the end of `~/.vimrc/X` for each of `vimrc`,
 `vimrc.after`, `vimrc.plugins`, and `vimrc.bindings`.
 
 `~/local/*` files are created but not managed, you can modify them to your
@@ -91,17 +91,20 @@ information relevant to current configuration chocies.
 
 # Load order
 
+First the following scripts are sourced:
+
 * vimrc
     * vimrc.plugins
-        * ~/.vimrc.plugins
-        * gvimrc.plugins
-            * ~/.gvimrc.plugins
-    * << here all plugins are actually loaded >>
-    * after/plugin/after.vim
-        * vimrc.after
-            * ~/.vimrc.after
-            * gvimrc.after
-                * ~/.gvimrc.after
+        * local/vimrc.plugins
+    * local/vimrc
+
+Then, after plugins were loaded, the following scripts are sourced:
+
+* after/plugin/after.vim
+    * vimrc.bindings
+        * local/vimrc.bindings
+    * vimrc.after
+        * local/vimrc.after
 
 
 # Contributing
