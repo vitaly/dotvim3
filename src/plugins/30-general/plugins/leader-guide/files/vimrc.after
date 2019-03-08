@@ -6,8 +6,12 @@ function! s:my_displayfunc()
 endfunction
 let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
 
-call leaderGuide#register_prefix_descriptions("<space>", "g:leader_map_guide")
-call leaderGuide#register_prefix_descriptions(",", "g:local_leader_map_guide")
+let g:topdict = {}
+let g:topdict[' '] = g:leader_map_guide
+let g:topdict[' ']['name'] = '<leader>'
+let g:topdict[','] = g:local_leader_map_guide
+let g:topdict[',']['name'] = '<localleader>'
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
 
 set timeoutlen=500
 

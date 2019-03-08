@@ -2,6 +2,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Merginal'
 Plug 'tpope/vim-rhubarb'
 
+let g:leader_map_guide.g  = { 'name': 'Git' }
+
 " [G]it [G]grep
 noremap <plug>git(grep) :silent Ggrep<space>
 nmap <leader>gg <plug>git(grep)
