@@ -248,6 +248,7 @@ The plugins are loaded according to their sort order.
             *   [vim-i18n](#i18n) Rails i18n extraction plugin
 
     *   [Vimscript](#vimscript)
+    *   [Base16](#base16)
 
 
 <a name=installation>
@@ -641,3 +642,11 @@ TBD
 *   <a name=vimscript>[vimscript] ([top](#top))
 
     *   `,x` - to execute the current line of vimscript
+
+*   <a name=base16>Base16 ([top](#top))
+
+    Base16 color themes are supported
+
+    File `~/.vimrc_background` will be sourced if found. It can be created by
+    using <https://github.com/chriskempson/base16-shell> with your shell.
+

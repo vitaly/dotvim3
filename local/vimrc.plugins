@@ -85,7 +85,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'chriskempson/base16-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_listsyms = ' SX'
 let g:vimwiki_listsym_rejected = 'D'

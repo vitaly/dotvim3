@@ -1,5 +1,0 @@
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plug 'tpope/vim-vividchalk'
-Plug 'nanotech/jellybeans.vim'
-Plug 'lifepillar/vim-solarized8'

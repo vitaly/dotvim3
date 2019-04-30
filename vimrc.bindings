@@ -288,6 +288,15 @@ endif
 " FIXME: can we make this active only in a Ruby ftype?
 let g:local_leader_map_guide.a   = { 'name': 'Apidock'        }
 
+" src/plugins/80-base16/files/vimrc.bindings -------------------
+
+" including in vimrc.bindings to setup colors early, and
+" allow other plugins to override in vimrc.after
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
 
 source ~/.vim/local/vimrc.bindings
