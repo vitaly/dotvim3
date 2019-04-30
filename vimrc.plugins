@@ -59,6 +59,10 @@ let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
 let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
 let g:local_leader_map_guide.l   = { 'name': 'Language'       }
 
+" src/plugins/30-general/plugins/multiple-cursors/files/vimrc.plugins -------------------
+
+Plug 'terryma/vim-multiple-cursors'
+
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
