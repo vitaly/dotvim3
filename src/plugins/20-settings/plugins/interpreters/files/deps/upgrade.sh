@@ -1,16 +1,18 @@
 # RUBY
 if [ 'y' == "$neovim_ruby" ]; then
   if [ 'y' == "$gem_sudo" ]; then
-    (set -x; sudo -E gem install neovim)
+    GEM_SUDO="sudo -E -H"
   else
-    (set -x; gem install neovim)
+    GEM_SUDO=
   fi
+
+  (set -x; $GEM_SUDO gem install neovim)
 fi
 
 # PYTHON
 if [ 'y' == "$neovim_python" ]; then
   if [ 'y' == "$pip_sudo" ]; then
-    PIP_SUDO="sudo -E"
+    PIP_SUDO="sudo -E -H"
   else
     PIP_SUDO=
   fi

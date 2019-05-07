@@ -9,7 +9,7 @@ source .config
 if [ 'y' == "$neovim_ruby" ]; then
   if ! gem list neovim | grep -q neovim; then
     if [ 'y' == "$gem_sudo" ]; then
-      GEM_SUDO="sudo -E"
+      GEM_SUDO="sudo -E -H"
     else
       GEM_SUDO=
     fi
@@ -21,7 +21,7 @@ fi
 # PYTHON
 if [ 'y' == "$neovim_python" ]; then
   if [ 'y' == "$pip_sudo" ]; then
-    PIP_SUDO="sudo -E"
+    PIP_SUDO="sudo -E -H"
   else
     PIP_SUDO=
   fi
@@ -70,7 +70,7 @@ fi
 # src/plugins/30-general/plugins/vimwiki/files/deps/install.sh -------------------
 
 if [ 'y' == "$pip_sudo" ]; then
-  PIP_SUDO="sudo -E"
+  PIP_SUDO="sudo -E -H"
 else
   PIP_SUDO=
 fi

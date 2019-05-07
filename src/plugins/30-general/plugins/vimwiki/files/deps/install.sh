@@ -1,5 +1,5 @@
 if [ 'y' == "$pip_sudo" ]; then
-  PIP_SUDO="sudo -E"
+  PIP_SUDO="sudo -E -H"
 else
   PIP_SUDO=
 fi
