@@ -9,6 +9,12 @@ fi
 
 # PYTHON
 if [ 'y' == "$neovim_python" ]; then
+  if [ 'y' == "$pip_sudo" ]; then
+    PIP_SUDO="sudo -E"
+  else
+    PIP_SUDO=
+  fi
+
   if [ 'y' == "$use_pyenv" ]; then
     eval "$(pyenv init -)"
   fi
@@ -20,7 +26,7 @@ if [ 'y' == "$neovim_python" ]; then
       pyenv shell $pyenv2
     fi
 
-    pip2 install --upgrade neovim
+    $PIP_SUDO pip2 install --upgrade neovim
   fi
 
   # python3
@@ -30,7 +36,7 @@ if [ 'y' == "$neovim_python" ]; then
       pyenv shell $pyenv3
     fi
 
-    pip3 install --upgrade neovim
+    $PIP_SUDO pip3 install --upgrade neovim
   fi
 
 fi

@@ -2,15 +2,23 @@
 if [ 'y' == "$neovim_ruby" ]; then
   if ! gem list neovim | grep -q neovim; then
     if [ 'y' == "$gem_sudo" ]; then
-      (set -x; sudo -E gem install neovim)
+      GEM_SUDO="sudo -E"
     else
-      (set -x; gem install neovim)
+      GEM_SUDO=
     fi
+
+    (set -x; $GEM_SUDO gem install neovim)
   fi
 fi
 
 # PYTHON
 if [ 'y' == "$neovim_python" ]; then
+  if [ 'y' == "$pip_sudo" ]; then
+    PIP_SUDO="sudo -E"
+  else
+    PIP_SUDO=
+  fi
+
   if [ 'y' == "$use_pyenv" ]; then
     eval "$(pyenv init -)"
   fi
@@ -25,7 +33,7 @@ if [ 'y' == "$neovim_python" ]; then
     fi
 
     if ! pip2 list | grep neovim; then
-      pip2 install neovim
+      $PIP_SUDO pip2 install neovim
     fi
   fi
 
@@ -39,7 +47,7 @@ if [ 'y' == "$neovim_python" ]; then
     fi
 
     if ! pip3 list | grep neovim; then
-      pip3 install neovim
+      $PIP_SUDO pip3 install neovim
     fi
   fi
 

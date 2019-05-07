@@ -16,6 +16,12 @@ fi
 
 # PYTHON
 if [ 'y' == "$neovim_python" ]; then
+  if [ 'y' == "$pip_sudo" ]; then
+    PIP_SUDO="sudo -E"
+  else
+    PIP_SUDO=
+  fi
+
   if [ 'y' == "$use_pyenv" ]; then
     eval "$(pyenv init -)"
   fi
@@ -27,7 +33,7 @@ if [ 'y' == "$neovim_python" ]; then
       pyenv shell $pyenv2
     fi
 
-    pip2 install --upgrade neovim
+    $PIP_SUDO pip2 install --upgrade neovim
   fi
 
   # python3
@@ -37,7 +43,7 @@ if [ 'y' == "$neovim_python" ]; then
       pyenv shell $pyenv3
     fi
 
-    pip3 install --upgrade neovim
+    $PIP_SUDO pip3 install --upgrade neovim
   fi
 
 fi
@@ -49,9 +55,15 @@ fi
 
 # src/plugins/30-general/plugins/vimwiki/files/deps/upgrade.sh -------------------
 
+if [ 'y' == "$pip_sudo" ]; then
+  PIP_SUDO="sudo -E"
+else
+  PIP_SUDO=
+fi
+
 if [ 'y' == "$use_pyenv" ]; then
   echo using $pyenv3 pyenv
   pyenv shell $pyenv3
 fi
 
-(set -x; pip3 install --upgrade  six git+git://github.com/robgolding63/tasklib@develop)
+(set -x; $PIP_SUDO pip3 install --upgrade  six git+git://github.com/robgolding63/tasklib@develop)

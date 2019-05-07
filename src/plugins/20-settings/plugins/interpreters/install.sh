@@ -1,10 +1,11 @@
 # RUBY
 if ask_bool neovim_ruby "install neovim ruby gem?" y; then
-  ask bool gem_sudo "should we use sudo to insstall gems?" "n"
+  ask bool gem_sudo "should we use sudo with rubygems?" "n"
 fi
 
 # PYTHON
 if ask_bool neovim_python "install python support packagess?" y; then
+  ask bool pip_sudo "should we use sudo with pip?" "n"
   PY2=
   PY3=
   if ask_bool use_pyenv "uses python from  pyenv" y; then
