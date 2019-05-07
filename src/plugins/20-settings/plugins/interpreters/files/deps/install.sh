@@ -1,10 +1,3 @@
-
-# src/plugins/00-cleanup/files/deps/install.sh -------------------
-
-source .config
-
-# src/plugins/20-settings/plugins/interpreters/files/deps/install.sh -------------------
-
 # RUBY
 if [ 'y' == "$neovim_ruby" ]; then
   if ! gem list neovim | grep -q neovim; then
@@ -57,19 +50,4 @@ if [ 'y' == "$neovim_js" ]; then
   if ! command -v neovim-node-host > /dev/null; then
     yarn global add neovim
   fi
-fi
-
-# src/plugins/30-general/plugins/vimwiki/files/deps/install.sh -------------------
-
-if [ 'y' == "$use_pyenv" ]; then
-  echo using $pyenv3 pyenv
-  pyenv shell $pyenv3
-fi
-
-if ! pip3 list | grep tasklib; then
-  (set -x; pip3 install git+git://github.com/robgolding63/tasklib@develop)
-fi
-
-if ! pip3 list | grep six; then
-  (set -x; pip3 install six)
 fi

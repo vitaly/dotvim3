@@ -1,10 +1,3 @@
-
-# src/plugins/00-cleanup/files/deps/upgrade.sh -------------------
-
-source .config
-
-# src/plugins/20-settings/plugins/interpreters/files/deps/upgrade.sh -------------------
-
 # RUBY
 if [ 'y' == "$neovim_ruby" ]; then
   if [ 'y' == "$gem_sudo" ]; then
@@ -46,12 +39,3 @@ fi
 if [ 'y' == "$neovim_js" ]; then
   yarn global add neovim
 fi
-
-# src/plugins/30-general/plugins/vimwiki/files/deps/upgrade.sh -------------------
-
-if [ 'y' == "$use_pyenv" ]; then
-  echo using $pyenv3 pyenv
-  pyenv shell $pyenv3
-fi
-
-(set -x; pip3 install --upgrade  six git+git://github.com/robgolding63/tasklib@develop)

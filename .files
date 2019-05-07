@@ -9,6 +9,7 @@ after/plugin/after.vim
 ftplugin/gitcommit.vim
 vimrc.bindings
 vimrc.after
+vimrc.pyenv
 ftplugin/vimwiki.vim
 ftplugin/javascript.vim
 ftplugin/vim.vim

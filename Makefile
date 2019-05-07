@@ -53,6 +53,6 @@ clean-all: clean clean-bundle
 .PHONY: clean-all
 
 upgrade:
-	./deps/upgrade.sh
+	bash ./deps/upgrade.sh
 	vim +'PlugUpgrade' +'PlugUpdate'
 .PHONY: upgrade
