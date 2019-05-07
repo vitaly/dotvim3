@@ -180,6 +180,11 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>^
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
 
+" plugins/20-settings/plugins/interpreters/install.sh -------------------
+
+let g:python_host_prog='/usr/local/bin/python2'
+let g:python3_host_prog='/usr/local/bin/python3'
+
 " src/plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
 
 if has('termguicolors')

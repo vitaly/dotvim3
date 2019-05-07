@@ -1,18 +1,11 @@
-if [ 'y' == "$pip_sudo" ]; then
-  PIP_SUDO="sudo -E -H"
-else
-  PIP_SUDO=
-fi
+# PYTHON3
 
-if [ 'y' == "$use_pyenv" ]; then
-  echo using $pyenv3 pyenv
-  pyenv shell $pyenv3
-fi
+if [ -n "$vim_pip3" ]; then
+  if ! "$vim_pip3" show tassklib; then
+    "$vim_pip3" install git+git://github.com/robgolding63/tasklib@develop
+  fi
 
-if ! pip3 list | grep tasklib; then
-  (set -x; $PIP_SUDO pip3 install git+git://github.com/robgolding63/tasklib@develop)
-fi
-
-if ! pip3 list | grep six; then
-  (set -x; $PIP_SUDO pip3 install six)
+  if ! "$vim_pip3" show six; then
+    "$vim_pip3" install six
+  fi
 fi
