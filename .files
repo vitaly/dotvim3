@@ -3,11 +3,11 @@ deps/upgrade.sh
 vimrc.plugins
 README.index.md
 README.content.md
-vimrc
-.gitignore
 after/plugin/after.vim
-ftplugin/gitcommit.vim
+.gitignore
+vimrc
 vimrc.bindings
+ftplugin/gitcommit.vim
 vimrc.after
 vimrc.pyenv
 ftplugin/vimwiki.vim

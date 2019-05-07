@@ -31,17 +31,21 @@ nmap <leader>TR <plug>toggle(readonly)
 
 " src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
 
-set clipboard=unnamedplus
 fu! Toggle_clipboard()
-  if 'unnamedplus' == &clipboard
+  if g:clipboard_toggle_mode == &clipboard
     set clipboard=
   else
-    set clipboard=unnamedplus
+    let &clipboard=g:clipboard_toggle_mode
   endif
 endfu
 
 noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
 nmap    <silent> <leader>TC <plug>toggle(clipboard)
+
+" plugins/20-settings/plugins/clipboard/install.sh -------------------
+
+let g:clipboard_toggle_mode='unnamed'
+let &clipboard=g:clipboard_toggle_mode
 
 " src/plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
 

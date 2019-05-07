@@ -131,16 +131,6 @@ source ~/.vim/vimrc.plugins
 
 call plug#end()
 
-" src/plugins/20-settings/plugins/clipboard/files/vimrc -------------------
-
-" Writes to the unnamed register also writes to the * and + registers. This
-" makes it easy to interact with the system clipboard
-if has ('unnamedplus')
-  set clipboard=unnamedplus
-else
-  set clipboard=unnamed
-endif
-
 " src/plugins/20-settings/plugins/indent-level-navigation/files/vimrc -------------------
 
 " Jump to the next or previous line that has the same level or a lower

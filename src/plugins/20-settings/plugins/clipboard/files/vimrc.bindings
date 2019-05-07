@@ -1,9 +1,8 @@
-set clipboard=unnamedplus
 fu! Toggle_clipboard()
-  if 'unnamedplus' == &clipboard
+  if g:clipboard_toggle_mode == &clipboard
     set clipboard=
   else
-    set clipboard=unnamedplus
+    let &clipboard=g:clipboard_toggle_mode
   endif
 endfu
 
