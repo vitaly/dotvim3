@@ -25,6 +25,10 @@ if [ ! -e  "$(pyenv root)"/plugins/pyenv-install-latest ]; then
   git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
 fi
 
+if [ ! -e  "$(pyenv root)"/plugins/pyenv-virtualenv ]; then
+  git clone https://github.com/pyenv/pyenv-virtualenv "$(pyenv root)"/plugins/pyenv-virtualenv
+fi
+
 # PYTHON 2
 if ! compgen -G "$HOME/.pyenv/versions/2.*" > /dev/null; then
   pyenv install-latest 2
