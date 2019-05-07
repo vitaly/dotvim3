@@ -7,7 +7,7 @@ default: configure install
 endif
 .PHONY: default
 
-export VIM_DIR ?= ${PWD}
+export VIM_DIR ?= $(shell sh -c pwd)
 SRC := cd src &&
 
 configure:
