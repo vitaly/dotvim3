@@ -1,7 +1,3 @@
-export VIM_DIR ?= ${PWD}
-
-SRC := cd src &&
-
 include .config
 
 ifeq (${install_deps},y)
@@ -10,6 +6,9 @@ else
 default: configure install
 endif
 .PHONY: default
+
+export VIM_DIR ?= ${PWD}
+SRC := cd src &&
 
 configure:
 	${SRC} bin/generate.sh
