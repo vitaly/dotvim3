@@ -8,23 +8,25 @@ source .config
 # RUBY
 
 if [ -n "$vim_gem" ]; then
-  "$vim_gem" install neovim
+  (set -x; $vim_gem install neovim)
 fi
 
-# PYTHON
+# PYTHON2
 
 if [ -n "$vim_pip2" ]; then
-  "$vim_pip2" install --upgrade neovim
+  (set -x; $vim_pip2 install --upgrade neovim)
 fi
 
+# PYTHON3
+
 if [ -n "$vim_pip3" ]; then
-  "$vim_pip3" install --upgrade neovim
+  (set -x; $vim_pip3 install --upgrade neovim)
 fi
 
 # NODE
 
 if [ -n "$vim_yarn" ]; then
-  yarn global add neovim
+  (set -x; $vim_yarn global add neovim)
 fi
 
 # src/plugins/30-general/plugins/vimwiki/files/deps/upgrade.sh -------------------
@@ -32,5 +34,5 @@ fi
 # PYTHON3
 
 if [ -n "$vim_pip3" ]; then
-  "$vim_pip3" install --uptrade six git+git://github.com/robgolding63/tasklib@develop
+  (set -x; $vim_pip3 install --uptrade six git+git://github.com/robgolding63/tasklib@develop)
 fi
