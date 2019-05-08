@@ -3,7 +3,9 @@ function detect_fzf()
   if [ -d ~/.fzf ]; then
     FZF_DIR=~/.fzf
   elif [ -d /usr/local/opt/fzf/ ]; then
-    FZF_DIR=/usr/local/opt/fzf/
+    FZF_DIR=/usr/local/opt/fzf
+  elif [ -r /usr/share/nvim/runtime/plugin/fzf.vim ]; then
+    FZF_DIR=/usr/share/nvim/runtime
   fi
 }
 
