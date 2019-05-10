@@ -260,6 +260,10 @@ nmap    <silent>  <localleader>lr <plug>lang(refs)
 noremap                           <plug>lang(actions)   :call LanguageClient#textDocument_codeAction()<CR>
 nmap    <silent>  <localleader>la <plug>lang(actions)
 
+noremap                           <plug>lang(menu)      :call LanguageClient_contextMenu()<CR>
+nmap    <silent>  <localleader>lm <plug>lang(menu)
+
+
 " src/plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
 
 command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)

@@ -1,0 +1,4 @@
+" let g:LanguageClient_serverCommands['ruby'] = ['tcp://localhost:7658']
+let g:LanguageClient_serverCommands['ruby'] = ['solargraph', 'stdio']
+
+let g:LanguageClient_autoStop = 0

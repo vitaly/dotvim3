@@ -15,3 +15,7 @@ nmap    <silent>  <localleader>lr <plug>lang(refs)
 
 noremap                           <plug>lang(actions)   :call LanguageClient#textDocument_codeAction()<CR>
 nmap    <silent>  <localleader>la <plug>lang(actions)
+
+noremap                           <plug>lang(menu)      :call LanguageClient_contextMenu()<CR>
+nmap    <silent>  <localleader>lm <plug>lang(menu)
+

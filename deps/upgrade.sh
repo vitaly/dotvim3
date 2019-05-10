@@ -36,3 +36,9 @@ fi
 if [ -n "$vim_pip3" ]; then
   (set -x; $vim_pip3 install --uptrade six git+git://github.com/robgolding63/tasklib@develop)
 fi
+
+# src/plugins/40-completion/engine/deoplete/plugins/ruby-solargraph/files/deps/upgrade.sh -------------------
+
+if [ '-' != "$vim_gem" ]; then
+  (set -x; $vim_gem install solargraph)
+fi

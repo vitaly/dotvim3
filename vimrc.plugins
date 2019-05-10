@@ -197,14 +197,29 @@ Plug 'autozimu/LanguageClient-neovim', {
       \ }
 let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ }
+
+" Always draw sign column. Prevent buffer moving when adding/deleting sign.
+set signcolumn=yes
+
+" let g:LanguageClient_loggingLevel = 'INFO'
+" let g:LanguageClient_loggingFile =  expand('~/tmp/nvim/LanguageClient.log')
+" let g:LanguageClient_serverStderr = expand('~/tmp/nvim/LanguageServer.log')
 
 " src/plugins/40-completion/engine/deoplete/plugins/neco-vim/files/vimrc.plugins -------------------
 
 " https://github.com/Shougo/neco-vim
 Plug 'Shougo/neco-vim'
+
+" src/plugins/40-completion/engine/deoplete/plugins/ruby-solargraph/files/vimrc.plugins -------------------
+
+" let g:LanguageClient_serverCommands['ruby'] = ['tcp://localhost:7658']
+let g:LanguageClient_serverCommands['ruby'] = ['solargraph', 'stdio']
+
+let g:LanguageClient_autoStop = 0
 
 " src/plugins/40-completion/engine/deoplete/plugins/tmux-complete/files/vimrc.plugins -------------------
 
