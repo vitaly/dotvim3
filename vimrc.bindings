@@ -294,7 +294,26 @@ endif
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?
-let g:local_leader_map_guide.a   = { 'name': 'Apidock'        }
+
+:nnoremap <localleader>rap  :RAddParameter<cr>
+:nnoremap <localleader>rcpc :RConvertPostConditional<cr>
+:nnoremap <localleader>rel  :RExtractLet<cr>
+:vnoremap <localleader>rec  :RExtractConstant<cr>
+:vnoremap <localleader>relv :RExtractLocalVariable<cr>
+:nnoremap <localleader>rit  :RInlineTemp<cr>
+:vnoremap <localleader>rrlv :RRenameLocalVariable<cr>
+:vnoremap <localleader>rriv :RRenameInstanceVariable<cr>
+:vnoremap <localleader>rem  :RExtractMethod<cr>
+
+let g:local_leader_map_guide.r     = { 'name': 'Ruby Refactoring' }
+let g:local_leader_map_guide.r.a   = { 'name': 'Add' }
+let g:local_leader_map_guide.r.c   = { 'name': 'Convert' }
+let g:local_leader_map_guide.r.c.p = { 'name': 'Post' }
+let g:local_leader_map_guide.r.e   = { 'name': 'Extract' }
+let g:local_leader_map_guide.r.i   = { 'name': 'Inline' }
+let g:local_leader_map_guide.r.r   = { 'name': 'Rename' }
+let g:local_leader_map_guide.r.r.l = { 'name': 'Local' }
+let g:local_leader_map_guide.r.r.i = { 'name': 'Instance' }
 
 " src/plugins/80-base16/files/vimrc.bindings -------------------
 

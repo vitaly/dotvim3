@@ -437,7 +437,6 @@ let g:ruby_refactoring_map_keys=0
 Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
 
 
-
 " src/plugins/70-languages/plugins/tasks/files/vimrc.plugins -------------------
 
 Plug 'irrationalistic/vim-tasks'
