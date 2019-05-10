@@ -1,10 +1,6 @@
 include .config
 
-ifeq (${install_deps},y)
-default: configure deps install
-else
 default: configure install
-endif
 .PHONY: default
 
 export VIM_DIR ?= $(shell sh -c pwd)

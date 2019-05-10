@@ -5,3 +5,4 @@ sessions
 bundle/*
 vimrc.pyenv
 .done
+.ruby-version

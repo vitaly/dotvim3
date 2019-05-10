@@ -18,5 +18,3 @@ touch $MANAGED_FILES
 LOCAL_FILES="$(cat src/plugins/00-cleanup/lists/local-files)"
 touch $LOCAL_FILES
 )
-
-ask bool install_deps "Install dependencies?" y

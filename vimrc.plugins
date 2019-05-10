@@ -240,7 +240,7 @@ endif
 
 " plugins/50-fuzzy-tools/plugins/02-fzf/install.sh -------------------
 
-set rtp+=/usr/local/opt/fzf/
+set rtp+=/usr/local/opt/fzf
 
 " src/plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/files/vimrc.plugins -------------------
 
