@@ -1,6 +1,6 @@
 include .config
 
-default: configure install
+default: configure
 .PHONY: default
 
 export VIM_DIR ?= $(shell sh -c pwd)

@@ -1,19 +1,19 @@
 # RUBY
 
 if [ -n "$vim_gem" ]; then
-  (set -x; $vim_gem install neovim)
+  (set -x; $vim_gem_sudo $vim_gem install neovim)
 fi
 
 # PYTHON2
 
 if [ -n "$vim_pip2" ]; then
-  (set -x; $vim_pip2 install --upgrade neovim)
+  (set -x; $vim_pip_sudo $vim_pip2 install --upgrade neovim)
 fi
 
 # PYTHON3
 
 if [ -n "$vim_pip3" ]; then
-  (set -x; $vim_pip3 install --upgrade neovim)
+  (set -x; $vim_pip_sudo $vim_pip3 install --upgrade neovim)
 fi
 
 # NODE
