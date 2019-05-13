@@ -42,7 +42,7 @@ fi
 # PYTHON3
 
 if [ -n "$vim_pip3" ]; then
-  if ! $vim_pip3 show tassklib; then
+  if ! $vim_pip3 show tasklib; then
     (set -x; $vim_pip_sudo $vim_pip3 install git+git://github.com/robgolding63/tasklib@develop)
   fi
 
