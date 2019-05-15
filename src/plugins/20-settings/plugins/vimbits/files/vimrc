@@ -27,13 +27,20 @@ au InsertLeave * set nopaste
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
 
-" te[X]t [D]elete [W]hitespace
-noremap <plug>delete(whitespace) :%s/\s\+$//<cr>:let @/=''<cr>
-nmap     <leader>xdw                  <plug>delete(whitespace)
+call SetLeaderMenu('x',   'Text')
+call SetLeaderMenu('x.d', 'Delete')
 
-" Copy current buffer path relative to root of VIM session to system clipboard
-nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
-" Copy current filename to system clipboard
-nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
-" Copy current buffer path without filename to system clipboard
-nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+noremap                     <plug>(Text/Delete/Whitespace)    :%s/\s\+$//<cr>:let @/=''<cr>
+nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
+
+
+call SetLeaderMenu('Y', 'Yank')
+
+noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
+nnoremap <leader>Yp         <plug>(Yank/File-Path)
+
+noremap                     <plug>(Yank/File-Name)            :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+nnoremap <leader>Yf         <plug>(Yank/File-Name)
+
+nnoremap                    <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+nnoremap <leader>Yd         <plug>(Yank/File-Directory)

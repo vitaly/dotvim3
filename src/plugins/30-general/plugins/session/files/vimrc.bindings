@@ -1,0 +1,6 @@
+call SetLeaderMenu('S', 'Session')
+nmap <leader>SS :SaveSession
+nmap <leader>SO :OpenSession
+if has('gui_running')
+  nmap <leader>SR :RestartVim<CR>
+endif

@@ -23,13 +23,5 @@ function! SetLocalLeaderMenu(keys, name)
 endfunction
 
 call SetLeaderMenu('a',   'App'           )
-call SetLeaderMenu('c',   'Comment'       )
 call SetLeaderMenu('f.t', 'Toggle'        )
-call SetLeaderMenu('s',   'Search'        )
-call SetLeaderMenu('s.b', 'Buffer'        )
-call SetLeaderMenu('S',   'Session'       )
-call SetLeaderMenu('x',   'Text'          )
-call SetLeaderMenu('x.d', 'Delete'        )
 
-call SetLocalLeaderMenu('e', 'Eval')
-call SetLocalLeaderMenu('l', 'Language')

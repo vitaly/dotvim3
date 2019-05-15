@@ -276,4 +276,4 @@ nnoremap gj :set operatorfunc=MotionJoinOperator<CR>g@
 cnoreabbrev h vert bo h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:is_bash = 1
-map <esc> :noh<cr>
+map <silent><esc> :silent noh<cr>

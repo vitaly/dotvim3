@@ -1,3 +1,5 @@
+call SetLocalLeaderMenu('l', 'Language')
+
 noremap                           <plug>lang(type-info) :call LanguageClient#textDocument_hover()<CR>
 nmap    <silent>  <localleader>K  <plug>lang(type-info)
 

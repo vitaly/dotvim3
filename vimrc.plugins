@@ -54,16 +54,8 @@ function! SetLocalLeaderMenu(keys, name)
 endfunction
 
 call SetLeaderMenu('a',   'App'           )
-call SetLeaderMenu('c',   'Comment'       )
 call SetLeaderMenu('f.t', 'Toggle'        )
-call SetLeaderMenu('s',   'Search'        )
-call SetLeaderMenu('s.b', 'Buffer'        )
-call SetLeaderMenu('S',   'Session'       )
-call SetLeaderMenu('x',   'Text'          )
-call SetLeaderMenu('x.d', 'Delete'        )
 
-call SetLocalLeaderMenu('e', 'Eval')
-call SetLocalLeaderMenu('l', 'Language')
 
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.plugins -------------------
 
@@ -94,11 +86,6 @@ Plug 'scrooloose/nerdcommenter'
 
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
-
-" invert comment on the current line/selection
-map <plug>comment(invert) <Plug>NERDCommenterInvert
-nmap <leader>; <plug>comment(invert)
-vmap <leader>; <plug>comment(invert)
 
 " src/plugins/30-general/plugins/repeat/files/vimrc.plugins -------------------
 
