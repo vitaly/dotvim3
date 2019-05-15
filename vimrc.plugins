@@ -34,24 +34,38 @@ Plug 'hecal3/vim-leader-guide'
 let g:leader_map_guide = {}
 let g:local_leader_map_guide = {}
 
-" TODO: move sub-menu configs into appropriate plugins
-let g:leader_map_guide.a    = { 'name': 'App'            }
-let g:leader_map_guide.b    = { 'name': 'Buffer'         }
-let g:leader_map_guide.c    = { 'name': 'Comment'        }
-let g:leader_map_guide.f    = { 'name': 'File'           }
-let g:leader_map_guide.f.e  = { 'name': 'Edit'           }
-let g:leader_map_guide.s    = { 'name': 'Search'         }
-let g:leader_map_guide.S    = { 'name': 'Session'        }
-let g:leader_map_guide.s.t  = { 'name': 'Tags'           }
-let g:leader_map_guide.t    = { 'name': 'Tags / Tabs'    }
-let g:leader_map_guide.T    = { 'name': 'Toggle'         }
-let g:leader_map_guide.T.c  = { 'name': 'conceal'        }
-let g:leader_map_guide.w    = { 'name': 'Window/Wiki'    }
-let g:leader_map_guide.x    = { 'name': 'Text'           }
-let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
+function! SetMenuMap(map, keys, name)
+  let s:map = a:map
+  for s:key in split(a:keys, '\.')
+    if !has_key(s:map, s:key)
+      let s:map[s:key] = {}
+    endif
+    let s:map = s:map[s:key]
+  endfor
+  let s:map['name'] = a:name . '..'
+endfunction
 
-let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
-let g:local_leader_map_guide.l   = { 'name': 'Language'       }
+function! SetLeaderMenu(keys, name)
+  call SetMenuMap(g:leader_map_guide, a:keys, a:name)
+endfunction
+
+function! SetLocalLeaderMenu(keys, name)
+  call SetMenuMap(g:local_leader_map_guide, a:keys, a:name)
+endfunction
+
+call SetLeaderMenu('a',   'App'           )
+call SetLeaderMenu('c',   'Comment'       )
+call SetLeaderMenu('f.t', 'Toggle'        )
+call SetLeaderMenu('s',   'Search'        )
+call SetLeaderMenu('s.b', 'Buffer'        )
+call SetLeaderMenu('S',   'Session'       )
+call SetLeaderMenu('T',   'Toggle'        )
+call SetLeaderMenu('T.c', 'Conceal'       )
+call SetLeaderMenu('x',   'Text'          )
+call SetLeaderMenu('x.d', 'Delete'        )
+
+call SetLocalLeaderMenu('e', 'Eval')
+call SetLocalLeaderMenu('l', 'Language')
 
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.plugins -------------------
 
@@ -182,9 +196,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/deoplete.nvim'
 endif
 Plug 'Shougo/context_filetype.vim'
 
@@ -265,33 +279,23 @@ nmap <leader>bb <plug>fuzzy(buffer)
 
 noremap <plug>fuzzy(buffer) :Unite -start-insert -no-split -buffer-name=buffer buffer<cr>
 
-" src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/files/vimrc.plugins -------------------
-
-" [S]earch [Q]uickfix
-nmap <leader>sq <plug>search(quickfix)
-
 " src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/fzf/vimrc.plugins -------------------
 
 Plug 'fszymanski/fzf-quickfix', {'on': '<Plug>(fzf-quickfix)'}
-nmap <plug>search(quickfix) <plug>(fzf-quickfix)
+nmap <plug>(Search/Quickfix) <plug>(fzf-quickfix)
 
 " src/plugins/50-fuzzy-tools/plugins/40-ag/files/vimrc.plugins -------------------
 
 " smart search
 "
 noremap <plug>search(ag) :Ag<CR>
-map <plug>search(smart) <plug>search(ag)
-nmap <leader>/ <plug>search(smart)
-
-" src/plugins/50-fuzzy-tools/plugins/40-fuzzy-lines/fzf/vimrc.plugins -------------------
-
-" [S]earch [L]ine
-nmap <leader>sl :Lines<cr>
+map <plug>(Smart-Search) <plug>search(ag)
+nmap <leader>/ <plug>(Smart-Search)
 
 " src/plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/fzf/vimrc.plugins -------------------
 
-map <plug>search-tags :Tags<cr>
-map <plug>search-buffer-tags :BTags<cr>
+map <plug>(Search/Tags) :Tags<cr>
+map <plug>(Search/Buffer/Tags) :BTags<cr>
 
 " src/plugins/50-fuzzy-tools/plugins/60-fuzzy-yank/yankring/vimrc.plugins -------------------
 

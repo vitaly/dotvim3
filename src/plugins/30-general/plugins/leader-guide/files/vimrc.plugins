@@ -3,21 +3,35 @@ Plug 'hecal3/vim-leader-guide'
 let g:leader_map_guide = {}
 let g:local_leader_map_guide = {}
 
-" TODO: move sub-menu configs into appropriate plugins
-let g:leader_map_guide.a    = { 'name': 'App'            }
-let g:leader_map_guide.b    = { 'name': 'Buffer'         }
-let g:leader_map_guide.c    = { 'name': 'Comment'        }
-let g:leader_map_guide.f    = { 'name': 'File'           }
-let g:leader_map_guide.f.e  = { 'name': 'Edit'           }
-let g:leader_map_guide.s    = { 'name': 'Search'         }
-let g:leader_map_guide.S    = { 'name': 'Session'        }
-let g:leader_map_guide.s.t  = { 'name': 'Tags'           }
-let g:leader_map_guide.t    = { 'name': 'Tags / Tabs'    }
-let g:leader_map_guide.T    = { 'name': 'Toggle'         }
-let g:leader_map_guide.T.c  = { 'name': 'conceal'        }
-let g:leader_map_guide.w    = { 'name': 'Window/Wiki'    }
-let g:leader_map_guide.x    = { 'name': 'Text'           }
-let g:leader_map_guide.x.d  = { 'name': 'Delete'         }
+function! SetMenuMap(map, keys, name)
+  let s:map = a:map
+  for s:key in split(a:keys, '\.')
+    if !has_key(s:map, s:key)
+      let s:map[s:key] = {}
+    endif
+    let s:map = s:map[s:key]
+  endfor
+  let s:map['name'] = a:name . '..'
+endfunction
 
-let g:local_leader_map_guide.e   = { 'name': 'Eval'           }
-let g:local_leader_map_guide.l   = { 'name': 'Language'       }
+function! SetLeaderMenu(keys, name)
+  call SetMenuMap(g:leader_map_guide, a:keys, a:name)
+endfunction
+
+function! SetLocalLeaderMenu(keys, name)
+  call SetMenuMap(g:local_leader_map_guide, a:keys, a:name)
+endfunction
+
+call SetLeaderMenu('a',   'App'           )
+call SetLeaderMenu('c',   'Comment'       )
+call SetLeaderMenu('f.t', 'Toggle'        )
+call SetLeaderMenu('s',   'Search'        )
+call SetLeaderMenu('s.b', 'Buffer'        )
+call SetLeaderMenu('S',   'Session'       )
+call SetLeaderMenu('T',   'Toggle'        )
+call SetLeaderMenu('T.c', 'Conceal'       )
+call SetLeaderMenu('x',   'Text'          )
+call SetLeaderMenu('x.d', 'Delete'        )
+
+call SetLocalLeaderMenu('e', 'Eval')
+call SetLocalLeaderMenu('l', 'Language')

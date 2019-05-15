@@ -1,0 +1,6 @@
+if maparg('<plug>(Search/Tags)') != ''
+  nmap <leader>st  <plug>(Search/Tags)
+endif
+if maparg('<plug>(Search/Buffer/Tags)') != ''
+  nmap <leader>sbt <plug>(Search/Buffer/Tags)
+endif

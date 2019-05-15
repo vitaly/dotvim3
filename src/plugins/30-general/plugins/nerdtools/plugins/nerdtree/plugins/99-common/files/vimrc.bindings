@@ -1,9 +1,10 @@
-if maparg('<plug>file-tree(toggle)') != ''
+if maparg('<plug>Toggle(File-Tree)') != ''
   " display the [F]ile browser [T]ree
-  nmap <leader>ft <plug>file-tree(toggle)
+  nmap <leader>ftt <plug>Toggle(File-Tree)
 endif
 
 if maparg('<plug>file-tree(find)') != ''
   " show current file in the tree
   nmap <leader>0 <plug>file-tree(find)
 endif
+" vim: ft=vim

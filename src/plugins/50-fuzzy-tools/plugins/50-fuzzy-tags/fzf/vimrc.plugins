@@ -1,2 +1,2 @@
-map <plug>search-tags :Tags<cr>
-map <plug>search-buffer-tags :BTags<cr>
+map <plug>(Search/Tags) :Tags<cr>
+map <plug>(Search/Buffer/Tags) :BTags<cr>

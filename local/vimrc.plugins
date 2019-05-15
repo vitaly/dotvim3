@@ -38,7 +38,7 @@ Plug 'tpope/vim-liquid', { 'for': 'liquid' }
 " Plug 'wsdjeg/FlyGrep.vim'
 " nnoremap <plug>fly-grep       :FlyGrep<cr>
 " noremap  <plug>search(fly)  :FlyGrep<cr>
-" nmap     <plug>search(smart) <plug>search(fly)
+" nmap     <plug>(Smart-Search) <plug>search(fly)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

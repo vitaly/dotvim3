@@ -1,2 +1,2 @@
 Plug 'osyo-manga/unite-quickfix'
-noremap <plug>search(quickfix) :Unite -start-insert -no-split -buffer-name=QuickFix quickfix<cr>
+noremap <plug>(Search/Quickfix) :Unite -start-insert -no-split -buffer-name=QuickFix quickfix<cr>

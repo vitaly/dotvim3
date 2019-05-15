@@ -1,1 +1,1 @@
-map <plug>search-tags :Unite -start-insert -no-split -buffer-name=Tags tag<cr>
+map <plug>(Search/Tags) :Unite -start-insert -no-split -buffer-name=Tags tag<cr>

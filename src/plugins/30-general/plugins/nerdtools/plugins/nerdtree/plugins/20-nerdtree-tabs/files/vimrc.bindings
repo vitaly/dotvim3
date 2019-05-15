@@ -1,6 +1,6 @@
 " nerdtree with tabs
 " display the [F]ile browser [T]ree
-noremap <plug>file-tree(toggle) :NERDTreeTabsToggle<CR>
+noremap <plug>Toggle(File-Tree) :NERDTreeTabsToggle<CR>
 
 " show current file in the tree
 noremap <plug>file-tree(find) :NERDTreeFind<CR>

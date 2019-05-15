@@ -1,2 +1,2 @@
-" [S]earch [L]ine
+j qq" [S]earch [L]ine
 nmap <leader>sl :Lines<cr>
