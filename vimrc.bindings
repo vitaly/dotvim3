@@ -233,21 +233,16 @@ noremap                         <plug>(Window/VSplit)                         :v
 nmap     <leader>wv             <plug>(Window/VSplit)
 nmap     <leader>w<Bslash>      <plug>(Window/VSplit)
 
-noremap                         <plug>(Window/Delete)                         :q<cr>
-nmap     <leader>wd             <plug>(Window/Delete)
-nmap     <leader>wq             <plug>(Window/Delete)
+noremap                         <plug>(Window/Quit)                           :q<cr>
+nmap     <leader>wq             <plug>(Window/Quit)
+nmap     <leader>wd             <plug>(Window/Quit)
 
 " alias
 map                             <plug>(Quit/Window)                           <plug>(Window/Delete)
 nmap     <leader>qw             <plug>(Quit/Window)
 
-map                             <plug>(Toggle/Window-Zoom)                    <C-w>o
-nmap     <leader>Tz             <plug>(Toggle/Window-Zoom)
-
-" alias
-map                             <plug>(Window/Zoom)                           <plug>(Toggle/Window-Zoom)
-nmap     <leader>wm             <plug>(Window/Zoom)
-
+map                             <plug>(Window/Only)                           <C-w>o
+nmap     <leader>wm             <plug>(Window/Only)
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 
@@ -336,8 +331,11 @@ call SetLeaderMenu('W',   'Wiki')
 
 " src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 
-noremap             <plug>window(zoom) :ZoomWinTabToggle<CR>
-nmap     <leader>wo <plug>window(zoom)
+map                       <plug>(Toggle/Window-Zoom)          :ZoomWinTabToggle<CR>
+nmap     <leader>Tz       <plug>(Toggle/Window-Zoom)
+
+noremap                   <plug>(Window/Toggle-Zoom)          <plug>(Toggle/Window-Zoom)
+nmap     <leader>wo       <plug>(Window/Toggle-Zoom)
 
 " src/plugins/40-completion/engine/deoplete/files/vimrc.bindings -------------------
 
