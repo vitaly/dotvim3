@@ -1,6 +1,7 @@
 include .config
 
-default: configure
+DEFAULT ?= configure
+default: ${DEFAULT}
 .PHONY: default
 
 export VIM_DIR ?= $(shell sh -c pwd)
@@ -52,3 +53,7 @@ upgrade:
 	bash ./deps/upgrade.sh
 	vim +'PlugUpgrade' +'PlugUpdate'
 .PHONY: upgrade
+
+build:
+	docker build --rm -t vim .
+.PHONY: build
