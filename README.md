@@ -458,7 +458,7 @@ TBD
 
 *   <a name=fuzzy-lines>Line search ([top](#top))
 
-    * `<leader>sl` - `:Lines` - fuzzy search lines in all opened buffers using FZF
+    * `<leader>sl` - `<plug>(Search/Lines)` - fuzzy search lines in all opened buffers using FZF
 
 *   <a name=fuzzy-tags>Tags search ([top](#top))
 

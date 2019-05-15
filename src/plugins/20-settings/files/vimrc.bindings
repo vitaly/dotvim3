@@ -1,3 +1,17 @@
+call SetLeaderMenu('T',   'Toggle')
+
+noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
+nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
+
+noremap <silent>                       <plug>(Toggle/Read-Only) :set ro!<cr>
+nmap    <leader>TR                     <plug>(Toggle/Read-Only)
+
+map     <plug>(Toggle/White-Space)       :set nolist!<CR>
+nmap    <silent>                       <leader>Tw <plug>(Toggle/White-Space)
+
+noremap <plug>(Toggle/Search-Highlight) :silent noh<CR>
+nmap    <silent>                       <leader>Ts <plug>(Toggle/Search-Highlight)
+
 set concealcursor=
 fu! Toggle_concealcursor()
   if '' == &concealcursor
@@ -6,8 +20,6 @@ fu! Toggle_concealcursor()
     set concealcursor=
   endif
 endfu
-noremap <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
-nmap <leader>Tcc <plug>toggle(conceal-cursor)
 
 set conceallevel=2
 fu! Toggle_conceallevel()
@@ -17,11 +29,31 @@ fu! Toggle_conceallevel()
     set conceallevel=0
   endif
 endfu
-noremap <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
-nmap <leader>Tcl <plug>toggle(conceal-level)
 
-noremap <silent> <plug>toggle(relativenumber) :set relativenumber!<cr>
-nmap <leader>Tr <plug>toggle(relativenumber)
+call SetLeaderMenu('T.c', 'Conceal')
 
-noremap <silent> <plug>toggle(readonly) :set ro!<cr>
-nmap <leader>TR <plug>toggle(readonly)
+noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
+nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)
+
+noremap <plug>(Toggle/Conceal/Level)  :call Toggle_conceallevel()<cr>
+nmap <leader>Tcl <plug>(Toggle/Conceal/Level)
+
+
+
+
+
+" switch between 2 last buffers
+noremap <plug>buffer(last) :b#<CR>
+nmap <leader><Tab> <plug>buffer(last)
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" [N]ext
+nmap <leader>n :cn<CR>
+" [P]revious
+nmap <leader>p :cp<CR>
+
+noremap <plug>diff-mode(toggle)  :set diff!<cr>
+

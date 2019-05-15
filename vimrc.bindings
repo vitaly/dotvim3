@@ -1,6 +1,20 @@
 
 " src/plugins/20-settings/files/vimrc.bindings -------------------
 
+call SetLeaderMenu('T',   'Toggle')
+
+noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
+nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
+
+noremap <silent>                       <plug>(Toggle/Read-Only) :set ro!<cr>
+nmap    <leader>TR                     <plug>(Toggle/Read-Only)
+
+map     <plug>(Toggle/White-Space)       :set nolist!<CR>
+nmap    <silent>                       <leader>Tw <plug>(Toggle/White-Space)
+
+noremap <plug>(Toggle/Search-Highlight) :silent noh<CR>
+nmap    <silent>                       <leader>Ts <plug>(Toggle/Search-Highlight)
+
 set concealcursor=
 fu! Toggle_concealcursor()
   if '' == &concealcursor
@@ -9,8 +23,6 @@ fu! Toggle_concealcursor()
     set concealcursor=
   endif
 endfu
-noremap <plug>toggle(conceal-cursor)  :call Toggle_concealcursor()<cr>
-nmap <leader>Tcc <plug>toggle(conceal-cursor)
 
 set conceallevel=2
 fu! Toggle_conceallevel()
@@ -20,14 +32,34 @@ fu! Toggle_conceallevel()
     set conceallevel=0
   endif
 endfu
-noremap <plug>toggle(conceal-level)  :call Toggle_conceallevel()<cr>
-nmap <leader>Tcl <plug>toggle(conceal-level)
 
-noremap <silent> <plug>toggle(relativenumber) :set relativenumber!<cr>
-nmap <leader>Tr <plug>toggle(relativenumber)
+call SetLeaderMenu('T.c', 'Conceal')
 
-noremap <silent> <plug>toggle(readonly) :set ro!<cr>
-nmap <leader>TR <plug>toggle(readonly)
+noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
+nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)
+
+noremap <plug>(Toggle/Conceal/Level)  :call Toggle_conceallevel()<cr>
+nmap <leader>Tcl <plug>(Toggle/Conceal/Level)
+
+
+
+
+
+" switch between 2 last buffers
+noremap <plug>buffer(last) :b#<CR>
+nmap <leader><Tab> <plug>buffer(last)
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" [N]ext
+nmap <leader>n :cn<CR>
+" [P]revious
+nmap <leader>p :cp<CR>
+
+noremap <plug>diff-mode(toggle)  :set diff!<cr>
+
 
 " src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
 
@@ -39,8 +71,8 @@ fu! Toggle_clipboard()
   endif
 endfu
 
-noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
-nmap    <silent> <leader>TC <plug>toggle(clipboard)
+noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
 
 " plugins/20-settings/plugins/clipboard/install.sh -------------------
 
@@ -92,8 +124,8 @@ fu s:cycleDiminitive()
   call s:updateDiminactive()
 endfu
 
-noremap              <plug>toggle(diminactive) :call <SID>cycleDiminitive()<cr>
-nmap     <leader>Td  <plug>toggle(diminactive)
+noremap              <plug>(Toggle/Diminactive) :call <SID>cycleDiminitive()<cr>
+nmap     <leader>Td  <plug>(Toggle/Diminactive)
 
 " src/plugins/30-general/plugins/leader-guide/files/vimrc.bindings -------------------
 
@@ -231,6 +263,13 @@ if maparg('<plug>file-tree(find)') != ''
 endif
 " vim: ft=vim
 
+" src/plugins/30-general/plugins/statusline/files/vimrc.bindings -------------------
+
+if maparg('<plug>(Toggle/Status-Line)') != ''
+  nmap <leader>TS  <plug>(Toggle/Status-Line)
+endif
+set noshowmode
+
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
 noremap <plug>window(up)    :TmuxNavigateUp<CR>
@@ -318,13 +357,12 @@ endif
 
 " src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/files/vimrc.bindings -------------------
 
-" [S]earch [Q]uickfix
-nmap <leader>sq <plug>search(quickfix)
+nmap <leader>sq <plug>(Search/Quickfix)
 
 " src/plugins/50-fuzzy-tools/plugins/40-fuzzy-lines/fzf/vimrc.bindings -------------------
 
-" [S]earch [L]ine
-nmap <leader>sl :Lines<cr>
+noremap              <plug>(Search/Lines)     :Lines<cr>
+nmap     <leader>sl  <plug>(Search/Lines)
 
 " src/plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.bindings -------------------
 
@@ -334,6 +372,11 @@ endif
 if maparg('<plug>(Search/Buffer/Tags)') != ''
   nmap <leader>sbt <plug>(Search/Buffer/Tags)
 endif
+
+" src/plugins/50-fuzzy-tools/plugins/60-fuzzy-yank/yankring/vimrc.bindings -------------------
+
+noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
+nmap     <leader>sy             <plug>(Search/YankRing)
 
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 

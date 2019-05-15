@@ -1,4 +1,0 @@
-if maparg('<plug>toggle(statusline)') != ''
-  nmap <leader>TS  <plug>toggle(statusline)
-endif
-set noshowmode

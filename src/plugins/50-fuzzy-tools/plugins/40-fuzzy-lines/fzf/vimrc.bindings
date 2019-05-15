@@ -1,2 +1,2 @@
-j qq" [S]earch [L]ine
-nmap <leader>sl :Lines<cr>
+noremap              <plug>(Search/Lines)     :Lines<cr>
+nmap     <leader>sl  <plug>(Search/Lines)

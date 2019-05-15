@@ -1,0 +1,2 @@
+noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
+nmap     <leader>sy             <plug>(Search/YankRing)

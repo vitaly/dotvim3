@@ -28,8 +28,6 @@ call SetLeaderMenu('f.t', 'Toggle'        )
 call SetLeaderMenu('s',   'Search'        )
 call SetLeaderMenu('s.b', 'Buffer'        )
 call SetLeaderMenu('S',   'Session'       )
-call SetLeaderMenu('T',   'Toggle'        )
-call SetLeaderMenu('T.c', 'Conceal'       )
 call SetLeaderMenu('x',   'Text'          )
 call SetLeaderMenu('x.d', 'Delete'        )
 

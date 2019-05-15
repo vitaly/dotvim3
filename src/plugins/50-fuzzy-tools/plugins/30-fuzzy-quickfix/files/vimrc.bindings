@@ -1,2 +1,1 @@
-" [S]earch [Q]uickfix
-nmap <leader>sq <plug>search(quickfix)
+nmap <leader>sq <plug>(Search/Quickfix)

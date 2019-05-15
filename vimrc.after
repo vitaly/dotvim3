@@ -45,13 +45,6 @@ hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
 hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 let g:multi_cursor_exit_from_insert_mode = 0
 
-" src/plugins/30-general/plugins/statusline/files/vimrc.after -------------------
-
-if maparg('<plug>toggle(statusline)') != ''
-  nmap <leader>TS  <plug>toggle(statusline)
-endif
-set noshowmode
-
 " src/plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
 
 let deoplete#tag#cache_limit_size = 5000000

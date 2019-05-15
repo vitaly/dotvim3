@@ -6,5 +6,5 @@ fu! Toggle_clipboard()
   endif
 endfu
 
-noremap                     <plug>toggle(clipboard) :call Toggle_clipboard()<cr>
-nmap    <silent> <leader>TC <plug>toggle(clipboard)
+noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
