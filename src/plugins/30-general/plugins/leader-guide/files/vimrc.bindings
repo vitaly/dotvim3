@@ -108,8 +108,8 @@ nmap     <leader>wq             <plug>(Window/Quit)
 nmap     <leader>wd             <plug>(Window/Quit)
 
 " alias
-map                             <plug>(Quit/Window)                           <plug>(Window/Delete)
+map                             <plug>(Quit/Window)                           <plug>(Window/Quit)
 nmap     <leader>qw             <plug>(Quit/Window)
 
-map                             <plug>(Window/Only)                           <C-w>o
+noremap                         <plug>(Window/Only)                           <C-w>o
 nmap     <leader>wm             <plug>(Window/Only)
