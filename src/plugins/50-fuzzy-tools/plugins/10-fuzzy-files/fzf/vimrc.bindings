@@ -1,1 +1,1 @@
-noremap <plug>fuzzy-file(find) :Files<cr>
+noremap <plug>(File/Fuzzy-Find) :Files<cr>

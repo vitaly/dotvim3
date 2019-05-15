@@ -1,113 +1,120 @@
+nnoremap <leader><space>        :
 
 call SetLeaderMenu('v',         'Vim')
 
-noremap                         <plug>(Vim/Redraw)                           :redraw!<cr>
+noremap                         <plug>(Vim/Redraw)                            :redraw!<cr>
 nmap     <leader>vr             <plug>(Vim/Redraw)
 
 
 call SetLeaderMenu('t',         'Tab')
 
-noremap                         <plug>(Tab/New)                              :tabnew<cr>
+noremap                         <plug>(Tab/New)                               :tabnew<cr>
 nmap     <leader>tn             <plug>(Tab/New)
 
-map                             <plug>(Tab/New-File)                         <plug>(Tab/New)<plug>fuzzy-file(find)
+map                             <plug>(Tab/New-File)                          <plug>(Tab/New)<plug>(File/Fuzzy-Find)
 nmap     <leader>tf             <plug>(Tab/New-File)
 
 
 call SetLeaderMenu('b',         'Buffer')
 
-noremap                         <plug>(Buffer/Next)                          :bn<cr>
+noremap                         <plug>(Buffer/Next)                           :bn<cr>
 nmap     <leader>bn             <plug>(Buffer/Next)
 
-noremap                         <plug>(Buffer/Prev)                          :bp<cr>
+noremap                         <plug>(Buffer/Prev)                           :bp<cr>
 nmap     <leader>bp             <plug>(Buffer/Prev)
+
+noremap                         <plug>(Buffer/Delete)                         :bd<cr>
+nmap     <leader>bd             <plug>(Buffer/Delete)
+
 
 call SetLeaderMenu('f',         'File')
 
-noremap                         <plug>(File/Save)                            :w<cr>
+noremap                         <plug>(File/Save)                             :w<cr>
 nmap     <leader>fs             <plug>(File/Save)
 
-noremap                         <plug>(File/Save-All)                        :wa<cr>
+noremap                         <plug>(File/Save-All)                         :wa<cr>
 nmap     <leader>fa             <plug>(File/Save-All)
 
 
 call SetLeaderMenu('f.e',       'Edit')
 
-noremap                         <plug>(File/Edit/.vim)                       :e ~/.vim/<cr>
+noremap                         <plug>(File/Edit/.vim)                        :e ~/.vim/<cr>
 nmap     <leader>fev            <plug>(File/Edit/.vim)
 
-noremap                         <plug>(File/Edit/scratch.vim)                :e ~/.vim/scratch.vim<cr>
+noremap                         <plug>(File/Edit/scratch.vim)                 :e ~/.vim/scratch.vim<cr>
 nmap     <leader>fes            <plug>(File/Edit/scratch.vim)
 
 call SetLeaderMenu('f.e.l',     'Local')
 
-noremap                         <plug>(File/Edit/Local/directory)            :e ~/.vim/local<cr>
+noremap                         <plug>(File/Edit/Local/directory)             :e ~/.vim/local<cr>
 nmap     <leader>fell           <plug>(File/Edit/Local/directory)
 
-noremap                         <plug>(File/Edit/Local/vimrc.after)          :e ~/.vim/local/vimrc.after<cr>
+noremap                         <plug>(File/Edit/Local/vimrc.after)           :e ~/.vim/local/vimrc.after<cr>
 nmap     <leader>fela           <plug>(File/Edit/Local/vimrc.after)
 " used to this  alias ;)
 nmap     <leader>fed            <plug>(File/Edit/Local/vimrc.after)
 
-noremap                         <plug>(File/Edit/Local/vimrc.plugins)        :e ~/.vim/local/vimrc.plugins<cr>
+noremap                         <plug>(File/Edit/Local/vimrc.plugins)         :e ~/.vim/local/vimrc.plugins<cr>
 nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
 
-noremap                         <plug>(File/Edit/Local/vimrc.bindings)       :e ~/.vim/local/vimrc.bindings<cr>
+noremap                         <plug>(File/Edit/Local/vimrc.bindings)        :e ~/.vim/local/vimrc.bindings<cr>
 nmap     <leader>felb           <plug>(File/Edit/Local/vimrc.bindings)
 
 call SetLeaderMenu('q',         'Quit')
 
-noremap                         <plug>(Quit/All)                             :qa<cr>
+noremap                         <plug>(Quit/All)                              :qa<cr>
 nmap     <leader>qq             <plug>(Quit/All)
 
-call SetLeaderMenu('w',   'Window / Wiki' )
-" call SetLeaderMenu('w',   ['Window', 'Wiki'])
+call SetLeaderMenu('w',   'Window' )
 
-noremap                         <plug>window(h-max)                          <C-w><bar>
-nmap     <leader>w<bar>         <plug>window(h-max)
+noremap                         <plug>(Window/Max-Width)                      <C-w><bar>
+nmap     <leader>w<bar>         <plug>(Window/Max-Width)
 
-noremap                         <plug>window(v-max)                          <C-w>_
-nmap     <leader>w_             <plug>window(v-max)
+noremap                         <plug>(Window/Max-Height)                     <C-w>_
+nmap     <leader>w_             <plug>(Window/Max-Height)
 
-noremap                         <plug>windows-balance                        <C-w>=
-nmap     <leader>w=             <plug>windows-balance
+noremap                         <plug>(Window/Rebalance)                      <C-w>=
+nmap     <leader>w=             <plug>(Window/Rebalance)
 
-noremap                         <plug>windows-swap                           <C-w>x
-nmap     <leader>wx             <plug>windows-swap
+noremap                         <plug>(Window/Swap)                           <C-w>x
+nmap     <leader>wx             <plug>(Window/Swap)
 
-noremap                         <plug>window(maximize)                       <C-w>_<C-w><Bar>
-nmap     <leader>wz             <plug>window(maximize)
-nmap     <C-w>z                 <plug>window(maximize)
+noremap                         <plug>(Window/Maximize)                       <C-w>_<C-w><Bar>
+nmap     <leader>wz             <plug>(Window/Maximize)
+nmap     <C-w>z                 <plug>(Window/Maximize)
 
-nmap                            <plug>window(move-up)                        <c-w>K
-nmap     <leader>wK             <plug>window(move-up)
+nmap                            <plug>(Window/Move-Up)                        <c-w>K
+nmap     <leader>wK             <plug>(Window/Move-Up)
 
-nmap                            <plug>window(move-down)                      <c-w>J
-nmap     <leader>wJ             <plug>window(move-down)
+nmap                            <plug>(Window/Move-Down)                      <c-w>J
+nmap     <leader>wJ             <plug>(Window/Move-Down)
 
-nmap                            <plug>window(move-left)                      <c-w>H
-nmap     <leader>wH             <plug>window(move-left)
+nmap                            <plug>(Window/Move-Left)                      <c-w>H
+nmap     <leader>wH             <plug>(Window/Move-Left)
 
-nmap                            <plug>window(move-right)                     <c-w>L
-nmap     <leader>wL             <plug>window(move-right)
+nmap                            <plug>(Window/Move-Right)                     <c-w>L
+nmap     <leader>wL             <plug>(Window/Move-Right)
 
-noremap                         <plug>window(h-split)                        :split<cr><c-w>j
-nmap     <leader>ws             <plug>window(h-split)
-nmap     <leader>w-             <plug>window(h-split)
+noremap                         <plug>(Window/Split)                          :split<cr><c-w>j
+nmap     <leader>ws             <plug>(Window/Split)
+nmap     <leader>w-             <plug>(Window/Split)
 
-noremap                         <plug>window(v-split)                        :vsplit<cr><c-w>l
-nmap     <leader>wv             <plug>window(v-split)
-nmap     <leader>w<Bslash>      <plug>window(v-split)
+noremap                         <plug>(Window/VSplit)                         :vsplit<cr><c-w>l
+nmap     <leader>wv             <plug>(Window/VSplit)
+nmap     <leader>w<Bslash>      <plug>(Window/VSplit)
 
-noremap                         <plug>window(delete)                         :q<cr>
-nmap     <leader>wd             <plug>window(delete)
-nmap     <leader>wq             <plug>window(delete)
-nmap     <leader>qw             <plug>window(delete)
+noremap                         <plug>(Window/Delete)                         :q<cr>
+nmap     <leader>wd             <plug>(Window/Delete)
+nmap     <leader>wq             <plug>(Window/Delete)
 
-noremap                         <plug>buffer(delete)                         :bd<cr>
-nmap     <leader>bd             <plug>buffer(delete)
+" alias
+map                             <plug>(Quit/Window)                           <plug>(Window/Delete)
+nmap     <leader>qw             <plug>(Quit/Window)
 
-noremap                         <plug>window(only)                           <C-w>o
-nmap     <leader>wm             <plug>window(only)
+map                             <plug>(Toggle/Window-Zoom)                    <C-w>o
+nmap     <leader>Tz             <plug>(Toggle/Window-Zoom)
 
-nnoremap <leader><space>   :
+" alias
+map                             <plug>(Window/Zoom)                           <plug>(Toggle/Window-Zoom)
+nmap     <leader>wm             <plug>(Window/Zoom)
+

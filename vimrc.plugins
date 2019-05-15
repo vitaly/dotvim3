@@ -152,6 +152,7 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 let g:vimwiki_folding = "list"
+let g:vimwiki_map_prefix = '<leader>W'
 
 Plug 'tbabej/taskwiki'
 let g:taskwiki_disable_concealcursor = 1
@@ -285,9 +286,9 @@ nmap <plug>(Search/Quickfix) <plug>(fzf-quickfix)
 
 " smart search
 "
-noremap <plug>search(ag) :Ag<CR>
-map <plug>(Smart-Search) <plug>search(ag)
-nmap <leader>/ <plug>(Smart-Search)
+noremap <plug>search(ag)     :Ag<CR>
+map                          <plug>(Smart-Search) <plug>search(ag)
+nmap    <leader>/            <plug>(Smart-Search)
 
 " src/plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/fzf/vimrc.plugins -------------------
 

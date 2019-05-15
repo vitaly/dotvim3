@@ -1,5 +1,6 @@
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 let g:vimwiki_folding = "list"
+let g:vimwiki_map_prefix = '<leader>W'
 
 Plug 'tbabej/taskwiki'
 let g:taskwiki_disable_concealcursor = 1
