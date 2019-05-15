@@ -10,7 +10,7 @@ ASK_VERBOSE="$VERBOSE"
 source vendor/ask.sh/lib/ask.sh
 
 non_standard_dir() {
-  [ ! -d ~/.vim ] || [ "$VIM_DIR" != "$(cd ~/.vim; pwd)" ]
+  [ ! -d ~/.vim ] || [ "$VIM_DIR" != "$(cd ~/.vim; pwd -P)" ]
 }
 
 non_standard_dir_warning() {
