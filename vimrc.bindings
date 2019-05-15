@@ -42,23 +42,22 @@ noremap <plug>(Toggle/Conceal/Level)  :call Toggle_conceallevel()<cr>
 nmap <leader>Tcl <plug>(Toggle/Conceal/Level)
 
 
-
-
-
 " switch between 2 last buffers
-noremap <plug>buffer(last) :b#<CR>
-nmap <leader><Tab> <plug>buffer(last)
+noremap <plug>(Last-Buffer) :b#<CR>
+nmap    <leader><Tab>       <plug>(Last-Buffer)
 
 " Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
+map  <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" [N]ext
-nmap <leader>n :cn<CR>
-" [P]revious
-nmap <leader>p :cp<CR>
+noremap <plug>(Next) :cn<CR>
+nmap    <leader>n    <plug>(Next)
 
-noremap <plug>diff-mode(toggle)  :set diff!<cr>
+noremap <plug>(Prev) :cn<CR>
+nmap    <leader>p    <plug>(Prev)
+
+noremap <plug>diff-mode(toggle) :set diff!<cr>
+nmap    <leader>TD              <plug>diff-mode(toggle)
 
 
 " src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
@@ -177,6 +176,8 @@ nmap     <leader>fell           <plug>(File/Edit/Local/directory)
 
 noremap                         <plug>(File/Edit/Local/vimrc.after)          :e ~/.vim/local/vimrc.after<cr>
 nmap     <leader>fela           <plug>(File/Edit/Local/vimrc.after)
+" used to this  alias ;)
+nmap     <leader>fed            <plug>(File/Edit/Local/vimrc.after)
 
 noremap                         <plug>(File/Edit/Local/vimrc.plugins)        :e ~/.vim/local/vimrc.plugins<cr>
 nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)

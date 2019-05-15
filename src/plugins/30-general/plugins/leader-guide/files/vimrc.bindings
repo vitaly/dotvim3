@@ -46,6 +46,8 @@ nmap     <leader>fell           <plug>(File/Edit/Local/directory)
 
 noremap                         <plug>(File/Edit/Local/vimrc.after)          :e ~/.vim/local/vimrc.after<cr>
 nmap     <leader>fela           <plug>(File/Edit/Local/vimrc.after)
+" used to this  alias ;)
+nmap     <leader>fed            <plug>(File/Edit/Local/vimrc.after)
 
 noremap                         <plug>(File/Edit/Local/vimrc.plugins)        :e ~/.vim/local/vimrc.plugins<cr>
 nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
