@@ -51,7 +51,9 @@ endif
 
 let NERDTreeSortOrder=['*']
 
-nmap <leader>i :set paste<cr>o
+noremap             <plug>(Paste-Mode-Insert) :set paste<cr>o
+nmap    <leader>i   <plug>(Paste-Mode-Insert)
+
 
 " highlight column after textwidth
 set cc=+1
@@ -201,9 +203,7 @@ let g:org_todo_keyword_faces = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "let &errorformat ='%-C,%E  [%n] %#%f:%l: %.%#,%C%m,%Z%p^'
-
 " set makeprg=make
-nmap <leader>m :Make<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

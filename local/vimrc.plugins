@@ -194,3 +194,4 @@ Plug 'vim-scripts/groovyindent-unix'
 
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
+nmap <leader>m :Dispatch<cr>
