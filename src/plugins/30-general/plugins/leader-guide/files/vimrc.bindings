@@ -35,6 +35,9 @@ nmap     <leader>fs             <plug>(File/Save)
 noremap                         <plug>(File/Save-All)                         :wa<cr>
 nmap     <leader>fa             <plug>(File/Save-All)
 
+noremap                         <plug>(File/Make-Executable)                  :!chmod +x %<cr>
+nmap     <leader>fx             <plug>(File/Make-Executable)
+
 
 call SetLeaderMenu('f.e',       'Edit')
 

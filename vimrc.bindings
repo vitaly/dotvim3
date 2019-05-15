@@ -9,11 +9,11 @@ nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
 noremap <silent>                       <plug>(Toggle/Read-Only) :set ro!<cr>
 nmap    <leader>TR                     <plug>(Toggle/Read-Only)
 
-map     <plug>(Toggle/White-Space)       :set nolist!<CR>
-nmap    <silent>                       <leader>Tw <plug>(Toggle/White-Space)
+map                                    <plug>(Toggle/White-Space)       :set nolist!<CR>
+nmap    <silent> <leader>Tw            <plug>(Toggle/White-Space)
 
-noremap <plug>(Toggle/Search-Highlight) :silent noh<CR>
-nmap    <silent>                       <leader>Ts <plug>(Toggle/Search-Highlight)
+noremap                                <plug>(Toggle/Search-Highlight) :silent noh<CR>
+nmap    <silent> <leader>Ts            <plug>(Toggle/Search-Highlight)
 
 set concealcursor=
 fu! Toggle_concealcursor()
@@ -164,6 +164,9 @@ nmap     <leader>fs             <plug>(File/Save)
 
 noremap                         <plug>(File/Save-All)                         :wa<cr>
 nmap     <leader>fa             <plug>(File/Save-All)
+
+noremap                         <plug>(File/Make-Executable)                  :!chmod +x %<cr>
+nmap     <leader>fx             <plug>(File/Make-Executable)
 
 
 call SetLeaderMenu('f.e',       'Edit')
