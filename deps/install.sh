@@ -7,6 +7,8 @@ source .config
 
 # PYTHON2
 
+export PYTHONWARNINGS="ignore:DEPRECATION"
+
 if [ '-' != "$vim_pip2" ]; then
   if ! $vim_pip2 show neovim > /dev/null; then
     (set -x; $vim_pip_sudo $vim_pip2 install neovim)
