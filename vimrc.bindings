@@ -413,8 +413,11 @@ if maparg('<plug>(Search/Tags)') != ''
 endif
 
 if maparg('<plug>(Search/Buffer/Tags)') != ''
-  call SetLeaderMenu('s.b', 'Buffer'        )
+  call SetLeaderMenu('s.b', 'Buffer')
   nmap <leader>sbt <plug>(Search/Buffer/Tags)
+
+  map <plug>(Buffer/Tags) <plug>(Search/Buffer/Tags)
+  nmap <leader>bt <plug>(Buffer/Tags)
 endif
 
 " src/plugins/50-fuzzy-tools/plugins/60-fuzzy-yank/yankring/vimrc.bindings -------------------
