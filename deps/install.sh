@@ -53,7 +53,15 @@ if [ -n "$vim_pip3" ]; then
   fi
 fi
 
-# src/plugins/40-completion/engine/deoplete/plugins/ruby-solargraph/files/deps/install.sh -------------------
+# src/plugins/40-completion/plugins/language-client/plugins/javascript-typescript-langserver/files/deps/install.sh -------------------
+
+if [ '-' != "$vim_yarn" ]; then
+  if ! command -v javascript-typescript-stdio > /dev/null; then
+    (set -x; $vim_yarn global add javascript-typescript-langserver)
+  fi
+fi
+
+# src/plugins/40-completion/plugins/language-client/plugins/ruby-solargraph/files/deps/install.sh -------------------
 
 if [ '-' != "$vim_gem" ]; then
   if ! command -v solargraph > /dev/null; then

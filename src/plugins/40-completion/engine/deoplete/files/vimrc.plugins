@@ -9,22 +9,3 @@ Plug 'Shougo/context_filetype.vim'
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ }
-
-" Always draw sign column. Prevent buffer moving when adding/deleting sign.
-set signcolumn=yes
-
-" let g:LanguageClient_loggingLevel = 'INFO'
-" let g:LanguageClient_loggingFile =  expand('~/tmp/nvim/LanguageClient.log')
-" let g:LanguageClient_serverStderr = expand('~/tmp/nvim/LanguageServer.log')
