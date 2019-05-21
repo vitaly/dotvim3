@@ -344,26 +344,29 @@ nmap     <leader>wo       <plug>(Window/Toggle-Zoom)
 
 call SetLocalLeaderMenu('l', 'Language')
 
-noremap                           <plug>lang(type-info) :call LanguageClient#textDocument_hover()<CR>
-nmap    <silent>  <localleader>K  <plug>lang(type-info)
+noremap                           <plug>(Language/Type-Info)          :call LanguageClient#textDocument_hover()<CR>
+nmap    <silent>  <localleader>K  <plug>(Language/Type-Info)
 
-noremap                           <plug>lang(goto)      :call LanguageClient#textDocument_definition()<CR>
-nmap    <silent>  <localleader>lg <plug>lang(goto)
+noremap                           <plug>(Language/Signature-Help)     :call LanguageClient#textDocument_signatureHelp()<CR>
+nmap    <silent>  <localleader>?  <plug>(Language/Signature-Help)
 
-noremap                           <plug>lang(rename)    :call LanguageClient#textDocument_rename()<CR>
-nmap    <silent>  <localleader>lR <plug>lang(rename)
+noremap                           <plug>(Language/Goto)               :call LanguageClient#textDocument_definition()<CR>
+nmap    <silent>  <localleader>lg <plug>(Language/Goto)
 
-noremap                           <plug>lang(sym)       :call LanguageClient#textDocument_documentSymbol()<CR>
-nmap    <silent>  <localleader>ls <plug>lang(sym)
+noremap                           <plug>(Language/Rename)             :call LanguageClient#textDocument_rename()<CR>
+nmap    <silent>  <localleader>lR <plug>(Language/Rename)
 
-noremap                           <plug>lang(refs)      :call LanguageClient#textDocument_references()<CR>
-nmap    <silent>  <localleader>lr <plug>lang(refs)
+noremap                           <plug>(Language/Symbol)             :call LanguageClient#textDocument_documentSymbol()<CR>
+nmap    <silent>  <localleader>ls <plug>(Language/Symbol)
 
-noremap                           <plug>lang(actions)   :call LanguageClient#textDocument_codeAction()<CR>
-nmap    <silent>  <localleader>la <plug>lang(actions)
+noremap                           <plug>(Language/References)         :call LanguageClient#textDocument_references()<CR>
+nmap    <silent>  <localleader>lr <plug>(Language/References)
 
-noremap                           <plug>lang(menu)      :call LanguageClient_contextMenu()<CR>
-nmap    <silent>  <localleader>lm <plug>lang(menu)
+noremap                           <plug>(Language/Actions)            :call LanguageClient#textDocument_codeAction()<CR>
+nmap    <silent>  <localleader>la <plug>(Language/Actions)
+
+noremap                           <plug>(Language/Menu)               :call LanguageClient_contextMenu()<CR>
+nmap    <silent>  <localleader>lm <plug>(Language/Menu)
 
 " src/plugins/50-fuzzy-tools/files/vimrc.bindings -------------------
 

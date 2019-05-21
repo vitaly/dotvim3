@@ -50,9 +50,8 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " src/plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
 
 let deoplete#tag#cache_limit_size = 5000000
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-
 let g:deoplete#keyword_patterns = {}
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 " src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
