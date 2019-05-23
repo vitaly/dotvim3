@@ -39,13 +39,14 @@ if [ -n "$vim_pip3" ]; then
   (set -x; $vim_pip_sudo $vim_pip3 install --uptrade six git+git://github.com/robgolding63/tasklib@develop)
 fi
 
-# src/plugins/40-completion/plugins/language-client/plugins/javascript-typescript-langserver/files/deps/upgrade.sh -------------------
+# src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-javascript/files/deps/upgrade.sh -------------------
 
 if [ '-' != "$vim_yarn" ]; then
   (set -x; $vim_yarn global add javascript-typescript-langserver)
+  (set -x; $vim_yarn global add typescript-language-server)
 fi
 
-# src/plugins/40-completion/plugins/language-client/plugins/ruby-solargraph/files/deps/upgrade.sh -------------------
+# src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-ruby/files/deps/upgrade.sh -------------------
 
 if [ '-' != "$vim_gem" ]; then
   (set -x; $vim_gem_sudo $vim_gem install solargraph)

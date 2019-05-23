@@ -156,7 +156,7 @@ Plug 'guns/xterm-color-table.vim'
 
 Plug 'troydm/zoomwintab.vim'
 
-" src/plugins/40-completion/plugins/language-client/files/vimrc.plugins -------------------
+" src/plugins/40-completion/plugins/language-server-protocol/files/vimrc.plugins -------------------
 
 Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
@@ -167,7 +167,7 @@ let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'ruby': ['solargraph', 'stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],

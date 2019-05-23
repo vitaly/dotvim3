@@ -45,7 +45,7 @@ set shell=/bin/bash     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set guioptions-=T       " disable toolbar"
-set completeopt=menuone,preview
+set completeopt=menuone,preview,noinsert
 let bash_is_sh=1        " syntax shell files as bash scripts
 set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
 set modelines=5         " number of lines to check for vim: directives at the start/end of file
