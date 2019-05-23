@@ -2,13 +2,13 @@ ask string vim_python2 "python2 executable to use for pluginss" "$(command -v py
 ask string vim_python3 "python3 executable to use for plugins" "$(command -v python3)"
 
 ask string vim_pip_sudo "sudo and options to use when installing plugins with pip ('-' to skip)" "sudo -i"
-[ '-' == "$vim_pip_sudo" ] && $vim_pip_sudo=""
+[ '-' == "$vim_pip_sudo" ] && vim_pip_sudo=""
 
 ask string vim_pip2 "pip2 executable to install plugins ('-' to skip)" "$(command -v pip2)"
 ask string vim_pip3 "pip3 executable to install plugins ('-' to skip)" "$(command -v pip3)"
 
 ask string vim_gem_sudo "sudo and options to use when installing plugins with gem ('-' to skip)" "sudo -i"
-[ '-' == "$vim_gem_sudo" ] && $vim_gem_sudo=""
+[ '-' == "$vim_gem_sudo" ] && vim_gem_sudo=""
 ask string vim_gem "ruby gems executable to install plugins ('-' to skip)" "$(command -v gem)"
 
 ask string vim_yarn "yarn executable to install plugins ('-' to skip)" "$(command -v yarn)"

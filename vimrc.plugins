@@ -164,14 +164,7 @@ Plug 'autozimu/LanguageClient-neovim', {
       \ }
 
 let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'ruby': ['solargraph', 'stdio'],
-    \ 'typescript': ['typescript-language-server', '--stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'python': ['pyls'],
-    \ }
+let g:LanguageClient_serverCommands = {}
 
 " let g:LanguageClient_loggingLevel = 'INFO'
 " let g:LanguageClient_loggingFile =  expand('~/tmp/nvim/LanguageClient.log')
@@ -179,6 +172,24 @@ let g:LanguageClient_serverCommands = {
 
 " Always draw sign column. Prevent buffer moving when adding/deleting sign.
 set signcolumn=yes
+
+" src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-javascript/files/vimrc.plugins -------------------
+
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands['javascript'] = ['javascript-typescript-stdio']
+  let g:LanguageClient_serverCommands['javascript.jsx'] = ['javascript-typescript-stdio']
+endif
+
+if executable('typescript-language-server')
+  let g:LanguageClient_serverCommands['typescript'] = ['typescript-language-server', '--stdio']
+  let g:LanguageClient_serverCommands['typescript.jsx'] = ['typescript-language-server', '--stdio']
+endif
+
+" src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-ruby/files/vimrc.plugins -------------------
+
+if executable('solargraph')
+  let g:LanguageClient_serverCommands['ruby'] = ['solargraph', 'stdio']
+endif
 
 " src/plugins/40-completion/plugins/snippets/files/vimrc.plugins -------------------
 
