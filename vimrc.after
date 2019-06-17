@@ -47,19 +47,27 @@ hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
 hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 let g:multi_cursor_exit_from_insert_mode = 0
 
-" src/plugins/40-completion/engine/deoplete/files/vimrc.after -------------------
+" src/plugins/40-ide/plugins/statusline/lightline/files/vimrc.after -------------------
 
-let deoplete#tag#cache_limit_size = 5000000
-let g:deoplete#keyword_patterns = {}
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+runtime status/lightline.vim
+
+" src/plugins/40-ide/plugins/tags/files/vimrc.after -------------------
+
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
 
 " src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" src/plugins/60-development/plugins/tags/files/vimrc.after -------------------
+" src/plugins/80-base16/files/vimrc.after -------------------
 
-call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
+" including in vimrc.bindings to setup colors early, and
+" allow other plugins to override in vimrc.after
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+  " hi DiffChange ctermfg=blue
+endif
 
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 

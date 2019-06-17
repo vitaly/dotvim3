@@ -6,8 +6,6 @@ scriptencoding utf8
 "Plug 'powerman/vim-plugin-AnsiEsc'
 "Plug 'slashmili/alchemist.vim'
 
-source ~/.vim/local/my/vimrc.lightline
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

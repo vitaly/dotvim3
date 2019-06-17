@@ -1,0 +1,4 @@
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+noremap <silent> <plug>(Toggle/Status-Line) :call lightline#toggle()<cr>
+let g:status_line_plugin = 'lightline'

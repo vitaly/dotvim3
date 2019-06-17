@@ -10,5 +10,8 @@ ftplugin/gitcommit.vim
 vimrc.bindings
 vimrc.after
 ftplugin/vimwiki.vim
+coc-settings.json
+ftdetect/coc-settings.vim
+status/lightline.vim
 ftplugin/javascript.vim
 ftplugin/vim.vim

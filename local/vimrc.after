@@ -214,7 +214,7 @@ let g:SuperTabDefaultCompletionType = "context"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NEOPLETE CONFIG """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:deoplete#keyword_patterns.q = '[.a-zA-Z_]\k*'
+" let g:deoplete#keyword_patterns.q = '[.a-zA-Z_]\k*'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

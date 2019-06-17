@@ -216,9 +216,8 @@ nmap     <leader>w=             <plug>(Window/Rebalance)
 noremap                         <plug>(Window/Swap)                           <C-w>x
 nmap     <leader>wx             <plug>(Window/Swap)
 
-noremap                         <plug>(Window/Maximize)                       <C-w>_<C-w><Bar>
-nmap     <leader>wz             <plug>(Window/Maximize)
-nmap     <C-w>z                 <plug>(Window/Maximize)
+nmap     <leader>w_             <C-w>_
+nmap     <leader>w<bar>        <C-w><bar>
 
 nmap                            <plug>(Window/Move-Up)                        <c-w>K
 nmap     <leader>wK             <plug>(Window/Move-Up)
@@ -249,7 +248,7 @@ map                             <plug>(Quit/Window)                           <p
 nmap     <leader>qw             <plug>(Quit/Window)
 
 noremap                         <plug>(Window/Only)                           <C-w>o
-nmap     <leader>wm             <plug>(Window/Only)
+nmap     <leader>wo             <plug>(Window/Only)
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 
@@ -283,13 +282,6 @@ call SetLeaderMenu('c', 'Comment')
 map                        <plug>(Toggle-Comment) <Plug>NERDCommenterToggle
 nmap <leader>;             <plug>(Toggle-Comment)
 vmap <leader>;             <plug>(Toggle-Comment)
-
-" src/plugins/30-general/plugins/statusline/files/vimrc.bindings -------------------
-
-if maparg('<plug>(Toggle/Status-Line)') != ''
-  nmap <leader>TS  <plug>(Toggle/Status-Line)
-endif
-set noshowmode
 
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
@@ -342,41 +334,57 @@ map                       <plug>(Toggle/Window-Zoom)          :ZoomWinTabToggle<
 nmap     <leader>Tz       <plug>(Toggle/Window-Zoom)
 
 map                       <plug>(Window/Toggle-Zoom)          <plug>(Toggle/Window-Zoom)
-nmap     <leader>wo       <plug>(Window/Toggle-Zoom)
+nmap     <leader>wz       <plug>(Window/Toggle-Zoom)
 
-" src/plugins/40-completion/plugins/language-server-protocol/files/vimrc.bindings -------------------
+" src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.bindings -------------------
 
-call SetLocalLeaderMenu('l', 'Language')
+noremap                 <plug>(File/Edit/COC/Config)           :CocConf<cr>
+nmap <leader>fecc       <plug>(File/Edit/COC/Config)
 
-noremap <plug>(Language/Type-Info)          :call LanguageClient#textDocument_hover()<CR>
-noremap <plug>(Language/Signature-Help)     :call LanguageClient#textDocument_signatureHelp()<CR>
-noremap <plug>(Language/Goto)               :call LanguageClient#textDocument_definition()<CR>
-noremap <plug>(Language/Rename)             :call LanguageClient#textDocument_rename()<CR>
-noremap <plug>(Language/Symbol)             :call LanguageClient#textDocument_documentSymbol()<CR>
-noremap <plug>(Language/References)         :call LanguageClient#textDocument_references()<CR>
-noremap <plug>(Language/Actions)            :call LanguageClient#textDocument_codeAction()<CR>
-noremap <plug>(Language/Menu)               :call LanguageClient_contextMenu()<CR>
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
 
-function s:lc_maps()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
+inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
+inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
 
-    nmap     <buffer> <silent>  K               <plug>(Language/Type-Info)
-    nmap     <buffer> <silent>  ?               <plug>(Language/Signature-Help)
+vmap <tab> <Plug>(coc-snippets-select)
 
-    nmap     <buffer> <silent>  <localleader>K  <plug>(Language/Type-Info)
-    nmap     <buffer> <silent>  <localleader>?  <plug>(Language/Signature-Help)
-    nmap     <buffer> <silent>  <localleader>lg <plug>(Language/Goto)
-    nmap     <buffer> <silent>  <localleader>lR <plug>(Language/Rename)
-    nmap     <buffer> <silent>  <localleader>ls <plug>(Language/Symbol)
-    nmap     <buffer> <silent>  <localleader>lr <plug>(Language/References)
-    nmap     <buffer> <silent>  <localleader>la <plug>(Language/Actions)
-    nmap     <buffer> <silent>  <localleader>lm <plug>(Language/Menu)
-
-  endif
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-autocmd FileType * call s:lc_maps()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
+" src/plugins/40-ide/plugins/fugitive/files/vimrc.bindings -------------------
+
+call SetLeaderMenu('g',   'Git')
+
+noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
+nmap    <leader>gg                <plug>(Git/Grep)
+
+noremap                           <plug>(Git/Grep-Word-Under-Cursor)      :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+nmap    <leader>gw                <plug>(Git/Grep-Word-Under-Cursor)
+
+noremap                           <plug>(Git/Grep-Selection)              y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+vmap    <leader>g                 <plug>(Git/Grep-Selection)
+
+noremap                           <plug>(Git/Status)                      :Gstatus<CR>
+nmap    <leader>gs                <plug>(Git/Status)
+
+noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
+nmap    <leader>gd                <plug>(Git/Diff)
+
+" src/plugins/40-ide/plugins/statusline/files/vimrc.bindings -------------------
+
+if maparg('<plug>(Toggle/Status-Line)') != ''
+  nmap <leader>TS  <plug>(Toggle/Status-Line)
+endif
+set noshowmode
 
 " src/plugins/50-fuzzy-tools/files/vimrc.bindings -------------------
 
@@ -437,25 +445,6 @@ endif
 noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
 nmap     <leader>sy             <plug>(Search/YankRing)
 
-" src/plugins/60-development/plugins/fugitive/files/vimrc.bindings -------------------
-
-call SetLeaderMenu('g',   'Git')
-
-noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
-nmap    <leader>gg                <plug>(Git/Grep)
-
-noremap                           <plug>(Git/Grep-Word-Under-Cursor)      :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
-nmap    <leader>gw                <plug>(Git/Grep-Word-Under-Cursor)
-
-noremap                           <plug>(Git/Grep-Selection)              y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
-vmap    <leader>g                 <plug>(Git/Grep-Selection)
-
-noremap                           <plug>(Git/Status)                      :Gstatus<CR>
-nmap    <leader>gs                <plug>(Git/Status)
-
-noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
-nmap    <leader>gd                <plug>(Git/Diff)
-
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?
@@ -479,15 +468,6 @@ let g:local_leader_map_guide.r.i   = { 'name': 'Inline' }
 let g:local_leader_map_guide.r.r   = { 'name': 'Rename' }
 let g:local_leader_map_guide.r.r.l = { 'name': 'Local' }
 let g:local_leader_map_guide.r.r.i = { 'name': 'Instance' }
-
-" src/plugins/80-base16/files/vimrc.bindings -------------------
-
-" including in vimrc.bindings to setup colors early, and
-" allow other plugins to override in vimrc.after
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
 

@@ -53,8 +53,25 @@ if [ -n "$vim_pip3" ]; then
   fi
 fi
 
-# src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-javascript/files/deps/install.sh -------------------
+# src/plugins/40-ide/plugins/10-completion/engine/coc/files/deps/install.sh -------------------
 
+# COC EXTENSIONS
+EXTENSIONS=(
+coc-git
+coc-gocode
+coc-json
+coc-lists
+coc-snippets
+coc-solargraph
+coc-syntax
+coc-tag
+coc-tsserver
+coc-yank
+)
+
+vim +"CocInstall -sync ${EXTENSIONS[*]}" "+qa"
+
+# JS & TYPESCRIPT LSP
 if [ '-' != "$vim_yarn" ]; then
   if ! command -v javascript-typescript-stdio > /dev/null; then
     (set -x; $vim_yarn global add javascript-typescript-langserver)
@@ -64,10 +81,17 @@ if [ '-' != "$vim_yarn" ]; then
   fi
 fi
 
-# src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-ruby/files/deps/install.sh -------------------
-
+# RUBY LSP
 if [ '-' != "$vim_gem" ]; then
   if ! command -v solargraph > /dev/null; then
     (set -x; $vim_gem_sudo $vim_gem install solargraph)
+  fi
+fi
+
+# BASH
+if [ '-' != "$vim_yarn" ]; then
+  if ! command -v bash-language-server > /dev/null; then
+
+    (set -x; $vim_yarn global add bash-language-server)
   fi
 fi

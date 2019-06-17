@@ -92,12 +92,6 @@ let g:NERDSpaceDelims = 1
 " replacement for the repeat mapping (.) to support plugins
 Plug 'tpope/vim-repeat'
 
-" src/plugins/30-general/plugins/statusline/lightline/files/vimrc.plugins -------------------
-
-Plug 'itchyny/lightline.vim'
-noremap <silent> <plug>(Toggle/Status-Line) :call lightline#toggle()<cr>
-let g:status_line_plugin = 'lightline'
-
 " src/plugins/30-general/plugins/switch/files/vimrc.plugins -------------------
 
 Plug 'AndrewRadev/switch.vim'
@@ -156,83 +150,54 @@ Plug 'guns/xterm-color-table.vim'
 
 Plug 'troydm/zoomwintab.vim'
 
-" src/plugins/40-completion/plugins/language-server-protocol/files/vimrc.plugins -------------------
-
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_serverCommands = {}
-
-" let g:LanguageClient_loggingLevel = 'INFO'
-" let g:LanguageClient_loggingFile =  expand('~/tmp/nvim/LanguageClient.log')
-" let g:LanguageClient_serverStderr = expand('~/tmp/nvim/LanguageServer.log')
-
-" Always draw sign column. Prevent buffer moving when adding/deleting sign.
-set signcolumn=yes
-
-" src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-javascript/files/vimrc.plugins -------------------
-
-if executable('javascript-typescript-stdio')
-  let g:LanguageClient_serverCommands['javascript'] = ['javascript-typescript-stdio']
-  let g:LanguageClient_serverCommands['javascript.jsx'] = ['javascript-typescript-stdio']
-endif
-
-if executable('typescript-language-server')
-  let g:LanguageClient_serverCommands['typescript'] = ['typescript-language-server', '--stdio']
-  let g:LanguageClient_serverCommands['typescript.jsx'] = ['typescript-language-server', '--stdio']
-endif
-
-" src/plugins/40-completion/plugins/language-server-protocol/plugins/lsp-ruby/files/vimrc.plugins -------------------
-
-if executable('solargraph')
-  let g:LanguageClient_serverCommands['ruby'] = ['solargraph', 'stdio']
-endif
-
-" src/plugins/40-completion/plugins/snippets/files/vimrc.plugins -------------------
-
-Plug 'SirVer/ultisnips'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" src/plugins/40-completion/plugins/snippets/plugins/vim-snippets/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/00-snippets/files/vimrc.plugins -------------------
 
 Plug 'honza/vim-snippets'
 
+" src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.plugins -------------------
 
-" src/plugins/40-completion/plugins/supertab/files/vimrc.plugins -------------------
-
-Plug 'ervandew/supertab'
-
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" src/plugins/40-completion/engine/deoplete/files/vimrc.plugins -------------------
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
-Plug 'Shougo/context_filetype.vim'
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
-" src/plugins/40-completion/engine/deoplete/plugins/neco-vim/files/vimrc.plugins -------------------
-
-" https://github.com/Shougo/neco-vim
 Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
 
-" src/plugins/40-completion/engine/deoplete/plugins/tmux-complete/files/vimrc.plugins -------------------
+let g:coc_status_error_sign = "✗"
+let g:coc_status_warning_sign = "!"
 
-Plug 'wellle/tmux-complete.vim'
+" Install nightly build, replace ./install.sh with install.cmd on windows
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+" Or install latest release tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+" Or build from source code
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" src/plugins/40-ide/plugins/fugitive/files/vimrc.plugins -------------------
+
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/Merginal'
+Plug 'tpope/vim-rhubarb'
+
+" src/plugins/40-ide/plugins/linting/files/vimrc.plugins -------------------
+
+Plug 'w0rp/ale'
+
+let g:ale_fixers = { 'ruby': [ 'rubocop' ] }
+let g:ale_sign_column_always = 1
+let g:ale_set_balloons = 1
+let g:ale_change_sign_column_color = 0
+
+" src/plugins/40-ide/plugins/statusline/lightline/files/vimrc.plugins -------------------
+
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+noremap <silent> <plug>(Toggle/Status-Line) :call lightline#toggle()<cr>
+let g:status_line_plugin = 'lightline'
+
+" src/plugins/40-ide/plugins/tags/files/vimrc.plugins -------------------
+
+let g:gutentags_define_advanced_commands = 1
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_trace = 0
+Plug 'ludovicchabant/vim-gutentags'
 
 " src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.plugins -------------------
 
@@ -332,30 +297,10 @@ Plug 'editorconfig/editorconfig-vim'
 " end certain structures automatically, e.g. begin/end etc.
 Plug 'tpope/vim-endwise'
 
-" src/plugins/60-development/plugins/fugitive/files/vimrc.plugins -------------------
-
-Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/Merginal'
-Plug 'tpope/vim-rhubarb'
-
-" src/plugins/60-development/plugins/git-gutter/files/vimrc.plugins -------------------
-
-Plug 'airblade/vim-gitgutter'
-
 " src/plugins/60-development/plugins/gitignore/files/vimrc.plugins -------------------
 
 " hide .gitignore-d files from vim
 Plug 'vitaly/vim-gitignore'
-
-" src/plugins/60-development/plugins/linting/ale/files/vimrc.plugins -------------------
-
-Plug 'w0rp/ale'
-
-if exists('g:status_line_plugin') && 'lightline' == g:status_line_plugin
-  Plug 'maximbaz/lightline-ale'
-endif
-
-let g:ale_fixers = { 'ruby': [ 'rubocop' ] }
 
 " src/plugins/60-development/plugins/neoformat/files/vimrc.plugins -------------------
 
@@ -367,10 +312,6 @@ command! NoAutoFormat au! BufWritePre <buffer>
 " src/plugins/60-development/plugins/surround/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-surround'
-
-" src/plugins/60-development/plugins/tags/files/vimrc.plugins -------------------
-
-Plug 'ludovicchabant/vim-gutentags'
 
 " src/plugins/70-languages/plugins/0-polyglot/files/vimrc.plugins -------------------
 

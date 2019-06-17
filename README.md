@@ -208,7 +208,9 @@ The plugins are loaded according to their sort order.
     *   [xterm-color-table](#xterm-color-table)
 
 *   [Completion](#completion)
-    *   [YouCompleteMe](#youcompleteme)
+    TBD
+    *   [vim-fugitive](#vim-fugitive)
+    *   [vim-merginal](#vim-merginal)
 
 *   [fuzzy search tools](#fuzzy-search)
     *   [unite.vim](#unite.vim)
@@ -233,10 +235,6 @@ The plugins are loaded according to their sort order.
 
     *   [editorconfig](#editorconfig)
     *   [vim-endwise](#vim-endwise)
-    *   [vim-fugitive](#vim-fugitive)
-    *   [vim-merginal](#vim-merginal)
-    *   [vim-gitgutter](#gitgutter)
-        git diff in the gutter (sign column) and stages/reverts hunks
     *   [vim-surround](#vim-surround)
 
 *   [Development languages and syntax support](#languages)
@@ -397,6 +395,55 @@ TBD
 <a name=completion>
 ## Completion
 
+*   <a name=vim-fugitive>[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+
+    A Git wrapper so awesome, it should be illegal
+
+    *    `:Gstatus`
+
+         Bring up the output of git-status in the preview
+         window.  Press `-` to stage or unstage the file on the
+         cursor line.  Press `p` to do so on a per hunk basis
+         (--patch).  Press `C` to invoke :Gcommit.
+
+    *    `:Gcommit [args]`
+
+         A wrapper around git-commit.
+
+    *    `:Ggrep [args]`
+
+         :grep with git-grep as 'grepprg'.
+
+    *    `<leader>gg`
+
+         shortcut to run :Ggrep
+
+    *   `<leader>gw`
+
+        global git search for the word under the cursor for for selection (in visual mode)
+
+    *   `:Gblame`
+
+        Run git-blame on the file and open the results in a
+        scroll bound vertical split. Press enter on a line to
+        reblame the file as it was in that commit.
+
+    Much more in the plugin's doc
+
+*   <a name=vim-merginal>[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+
+    * `:Merginal` - open branch list window
+
+    * `D`  - delete branch under cursor
+    * `C`  - checkout branch under cursor
+    * `M`  - merge branch under cursor
+    * `rb` - rebase current branch against the branch under cursor
+    * `rn` - rename branch agains the branch under cursor
+
+    * `:h merginal-branch-list` to see more bindings.
+
+    * `:h merginal` - to see the complete help
+
 
 <a name=fuzzy-search>
 ## Fuzzy search tools
@@ -492,91 +539,6 @@ TBD
 *   <a name=vim-endwise>[vim-endwise](http://github.com/tpope/vim-endwise) ([top](#top))
 
     Wisely add "end" in ruby, endfunction/endif/more in vim script, etc
-
-*   <a name=vim-fugitive>[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
-
-    A Git wrapper so awesome, it should be illegal
-
-    *    `:Gstatus`
-
-         Bring up the output of git-status in the preview
-         window.  Press `-` to stage or unstage the file on the
-         cursor line.  Press `p` to do so on a per hunk basis
-         (--patch).  Press `C` to invoke :Gcommit.
-
-    *    `:Gcommit [args]`
-
-         A wrapper around git-commit.
-
-    *    `:Ggrep [args]`
-
-         :grep with git-grep as 'grepprg'.
-
-    *    `<leader>gg`
-
-         shortcut to run :Ggrep
-
-    *   `<leader>gw`
-
-        global git search for the word under the cursor for for selection (in visual mode)
-
-    *   `:Gblame`
-
-        Run git-blame on the file and open the results in a
-        scroll bound vertical split. Press enter on a line to
-        reblame the file as it was in that commit.
-
-    Much more in the plugin's doc
-
-*   <a name=vim-merginal>[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
-
-    * `:Merginal` - open branch list window
-
-    * `D`  - delete branch under cursor
-    * `C`  - checkout branch under cursor
-    * `M`  - merge branch under cursor
-    * `rb` - rebase current branch against the branch under cursor
-    * `rn` - rename branch agains the branch under cursor
-
-    * `:h merginal-branch-list` to see more bindings.
-
-    * `:h merginal` - to see the complete help
-
-*   <a name=gitgutter>[Vim Git Gutter](https://github.com/airblade/vim-gitgutter) ([top](#top))
-
-    A Vim plugin which shows a git diff in the 'gutter' (sign column).
-    It shows whether each line has been added, modified, and where lines have been removed.
-
-    ![screenshot](https://raw.github.com/airblade/vim-gitgutter/master/screenshot.png)
-
-    In the screenshot above you can see:
-
-    * Line 15 has been modified.
-    * Lines 21-24 are new.
-    * A line or lines were removed between lines 25 and 26.
-
-    Commands:
-
-    * `:GitGutterDisable`
-    * `:GitGutterEnable`
-    * `:GitGutterToggle`
-    * `:GitGutterSignsEnable`
-    * `:GitGutterSignsDisable`
-    * `:GitGutterSignsToggle`
-    * `:GitGutterLineHighlightsEnable`
-    * `:GitGutterLineHighlightsDisable`
-    * `:GitGutterLineHighlightsToggle`
-
-    Bindings:
-
-    * `]c` - jump to next hunk
-    * `<localleader>n` - jump to next hunk
-    * `[c` - jump to previous hunk
-    * `<localleader>p` - jump to previous hunk
-    * `<leader>hs` - stage hunk
-    * `<leader>hr` - revert hunk
-
-    There are quite some customization options. see help.
 
 *   <a name=vim-surround>[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
 

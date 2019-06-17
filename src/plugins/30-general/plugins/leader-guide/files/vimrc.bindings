@@ -82,9 +82,8 @@ nmap     <leader>w=             <plug>(Window/Rebalance)
 noremap                         <plug>(Window/Swap)                           <C-w>x
 nmap     <leader>wx             <plug>(Window/Swap)
 
-noremap                         <plug>(Window/Maximize)                       <C-w>_<C-w><Bar>
-nmap     <leader>wz             <plug>(Window/Maximize)
-nmap     <C-w>z                 <plug>(Window/Maximize)
+nmap     <leader>w_             <C-w>_
+nmap     <leader>w<bar>        <C-w><bar>
 
 nmap                            <plug>(Window/Move-Up)                        <c-w>K
 nmap     <leader>wK             <plug>(Window/Move-Up)
@@ -115,4 +114,4 @@ map                             <plug>(Quit/Window)                           <p
 nmap     <leader>qw             <plug>(Quit/Window)
 
 noremap                         <plug>(Window/Only)                           <C-w>o
-nmap     <leader>wm             <plug>(Window/Only)
+nmap     <leader>wo             <plug>(Window/Only)

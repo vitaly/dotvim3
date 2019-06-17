@@ -2,4 +2,4 @@ map                       <plug>(Toggle/Window-Zoom)          :ZoomWinTabToggle<
 nmap     <leader>Tz       <plug>(Toggle/Window-Zoom)
 
 map                       <plug>(Window/Toggle-Zoom)          <plug>(Toggle/Window-Zoom)
-nmap     <leader>wo       <plug>(Window/Toggle-Zoom)
+nmap     <leader>wz       <plug>(Window/Toggle-Zoom)

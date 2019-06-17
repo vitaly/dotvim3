@@ -1,4 +1,4 @@
-source .dotvim.vim
+runtime .dotvim.vim
 
 if ! has('nvim')
   set nocompatible

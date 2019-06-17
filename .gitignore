@@ -9,3 +9,4 @@ bundle/*
 vimrc.pyenv
 .done
 .ruby-version
+tags.temp
