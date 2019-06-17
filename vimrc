@@ -5,9 +5,11 @@ scriptencoding utf8
 
 " src/plugins/20-settings/files/vimrc -------------------
 
-" if &compatible
-  " set nocompatible
-" endif
+source .dotvim.vim
+
+if ! has('nvim')
+  set nocompatible
+endif
 
 syntax on
 

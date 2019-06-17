@@ -59,5 +59,7 @@ source lib/common.sh
 load_all plugins/*
 
 finish
+cat ${VIM_DIR}/.config  | grep '^[^#]' | sed -E -e "s/^([^=]+)=(.*)$/let g:dotvim#\1 = '\2'/" > ${VIM_DIR}/.dotvim.vim
+
 bold
 info -e "\nDONE: $VIM_DIR"
