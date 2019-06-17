@@ -379,6 +379,22 @@ nmap    <leader>gs                <plug>(Git/Status)
 noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
 nmap    <leader>gd                <plug>(Git/Diff)
 
+" src/plugins/40-ide/plugins/linting/files/vimrc.bindings -------------------
+
+let g:leader_map_guide.a.a  = { 'name': 'ALE' }
+
+nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
+nmap <leader>aaF      <plug>(App/ALE/Fix)
+
+nmap                  <plug>(App/ALE/First)       <plug>(ale_first)
+nmap <leader>aaf      <plug>(App/ALE/First)
+
+nmap                  <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
+nmap <leader>aan      <plug>(App/ALE/Next)
+
+nmap                  <plug>(App/ALE/Detail)      <plug>(ale_detail)
+nmap <leader>aad      <plug>(App/ALE/Detail)
+
 " src/plugins/40-ide/plugins/statusline/files/vimrc.bindings -------------------
 
 if maparg('<plug>(Toggle/Status-Line)') != ''

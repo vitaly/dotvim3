@@ -26,12 +26,6 @@ nmap     <leader>apg <plug>plug(Upgrade)
 
 
 
-let g:leader_map_guide.a.a  = { 'name': 'ALE' }
-
-nmap <leader>aaF <plug>(ale_fix)
-nmap <leader>aaf <plug>(ale_first)
-nmap <leader>aan <plug>(ale_next_wrap)
-nmap <leader>aad <plug>(ale_detail)
 
 
 
