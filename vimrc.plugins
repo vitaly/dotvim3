@@ -15,19 +15,7 @@ let mapleader = " "
 let maplocalleader = ","
 set timeoutlen=5000
 
-" src/plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
-
-Plug 'blueyed/vim-diminactive'
-
-" src/plugins/30-general/plugins/diminactive/mode/off/vimrc.plugins -------------------
-
-let g:diminactive_mode = 0
-
-" src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
-
-Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }
-
-" src/plugins/30-general/plugins/leader-guide/files/vimrc.plugins -------------------
+" src/plugins/20-settings/plugins/leader-guide/files/vimrc.plugins -------------------
 
 Plug 'hecal3/vim-leader-guide'
 
@@ -56,6 +44,18 @@ endfunction
 call SetLeaderMenu('a',   'App'           )
 call SetLeaderMenu('f.t', 'Toggle'        )
 
+
+" src/plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
+
+Plug 'blueyed/vim-diminactive'
+
+" src/plugins/30-general/plugins/diminactive/mode/off/vimrc.plugins -------------------
+
+let g:diminactive_mode = 0
+
+" src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
+
+Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }
 
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.plugins -------------------
 

@@ -82,55 +82,7 @@ nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
 let g:clipboard_toggle_mode='unnamed'
 let &clipboard=g:clipboard_toggle_mode
 
-" src/plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
-
-" 0 - disabled
-" 1 - use syntax
-" 2 - use colorcolumns
-fu s:updateDiminactive()
-  if g:diminactive_mode == 1
-
-    let g:diminactive_use_colorcolumn = 0
-    let g:diminactive_use_syntax = 1
-    exe "DimInactiveOn"
-
-  elseif g:diminactive_mode == 2
-
-    let g:diminactive_use_colorcolumn = 1
-    let g:diminactive_use_syntax = 0
-    exe "DimInactiveOn"
-
-  else
-
-    let g:diminactive_use_colorcolumn = 0
-    let g:diminactive_use_syntax = 0
-    exe "DimInactiveOff"
-
-  endif
-endfu
-
-if (!exists("g:diminactive_mode"))
-  let g:diminactive_mode = 1
-endif
-call s:updateDiminactive()
-
-" cycle 0, 1, 2
-fu s:cycleDiminitive()
-
-  let g:diminactive_mode = max([0, g:diminactive_mode + 1])
-  echo g:diminactive_mode
-
-  if g:diminactive_mode > 2
-    let g:diminactive_mode = 0
-  endif
-
-  call s:updateDiminactive()
-endfu
-
-noremap              <plug>(Toggle/Diminactive) :call <SID>cycleDiminitive()<cr>
-nmap     <leader>Td  <plug>(Toggle/Diminactive)
-
-" src/plugins/30-general/plugins/leader-guide/files/vimrc.bindings -------------------
+" src/plugins/20-settings/plugins/leader-guide/files/vimrc.bindings -------------------
 
 nnoremap <leader><space>        :
 
@@ -249,6 +201,54 @@ nmap     <leader>qw             <plug>(Quit/Window)
 
 noremap                         <plug>(Window/Only)                           <C-w>o
 nmap     <leader>wo             <plug>(Window/Only)
+
+" src/plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
+
+" 0 - disabled
+" 1 - use syntax
+" 2 - use colorcolumns
+fu s:updateDiminactive()
+  if g:diminactive_mode == 1
+
+    let g:diminactive_use_colorcolumn = 0
+    let g:diminactive_use_syntax = 1
+    exe "DimInactiveOn"
+
+  elseif g:diminactive_mode == 2
+
+    let g:diminactive_use_colorcolumn = 1
+    let g:diminactive_use_syntax = 0
+    exe "DimInactiveOn"
+
+  else
+
+    let g:diminactive_use_colorcolumn = 0
+    let g:diminactive_use_syntax = 0
+    exe "DimInactiveOff"
+
+  endif
+endfu
+
+if (!exists("g:diminactive_mode"))
+  let g:diminactive_mode = 1
+endif
+call s:updateDiminactive()
+
+" cycle 0, 1, 2
+fu s:cycleDiminitive()
+
+  let g:diminactive_mode = max([0, g:diminactive_mode + 1])
+  echo g:diminactive_mode
+
+  if g:diminactive_mode > 2
+    let g:diminactive_mode = 0
+  endif
+
+  call s:updateDiminactive()
+endfu
+
+noremap              <plug>(Toggle/Diminactive) :call <SID>cycleDiminitive()<cr>
+nmap     <leader>Td  <plug>(Toggle/Diminactive)
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
 

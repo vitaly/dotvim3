@@ -5,7 +5,7 @@
 " must be in 'after' to prevent yankring overriding it
 nnoremap Y y$
 
-" src/plugins/30-general/plugins/leader-guide/files/vimrc.after -------------------
+" src/plugins/20-settings/plugins/leader-guide/files/vimrc.after -------------------
 
 function! s:my_displayfunc()
   let g:leaderGuide#displayname =
