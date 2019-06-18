@@ -66,3 +66,5 @@ call    SetLeaderMenu('a.c.r', 'Refactor')
 nmap                          <plug>(App/COC/Rename)                <Plug>(coc-rename)
 nmap    <leader>acrr          <plug>(App/COC/Rename)
 
+noremap                       <plug>(App/COC/Hover)                 :call CocAction('doHover')<cr>
+nmap   <localleader>/         <plug>(App/COC/Hover)

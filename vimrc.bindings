@@ -367,7 +367,7 @@ call    SetLeaderMenu('a.c', 'COC')
 nmap                          <plug>(App/COC/Action)                <Plug>(coc-codeaction)
 nmap    <leader>aca           <plug>(App/COC/Action)
 
-nmap                          <plug>(App/COC/Action)                <Plug>(coc-codeaction-selected)
+vmap                          <plug>(App/COC/Action)                <Plug>(coc-codeaction-selected)
 vmap    <leader>aca           <plug>(App/COC/Action)
 
 nmap                          <plug>(App/COC/Definition)            <Plug>(coc-definition)
@@ -406,6 +406,8 @@ call    SetLeaderMenu('a.c.r', 'Refactor')
 nmap                          <plug>(App/COC/Rename)                <Plug>(coc-rename)
 nmap    <leader>acrr          <plug>(App/COC/Rename)
 
+noremap                       <plug>(App/COC/Hover)                 :call CocAction('doHover')<cr>
+nmap   <localleader>/         <plug>(App/COC/Hover)
 
 " src/plugins/40-ide/plugins/fugitive/files/vimrc.bindings -------------------
 
