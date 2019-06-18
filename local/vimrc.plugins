@@ -2,7 +2,6 @@ scriptencoding utf8
 
 "Plug ''
 "
-"Plug 'irrationalistic/vim-tasks'
 "Plug 'powerman/vim-plugin-AnsiEsc'
 "Plug 'slashmili/alchemist.vim'
 

@@ -354,12 +354,6 @@ let g:ruby_refactoring_map_keys=0
 Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
 
 
-" src/plugins/70-languages/plugins/tasks/files/vimrc.plugins -------------------
-
-Plug 'irrationalistic/vim-tasks'
-
-autocmd BufNewFile,BufReadPost todo set filetype=tasks
-
 " src/plugins/80-base16/files/vimrc.plugins -------------------
 
 Plug 'chriskempson/base16-vim'
