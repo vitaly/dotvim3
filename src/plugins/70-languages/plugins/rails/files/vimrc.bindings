@@ -1,21 +1,21 @@
 " FIXME: can we make this active only in a Ruby ftype?
 
-:nnoremap <localleader>rap  :RAddParameter<cr>
-:nnoremap <localleader>rcpc :RConvertPostConditional<cr>
-:nnoremap <localleader>rel  :RExtractLet<cr>
-:vnoremap <localleader>rec  :RExtractConstant<cr>
-:vnoremap <localleader>relv :RExtractLocalVariable<cr>
-:nnoremap <localleader>rit  :RInlineTemp<cr>
-:vnoremap <localleader>rrlv :RRenameLocalVariable<cr>
-:vnoremap <localleader>rriv :RRenameInstanceVariable<cr>
-:vnoremap <localleader>rem  :RExtractMethod<cr>
+nnoremap <localleader>Rap  :RAddParameter<cr>
+nnoremap <localleader>Rcpc :RConvertPostConditional<cr>
+nnoremap <localleader>Rel  :RExtractLet<cr>
+vnoremap <localleader>Rec  :RExtractConstant<cr>
+vnoremap <localleader>Relv :RExtractLocalVariable<cr>
+nnoremap <localleader>Rit  :RInlineTemp<cr>
+vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
+vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
+vnoremap <localleader>Rem  :RExtractMethod<cr>
 
-let g:local_leader_map_guide.r     = { 'name': 'Ruby Refactoring' }
-let g:local_leader_map_guide.r.a   = { 'name': 'Add' }
-let g:local_leader_map_guide.r.c   = { 'name': 'Convert' }
-let g:local_leader_map_guide.r.c.p = { 'name': 'Post' }
-let g:local_leader_map_guide.r.e   = { 'name': 'Extract' }
-let g:local_leader_map_guide.r.i   = { 'name': 'Inline' }
-let g:local_leader_map_guide.r.r   = { 'name': 'Rename' }
-let g:local_leader_map_guide.r.r.l = { 'name': 'Local' }
-let g:local_leader_map_guide.r.r.i = { 'name': 'Instance' }
+call SetLocalLeaderMenu('R', 'Ruby Refactoring')
+call SetLocalLeaderMenu('R.a', 'Add')
+call SetLocalLeaderMenu('R.c', 'Convert')
+call SetLocalLeaderMenu('R.c.p', 'Post')
+call SetLocalLeaderMenu('R.e', 'Extract')
+call SetLocalLeaderMenu('R.i', 'Inline')
+call SetLocalLeaderMenu('R.r', 'Rename')
+call SetLocalLeaderMenu('R.r.l', 'Local')
+call SetLocalLeaderMenu('R.r.i', 'Instance')

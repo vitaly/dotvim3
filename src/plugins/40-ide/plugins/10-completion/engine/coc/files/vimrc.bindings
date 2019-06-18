@@ -19,36 +19,44 @@ inoremap <silent><expr> <TAB>
 
 call SetLeaderMenu('f.e.c', 'COC')
 
+call SetLeaderMenu('a.c', 'COC')
+call SetLeaderMenu('a.c.g', 'Go-To')
+call SetLeaderMenu('a.c.r', 'Refactoring')
+
+call SetLocalLeaderMenu('g', 'Go-To')
+call SetLocalLeaderMenu('r', 'Refactoring')
+
 noremap                       <plug>(File/Edit/COC/Config) :CocConf<cr>
 nmap    <leader>fecc          <plug>(File/Edit/COC/Config)
 
-call    SetLeaderMenu('a.c', 'COC')
-call SetLocalLeaderMenu('g', 'Go-To')
-
 nmap                          <plug>(App/COC/Action)                <Plug>(coc-codeaction)
 nmap    <leader>aca           <plug>(App/COC/Action)
+nmap                          <plug>(Action)                        <Plug>(coc-codeaction)
+nmap    <localleader>a        <plug>(Action)
 
 vmap                          <plug>(App/COC/Action)                <Plug>(coc-codeaction-selected)
 vmap    <leader>aca           <plug>(App/COC/Action)
+vmap                          <plug>(Action)                        <Plug>(coc-codeaction-selected)
+vmap    <localleader>a        <plug>(Action)
 
-nmap                          <plug>(App/COC/Definition)            <Plug>(coc-definition)
-nmap    <leader>acd           <plug>(App/COC/Definition)
+nmap                          <plug>(App/COC/Go-To/Definition)      <Plug>(coc-definition)
+nmap    <leader>acgd          <plug>(App/COC/Go-To/Definition)
 nmap                          <plug>(Go-To/Definition)              <Plug>(coc-definition)
 nmap    <localleader>gd       <plug>(Go-To/Definition)
 
-nmap                          <plug>(App/COC/Implementation)        <Plug>(coc-implementation)
-nmap    <leader>aci           <plug>(App/COC/Implementation)
+nmap                          <plug>(App/COC/Go-To/Implementation)  <Plug>(coc-implementation)
+nmap    <leader>acgi          <plug>(App/COC/Go-To/Implementation)
 nmap                          <plug>(Go-To/Implementation)          <Plug>(coc-implementation)
-nmap    <localleader>gd       <plug>(Go-To/Implementation)
+nmap    <localleader>gi       <plug>(Go-To/Implementation)
 
-nmap                          <plug>(App/COC/Type-Definition)       <Plug>(coc-type-definition)
-nmap    <leader>act           <plug>(App/COC/Type-Definition)
+nmap                          <plug>(App/COC/Go-To/Type-Definition) <Plug>(coc-type-definition)
+nmap    <leader>acgt          <plug>(App/COC/Go-To/Type-Definition)
 nmap                          <plug>(Go-To/Type-Definition)         <Plug>(coc-type-definition)
 nmap    <localleader>gt       <plug>(Go-To/Type-Definition)
 
 
-nmap                          <plug>(App/COC/References)            <Plug>(coc-references)
-nmap    <leader>acr           <plug>(App/COC/References)
+nmap                          <plug>(App/COC/Go-To/References)      <Plug>(coc-references)
+nmap    <leader>acgr          <plug>(App/COC/Go-To/References)
 nmap                          <plug>(Go-To/References)              <Plug>(coc-references)
 nmap    <localleader>gr       <plug>(Go-To/References)
 
@@ -58,6 +66,8 @@ nmap    <leader>acf           <plug>(App/COC/Fix)
 
 noremap                       <plug>(App/COC/List)                  :CocList <space>
 nmap    <leader>acl           <plug>(App/COC/List)
+noremap                       <plug>(List)                          :CocList <space>
+nmap    <localleader>l        <plug>(List)
 
 noremap                       <plug>(App/COC/Next)                  :CocNext<cr>
 nmap    <leader>acn           <plug>(App/COC/Next)
@@ -74,11 +84,12 @@ nmap    <leader>acR           <plug>(App/COC/Restart)
 noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
 nmap    <leader>acu           <plug>(App/COC/Update)
 
-call    SetLeaderMenu('a.c.r', 'Refactor')
 
-nmap                          <plug>(App/COC/Rename)                <Plug>(coc-rename)
-nmap    <leader>acrr          <plug>(App/COC/Rename)
+nmap                          <plug>(App/COC/Refactoring/Rename)    <Plug>(coc-rename)
+nmap    <leader>acrr          <plug>(App/COC/Refactoring/Rename)
+nmap                          <plug>(Refactoring/Rename)            <Plug>(coc-rename)
+nmap    <localleader>rr       <plug>(Refactoring/Rename)
 
-noremap                       <plug>(App/COC/Hover)                 :call CocAction('doHover')<cr>
-nmap   <localleader>K         <plug>(App/COC/Hover)
+noremap                       <plug>(Hover)                         :call CocAction('doHover')<cr>
+nmap   <localleader>K         <plug>(Hover)
 
