@@ -325,8 +325,8 @@ map T <Plug>Sneak_T
 
 " src/plugins/30-general/plugins/vimwiki/files/vimrc.bindings -------------------
 
-
 call SetLeaderMenu('W',   'Wiki')
+call SetLocalLeaderMenu('t', 'Task')
 
 " src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 

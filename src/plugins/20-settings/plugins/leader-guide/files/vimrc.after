@@ -31,3 +31,6 @@ map <silent> <localleader> <plug>guide(local)
 
 vmap <silent> <leader>      <plug>vguide(global)
 vmap <silent> <localleader> <plug>vguide(local)
+
+map  <leader>.      <Plug>leaderguide-global
+map  <localleader>. <Plug>leaderguide-buffer

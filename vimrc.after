@@ -41,6 +41,9 @@ map <silent> <localleader> <plug>guide(local)
 vmap <silent> <leader>      <plug>vguide(global)
 vmap <silent> <localleader> <plug>vguide(local)
 
+map  <leader>.      <Plug>leaderguide-global
+map  <localleader>. <Plug>leaderguide-buffer
+
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.after -------------------
 
 hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue

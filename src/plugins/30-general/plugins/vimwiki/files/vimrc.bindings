@@ -1,2 +1,2 @@
-
 call SetLeaderMenu('W',   'Wiki')
+call SetLocalLeaderMenu('t', 'Task')
