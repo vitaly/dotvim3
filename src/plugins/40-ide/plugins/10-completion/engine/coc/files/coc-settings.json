@@ -1,4 +1,6 @@
 {
+  "coc.preferences.hoverTarget": "preview",
+
   "suggest.timeout": 5000,
   "suggest.noselect": false,
 

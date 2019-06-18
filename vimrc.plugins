@@ -192,6 +192,8 @@ Plug 'maximbaz/lightline-ale'
 noremap <silent> <plug>(Toggle/Status-Line) :call lightline#toggle()<cr>
 let g:status_line_plugin = 'lightline'
 
+runtime status/lightline.vim
+
 " src/plugins/40-ide/plugins/tags/files/vimrc.plugins -------------------
 
 let g:gutentags_define_advanced_commands = 1

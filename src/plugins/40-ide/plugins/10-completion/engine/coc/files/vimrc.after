@@ -1,0 +1,3 @@
+hi CocHighlightText cterm=inverse gui=inverse
+" autocmd CursorHold * silent call CocActionAsync('doHover')
+autocmd CursorHold * silent call CocActionAsync('highlight')

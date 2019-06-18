@@ -8,14 +8,22 @@ nnoremap Y y$
 " src/plugins/20-settings/plugins/leader-guide/files/vimrc.after -------------------
 
 function! s:my_displayfunc()
+  " remove <CR> at the end
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+  " remove <plug> at the beginning
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '^<Plug>', '', '')
+
+  " remove "folders", e.g. (Foo/Bar-Baz/Boom) -> Boom
   let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^(\(\w\+/\)*\w\+/\(.*\))$', '\2', '')
+        \ substitute(g:leaderGuide#displayname, '^(\(\w[0-9A-Za-z_-]*/\)*\(.*\))$', '\2', '')
+
+  " remove parens (foo) -> foo
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '^(\(.*\))$', '\1', '')
+
+  " convert some characters to spaces
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '[-_()]', ' ', 'g')
 endfunction
@@ -50,9 +58,11 @@ hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
 hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 let g:multi_cursor_exit_from_insert_mode = 0
 
-" src/plugins/40-ide/plugins/statusline/lightline/files/vimrc.after -------------------
+" src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.after -------------------
 
-runtime status/lightline.vim
+hi CocHighlightText cterm=inverse gui=inverse
+" autocmd CursorHold * silent call CocActionAsync('doHover')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " src/plugins/40-ide/plugins/tags/files/vimrc.after -------------------
 
@@ -61,16 +71,6 @@ call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'
 " src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" src/plugins/80-base16/files/vimrc.after -------------------
-
-" including in vimrc.bindings to setup colors early, and
-" allow other plugins to override in vimrc.after
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-  " hi DiffChange ctermfg=blue
-endif
 
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
