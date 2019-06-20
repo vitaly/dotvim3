@@ -1,3 +1,14 @@
-hi CocHighlightText cterm=inverse gui=inverse
+hi CocHighlightText cterm=bold,underline gui=bold,underline
 " autocmd CursorHold * silent call CocActionAsync('doHover')
-autocmd CursorHold * silent call CocActionAsync('highlight')
+
+fun! HoverAction()
+  call CocActionAsync('highlight')
+  call CocActionAsync('showSignatureHelp')
+endf
+
+augroup HoverActions
+  au!
+  au CursorHold * silent call HoverAction()
+augroup END
+
+nnoremap <LeftMouse> <LeftMouse>:call HoverAction()<cr>
