@@ -173,55 +173,6 @@ if has('termguicolors')
   set termguicolors
 end
 
-" src/plugins/20-settings/plugins/vimbits/files/vimrc -------------------
-
-" awesome stuff from vimbits.com
-
-" keep selection after in/outdent
-vnoremap < <gv
-vnoremap > >gv
-
-" better navigation of wrapped lines
-nnoremap j gj
-nnoremap k gk
-
-" easier increment/decrement
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" center display after searching
-nnoremap n   nzz
-nnoremap N   Nzz
-nnoremap *   *zz
-nnoremap #   #zz
-nnoremap g*  g*zz
-nnoremap g#  g#z
-
-" disable paste mode when leaving Insert Mode
-au InsertLeave * set nopaste
-
-" fast expand current file's directory in command mode
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
-
-call SetLeaderMenu('x',   'Text')
-call SetLeaderMenu('x.d', 'Delete')
-
-noremap                     <plug>(Text/Delete/Whitespace)    :%s/\s\+$//<cr>:let @/=''<cr>
-nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
-
-
-call SetLeaderMenu('Y', 'Yank')
-
-noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
-nnoremap <leader>Yp         <plug>(Yank/File-Path)
-
-noremap                     <plug>(Yank/File-Name)            :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
-nnoremap <leader>Yf         <plug>(Yank/File-Name)
-
-nnoremap                    <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
-nnoremap <leader>Yd         <plug>(Yank/File-Directory)
-
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
 source ~/.vim/local/vimrc

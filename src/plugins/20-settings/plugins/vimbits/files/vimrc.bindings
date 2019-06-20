@@ -37,10 +37,10 @@ nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
 call SetLeaderMenu('Y', 'Yank')
 
 noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
-nnoremap <leader>Yp         <plug>(Yank/File-Path)
+nmap     <leader>Yp         <plug>(Yank/File-Path)
 
-noremap                     <plug>(Yank/File-Name)            :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
-nnoremap <leader>Yf         <plug>(Yank/File-Name)
+noremap                      <plug>(Yank/File-Name)           :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+nmap     <leader>Yf         <plug>(Yank/File-Name)
 
-nnoremap                    <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
-nnoremap <leader>Yd         <plug>(Yank/File-Directory)
+noremap                     <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+nmap     <leader>Yd         <plug>(Yank/File-Directory)
