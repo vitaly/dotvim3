@@ -68,12 +68,26 @@ fun! HoverAction()
   call CocActionAsync('showSignatureHelp')
 endf
 
-augroup HoverActions
+nnoremap <LeftMouse> <LeftMouse>:call HoverAction()<cr>
+
+let g:hover_on_hold = get(g:, "hover_on_hold", 1)
+fun! HoverAcgtionOnHold()
+  if g:hover_on_hold
+    call HoverAction()
+  endif
+endf
+
+augroup HoldHoverActions
   au!
-  au CursorHold * silent call HoverAction()
+  au CursorHold * silent call HoverAcgtionOnHold()
 augroup END
 
-nnoremap <LeftMouse> <LeftMouse>:call HoverAction()<cr>
+fu! Toggle_hover_on_hold()
+  let g:hover_on_hold = ! g:hover_on_hold
+endfu
+
+noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
+nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)
 
 " src/plugins/40-ide/plugins/tags/files/vimrc.after -------------------
 

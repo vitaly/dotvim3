@@ -90,7 +90,7 @@
   "diagnostic.enable": true,
   "diagnostic.level": "hint",
   "diagnostic.virtualText": true,
-  "diagnostic.messageTarget": "echo",
+  "diagnostic.messageTarget": "preview",
   "diagnostic.displayByAle": true,
 
 
