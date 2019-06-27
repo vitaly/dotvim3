@@ -318,6 +318,8 @@ Plug 'tpope/vim-surround'
 " src/plugins/70-languages/plugins/0-polyglot/files/vimrc.plugins -------------------
 
 let g:jsx_ext_required = 1
+let g:polyglot_disabled = [ 'fish' ]
+Plug 'RobertAudi/fish.vim', { 'for': 'fish' }
 Plug 'sheerun/vim-polyglot'
 
 " src/plugins/70-languages/plugins/q/files/vimrc.plugins -------------------
