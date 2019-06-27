@@ -52,7 +52,7 @@ set et                  " expand tabs into spaces
 
 set ttimeoutlen=50      " fast Esc to normal mode
 set timeoutlen=5000     " give 5s to complete mapping sequence
-set updatetime=500
+set updatetime=300
 
 " mouse settings
 if has("mouse")
