@@ -3,7 +3,7 @@ Plug 'hecal3/vim-leader-guide'
 let g:leader_map_guide = {}
 let g:local_leader_map_guide = {}
 
-function! SetMenuMap(map, keys, name)
+function! s:SetMenuMap(map, keys, name)
   let s:map = a:map
   for s:key in split(a:keys, '\.')
     if !has_key(s:map, s:key)
@@ -15,13 +15,12 @@ function! SetMenuMap(map, keys, name)
 endfunction
 
 function! SetLeaderMenu(keys, name)
-  call SetMenuMap(g:leader_map_guide, a:keys, a:name)
+  call s:SetMenuMap(g:leader_map_guide, a:keys, a:name)
 endfunction
 
 function! SetLocalLeaderMenu(keys, name)
-  call SetMenuMap(g:local_leader_map_guide, a:keys, a:name)
+  call s:SetMenuMap(g:local_leader_map_guide, a:keys, a:name)
 endfunction
 
 call SetLeaderMenu('a',   'App'           )
 call SetLeaderMenu('f.t', 'Toggle'        )
-

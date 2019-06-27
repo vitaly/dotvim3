@@ -1,4 +1,4 @@
-function! s:my_displayfunc()
+function! LeaderguideMenuItem()
   " remove <CR> at the end
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
@@ -18,7 +18,7 @@ function! s:my_displayfunc()
   let g:leaderGuide#displayname =
         \ substitute(g:leaderGuide#displayname, '[-_()]', ' ', 'g')
 endfunction
-let g:leaderGuide_displayfunc = [function("s:my_displayfunc")]
+let g:leaderGuide_displayfunc = [function("LeaderguideMenuItem")]
 
 let g:topdict = {}
 let g:topdict[' '] = g:leader_map_guide
