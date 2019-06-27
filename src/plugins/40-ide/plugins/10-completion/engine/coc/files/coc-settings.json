@@ -1,5 +1,5 @@
 {
-  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.hoverTarget": "float",
 
   "suggest.timeout": 5000,
   "suggest.noselect": false,
@@ -37,9 +37,9 @@
 
   // signature
   "signature.target": "float",
-  "signature.hideOnTextChange": false,
-  "signature.preferShownAbove": false,
-  "signature.maxWindowHeight": 15,
+  "signature.hideOnTextChange": true,
+  "signature.preferShownAbove": true,
+  "signature.maxWindowHeight": 20,
   "signature.triggerSignatureWait": 50,
 
   "codeLens.enable": false,
@@ -52,7 +52,7 @@
   "suggest.enablePreview": true,
 
   "yank.list.maxsize": 1000,
-  "yank.highlight.duration": 100,
+  "yank.highlight.duration": 200,
 
 
   "git.enableGutters": true,
@@ -89,14 +89,14 @@
 
   "diagnostic.enable": true,
   "diagnostic.level": "hint",
-  "diagnostic.virtualText": true,
-  "diagnostic.messageTarget": "echo",
-  "diagnostic.displayByAle": true,
+  "diagnostic.virtualText": false,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.displayByAle": false,
 
 
   "diagnostic.errorSign":   "✗", //  
-  "diagnostic.warningSign": "", //  
-  "diagnostic.infoSign":    "", //  
+  "diagnostic.warningSign": "!", //  
+  "diagnostic.infoSign":    "i", //  
   "diagnostic.hintSign":    "", //  ﯦﯧ
 
 
@@ -104,7 +104,7 @@
 
 
 
-  "solargraph.enable": true,
+  "solargraph.rename": true,
   "solargraph.hover": true,
   "solargraph.autoformat": true,
   "solargraph.diagnostics": true,
