@@ -89,9 +89,19 @@ let g:gutentags_generate_on_missing = 0
 
 " nvim-only config
 if has("nvim")
-  nmap <leader>zz :term zsh<cr>:startinsert<cr>
-  nmap <leader>zb :term bash<cr>:startinsert<cr>
-  nmap <leader>zs :term sh<cr>:startinsert<cr>
+  call SetLeaderMenu('z',   'Terminal')
+
+  noremap           <Plug>(Terminal/zsh) :term zsh<cr>:startinsert<cr>
+  nmap <leader>zz   <Plug>(Terminal/zsh)
+
+  noremap           <Plug>(Terminal/bash) :term bash<cr>:startinsert<cr>
+  nmap <leader>zb   <Plug>(Terminal/bash)
+
+  noremap           <Plug>(Terminal/fish) :term fish<cr>:startinsert<cr>
+  nmap <leader>zf   <Plug>(Terminal/fish)
+
+  noremap           <Plug>(Terminal/sh) :term sh<cr>:startinsert<cr>
+  nmap <leader>zs   <Plug>(Terminal/sh)
 
   highlight TermCursor ctermfg=red guifg=red
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
