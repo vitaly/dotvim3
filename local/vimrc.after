@@ -296,3 +296,10 @@ map <silent><esc> :silent noh<cr>
 set ic
 
 let g:taskwiki_sort_order = "pri-"
+
+if !argc() && filereadable('.session.vim')
+  echo "loading session"
+  so ./.session.vim
+endif
+
+set diffopt+=iwhiteall
