@@ -162,8 +162,8 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
 
 " plugins/20-settings/plugins/interpreters/install.sh -------------------
 
-let g:python_host_prog='/usr/local/bin/python2'
-let g:python3_host_prog='/usr/local/bin/python3'
+let g:python_host_prog='/Users/vitaly/.asdf/shims/python2'
+let g:python3_host_prog='/Users/vitaly/.asdf/shims/python3'
 let g:ruby_host_prog='/usr/local/bin/neovim-ruby-host'
 let g:node_host_prog='/usr/local/bin/neovim-node-host'
 

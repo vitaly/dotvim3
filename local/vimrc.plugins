@@ -195,3 +195,10 @@ nmap <leader>m :Dispatch<cr>
 
 Plug 'wincent/ferret'
 let g:FerretMap=0
+
+Plug 'edkolev/tmuxline.vim'
+
+
+let g:prosession_on_startup = 0
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'

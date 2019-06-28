@@ -1,13 +1,14 @@
 
 # src/plugins/10-init/files/.gitignore -------------------
 
-dein
-.config.new
-sessions
+/.config.new
+/session/
+/sessions/
 /tags
-bundle/*
-vimrc.pyenv
-.done
+/bundle/*
+/vimrc.pyenv
+/.done
 .ruby-version
 tags.temp
-scratch.vim
+/scratch.vim
+/bundle_/
