@@ -1,0 +1,1 @@
+let $PYTHONWARNINGS="ignore:DEPRECATION"

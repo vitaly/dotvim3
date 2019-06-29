@@ -1,5 +1,3 @@
-runtime .dotvim.vim
-
 if ! has('nvim')
   set nocompatible
 endif

@@ -28,6 +28,7 @@ RUN apk add --no-cache \
       python2 python3 py2-pip \
       coreutils grep \
       neovim
+
 RUN apk add --no-cache tmux
 
 RUN ln -sfn nvim /usr/bin/vim
@@ -45,10 +46,6 @@ COPY . .
 
 RUN echo ruby_solargraph=n >> .config
 RUN echo clipboard_shared=n >> .config
-RUN echo vim_python2=/usr/bin/python2 >> .config
-RUN echo vim_python3=/usr/bin/python3 >> .config
-RUN echo vim_yarn=/usr/bin/yarn >> .config
-RUN echo vim_ruby_host=/usr/bin/neovim-ruby-host >> .config
 
 RUN make configure
 RUN make deps

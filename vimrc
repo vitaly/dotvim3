@@ -3,9 +3,14 @@
 
 scriptencoding utf8
 
-" src/plugins/20-settings/files/vimrc -------------------
+" this file mirrors all the variavles from .conf
+runtime .config.vim
 
-runtime .dotvim.vim
+" this  can be used to setup environment.
+" e.g node/ruby/python providers etc
+runtime .env.vim
+
+" src/plugins/20-settings/files/vimrc -------------------
 
 if ! has('nvim')
   set nocompatible
@@ -160,12 +165,9 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>^
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
 
-" plugins/20-settings/plugins/interpreters/install.sh -------------------
+" src/plugins/20-settings/plugins/interpreters/files/vimrc -------------------
 
-let g:python_host_prog='/Users/vitaly/.asdf/shims/python2'
-let g:python3_host_prog='/Users/vitaly/.asdf/shims/python3'
-let g:ruby_host_prog='/usr/local/bin/neovim-ruby-host'
-let g:node_host_prog='/usr/local/bin/neovim-node-host'
+let $PYTHONWARNINGS="ignore:DEPRECATION"
 
 " src/plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
 

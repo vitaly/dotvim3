@@ -1,0 +1,4 @@
+neovim
+javascript-typescript-langserver
+typescript-language-server
+bash-language-server
