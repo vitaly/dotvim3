@@ -98,7 +98,6 @@ let s:wiki.path = '~/wiki/'
 let s:wiki.nested_syntaxes = {'q': 'q', 'ruby': 'ruby', 'python': 'python', 'sh': 'sh', 'yaml': 'yaml'}
 " let s:wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let g:vimwiki_list = [s:wiki]
-nnoremap <plug>search(wikitags) :VimwikiSearchTags<space>
 
 " let g:automatic_nested_syntaxes = 1
 

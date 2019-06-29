@@ -380,6 +380,12 @@ map T <Plug>Sneak_T
 call SetLeaderMenu('W',   'Wiki')
 call SetLocalLeaderMenu('t', 'Task')
 
+nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
+nma <leader>aw     <plug>(App/Wiki)
+
+nnoremap           <plug>(Search/Wiki-Tags)   :VimwikiSearchTags<space>
+nmap <leader>sw    <plug>(Search/Wiki-Tags)
+
 " src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
 
 map                       <plug>(Toggle/Window-Zoom)          :ZoomWinTabToggle<CR>

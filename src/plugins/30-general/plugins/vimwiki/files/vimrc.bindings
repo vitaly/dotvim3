@@ -1,2 +1,8 @@
 call SetLeaderMenu('W',   'Wiki')
 call SetLocalLeaderMenu('t', 'Task')
+
+nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
+nma <leader>aw     <plug>(App/Wiki)
+
+nnoremap           <plug>(Search/Wiki-Tags)   :VimwikiSearchTags<space>
+nmap <leader>sw    <plug>(Search/Wiki-Tags)
