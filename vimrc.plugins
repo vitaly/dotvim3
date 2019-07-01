@@ -234,7 +234,7 @@ if executable("ag") && ('' == $FZF_DEFAULT_COMMAND)
   let $FZF_DEFAULT_COMMAND = "ag --follow --nocolor --nogroup -g ''"
 endif
 
-" plugins/50-fuzzy-tools/plugins/02-fzf/install.sh -------------------
+" src/plugins/50-fuzzy-tools/plugins/02-fzf/install.sh -------------------
 
 set rtp+=/usr/local/opt/fzf
 

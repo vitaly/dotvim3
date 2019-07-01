@@ -1,5 +1,5 @@
 {
-  vim_banner "$(this_file)"
+  vim_banner "src/$(this_file)"
 
 
   case $clipboard in

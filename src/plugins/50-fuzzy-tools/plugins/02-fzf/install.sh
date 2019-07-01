@@ -26,7 +26,7 @@ END
   detect_fzf
 done
 
-vim_banner "$(this_file)" >> "${VIM_DIR}/vimrc.plugins"
+vim_banner "src/$(this_file)" >> "${VIM_DIR}/vimrc.plugins"
 echo "set rtp+=$FZF_DIR" >> "${VIM_DIR}/vimrc.plugins"
 
 if [ -z "$FZF_DEFAULT_COMMAND" -a -n "`which ag`" ]; then

@@ -80,7 +80,7 @@ endfu
 noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
 nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
 
-" plugins/20-settings/plugins/clipboard/install.sh -------------------
+" src/plugins/20-settings/plugins/clipboard/install.sh -------------------
 
 let g:clipboard_toggle_mode='unnamed'
 let &clipboard=g:clipboard_toggle_mode
