@@ -6,7 +6,7 @@ initial clipboard is in an 'internal' mode (e.g. not shared)
 
 see bindings.
 
-Note: if you chose "splus" and it doesn't seem to work, try "start"
+Note: if you chose "splus" and it doesn't seem to work, try "star"
 END
 
 # ask_bool system_clipboard '"merge" vim and system clipboards?'
