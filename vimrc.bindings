@@ -600,12 +600,9 @@ call SetLocalLeaderMenu('R.r.i', 'Instance')
 " including in vimrc.bindings to setup colors early, and
 " allow other plugins to override in vimrc.after
 if !exists('g:skip_vimrc_background')
-
   if filereadable(expand("~/.vimrc_background"))
-
     let base16colorspace=256
     source ~/.vimrc_background
-
   endif
 endif
 
