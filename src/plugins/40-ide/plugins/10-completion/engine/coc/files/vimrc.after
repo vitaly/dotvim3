@@ -6,7 +6,7 @@ fun! HoverAction()
   call CocActionAsync('showSignatureHelp')
 endf
 
-nnoremap <LeftMouse> <LeftMouse>:call HoverAction()<cr>
+nnoremap <silent><LeftMouse> <LeftMouse>:call HoverAction()<cr>
 
 let g:hover_on_hold = get(g:, "hover_on_hold", 1)
 fun! HoverAcgtionOnHold()
