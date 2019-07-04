@@ -60,7 +60,7 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 " src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.after -------------------
 
-hi CocHighlightText cterm=bold,underline gui=bold,underline
+hi CocHighlightText cterm=inverse gui=inverse
 " autocmd CursorHold * silent call CocActionAsync('doHover')
 
 fun! HoverAction()

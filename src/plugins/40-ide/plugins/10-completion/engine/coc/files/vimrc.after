@@ -1,4 +1,4 @@
-hi CocHighlightText cterm=bold,underline gui=bold,underline
+hi CocHighlightText cterm=inverse gui=inverse
 " autocmd CursorHold * silent call CocActionAsync('doHover')
 
 fun! HoverAction()
