@@ -313,9 +313,6 @@ Plug 'vitaly/vim-gitignore'
 
 Plug 'sbdchd/neoformat'
 
-command! AutoFormat au BufWritePre <buffer> Neoformat
-command! NoAutoFormat au! BufWritePre <buffer>
-
 " src/plugins/60-development/plugins/surround/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-surround'

@@ -571,6 +571,26 @@ endif
 noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
 nmap     <leader>sy             <plug>(Search/YankRing)
 
+" src/plugins/60-development/plugins/neoformat/files/vimrc.bindings -------------------
+
+command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> Neoformat" | augroup END
+command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>
+
+let b:autoformat = 0
+fun! ToggleAutoFormat()
+  if b:autoformat
+    echo "autoformat off"
+    NoAutoFormat
+  else
+    echo "autoformat on"
+    AutoFormat
+  endif
+  " code
+endf
+
+map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
+nmap    <silent> <leader>Ta            <plug>(Toggle/AutoFormat)
+
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?
