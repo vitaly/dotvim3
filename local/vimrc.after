@@ -302,5 +302,5 @@ if !argc() && filereadable('.session.vim')
   so ./.session.vim
 endif
 
-set diffopt+=iwhiteall
+" set diffopt+=iwhiteall
 
