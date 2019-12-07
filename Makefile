@@ -4,7 +4,7 @@ DEFAULT ?= configure
 default: ${DEFAULT}
 .PHONY: default
 
-export VIM_DIR ?= $(shell pwd  -P)
+export VIM_DIR ?= $(shell /bin/pwd  -P)
 SRC := cd src &&
 
 configure:
