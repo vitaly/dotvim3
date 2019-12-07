@@ -1,6 +1,8 @@
 
 # src/plugins/10-init/files/deps/install.sh -------------------
 
+set -eEu
+set -o pipefail
 
 # src/plugins/20-settings/plugins/interpreters/files/deps/install.sh -------------------
 
