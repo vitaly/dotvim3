@@ -57,8 +57,8 @@
 
   "git.enableGutters": true,
   "git.realtimeGutters": true,
-  "git.addGlameToVirtualText": false,
-  "git.addGlameToBufferVar": false,
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": false,
 
   "languageserver": {
     "dockerfile": {
