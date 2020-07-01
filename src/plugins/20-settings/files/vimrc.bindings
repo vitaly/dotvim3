@@ -53,7 +53,7 @@ nmap    <leader>n    <plug>(Next)
 noremap <plug>(Prev) :cn<CR>
 nmap    <leader>p    <plug>(Prev)
 
-noremap <plug>diff-mode(toggle) :set diff!<cr>
+noremap <plug>diff-mode(toggle) :set diff! cursorbind! scrollbind!<cr>
 nmap    <leader>TD              <plug>diff-mode(toggle)
 
 " completion mappings
