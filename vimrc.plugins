@@ -188,6 +188,7 @@ let g:ale_fixers = { 'ruby': [ 'rubocop' ] }
 let g:ale_sign_column_always = 1
 let g:ale_set_balloons = 1
 let g:ale_change_sign_column_color = 0
+let g:ale_echo_msg_format = '%linter%: %s'
 
 " src/plugins/40-ide/plugins/statusline/lightline/files/vimrc.plugins -------------------
 
