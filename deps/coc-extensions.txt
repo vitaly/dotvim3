@@ -1,11 +1,13 @@
 coc-git
-coc-gocode
+coc-go
+coc-highlight
 coc-json
 coc-lists
+coc-rls
 coc-snippets
 coc-solargraph
 coc-syntax
 coc-tag
 coc-tsserver
-coc-yank
 coc-vimlsp
+coc-yank

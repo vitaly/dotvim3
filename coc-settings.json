@@ -63,7 +63,7 @@
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
+      "filetypes": ["Dockerfile"],
       "args": ["--stdio"]
     },
 
@@ -78,7 +78,7 @@
       "command": "ocaml-language-server",
       "args": ["--stdio"],
       "filetypes": ["ocaml", "reason"]
-    },
+    }
 
     // "elixirLS": {
     //   "command": "/absolute/path/to/elixir-ls/release/language_server.sh",
