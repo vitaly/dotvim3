@@ -304,3 +304,4 @@ endif
 
 " set diffopt+=iwhiteall
 
+" let g:neoformat_verbose = 1
