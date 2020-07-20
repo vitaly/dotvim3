@@ -8,3 +8,5 @@ coc-syntax
 coc-tag
 coc-tsserver
 coc-yank
+coc-vimlsp
+vim-highlight

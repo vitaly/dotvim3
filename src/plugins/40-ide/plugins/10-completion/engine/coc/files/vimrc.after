@@ -1,3 +1,4 @@
+" hi CocHighlightText cterm=underline gui=underline
 hi CocHighlightText cterm=inverse gui=inverse
 " autocmd CursorHold * silent call CocActionAsync('doHover')
 
@@ -9,7 +10,7 @@ endf
 nnoremap <silent><LeftMouse> <LeftMouse>:call HoverAction()<cr>
 
 let g:hover_on_hold = get(g:, "hover_on_hold", 1)
-fun! HoverAcgtionOnHold()
+fun! HoverActionOnHold()
   if g:hover_on_hold
     call HoverAction()
   endif
@@ -17,7 +18,7 @@ endf
 
 augroup HoldHoverActions
   au!
-  au CursorHold * silent call HoverAcgtionOnHold()
+  au CursorHold * silent call HoverActionOnHold()
 augroup END
 
 fu! Toggle_hover_on_hold()
