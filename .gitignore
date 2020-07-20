@@ -17,3 +17,4 @@ node_modules/
 /package.json
 /Gemfile.lock
 /.env.vim
+/.tool-versions
