@@ -22,6 +22,7 @@ augroup END
 
 fu! Toggle_hover_on_hold()
   let g:hover_on_hold = ! g:hover_on_hold
+  echo g:hover_on_hold
 endfu
 
 noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
