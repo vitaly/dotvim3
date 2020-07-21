@@ -1,0 +1,12 @@
+let g:WhichKeyFormatFunc = function('my#keymap#format')
+
+augroup RegisterKeyMap
+  autocmd!
+  autocmd   User    vim-which-key     call which_key#register(' ', 'g:my#keymap#leader#map')
+  autocmd   User    vim-which-key     call which_key#register(',', 'g:my#keymap#localleader#map')
+augroup END
+
+nnoremap <silent> <leader>      :<c-u>WhichKey       ' '<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey       ','<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual ' '<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>

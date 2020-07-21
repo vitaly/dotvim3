@@ -10,12 +10,12 @@ vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
 vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
 vnoremap <localleader>Rem  :RExtractMethod<cr>
 
-call SetLocalLeaderMenu('R', 'Ruby Refactoring')
-call SetLocalLeaderMenu('R.a', 'Add')
-call SetLocalLeaderMenu('R.c', 'Convert')
-call SetLocalLeaderMenu('R.c.p', 'Post')
-call SetLocalLeaderMenu('R.e', 'Extract')
-call SetLocalLeaderMenu('R.i', 'Inline')
-call SetLocalLeaderMenu('R.r', 'Rename')
-call SetLocalLeaderMenu('R.r.l', 'Local')
-call SetLocalLeaderMenu('R.r.i', 'Instance')
+call my#keymap#localleader('R',   '+Ruby Refactoring')
+call my#keymap#localleader('Ra',  '+Add')
+call my#keymap#localleader('Rc',  '+Convert')
+call my#keymap#localleader('Rcp', '+Post')
+call my#keymap#localleader('Re',  '+Extract')
+call my#keymap#localleader('Ri',  '+Inline')
+call my#keymap#localleader('Rr',  '+Rename')
+call my#keymap#localleader('Rrl', '+Local')
+call my#keymap#localleader('Rri', '+Instance')

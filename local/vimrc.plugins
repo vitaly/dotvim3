@@ -178,7 +178,7 @@ Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 let g:EditorConfig_max_line_indicator = 'fill'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'shime/vim-livedown', { 'on': [ 'LivedownPreview', 'LivedownKill', 'LivedownToggle' ] }
-let g:leader_map_guide.a.l  = { 'name': 'Livedown' }
+call my#keymap#leader('al', '+Livedown')
 nnoremap             <plug>livedown(preview) :LivedownPreview<cr>
 nmap     <leader>alp <plug>livedown(preview)
 nnoremap             <plug>livedown(kill)    :LivedownKill<cr>

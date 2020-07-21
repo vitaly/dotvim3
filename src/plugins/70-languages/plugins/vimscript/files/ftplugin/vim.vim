@@ -1,4 +1,4 @@
-call SetLocalLeaderMenu('e', 'Eval')
+call my#keymap#localleader('e', '+Eval')
 
 noremap <buffer> <silent>        <plug>(Eval/Line)      yy:@"<CR>
 nmap    <buffer> <localleader>ee <plug>(Eval/Line)

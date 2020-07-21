@@ -1,4 +1,4 @@
-let g:leader_map_guide.a.a  = { 'name': 'ALE' }
+call my#keymap#leader('aa', '+ALE')
 
 nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
 nmap <leader>aaF      <plug>(App/ALE/Fix)

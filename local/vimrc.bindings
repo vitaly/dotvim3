@@ -1,7 +1,6 @@
 scriptencoding utf8
 
-
-let g:leader_map_guide.a.p  = { 'name': 'Plug' }
+call my#keymap#leader('ap', '+Plug')
 
 nnoremap             <plug>plug(Clean)    :PlugClean<cr>
 nmap     <leader>apc <plug>plug(Clean)

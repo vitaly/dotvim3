@@ -1,5 +1,6 @@
 let g:dotvim#clipboard = 'star'
 let g:dotvim#clipboard_shared = 'y'
+let g:dotvim#keymap_engine = 'leader_guide'
 let g:dotvim#set_termguicolors = 'y'
 let g:dotvim#diminactive = 'y'
 let g:dotvim#dim_mode = 'off'

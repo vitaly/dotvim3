@@ -1,12 +1,14 @@
 nnoremap <leader><space>        :
 
-call SetLeaderMenu('v',         'Vim')
+call my#keymap#leader('a', '+App')
+
+call my#keymap#leader('v', '+Vim')
 
 noremap                         <plug>(Vim/Redraw)                            :redraw!<cr>
 nmap     <leader>vr             <plug>(Vim/Redraw)
 
 
-call SetLeaderMenu('t',         'Tab')
+call my#keymap#leader('t', '+Tab')
 
 noremap                         <plug>(Tab/New)                               :tabnew<cr>
 nmap     <leader>tn             <plug>(Tab/New)
@@ -15,7 +17,7 @@ map                             <plug>(Tab/New-File)                          <p
 nmap     <leader>tf             <plug>(Tab/New-File)
 
 
-call SetLeaderMenu('b',         'Buffer')
+call my#keymap#leader('b', '+Buffer')
 
 noremap                         <plug>(Buffer/Next)                           :bn<cr>
 nmap     <leader>bn             <plug>(Buffer/Next)
@@ -27,7 +29,7 @@ noremap                         <plug>(Buffer/Delete)                         :b
 nmap     <leader>bd             <plug>(Buffer/Delete)
 
 
-call SetLeaderMenu('f',         'File')
+call my#keymap#leader('f', '+File')
 
 noremap                         <plug>(File/Save)                             :w<cr>
 nmap     <leader>fs             <plug>(File/Save)
@@ -39,7 +41,8 @@ noremap                         <plug>(File/Make-Executable)                  :!
 nmap     <leader>fx             <plug>(File/Make-Executable)
 
 
-call SetLeaderMenu('f.e',       'Edit')
+call my#keymap#leader('ft', '+Toggle')
+call my#keymap#leader('fe', '+Edit')
 
 noremap                         <plug>(File/Edit/.vim)                        :e ~/.vim/<cr>
 nmap     <leader>fev            <plug>(File/Edit/.vim)
@@ -47,7 +50,7 @@ nmap     <leader>fev            <plug>(File/Edit/.vim)
 noremap                         <plug>(File/Edit/scratch.vim)                 :e ~/.vim/scratch.vim<cr>
 nmap     <leader>fes            <plug>(File/Edit/scratch.vim)
 
-call SetLeaderMenu('f.e.l',     'Local')
+call my#keymap#leader('fel', '+Local')
 
 noremap                         <plug>(File/Edit/Local/directory)             :e ~/.vim/local<cr>
 nmap     <leader>fell           <plug>(File/Edit/Local/directory)
@@ -63,12 +66,12 @@ nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
 noremap                         <plug>(File/Edit/Local/vimrc.bindings)        :e ~/.vim/local/vimrc.bindings<cr>
 nmap     <leader>felb           <plug>(File/Edit/Local/vimrc.bindings)
 
-call SetLeaderMenu('q',         'Quit')
+call my#keymap#leader('q', '+Quit')
 
 noremap                         <plug>(Quit/All)                              :qa<cr>
 nmap     <leader>qq             <plug>(Quit/All)
 
-call SetLeaderMenu('w',   'Window' )
+call my#keymap#leader('w', '+Window' )
 
 noremap                         <plug>(Window/Max-Width)                      <C-w><bar>
 nmap     <leader>w<bar>         <plug>(Window/Max-Width)

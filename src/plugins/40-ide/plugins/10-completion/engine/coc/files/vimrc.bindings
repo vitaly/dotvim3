@@ -17,17 +17,25 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-call SetLeaderMenu('f.e.c', 'COC')
 
-call SetLeaderMenu('a.c', 'COC')
-call SetLeaderMenu('a.c.g', 'Go-To')
-call SetLeaderMenu('a.c.r', 'Refactoring')
-
-call SetLocalLeaderMenu('g', 'Go-To')
-call SetLocalLeaderMenu('r', 'Refactoring')
+call my#keymap#leader('fec', '+COC')
 
 noremap                       <plug>(File/Edit/COC/Config)          :CocConf<cr>
 nmap    <leader>fecc          <plug>(File/Edit/COC/Config)
+
+call my#keymap#leader('ac', '+COC')
+
+noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
+nmap    <leader>acR           <plug>(App/COC/Restart)
+
+noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
+nmap    <leader>acu           <plug>(App/COC/Update)
+
+
+" call my#keymap#leader('acg', 'Go-To')
+" call my#keymap#leader('acr', 'Refactoring')
+" call my#keymap#localleader('g', '+Go-To')
+
 
 nmap <silent> gd             <Plug>(coc-definition)
 nmap <silent> gy             <Plug>(coc-type-definition)
@@ -43,6 +51,8 @@ vmap    <localleader>a        <Plug>(coc-codeaction-selected)
 
 noremap                       <Plug>(COC-Command)   :CocCommand<cr>
 nmap    <localleader>c        <Plug>(COC-Command)
+
+call my#keymap#localleader('r', '+Refactoring')
 
 nmap    <localleader>rr       <Plug>(coc-rename)
 
@@ -66,8 +76,3 @@ map                           <plug>(COC/Fix-Current)               <Plug>(coc-f
 nmap    <localleader>f        <plug>(COC/Fix-Current)
 
 
-noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
-nmap    <leader>acR           <plug>(App/COC/Restart)
-
-noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
-nmap    <leader>acu           <plug>(App/COC/Update)

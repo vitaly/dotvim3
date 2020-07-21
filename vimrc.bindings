@@ -1,7 +1,7 @@
 
 " src/plugins/20-settings/files/vimrc.bindings -------------------
 
-call SetLeaderMenu('T',   'Toggle')
+call my#keymap#leader('T', '+Toggle')
 
 noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
 nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
@@ -33,7 +33,7 @@ fu! Toggle_conceallevel()
   endif
 endfu
 
-call SetLeaderMenu('T.c', 'Conceal')
+call my#keymap#leader('Tc', '+Conceal')
 
 noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
 nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)
@@ -85,17 +85,19 @@ nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
 let g:clipboard_toggle_mode='unnamed'
 let &clipboard=g:clipboard_toggle_mode
 
-" src/plugins/20-settings/plugins/leader-guide/files/vimrc.bindings -------------------
+" src/plugins/20-settings/plugins/keymap/files/vimrc.bindings -------------------
 
 nnoremap <leader><space>        :
 
-call SetLeaderMenu('v',         'Vim')
+call my#keymap#leader('a', '+App')
+
+call my#keymap#leader('v', '+Vim')
 
 noremap                         <plug>(Vim/Redraw)                            :redraw!<cr>
 nmap     <leader>vr             <plug>(Vim/Redraw)
 
 
-call SetLeaderMenu('t',         'Tab')
+call my#keymap#leader('t', '+Tab')
 
 noremap                         <plug>(Tab/New)                               :tabnew<cr>
 nmap     <leader>tn             <plug>(Tab/New)
@@ -104,7 +106,7 @@ map                             <plug>(Tab/New-File)                          <p
 nmap     <leader>tf             <plug>(Tab/New-File)
 
 
-call SetLeaderMenu('b',         'Buffer')
+call my#keymap#leader('b', '+Buffer')
 
 noremap                         <plug>(Buffer/Next)                           :bn<cr>
 nmap     <leader>bn             <plug>(Buffer/Next)
@@ -116,7 +118,7 @@ noremap                         <plug>(Buffer/Delete)                         :b
 nmap     <leader>bd             <plug>(Buffer/Delete)
 
 
-call SetLeaderMenu('f',         'File')
+call my#keymap#leader('f', '+File')
 
 noremap                         <plug>(File/Save)                             :w<cr>
 nmap     <leader>fs             <plug>(File/Save)
@@ -128,7 +130,8 @@ noremap                         <plug>(File/Make-Executable)                  :!
 nmap     <leader>fx             <plug>(File/Make-Executable)
 
 
-call SetLeaderMenu('f.e',       'Edit')
+call my#keymap#leader('ft', '+Toggle')
+call my#keymap#leader('fe', '+Edit')
 
 noremap                         <plug>(File/Edit/.vim)                        :e ~/.vim/<cr>
 nmap     <leader>fev            <plug>(File/Edit/.vim)
@@ -136,7 +139,7 @@ nmap     <leader>fev            <plug>(File/Edit/.vim)
 noremap                         <plug>(File/Edit/scratch.vim)                 :e ~/.vim/scratch.vim<cr>
 nmap     <leader>fes            <plug>(File/Edit/scratch.vim)
 
-call SetLeaderMenu('f.e.l',     'Local')
+call my#keymap#leader('fel', '+Local')
 
 noremap                         <plug>(File/Edit/Local/directory)             :e ~/.vim/local<cr>
 nmap     <leader>fell           <plug>(File/Edit/Local/directory)
@@ -152,12 +155,12 @@ nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
 noremap                         <plug>(File/Edit/Local/vimrc.bindings)        :e ~/.vim/local/vimrc.bindings<cr>
 nmap     <leader>felb           <plug>(File/Edit/Local/vimrc.bindings)
 
-call SetLeaderMenu('q',         'Quit')
+call my#keymap#leader('q', '+Quit')
 
 noremap                         <plug>(Quit/All)                              :qa<cr>
 nmap     <leader>qq             <plug>(Quit/All)
 
-call SetLeaderMenu('w',   'Window' )
+call my#keymap#leader('w', '+Window' )
 
 noremap                         <plug>(Window/Max-Width)                      <C-w><bar>
 nmap     <leader>w<bar>         <plug>(Window/Max-Width)
@@ -236,14 +239,14 @@ au InsertLeave * set nopaste
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
 
-call SetLeaderMenu('x',   'Text')
-call SetLeaderMenu('x.d', 'Delete')
+call my#keymap#leader('x', '+Text')
+call my#keymap#leader('xd', '+Delete')
 
 noremap                     <plug>(Text/Delete/Whitespace)    :%s/\s\+$//<cr>:let @/=''<cr>
 nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
 
 
-call SetLeaderMenu('Y', 'Yank')
+call my#keymap#leader('Y', '+Yank')
 
 noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
 nmap     <leader>Yp         <plug>(Yank/File-Path)
@@ -329,7 +332,7 @@ endif
 
 " src/plugins/30-general/plugins/nerdtools/plugins/netdcommenter/files/vimrc.bindings -------------------
 
-call SetLeaderMenu('c', 'Comment')
+call my#keymap#leader('c', '+Comment')
 
 map                        <plug>(Toggle-Comment) <Plug>NERDCommenterToggle
 nmap <leader>;             <plug>(Toggle-Comment)
@@ -377,8 +380,8 @@ map T <Plug>Sneak_T
 
 " src/plugins/30-general/plugins/vimwiki/files/vimrc.bindings -------------------
 
-call SetLeaderMenu('W',   'Wiki')
-call SetLocalLeaderMenu('t', 'Task')
+call my#keymap#leader('W', '+Wiki')
+call my#keymap#localleader('t', '+Task')
 
 nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
 nma <leader>aw     <plug>(App/Wiki)
@@ -415,17 +418,25 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-call SetLeaderMenu('f.e.c', 'COC')
 
-call SetLeaderMenu('a.c', 'COC')
-call SetLeaderMenu('a.c.g', 'Go-To')
-call SetLeaderMenu('a.c.r', 'Refactoring')
-
-call SetLocalLeaderMenu('g', 'Go-To')
-call SetLocalLeaderMenu('r', 'Refactoring')
+call my#keymap#leader('fec', '+COC')
 
 noremap                       <plug>(File/Edit/COC/Config)          :CocConf<cr>
 nmap    <leader>fecc          <plug>(File/Edit/COC/Config)
+
+call my#keymap#leader('ac', '+COC')
+
+noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
+nmap    <leader>acR           <plug>(App/COC/Restart)
+
+noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
+nmap    <leader>acu           <plug>(App/COC/Update)
+
+
+" call my#keymap#leader('acg', 'Go-To')
+" call my#keymap#leader('acr', 'Refactoring')
+" call my#keymap#localleader('g', '+Go-To')
+
 
 nmap <silent> gd             <Plug>(coc-definition)
 nmap <silent> gy             <Plug>(coc-type-definition)
@@ -441,6 +452,8 @@ vmap    <localleader>a        <Plug>(coc-codeaction-selected)
 
 noremap                       <Plug>(COC-Command)   :CocCommand<cr>
 nmap    <localleader>c        <Plug>(COC-Command)
+
+call my#keymap#localleader('r', '+Refactoring')
 
 nmap    <localleader>rr       <Plug>(coc-rename)
 
@@ -464,15 +477,10 @@ map                           <plug>(COC/Fix-Current)               <Plug>(coc-f
 nmap    <localleader>f        <plug>(COC/Fix-Current)
 
 
-noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
-nmap    <leader>acR           <plug>(App/COC/Restart)
-
-noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
-nmap    <leader>acu           <plug>(App/COC/Update)
 
 " src/plugins/40-ide/plugins/fugitive/files/vimrc.bindings -------------------
 
-call SetLeaderMenu('g',   'Git')
+call my#keymap#leader('g', '+Git')
 
 noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
 nmap    <leader>gg                <plug>(Git/Grep)
@@ -491,7 +499,7 @@ nmap    <leader>gd                <plug>(Git/Diff)
 
 " src/plugins/40-ide/plugins/linting/files/vimrc.bindings -------------------
 
-let g:leader_map_guide.a.a  = { 'name': 'ALE' }
+call my#keymap#leader('aa', '+ALE')
 
 nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
 nmap <leader>aaF      <plug>(App/ALE/Fix)
@@ -514,7 +522,7 @@ set noshowmode
 
 " src/plugins/50-fuzzy-tools/files/vimrc.bindings -------------------
 
-call SetLeaderMenu('s', 'Search')
+call my#keymap#leader('s', '+Search')
 
 " src/plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
 
@@ -559,7 +567,7 @@ if maparg('<plug>(Search/Tags)') != ''
 endif
 
 if maparg('<plug>(Search/Buffer/Tags)') != ''
-  call SetLeaderMenu('s.b', 'Buffer')
+  call my#keymap#leader('sb', '+Buffer')
   nmap <leader>sbt <plug>(Search/Buffer/Tags)
 
   map <plug>(Buffer/Tags) <plug>(Search/Buffer/Tags)
@@ -605,15 +613,15 @@ vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
 vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
 vnoremap <localleader>Rem  :RExtractMethod<cr>
 
-call SetLocalLeaderMenu('R', 'Ruby Refactoring')
-call SetLocalLeaderMenu('R.a', 'Add')
-call SetLocalLeaderMenu('R.c', 'Convert')
-call SetLocalLeaderMenu('R.c.p', 'Post')
-call SetLocalLeaderMenu('R.e', 'Extract')
-call SetLocalLeaderMenu('R.i', 'Inline')
-call SetLocalLeaderMenu('R.r', 'Rename')
-call SetLocalLeaderMenu('R.r.l', 'Local')
-call SetLocalLeaderMenu('R.r.i', 'Instance')
+call my#keymap#localleader('R',   '+Ruby Refactoring')
+call my#keymap#localleader('Ra',  '+Add')
+call my#keymap#localleader('Rc',  '+Convert')
+call my#keymap#localleader('Rcp', '+Post')
+call my#keymap#localleader('Re',  '+Extract')
+call my#keymap#localleader('Ri',  '+Inline')
+call my#keymap#localleader('Rr',  '+Rename')
+call my#keymap#localleader('Rrl', '+Local')
+call my#keymap#localleader('Rri', '+Instance')
 
 " src/plugins/80-base16/files/vimrc.bindings -------------------
 

@@ -5,49 +5,28 @@
 " must be in 'after' to prevent yankring overriding it
 nnoremap Y y$
 
-" src/plugins/20-settings/plugins/leader-guide/files/vimrc.after -------------------
-
-function! LeaderguideMenuItem()
-  " remove <CR> at the end
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
-  " remove <plug> at the beginning
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^\c<Plug>', '', '')
-
-  " remove "folders", e.g. (Foo/Bar-Baz/Boom) -> Boom
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^(\(\w[0-9A-Za-z_-]*/\)*\(.*\))$', '\2', '')
-
-  " remove parens (foo) -> foo
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '^(\(.*\))$', '\1', '')
-
-  " convert some characters to spaces
-  let g:leaderGuide#displayname =
-        \ substitute(g:leaderGuide#displayname, '[-_()]', ' ', 'g')
-endfunction
-let g:leaderGuide_displayfunc = [function("LeaderguideMenuItem")]
-
-let g:topdict = {}
-let g:topdict[' '] = g:leader_map_guide
-let g:topdict[' ']['name'] = '<leader>'
-let g:topdict[','] = g:local_leader_map_guide
-let g:topdict[',']['name'] = '<localleader>'
-call leaderGuide#register_prefix_descriptions("", "g:topdict")
+" src/plugins/20-settings/plugins/keymap/files/vimrc.after -------------------
 
 set timeoutlen=500
 
-noremap <plug>guide(global)  :<c-u>LeaderGuide '<Space>'<CR>
-noremap <plug>guide(local)   :<c-u>LeaderGuide ','<CR>
-noremap <plug>vguide(global) :<c-u>LeaderGuideVisual  '<space>'<CR>
-noremap <plug>vguide(local)  :<c-u>LeaderGuideVisual  ','<CR>
+" src/plugins/20-settings/plugins/keymap/engine/leader_guide/files/vimrc.after -------------------
 
-map <silent> <leader>      <plug>guide(global)
-map <silent> <localleader> <plug>guide(local)
+fu! LeaderguideMenuItem()
+  let g:leaderGuide#displayname = my#keymap#format(g:leaderGuide#displayname)
+endfu
+let g:leaderGuide_displayfunc = [function("LeaderguideMenuItem")]
 
-vmap <silent> <leader>      <plug>vguide(global)
-vmap <silent> <localleader> <plug>vguide(local)
+let g:topdict = {}
+let g:topdict[' '] = g:my#keymap#leader#map
+let g:topdict[' ']['name'] = '<leader>'
+let g:topdict[','] = g:my#keymap#localleader#map
+let g:topdict[',']['name'] = '<localleader>'
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
+
+nnoremap <silent> <leader>      :<c-u>LeaderGuide       ' '<CR>
+nnoremap <silent> <localleader> :<c-u>LeaderGuide       ','<CR>
+vnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
+vnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
 
 map  <leader>.      <Plug>leaderguide-global
 map  <localleader>. <Plug>leaderguide-buffer

@@ -1,5 +1,1 @@
 Plug 'tpope/vim-sensible'
-
-let mapleader = " "
-let maplocalleader = ","
-set timeoutlen=5000

@@ -1,1 +1,1 @@
-call SetLeaderMenu('s', 'Search')
+call my#keymap#leader('s', '+Search')

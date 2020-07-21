@@ -11,38 +11,9 @@ Plug 'Shougo/unite.vim'
 
 Plug 'tpope/vim-sensible'
 
-let mapleader = " "
-let maplocalleader = ","
-set timeoutlen=5000
-
-" src/plugins/20-settings/plugins/leader-guide/files/vimrc.plugins -------------------
+" src/plugins/20-settings/plugins/keymap/engine/leader_guide/files/vimrc.plugins -------------------
 
 Plug 'hecal3/vim-leader-guide'
-
-let g:leader_map_guide = {}
-let g:local_leader_map_guide = {}
-
-function! s:SetMenuMap(map, keys, name)
-  let s:map = a:map
-  for s:key in split(a:keys, '\.')
-    if !has_key(s:map, s:key)
-      let s:map[s:key] = {}
-    endif
-    let s:map = s:map[s:key]
-  endfor
-  let s:map['name'] = a:name . '..'
-endfunction
-
-function! SetLeaderMenu(keys, name)
-  call s:SetMenuMap(g:leader_map_guide, a:keys, a:name)
-endfunction
-
-function! SetLocalLeaderMenu(keys, name)
-  call s:SetMenuMap(g:local_leader_map_guide, a:keys, a:name)
-endfunction
-
-call SetLeaderMenu('a',   'App'           )
-call SetLeaderMenu('f.t', 'Toggle'        )
 
 " src/plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
 

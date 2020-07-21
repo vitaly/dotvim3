@@ -1,4 +1,4 @@
-call SetLeaderMenu('g',   'Git')
+call my#keymap#leader('g', '+Git')
 
 noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
 nmap    <leader>gg                <plug>(Git/Grep)

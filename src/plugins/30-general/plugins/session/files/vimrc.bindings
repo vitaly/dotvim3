@@ -1,4 +1,4 @@
-call SetLeaderMenu('S', 'Session')
+call my#keymap#leader('S', '+Session')
 nmap <leader>SS :SaveSession
 nmap <leader>SO :OpenSession
 if has('gui_running')

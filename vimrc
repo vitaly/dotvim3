@@ -63,8 +63,11 @@ set sw=4                " number of spaces for indent
 set et                  " expand tabs into spaces
 
 set ttimeoutlen=50      " fast Esc to normal mode
-set timeoutlen=5000     " give 5s to complete mapping sequence
 set updatetime=300
+
+let g:mapleader = " "
+let g:maplocalleader = ","
+set timeoutlen=5000     " give 5s to complete mapping sequence
 
 " mouse settings
 if has("mouse")
@@ -96,9 +99,6 @@ set nofoldenable        " dont fold by default "
 " concealing
 set concealcursor=n
 set conceallevel=2
-
-let mapleader = " "
-let maplocalleader = ","
 
 " Don't use Ex mode, use Q for formatting
 map Q gq

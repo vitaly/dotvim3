@@ -89,7 +89,7 @@ let g:gutentags_generate_on_missing = 0
 
 " nvim-only config
 if has("nvim")
-  call SetLeaderMenu('z',   'Terminal')
+  call my#keymap#leader('z', '+Terminal')
 
   noremap           <Plug>(Terminal/zsh) :term zsh<cr>:startinsert<cr>
   nmap <leader>zz   <Plug>(Terminal/zsh)
@@ -305,3 +305,10 @@ endif
 " set diffopt+=iwhiteall
 
 " let g:neoformat_verbose = 1
+
+
+
+
+
+
+

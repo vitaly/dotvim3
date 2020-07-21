@@ -1,4 +1,4 @@
-call SetLeaderMenu('T',   'Toggle')
+call my#keymap#leader('T', '+Toggle')
 
 noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
 nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
@@ -30,7 +30,7 @@ fu! Toggle_conceallevel()
   endif
 endfu
 
-call SetLeaderMenu('T.c', 'Conceal')
+call my#keymap#leader('Tc', '+Conceal')
 
 noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
 nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)

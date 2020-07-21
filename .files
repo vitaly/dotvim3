@@ -12,6 +12,7 @@ Gemfile
 deps/pip3.txt
 deps/pip2.txt
 deps/node.txt
+autoload/my/keymap.vim
 ftplugin/vimwiki.vim
 coc-settings.json
 ftdetect/coc-settings.vim

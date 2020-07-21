@@ -1,4 +1,4 @@
-call SetLocalLeaderMenu('l', 'Language')
+call my#keymap#localleader('l', '+Language')
 
 noremap <plug>(Language/Type-Info)          :call LanguageClient#textDocument_hover()<CR>
 noremap <plug>(Language/Signature-Help)     :call LanguageClient#textDocument_signatureHelp()<CR>

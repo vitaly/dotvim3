@@ -105,6 +105,8 @@ _copy_files() {
 load() {
   v yellow "$1"
 
+  [ -e "$1" ] || die "'$1' not found"
+
   if [ -f "$1/prompt.sh" ]; then
     if ! eval "$(cat "$1/prompt.sh")"; then
       return

@@ -27,14 +27,14 @@ au InsertLeave * set nopaste
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
 
-call SetLeaderMenu('x',   'Text')
-call SetLeaderMenu('x.d', 'Delete')
+call my#keymap#leader('x', '+Text')
+call my#keymap#leader('xd', '+Delete')
 
 noremap                     <plug>(Text/Delete/Whitespace)    :%s/\s\+$//<cr>:let @/=''<cr>
 nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
 
 
-call SetLeaderMenu('Y', 'Yank')
+call my#keymap#leader('Y', '+Yank')
 
 noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
 nmap     <leader>Yp         <plug>(Yank/File-Path)
