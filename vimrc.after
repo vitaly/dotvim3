@@ -9,27 +9,20 @@ nnoremap Y y$
 
 set timeoutlen=500
 
-" src/plugins/20-settings/plugins/keymap/engine/leader_guide/files/vimrc.after -------------------
+" src/plugins/20-settings/plugins/keymap/engine/which_key/files/vimrc.after -------------------
 
-fu! LeaderguideMenuItem()
-  let g:leaderGuide#displayname = my#keymap#format(g:leaderGuide#displayname)
-endfu
-let g:leaderGuide_displayfunc = [function("LeaderguideMenuItem")]
+let g:WhichKeyFormatFunc = function('my#keymap#format')
 
-let g:topdict = {}
-let g:topdict[' '] = g:my#keymap#leader#map
-let g:topdict[' ']['name'] = '<leader>'
-let g:topdict[','] = g:my#keymap#localleader#map
-let g:topdict[',']['name'] = '<localleader>'
-call leaderGuide#register_prefix_descriptions("", "g:topdict")
+augroup RegisterKeyMap
+  autocmd!
+  autocmd   User    vim-which-key     call which_key#register(' ', 'g:my#keymap#leader#map')
+  autocmd   User    vim-which-key     call which_key#register(',', 'g:my#keymap#localleader#map')
+augroup END
 
-nnoremap <silent> <leader>      :<c-u>LeaderGuide       ' '<CR>
-nnoremap <silent> <localleader> :<c-u>LeaderGuide       ','<CR>
-vnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
-vnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
-
-map  <leader>.      <Plug>leaderguide-global
-map  <localleader>. <Plug>leaderguide-buffer
+nnoremap <silent> <leader>      :<c-u>WhichKey       ' '<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey       ','<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual ' '<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>
 
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.after -------------------
 

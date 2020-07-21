@@ -11,9 +11,9 @@ Plug 'Shougo/unite.vim'
 
 Plug 'tpope/vim-sensible'
 
-" src/plugins/20-settings/plugins/keymap/engine/leader_guide/files/vimrc.plugins -------------------
+" src/plugins/20-settings/plugins/keymap/engine/which_key/files/vimrc.plugins -------------------
 
-Plug 'hecal3/vim-leader-guide'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
 
 " src/plugins/30-general/plugins/diminactive/files/vimrc.plugins -------------------
 
