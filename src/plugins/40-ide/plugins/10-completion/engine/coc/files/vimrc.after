@@ -7,7 +7,11 @@ fun! HoverAction()
   call CocActionAsync('showSignatureHelp')
 endf
 
-nnoremap <silent><LeftMouse> <LeftMouse>:call HoverAction()<cr>
+" we have auto-insert on entering a terminal buffer
+" so if we first execute the click, we'll be in insert modee for :call ...
+" so we start hover action first, then click
+" it will work on the new location, not old
+nnoremap <silent><LeftMouse> :call HoverAction()<cr><LeftMouse>
 
 let g:hover_on_hold = get(g:, "hover_on_hold", 1)
 fun! HoverActionOnHold()
