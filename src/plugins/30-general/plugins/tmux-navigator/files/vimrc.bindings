@@ -1,19 +1,21 @@
-noremap                     <plug>(Window/Up)    :TmuxNavigateUp<CR>
-nmap    <leader>wk          <plug>(Window/Up)
+noremap <silent> <plug>(Window/Up)    :TmuxNavigateUp<CR>
+noremap <silent> <plug>(Window/Down)  :TmuxNavigateDown<CR>
+noremap <silent> <plug>(Window/Left)  :TmuxNavigateLeft<CR>
+noremap <silent> <plug>(Window/Right) :TmuxNavigateRight<CR>
 
-noremap                     <plug>(Window/Down)  :TmuxNavigateDown<CR>
-nmap    <leader>wj          <plug>(Window/Down)
+nmap <leader>wk <plug>(Window/Up)
+nmap <leader>wj <plug>(Window/Down)
+nmap <leader>wh <plug>(Window/Left)
+nmap <leader>wl <plug>(Window/Right)
 
-noremap                     <plug>(Window/Left)  :TmuxNavigateLeft<CR>
-nmap    <leader>wh          <plug>(Window/Left)
-
-noremap                     <plug>(Window/Right) :TmuxNavigateRight<CR>
-nmap    <leader>wl          <plug>(Window/Right)
+cmap <silent> <m-k> :<C-U>TmuxNavigateUp<CR>
+cmap <silent> <m-j> :<C-U>TmuxNavigateDown<CR>
+cmap <silent> <m-h> :<C-U>TmuxNavigateLeft<CR>
+cmap <silent> <m-l> :<C-U>TmuxNavigateRight<CR>
 
 if has("nvim")
-  tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
-  tnoremap <silent> <m-j> <C-\><C-n>:TmuxNavigateDown<cr>
-  tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
-  tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
-  tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+  tmap <m-k> <C-\><C-n><plug>(Window/Up)
+  tmap <m-j> <C-\><C-n><plug>(Window/Down)
+  tmap <m-h> <C-\><C-n><plug>(Window/Left)
+  tmap <m-l> <C-\><C-n><plug>(Window/Right)
 endif
