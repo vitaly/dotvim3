@@ -110,7 +110,7 @@ if has("nvim")
     " for some reason clicking in a terminal buffer exists insert more
     au TermOpen                 *  nnoremap <buffer><LeftRelease> <LeftRelease>i
     " start in insert more
-    au TermOpen,BufEnter term://*  startinsert
+    au TermOpen,BufEnter,FocusGained term://*  startinsert
   augroup END
 
   tnoremap <Esc><space> <C-\><C-n>
