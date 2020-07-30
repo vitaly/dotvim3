@@ -383,6 +383,7 @@ map T <Plug>Sneak_T
 " src/plugins/30-general/plugins/vimwiki/files/vimrc.bindings -------------------
 
 call my#keymap#leader('W', '+Wiki')
+call my#keymap#leader('W ', '+Wiki Make')
 call my#keymap#localleader('t', '+Task')
 
 nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
