@@ -202,3 +202,5 @@ Plug 'edkolev/tmuxline.vim'
 
 
 Plug 'tpope/vim-obsession'
+
+Plug 'vim-scripts/calendar.vim--Matsumoto'
