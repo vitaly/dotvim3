@@ -18,3 +18,4 @@ node_modules/
 /Gemfile.lock
 /.env.vim
 /.tool-versions
+/pages/
