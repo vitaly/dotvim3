@@ -481,7 +481,7 @@ nmap    <localleader>f        <plug>(COC/Fix-Current)
 
 
 
-" src/plugins/40-ide/plugins/fugitive/files/vimrc.bindings -------------------
+" src/plugins/40-ide/plugins/20-fugitive/files/vimrc.bindings -------------------
 
 call my#keymap#leader('g', '+Git')
 
@@ -500,7 +500,7 @@ nmap    <leader>gs                <plug>(Git/Status)
 noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
 nmap    <leader>gd                <plug>(Git/Diff)
 
-" src/plugins/40-ide/plugins/linting/files/vimrc.bindings -------------------
+" src/plugins/40-ide/plugins/30-linting/files/vimrc.bindings -------------------
 
 call my#keymap#leader('aa', '+ALE')
 
@@ -516,7 +516,7 @@ nmap <leader>aan      <plug>(App/ALE/Next)
 nmap                  <plug>(App/ALE/Detail)      <plug>(ale_detail)
 nmap <leader>aad      <plug>(App/ALE/Detail)
 
-" src/plugins/40-ide/plugins/statusline/files/vimrc.bindings -------------------
+" src/plugins/40-ide/plugins/40-statusline/files/vimrc.bindings -------------------
 
 if maparg('<plug>(Toggle/Status-Line)') != ''
   nmap <leader>TS  <plug>(Toggle/Status-Line)

@@ -145,13 +145,13 @@ let g:coc_status_warning_sign = "!"
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
-" src/plugins/40-ide/plugins/fugitive/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/20-fugitive/files/vimrc.plugins -------------------
 
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Merginal'
 Plug 'tpope/vim-rhubarb'
 
-" src/plugins/40-ide/plugins/linting/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/30-linting/files/vimrc.plugins -------------------
 
 Plug 'w0rp/ale'
 
@@ -161,7 +161,7 @@ let g:ale_set_balloons = 1
 let g:ale_change_sign_column_color = 0
 let g:ale_echo_msg_format = '%linter%: %s'
 
-" src/plugins/40-ide/plugins/statusline/lightline/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/40-statusline/lightline/files/vimrc.plugins -------------------
 
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
@@ -170,7 +170,7 @@ let g:status_line_plugin = 'lightline'
 
 runtime status/lightline.vim
 
-" src/plugins/40-ide/plugins/tags/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/50-tags/files/vimrc.plugins -------------------
 
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_generate_on_new = 0

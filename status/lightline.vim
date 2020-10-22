@@ -1,5 +1,5 @@
 
-" src/plugins/40-ide/plugins/statusline/lightline/files/status/lightline.vim -------------------
+" src/plugins/40-ide/plugins/40-statusline/lightline/files/status/lightline.vim -------------------
 
 scriptencoding utf8
 

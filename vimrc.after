@@ -69,7 +69,7 @@ endfu
 noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
 nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)
 
-" src/plugins/40-ide/plugins/tags/files/vimrc.after -------------------
+" src/plugins/40-ide/plugins/50-tags/files/vimrc.after -------------------
 
 call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
 
