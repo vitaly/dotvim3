@@ -337,7 +337,7 @@ TBD
 
     Diminactive does provide methods to manage it on a window or buffer level. See [documentation](http://github.com/blueyed/vim-diminactive).
 
-*   <a name=greplace.vim>[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
+*   <a name="greplace.vim">[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
 
     Replace a pattern across multiple files interactively
 
