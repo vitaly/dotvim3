@@ -9,19 +9,23 @@ SRC := cd src &&
 
 GENERATE_OPTS ?=
 
+docs:
+	${MAKE} -C docs update
+.PHONY: docs
+
 generate:
 	${SRC} bin/generate.sh ${GENERATE_OPTS}
 .PHONY: generate
 
-configure: generate
+configure: generate docs
 .PHONY: configure
 
 vconfigure: GENERATE_OPTS=-v
-vconfigure: generate
+vconfigure: generate docs
 .PHONY: vconfigure
 
 reconfigure: GENERATE_OPTS=-f
-reconfigure: generate
+reconfigure: generate docs
 .PHONY: reconfigure
 
 edit: ${VIM_DIR}/.config
