@@ -1,0 +1,206 @@
+scriptencoding utf8
+
+"Plug ''
+"
+"Plug 'powerman/vim-plugin-AnsiEsc'
+"Plug 'slashmili/alchemist.vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UML diagrams
+" Plug 'scrooloose/vim-slumlord'
+" Plug 'aklt/plantuml-syntax'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+
+Plug 'tpope/vim-liquid', { 'for': 'liquid' }
+
+" Plug 'maksimr/vim-jsbeautify'
+
+
+"Plug 'easymotion/vim-easymotion'
+"map <Leader>j <Plug>(easymotion-prefix)
+
+
+
+
+" Plug 'jceb/vim-orgmode'
+" Plug 'tpope/vim-speeddating'
+
+
+
+" Plug 'wsdjeg/FlyGrep.vim'
+" nnoremap <plug>fly-grep       :FlyGrep<cr>
+" noremap  <plug>search(fly)  :FlyGrep<cr>
+" nmap     <plug>(Smart-Search) <plug>search(fly)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" NOTE: had a problem with pasting into a search command line when this plugin
+" was running
+"
+" Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch-fuzzy.vim'
+" map /   <Plug>(incsearch-forward)
+" map ?   <Plug>(incsearch-backward)
+" map g/  <Plug>(incsearch-stay)
+" map z/  <Plug>(incsearch-fuzzy-/)
+" map z?  <Plug>(incsearch-fuzzy-?)
+" map zg/ <Plug>(incsearch-fuzzy-stay)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Plug 'osyo-manga/vim-over'
+let g:over#command_line#paste_escape_chars = '/.*$^~['
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:NERDCustomDelimiters = { 'q': { 'left': '/' } }
+
+augroup qMode
+  au!
+  au BufEnter q set foldmethod=indent
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+Plug 'tpope/vim-projectionist'
+
+
+" Plug 'neomake/neomake'
+" call neomake#configure#automake('rw', 1000)
+" nmap <localleader>m :Neomake!<cr>
+
+" Plug 'joshdick/onedark.vim'
+
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimwiki_listsyms = ' SX'
+let g:vimwiki_listsym_rejected = 'D'
+
+" let g:vimwiki_listsyms = ' *✓'
+" let g:vimwiki_listsym_rejected = '✗'
+"
+let s:wiki = {}
+let s:wiki.auto_tags = 1
+let s:wiki.path = '~/wiki/'
+
+" let s:wiki.syntax = 'markdown'
+" let s:wiki.ext = '.wiki'
+let s:wiki.nested_syntaxes = {'q': 'q', 'ruby': 'ruby', 'python': 'python', 'sh': 'sh', 'yaml': 'yaml'}
+" let s:wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let g:vimwiki_list = [s:wiki]
+
+" let g:automatic_nested_syntaxes = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_smart_startup_focus = 2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Plug ''
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'majutsushi/tagbar'
+map <plug>toggle(tagbar) :TagbarToggle<CR>
+nmap <leader>TT <plug>toggle(tagbar)
+
+" let g:tagbar_type_typescript = {
+"   \ 'ctagsbin' : 'tstags',
+"   \ 'ctagsargs' : '-f-',
+"   \ 'sro': '.',
+"   \ 'kinds': [
+"     \ 'e:enums:0:1',
+"     \ 'f:function:0:1',
+"     \ 't:typealias:0:1',
+"     \ 'M:Module:0:1',
+"     \ 'I:import:0:1',
+"     \ 'i:interface:0:1',
+"     \ 'C:class:0:1',
+"     \ 'm:method:0:1',
+"     \ 'p:property:0:1',
+"     \ 'v:variable:0:1',
+"     \ 'c:const:0:1',
+"   \ ],
+"   \ 'sort' : 0
+" \ }
+
+let g:tagbar_autopreview=1
+
+
+" let g:tagbar_type_typescript = {
+"     \ 'ctagstype' : 'typescript',
+"     \ 'kinds' : [
+"         \ 'I:imports',
+"         \ 'i:interfaces',
+"         \ 't:types',
+"         \ 'e:enums',
+"         \ 'n:modules',
+"         \ 'c:classes',
+"         \ 'f:functions',
+"         \ 'v:variables',
+"         \ 'l:varlambdas',
+"         \ 'm:members',
+"         \ '?:unknown',
+"     \ ],
+"     \ 'sro': '.',
+" \ }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'xolox/vim-notes'
+" let g:notes_directories = ['~/notes']
+
+
+
+
+" Plug 'tbabej/taskwiki'
+" Plug 'powerman/vim-plugin-AnsiEsc'
+" Plug 'blindFS/vim-taskwarrior'
+
+" let g:taskwiki_disable_concealcursor = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gutentags_define_advanced_commands = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EditorConfig_max_line_indicator = 'fill'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'shime/vim-livedown', { 'on': [ 'LivedownPreview', 'LivedownKill', 'LivedownToggle' ] }
+call my#keymap#leader('al', '+Livedown')
+nnoremap             <plug>livedown(preview) :LivedownPreview<cr>
+nmap     <leader>alp <plug>livedown(preview)
+nnoremap             <plug>livedown(kill)    :LivedownKill<cr>
+nmap     <leader>alk <plug>livedown(kill)
+nnoremap             <plug>livedown(toggle)  :LivedownToggle<cr>
+nmap     <leader>alt <plug>livedown(toggle)
+
+Plug 'vim-scripts/groovyindent-unix'
+
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+nmap <leader>m :Dispatch<cr>
+
+Plug 'wincent/ferret'
+let g:FerretMap=0
+
+Plug 'edkolev/tmuxline.vim'
+
+
+Plug 'tpope/vim-obsession'
+
+Plug 'vim-scripts/calendar.vim--Matsumoto'
