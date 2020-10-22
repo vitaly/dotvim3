@@ -113,7 +113,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
 
 ### TBD
 
-<a name=installation>
+<a name="installation">
 
 ## Installation
 
@@ -232,7 +232,7 @@ TBD
 
 The plugins are loaded according to their sort order.
 
-<a name=top>
+<a name="top">
 ## Contents
 
 *   [Installation](#installation)
@@ -302,30 +302,30 @@ The plugins are loaded according to their sort order.
     *   [Base16](#base16)
 
 
-<a name=installation>
+<a name="installation">
 ### Installation
 
 TBD
 
 
-<a name=core>
+<a name="core">
 ### "Core" Plugins:
 
-*   <a name=vimproc>vimproc
+*   <a name="vimproc">vimproc
 
     TBD
 
 
-<a name=globals>
+<a name="globals">
 ## Global settings
 
 TBD
 
 
-<a name=general>
+<a name="general">
 ## "General" Plugins:
 
-*   <a name=diminactive>[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
+*   <a name="diminactive">[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
 
     Vim plugin to dim inactive windows.
 
@@ -350,11 +350,11 @@ TBD
     * `:Greplace` - Incorporate the modifications from the replace buffer into
       the corresponding files.
 
-*   <a name=multi-cursors>[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
+*   <a name="multi-cursors">[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
 
     TBD: document and provide basic examples
 
-*   <a name=nerdtree>[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
+*   <a name="nerdtree">[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
 
     vim script to give you a tree explorer
 
@@ -362,7 +362,7 @@ TBD
       [nerdtree-tabs](#nerdtreetabs) (see below))
     * `<leader>0` - to find and highlight the currently open file in the tree
 
-*   <a name=nerdtree-git>[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
+*   <a name="nerdtree-git">[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
 
     A plugin of NERDTree showing git status flags. Works with the LATEST
     version of NERDTree.
@@ -381,14 +381,14 @@ TBD
             \ "Unknown"   : "?"
             \ }
 
-*   <a name=nerdtreetabs>[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
+*   <a name="nerdtreetabs">[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
 
     NERDTree and tabs together in Vim, painlessly
 
     * `<leader>ft` - toggle directory browser
     * `<leader>0` - open directory browser and find the current file in it
 
-*   <a name=nerdcommenter>[nerdcommenter](http://github.com/scrooloose/nerdcommenter) ([top](#top))
+*   <a name="nerdcommenter">[nerdcommenter](http://github.com/scrooloose/nerdcommenter) ([top](#top))
 
     Vim plugin for intensely orgasmic commenting
 
@@ -397,7 +397,7 @@ TBD
     * `<leader>cu` - Uncomment
     * check docs for more
 
-*   <a name=vim-switch>[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
+*   <a name="vim-switch">[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
 
     Simple Vim plugin to switch segments of text with predefined replacements.
 
@@ -406,7 +406,7 @@ TBD
 
     * `\`` - `:Switch<cr>`
 
-*   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
+*   <a name="tmux-navigator">[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
 
     tmux + vim = love
 
@@ -422,7 +422,7 @@ TBD
     *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
     *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
-*   <a name=undotree>[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
+*   <a name="undotree">[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
 
     Graphs your vim undo tree in a side window.
 
@@ -430,13 +430,13 @@ TBD
 
     * `:h undotree.txt` - more help
 
-*   <a name=utl.vim>[utl.vim](https://github.com/vim-scripts/utl.vim) ([top](#top))
+*   <a name="utl.vim">[utl.vim](https://github.com/vim-scripts/utl.vim) ([top](#top))
 
     Utl.vim brings the benefits of URL-based hyperlinking to plain text,
 
     `:h utl` for help.
 
-*   <a name=xterm-color-table>[xterm-color-table](https://github.com/guns/xterm-color-table.vim) ([top](#top))
+*   <a name="xterm-color-table">[xterm-color-table](https://github.com/guns/xterm-color-table.vim) ([top](#top))
 
     `:XtermColorTable` to create a new buffer with xterm colors
 
@@ -449,10 +449,10 @@ TBD
     `:h xterm-color-table.txt` for more help.
 
 
-<a name=completion>
+<a name="completion">
 ## Completion
 
-*   <a name=vim-fugitive>[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+*   <a name="vim-fugitive">[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
     A Git wrapper so awesome, it should be illegal
 
@@ -487,7 +487,7 @@ TBD
 
     Much more in the plugin's doc
 
-*   <a name=vim-merginal>[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+*   <a name="vim-merginal">[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
 
     * `:Merginal` - open branch list window
 
@@ -502,11 +502,11 @@ TBD
     * `:h merginal` - to see the complete help
 
 
-<a name=fuzzy-search>
+<a name="fuzzy-search">
 ## Fuzzy search tools
 
 [unite]: https://github.com/Shougo/unite.vim
-*   <a name=unite.vim>[unite.vim][unite] ([top](#top))
+*   <a name="unite.vim">[unite.vim][unite] ([top](#top))
 
     Search and display information from arbitrary sources like files, buffers,
     recently used files or registers.
@@ -517,13 +517,13 @@ TBD
     Unite to choose a colorscheme.
 
 
-    *   <a name=unite-outline>[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
+    *   <a name="unite-outline">[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
 
         Unite source to display outline of the current file.
 
         * `<leader>O` - `:Unite outline` - show file outline
 
-    *   <a name=unite-colorscheme>[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
+    *   <a name="unite-colorscheme">[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
 
         A [unite.vim](#unite.vim) plugin. Privides source to choose color schemes.
 
@@ -535,23 +535,23 @@ TBD
 
         > Note: actually this command aliased as `:THEME`
 
-*   <a name=fzf>[FZF](https://github.com/junegunn/fzf) ([top](#top))
+*   <a name="fzf">[FZF](https://github.com/junegunn/fzf) ([top](#top))
     * `<leader>ff` - `:Files` - fuzzy find files using FZF
 
 
-*   <a name=fuzzy-files>File search ([top](#top))
+*   <a name="fuzzy-files">File search ([top](#top))
 
 
 
-*   <a name=fuzzy-buffers>Buffer search ([top](#top))
+*   <a name="fuzzy-buffers">Buffer search ([top](#top))
 
     * `<leader>bb` - `:Unite buffer` - fuzzy search open buffers
 
-*   <a name=fuzzy-quickfix>Quickfix search ([top](#top))
+*   <a name="fuzzy-quickfix">Quickfix search ([top](#top))
 
     * `<leader>sq` - `<Plug>(Search/Quickfix)` - fuzzy find within quickfix buffer
 
-*   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
+*   <a name="vim-ag">[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
 
     The Silver Searcher (ag) is a code-searching tool similar to ack, but faster..
 
@@ -560,16 +560,16 @@ TBD
     * `<leader>/` - `:Ag ` - open prompt for entering search term
 
 
-*   <a name=fuzzy-lines>Line search ([top](#top))
+*   <a name="fuzzy-lines">Line search ([top](#top))
 
     * `<leader>sl` - `<plug>(Search/Lines)` - fuzzy search lines in all opened buffers using FZF
 
-*   <a name=fuzzy-tags>Tags search ([top](#top))
+*   <a name="fuzzy-tags">Tags search ([top](#top))
 
     * `<leader>t` - `:Tags` - fuzzy find tag with FZF
     * `<leader>t` - `:Btags` - fuzzy find buffer tag with FZF
 
-*   <a name=fuzzy-yank>Yank history search ([top](#top))
+*   <a name="fuzzy-yank">Yank history search ([top](#top))
 
     [YankRing.vim](http://github.com/vim-scripts/YankRing.vim) Maintains a history of previous yanks, changes and deletes
 
@@ -578,26 +578,26 @@ TBD
     * `:h yankring.txt` and `:h yankring-tutorial` for more
 
 
-<a name=devplugins>
+<a name="devplugins">
 ## Plugins for Developers:
 
-*   <a name=delimitMate>[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
+*   <a name="delimitMate">[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
 
     auto-completion for quotes, parens, brackets, etc. in insert mode.
 
-*   <a name=EasyAlign>[EasyAlign](https://github.com/junegunn/vim-easy-align) ([top](#top))
+*   <a name="EasyAlign">[EasyAlign](https://github.com/junegunn/vim-easy-align) ([top](#top))
 
     Press `ENTER` in visual selection mode to start interactive EasyAlign session. See docs for details.
 
-*   <a name=editorconfig>[editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) ([top](#top))
+*   <a name="editorconfig">[editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) ([top](#top))
 
     [.editorconfig](http://editorconfig.org) file support.
 
-*   <a name=vim-endwise>[vim-endwise](http://github.com/tpope/vim-endwise) ([top](#top))
+*   <a name="vim-endwise">[vim-endwise](http://github.com/tpope/vim-endwise) ([top](#top))
 
     Wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 
-*   <a name=vim-surround>[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
+*   <a name="vim-surround">[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
 
     Delete/change/add parentheses/quotes/XML-tags/much more with ease
 
@@ -609,13 +609,13 @@ TBD
     You should REALLY read the docs if you want to use this one
 
 
-<a name=languages>
+<a name="languages">
 ## Development languages and syntax support
 
-<a name=rails>
+<a name="rails">
 #### Ruby on Rails Support
 
-*   <a name=vim-rails>[vim-rails](http://github.com/tpope/vim-rails) ([top](#top))
+*   <a name="vim-rails">[vim-rails](http://github.com/tpope/vim-rails) ([top](#top))
 
     Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
 
@@ -630,7 +630,7 @@ TBD
     * `:h rails` for much more info ;)
 
 
-*   <a name=apidock.vim>[apidock.vim](https://github.com/alexandrov/apidock.vim) ([top](#top))
+*   <a name="apidock.vim">[apidock.vim](https://github.com/alexandrov/apidock.vim) ([top](#top))
 
     Vim plugin that searches http://apidock.com Ruby, Rails, and RSpec docs from within Vim.
 
@@ -638,7 +638,7 @@ TBD
     * `RB` - Search the Ruby docs for the word under the cursor.
     * `RS` - Search the RSpec docs for the word under the cursor.
 
-*   <a name=vim-rspec>[vim-rspec](https://github.com/josemarluedke/vim-rspec) ([top](#top))
+*   <a name="vim-rspec">[vim-rspec](https://github.com/josemarluedke/vim-rspec) ([top](#top))
 
     Lightweight Rspec runner for Vim.
 
@@ -652,17 +652,17 @@ TBD
 
     * `<localleader>r` - `RunNearestSpec`
 
-*   <a name=i18n>[vim-i18n](https://github.com/stefanoverna/vim-i18n) ([top](#top))
+*   <a name="i18n">[vim-i18n](https://github.com/stefanoverna/vim-i18n) ([top](#top))
 
     Extracts i18n strings from source files into .yml file.
 
     * `<leader>z` - extract selected string
 
-*   <a name=vimscript>[vimscript] ([top](#top))
+*   <a name="vimscript">[vimscript] ([top](#top))
 
     *   `,x` - to execute the current line of vimscript
 
-*   <a name=base16>Base16 ([top](#top))
+*   <a name="base16">Base16 ([top](#top))
 
     Base16 color themes are supported
 

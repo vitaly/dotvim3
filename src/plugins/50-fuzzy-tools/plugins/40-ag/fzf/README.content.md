@@ -1,5 +1,5 @@
 
-*   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
+*   <a name="vim-ag">[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
 
     The Silver Searcher (ag) is a code-searching tool similar to ack, but faster..
 

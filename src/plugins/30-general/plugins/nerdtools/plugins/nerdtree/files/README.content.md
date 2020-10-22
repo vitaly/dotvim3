@@ -1,5 +1,5 @@
 
-*   <a name=nerdtree>[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
+*   <a name="nerdtree">[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
 
     vim script to give you a tree explorer
 

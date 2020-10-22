@@ -1,6 +1,6 @@
 
 
-<a name=globals>
+<a name="globals">
 ## Global settings
 
 TBD

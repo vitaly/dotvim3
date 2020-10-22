@@ -1,3 +1,3 @@
 
-*   <a name=fuzzy-lines>Line search ([top](#top))
+*   <a name="fuzzy-lines">Line search ([top](#top))
 

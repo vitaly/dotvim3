@@ -1,5 +1,5 @@
 
-    *   <a name=unite-colorscheme>[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
+    *   <a name="unite-colorscheme">[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
 
         A [unite.vim](#unite.vim) plugin. Privides source to choose color schemes.
 

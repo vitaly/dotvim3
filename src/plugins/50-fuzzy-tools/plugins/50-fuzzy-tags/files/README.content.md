@@ -1,3 +1,3 @@
 
-*   <a name=fuzzy-tags>Tags search ([top](#top))
+*   <a name="fuzzy-tags">Tags search ([top](#top))
 

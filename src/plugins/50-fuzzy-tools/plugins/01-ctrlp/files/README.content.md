@@ -1,6 +1,6 @@
 
 
-*   <a name=ctrlp>[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) ([top](#top))
+*   <a name="ctrlp">[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) ([top](#top))
 
     Fuzzy file, buffer, mru, tag, etc finder.
 

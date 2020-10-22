@@ -1,5 +1,5 @@
 
-*   <a name=base16>Base16 ([top](#top))
+*   <a name="base16">Base16 ([top](#top))
 
     Base16 color themes are supported
 

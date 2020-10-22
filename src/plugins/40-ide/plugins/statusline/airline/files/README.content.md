@@ -1,5 +1,5 @@
 
-*   <a name=airline>[vim-airline](https://github.com/bling/vim-airline) ([top](#top))
+*   <a name="airline">[vim-airline](https://github.com/bling/vim-airline) ([top](#top))
 
     Lean & mean status/tabline for vim that's light as air.
 

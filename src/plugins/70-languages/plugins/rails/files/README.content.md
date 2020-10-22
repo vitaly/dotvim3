@@ -1,8 +1,8 @@
 
-<a name=rails>
+<a name="rails">
 #### Ruby on Rails Support
 
-*   <a name=vim-rails>[vim-rails](http://github.com/tpope/vim-rails) ([top](#top))
+*   <a name="vim-rails">[vim-rails](http://github.com/tpope/vim-rails) ([top](#top))
 
     Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
 
@@ -17,7 +17,7 @@
     * `:h rails` for much more info ;)
 
 
-*   <a name=apidock.vim>[apidock.vim](https://github.com/alexandrov/apidock.vim) ([top](#top))
+*   <a name="apidock.vim">[apidock.vim](https://github.com/alexandrov/apidock.vim) ([top](#top))
 
     Vim plugin that searches http://apidock.com Ruby, Rails, and RSpec docs from within Vim.
 
@@ -25,7 +25,7 @@
     * `RB` - Search the Ruby docs for the word under the cursor.
     * `RS` - Search the RSpec docs for the word under the cursor.
 
-*   <a name=vim-rspec>[vim-rspec](https://github.com/josemarluedke/vim-rspec) ([top](#top))
+*   <a name="vim-rspec">[vim-rspec](https://github.com/josemarluedke/vim-rspec) ([top](#top))
 
     Lightweight Rspec runner for Vim.
 
@@ -39,7 +39,7 @@
 
     * `<localleader>r` - `RunNearestSpec`
 
-*   <a name=i18n>[vim-i18n](https://github.com/stefanoverna/vim-i18n) ([top](#top))
+*   <a name="i18n">[vim-i18n](https://github.com/stefanoverna/vim-i18n) ([top](#top))
 
     Extracts i18n strings from source files into .yml file.
 
