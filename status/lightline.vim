@@ -124,6 +124,8 @@ fun! LightlineColorscheme(name)
   call lightline#update()
 endf
 
+" TBD: FIXME: TODO: cleanup!
+"
 " let g:lightline.colorscheme = 'wombat'
 " let g:lightline.colorscheme = 'solarized'
 " let g:lightline.colorscheme = 'powerline'

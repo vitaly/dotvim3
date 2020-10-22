@@ -1,4 +1,4 @@
-enum deoplete "- use Deoplete"
+enum deoplete "- use Deoplete (deprecated)"
 enum coc "     - use COC"
 enum none "    - None"
 

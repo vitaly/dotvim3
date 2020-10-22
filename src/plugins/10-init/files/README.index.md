@@ -1,6 +1,59 @@
 # Dotvim3
 
-> **WARNING**: Work in progress, do not use yet ;)
+> **WARNING: MAJOR CHANGES MERGED (2020-10-22)**
+>
+> **BACKUP before you run configure or install**
+>
+> I have a confession to make... for more then 2 years I was running the `ide`
+> branch of `dotvim3`. Initially I wanted to make a lot of changes and I didn't
+> want everyone dealing with breaking changes every week.
+>
+> I moved fast and broke things... The plan was to clean everything up and
+> merge back into master once it becomes stable. Problem is, it did become
+> stable long time ago but I really had no time to spend on a major cleanup and
+> documentation effort.
+>
+> So there it was, much better then the current `master`,
+> but with a ton of undocumented changes and with my personal local
+> customizations.
+>
+> I still have no time for the full cleanup ;). But I decided to merge it
+> anyway, only removing my own personal local changes.
+>
+> I'll start working on documenting the changes, if you spot any disparency
+> between code and doc, please let me know.
+>
+> Some of the changes:
+> - `leader-guide` replaced with `which-key`. `leader-guide` still exists as a
+>   configuration option, but it will be removed soon.
+> - multiple cursors support
+> - one of the biggest changes is the new completion engine `COC`.
+>   `YouCompleteMe` was removed, `deoplete` still remains as an option, but
+>   since I don't use it, it might start breaking apart after a while. Let me
+>   know of any problems. `COC` is the biggest part of the `ide` the branch was
+>   about. in addition to completion it also provides language server
+>   integration, refactorings, linting, etc.
+> - `CtrlP` is no longer used by default. might be removed soon.
+> - `syntastic` removed.
+> - added `endwise` from `Tim Pope`.
+> - `base16` support including shell integration (loading of
+>   `~/.vimrc_background` from `base16-shell`). Old colorschemes were removed.
+> - started working on `Dockerfile` to pack it all into an image.
+> - a generic manifest of generated files is stored in `.files`. They are all
+>   removed before each re-generation, starting from clean. Also, if the config
+>   changes and the file is no longer generated, it won't be lingering around.
+> - configuration choices are now available from inside vim.
+>   e.g. `if get(g:, 'dotvim#completion_engine', '') == 'coc'`
+> - local customizations moved from home directory into `local` subdirectory in
+>   `.vim`
+> - the loading order was simplified. all `gvimrc` files were removed.
+> - `ruby`, `python`, and `nodejs` versioning and dependencies support.
+>   required packages will be installed during `make install`.
+> - autoformat toggle
+> - major binding cleanup. the goal is to have most of the bindings to have
+>   labels in similar format.
+> - A ton of toggles. try `<SPACE>T`.
+
 
 ## What?
 
