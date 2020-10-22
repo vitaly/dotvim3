@@ -7,16 +7,21 @@ default: ${DEFAULT}
 export VIM_DIR ?= $(shell /bin/pwd  -P)
 SRC := cd src &&
 
-configure:
-	${SRC} bin/generate.sh
+GENERATE_OPTS ?=
+
+generate:
+	${SRC} bin/generate.sh ${GENERATE_OPTS}
+.PHONY: generate
+
+configure: generate
 .PHONY: configure
 
-vconfigure:
-	${SRC} bin/generate.sh -v
+vconfigure: GENERATE_OPTS=-v
+vconfigure: generate
 .PHONY: vconfigure
 
-reconfigure:
-	${SRC} bin/generate.sh -f
+reconfigure: GENERATE_OPTS=-f
+reconfigure: generate
 .PHONY: reconfigure
 
 edit: ${VIM_DIR}/.config
