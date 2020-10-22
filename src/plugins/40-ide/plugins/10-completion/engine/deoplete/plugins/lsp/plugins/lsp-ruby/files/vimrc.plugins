@@ -1,0 +1,3 @@
+if executable('solargraph')
+  let g:LanguageClient_serverCommands['ruby'] = ['solargraph', 'stdio']
+endif

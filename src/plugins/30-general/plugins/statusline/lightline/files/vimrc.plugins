@@ -1,3 +1,0 @@
-Plug 'itchyny/lightline.vim'
-noremap <silent> <plug>toggle(statusline) :call lightline#toggle()<cr>
-let g:status_line_plugin = 'lightline'

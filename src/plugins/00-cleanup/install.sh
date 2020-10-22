@@ -1,29 +1,20 @@
+
 (
 cd "$VIM_DIR"
 
 # remove old version leftovers
-OLD_FILES="
-vimrc.before gvimrc.before
-vimrc.bindings gvimrc.bindings
-filetype.vim
-README.index.md README.content.md
-"
+OLD_FILES="$(cat src/plugins/00-cleanup/lists/old-files)"
 rm -fv $OLD_FILES
 
-MANAGED_DIRS="after/plugin ftplugin colors"
-mkdir -pv $MANAGED_DIRS
+MANAGED_DIRS="$(cat src/plugins/00-cleanup/lists/managed-dirs)"
+mkdir -p $MANAGED_DIRS
 
-MANAGED_FILES="
-README.md
-.gitignore
-vimrc vimrc.plugins vimrc.after
-gvimrc.plugins gvimrc.after
-after/plugin/after.vim
-colors/buttercream.vim colors/colorzone.vim
-ftplugin/gitcommit.vim ftplugin/javascript.vim ftplugin/vim.vim ftplugin/vimwiki.vim
-"
-
-# prepare empty placeholders for managed files
+# managed files. plrepare empty placeholders to be modified later during the install
+MANAGED_FILES="$(cat src/plugins/00-cleanup/lists/managed-files)"
 rm -f $MANAGED_FILES
 touch $MANAGED_FILES
+
+# local customization files. make sure they exist, but do not manage their content
+LOCAL_FILES="$(cat src/plugins/00-cleanup/lists/local-files)"
+touch $LOCAL_FILES
 )

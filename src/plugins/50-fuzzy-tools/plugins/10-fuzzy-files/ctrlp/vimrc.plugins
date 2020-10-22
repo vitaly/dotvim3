@@ -1,3 +1,0 @@
-map <plug>fuzzy-file(find) <plug>(ctrlp)
-map <plug>fuzzy-file(clear-cache) :CtrlPClearCache<cr>
-map <plug>fuzzy-file(no-cache) <plug>fuzzy-file(clear-cache)<plug>fuzzy-file(find)

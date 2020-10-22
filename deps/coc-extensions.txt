@@ -1,0 +1,13 @@
+coc-git
+coc-go
+coc-highlight
+coc-json
+coc-lists
+coc-rls
+coc-snippets
+coc-solargraph
+coc-syntax
+coc-tag
+coc-tsserver
+coc-vimlsp
+coc-yank

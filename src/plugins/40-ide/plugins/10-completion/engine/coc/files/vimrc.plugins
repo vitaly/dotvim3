@@ -1,0 +1,17 @@
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
+
+let g:coc_status_error_sign = "✗"
+let g:coc_status_warning_sign = "!"
+
+" Install nightly build, replace ./install.sh with install.cmd on windows
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+
+" Or install latest release tag
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+" Or build from source code
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}

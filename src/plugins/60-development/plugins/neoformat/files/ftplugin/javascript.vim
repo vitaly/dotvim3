@@ -1,4 +1,2 @@
-augroup JsNeoformatOnSave
-  au! * <buffer>
-  :AutoFormat
-augroup END
+set sw=2
+AutoFormat

@@ -1,0 +1,3 @@
+map <plug>(File/Fuzzy-Find)        <plug>(ctrlp)
+map <plug>fuzzy-file(clear-cache) :CtrlPClearCache<cr>
+map <plug>fuzzy-file(no-cache)    <plug>fuzzy-file(clear-cache)<plug>(File/Fuzzy-Find)

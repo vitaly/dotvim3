@@ -1,0 +1,10 @@
+fu! Toggle_clipboard()
+  if g:clipboard_toggle_mode == &clipboard
+    set clipboard=
+  else
+    let &clipboard=g:clipboard_toggle_mode
+  endif
+endfu
+
+noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)

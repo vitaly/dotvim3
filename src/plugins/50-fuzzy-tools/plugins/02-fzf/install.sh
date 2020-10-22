@@ -3,7 +3,9 @@ function detect_fzf()
   if [ -d ~/.fzf ]; then
     FZF_DIR=~/.fzf
   elif [ -d /usr/local/opt/fzf/ ]; then
-    FZF_DIR=/usr/local/opt/fzf/
+    FZF_DIR=/usr/local/opt/fzf
+  elif [ -r /usr/share/nvim/runtime/plugin/fzf.vim ]; then
+    FZF_DIR=/usr/share/nvim/runtime
   fi
 }
 
@@ -24,7 +26,8 @@ END
   detect_fzf
 done
 
-echo "set rtp+=$FZF_DIR" | append_to_file "vimrc.plugins" "$(this_file)"
+vim_banner "src/$(this_file)" >> "${VIM_DIR}/vimrc.plugins"
+echo "set rtp+=$FZF_DIR" >> "${VIM_DIR}/vimrc.plugins"
 
 if [ -z "$FZF_DEFAULT_COMMAND" -a -n "`which ag`" ]; then
   yellow

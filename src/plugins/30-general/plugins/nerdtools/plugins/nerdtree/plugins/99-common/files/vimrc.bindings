@@ -1,0 +1,13 @@
+if maparg('<plug>(Toggle/File-Tree)') != ''
+  nmap <leader>Tt  <plug>(Toggle/File-Tree)
+
+  " alias in file menu
+  map <plug>(File/Toggle/File-Tree)   <plug>(Toggle/File-Tree)
+  nmap <leader>ftt <plug>(File/Toggle/File-Tree)
+endif
+
+if maparg('<plug>(Tree-Find-File)') != ''
+  " show current file in the tree
+  nmap <leader>0 <plug>(Tree-Find-File)
+endif
+" vim: ft=vim

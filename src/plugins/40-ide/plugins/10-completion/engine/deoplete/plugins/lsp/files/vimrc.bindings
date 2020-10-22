@@ -1,0 +1,31 @@
+call my#keymap#localleader('l', '+Language')
+
+noremap <plug>(Language/Type-Info)          :call LanguageClient#textDocument_hover()<CR>
+noremap <plug>(Language/Signature-Help)     :call LanguageClient#textDocument_signatureHelp()<CR>
+noremap <plug>(Language/Goto)               :call LanguageClient#textDocument_definition()<CR>
+noremap <plug>(Language/Rename)             :call LanguageClient#textDocument_rename()<CR>
+noremap <plug>(Language/Symbol)             :call LanguageClient#textDocument_documentSymbol()<CR>
+noremap <plug>(Language/References)         :call LanguageClient#textDocument_references()<CR>
+noremap <plug>(Language/Actions)            :call LanguageClient#textDocument_codeAction()<CR>
+noremap <plug>(Language/Menu)               :call LanguageClient_contextMenu()<CR>
+
+function s:lc_maps()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+
+    nmap     <buffer> <silent>  K               <plug>(Language/Type-Info)
+    nmap     <buffer> <silent>  ?               <plug>(Language/Signature-Help)
+
+    nmap     <buffer> <silent>  <localleader>K  <plug>(Language/Type-Info)
+    nmap     <buffer> <silent>  <localleader>?  <plug>(Language/Signature-Help)
+    nmap     <buffer> <silent>  <localleader>lg <plug>(Language/Goto)
+    nmap     <buffer> <silent>  <localleader>lR <plug>(Language/Rename)
+    nmap     <buffer> <silent>  <localleader>ls <plug>(Language/Symbol)
+    nmap     <buffer> <silent>  <localleader>lr <plug>(Language/References)
+    nmap     <buffer> <silent>  <localleader>la <plug>(Language/Actions)
+    nmap     <buffer> <silent>  <localleader>lm <plug>(Language/Menu)
+
+  endif
+endfunction
+
+autocmd FileType * call s:lc_maps()
+

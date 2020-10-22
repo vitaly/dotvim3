@@ -1,3 +1,0 @@
-Plug 'irrationalistic/vim-tasks'
-
-autocmd BufNewFile,BufReadPost todo set filetype=tasks

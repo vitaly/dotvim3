@@ -5,7 +5,10 @@ scriptencoding utf8
 if (exists("g:after_vim_loaded") && g:after_vim_loaded)
   finish
 endif
-
 let g:after_vim_loaded = 1
 
-source ~/.vim/vimrc.after
+
+if $VIMRC_SKIP_AFTER_CONFIGS == ''
+  source ~/.vim/vimrc.bindings
+  source ~/.vim/vimrc.after
+endif

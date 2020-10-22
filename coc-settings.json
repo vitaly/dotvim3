@@ -1,0 +1,119 @@
+{
+  "coc.preferences.hoverTarget": "float",
+
+  "suggest.timeout": 5000,
+  "suggest.noselect": false,
+
+  "suggest.snippetIndicator": "\t", // "\t", "\t",   "ﲖ" "",
+
+  "suggest.completionItemKindLabels": {
+    "class":         "",   // "",
+    "color":         "",   // "",
+    "constant":      "",   // "",
+    "default":       "",   // "",
+    "enum":          "",   // "",
+    "enumMember":    "",   // "",
+    "event":         "",   //
+    "field":         "",   //
+    "file":          "",   // "",
+    "folder":        "",   // "",
+    "function":      "ƒ",   // "",
+    "interface":     "",   //
+    "keyword":       "",   // "",
+    "method":        "",   // "",
+    "module":        "",   // "",
+    "operator":      "Ψ",   //
+    "property":      "",   //
+    "reference":     "",   // "",
+    "snippet":       "",   // "",
+    "struct":        "פּ",   // "פּ",
+    "text":          "",   // "",
+    "typeParameter": "",   // "",
+    "unit":          "",   // "",
+    "value":         "",   // "",
+    "variable":      ""    // ""
+  },
+
+
+  // signature
+  "signature.target": "float",
+  "signature.hideOnTextChange": true,
+  "signature.preferShownAbove": true,
+  "signature.maxWindowHeight": 20,
+  "signature.triggerSignatureWait": 50,
+
+  "codeLens.enable": false,
+
+  "typescript.referencesCodeLens.enable": true,
+  "typescript.implementationsCodeLens.enable": true,
+
+  "json.format.enable": true,
+
+  "suggest.enablePreview": true,
+
+  "yank.list.maxsize": 1000,
+  "yank.highlight.duration": 200,
+
+
+  "git.enableGutters": true,
+  "git.realtimeGutters": true,
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": false,
+
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["Dockerfile"],
+      "args": ["--stdio"]
+    },
+
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+
+    "ocaml": {
+      "command": "ocaml-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["ocaml", "reason"]
+    }
+
+    // "elixirLS": {
+    //   "command": "/absolute/path/to/elixir-ls/release/language_server.sh",
+    //   "filetypes": ["elixir", "eelixir"]
+    // }
+  },
+
+
+  "diagnostic.enable": true,
+  "diagnostic.level": "hint",
+  "diagnostic.virtualText": false,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.displayByAle": false,
+
+
+  "diagnostic.errorSign":   "✗", //  
+  "diagnostic.warningSign": "!", //  
+  "diagnostic.infoSign":    "i", //  
+  "diagnostic.hintSign":    "", //  ﯦﯧ
+
+
+  "tsserver.enableJavascript": true,
+
+
+
+  "solargraph.rename": true,
+  "solargraph.hover": true,
+  "solargraph.autoformat": true,
+  "solargraph.diagnostics": true,
+  "solargraph.symbols": true,
+  "solargraph.completion": true,
+  "solargraph.definitions": true,
+  "solargraph.references": true,
+  "solargraph.checkGemVersion": false,
+
+
+  "list.maxHeight": 40
+}

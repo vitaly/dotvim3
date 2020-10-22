@@ -1,0 +1,78 @@
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
+inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
+
+vmap <tab> <Plug>(coc-snippets-select)
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+
+call my#keymap#leader('fec', '+COC')
+
+noremap                       <plug>(File/Edit/COC/Config)          :CocConf<cr>
+nmap    <leader>fecc          <plug>(File/Edit/COC/Config)
+
+call my#keymap#leader('ac', '+COC')
+
+noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
+nmap    <leader>acR           <plug>(App/COC/Restart)
+
+noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
+nmap    <leader>acu           <plug>(App/COC/Update)
+
+
+" call my#keymap#leader('acg', 'Go-To')
+" call my#keymap#leader('acr', 'Refactoring')
+" call my#keymap#localleader('g', '+Go-To')
+
+
+nmap <silent> gd             <Plug>(coc-definition)
+nmap <silent> gy             <Plug>(coc-type-definition)
+nmap <silent> gi             <Plug>(coc-implementation)
+nmap <silent> gr             <Plug>(coc-references)
+
+nmap <silent> <localleader>p <Plug>(coc-diagnostic-prev)
+nmap <silent> <localleader>n <Plug>(coc-diagnostic-next)
+nmap <silent> <localleader>? <Plug>(coc-diagnostic-info)
+
+nmap    <localleader>a        <Plug>(coc-codeaction)
+vmap    <localleader>a        <Plug>(coc-codeaction-selected)
+
+noremap                       <Plug>(COC-Command)   :CocCommand<cr>
+nmap    <localleader>c        <Plug>(COC-Command)
+
+call my#keymap#localleader('r', '+Refactoring')
+
+nmap    <localleader>rr       <Plug>(coc-rename)
+
+noremap                       <plug>(Hover)                         :call CocActionAsync('doHover')<cr>
+nmap    K                     <plug>(Hover)
+
+noremap                       <plug>(Outline)                       :CocList outline<cr>
+nmap    <localleader>o        <plug>(Outline)
+
+noremap                       <plug>(Show-Signature)                :call CocActionAsync('showSignatureHelp')<cr>
+nmap    <localleader>s        <plug>(Show-Signature)
+
+noremap                       <plug>(COC-List)                      :CocList <space>
+nmap    <localleader>l        <plug>(COC-List)
+
+
+noremap                       <plug>(COC/Fix)                       :CocFix<cr>
+nmap    <localleader>F        <plug>(COC/Fix)
+
+map                           <plug>(COC/Fix-Current)               <Plug>(coc-fix-current)
+nmap    <localleader>f        <plug>(COC/Fix-Current)
+
+

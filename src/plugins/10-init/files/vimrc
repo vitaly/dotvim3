@@ -1,11 +1,8 @@
 scriptencoding utf8
 
-" if &compatible
-  " set nocompatible
-" endif
+" this file mirrors all the variavles from .conf
+runtime .config.vim
 
-call plug#begin('~/.vim/bundle')
-
-source ~/.vim/vimrc.plugins
-
-call plug#end()
+" this  can be used to setup environment.
+" e.g node/ruby/python providers etc
+runtime .env.vim

@@ -1,0 +1,11 @@
+if maparg('<plug>(Search/Tags)') != ''
+  nmap <leader>st  <plug>(Search/Tags)
+endif
+
+if maparg('<plug>(Search/Buffer/Tags)') != ''
+  call my#keymap#leader('sb', '+Buffer')
+  nmap <leader>sbt <plug>(Search/Buffer/Tags)
+
+  map <plug>(Buffer/Tags) <plug>(Search/Buffer/Tags)
+  nmap <leader>bt <plug>(Buffer/Tags)
+endif

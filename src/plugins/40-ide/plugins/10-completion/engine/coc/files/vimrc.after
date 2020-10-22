@@ -1,0 +1,34 @@
+" hi CocHighlightText cterm=underline gui=underline
+hi CocHighlightText cterm=inverse gui=inverse
+" autocmd CursorHold * silent call CocActionAsync('doHover')
+
+fun! HoverAction()
+  call CocActionAsync('highlight')
+  call CocActionAsync('showSignatureHelp')
+endf
+
+" we have auto-insert on entering a terminal buffer
+" so if we first execute the click, we'll be in insert modee for :call ...
+" so we start hover action first, then click
+" it will work on the new location, not old
+nnoremap <silent><LeftMouse> :call HoverAction()<cr><LeftMouse>
+
+let g:hover_on_hold = get(g:, "hover_on_hold", 1)
+fun! HoverActionOnHold()
+  if g:hover_on_hold
+    call HoverAction()
+  endif
+endf
+
+augroup HoldHoverActions
+  au!
+  au CursorHold * silent call HoverActionOnHold()
+augroup END
+
+fu! Toggle_hover_on_hold()
+  let g:hover_on_hold = ! g:hover_on_hold
+  echo g:hover_on_hold
+endfu
+
+noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
+nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)

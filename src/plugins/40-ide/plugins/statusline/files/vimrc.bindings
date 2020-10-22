@@ -1,0 +1,4 @@
+if maparg('<plug>(Toggle/Status-Line)') != ''
+  nmap <leader>TS  <plug>(Toggle/Status-Line)
+endif
+set noshowmode

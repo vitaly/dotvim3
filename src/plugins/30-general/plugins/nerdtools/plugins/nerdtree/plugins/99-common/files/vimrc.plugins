@@ -1,0 +1,8 @@
+Plug 'scrooloose/nerdtree'
+
+" Tells the NERD tree to respect 'wildignore'.
+let NERDTreeRespectWildIgnore=1
+let NERDTreeCascadeSingleChildDir=0
+
+let g:NERDTreeHijackNetrw = 1
+let g:NERDTreeQuitOnOpen = 1

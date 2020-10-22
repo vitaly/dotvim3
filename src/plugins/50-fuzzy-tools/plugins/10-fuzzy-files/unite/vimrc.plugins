@@ -1,1 +1,0 @@
-map <plug>fuzzy-file(find) :Unite -start-insert -no-split -buffer-name=files file_rec/async:!<cr>

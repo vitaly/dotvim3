@@ -1,5 +1,5 @@
 " smart search
 "
-noremap <plug>search(ag) :Ag<space>
-map <plug>search(smart) <plug>search(ag)
-nmap <leader>/ <plug>search(smart)
+noremap <plug>search(ag)     :Ag<CR>
+map                          <plug>(Smart-Search) <plug>search(ag)
+nmap    <leader>/            <plug>(Smart-Search)

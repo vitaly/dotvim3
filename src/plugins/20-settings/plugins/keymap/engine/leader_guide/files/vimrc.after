@@ -1,0 +1,19 @@
+fu! LeaderguideMenuItem()
+  let g:leaderGuide#displayname = my#keymap#format(g:leaderGuide#displayname)
+endfu
+let g:leaderGuide_displayfunc = [function("LeaderguideMenuItem")]
+
+let g:topdict = {}
+let g:topdict[' '] = g:my#keymap#leader#map
+let g:topdict[' ']['name'] = '<leader>'
+let g:topdict[','] = g:my#keymap#localleader#map
+let g:topdict[',']['name'] = '<localleader>'
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
+
+nnoremap <silent> <leader>      :<c-u>LeaderGuide       ' '<CR>
+nnoremap <silent> <localleader> :<c-u>LeaderGuide       ','<CR>
+vnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
+vnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
+
+map  <leader>.      <Plug>leaderguide-global
+map  <localleader>. <Plug>leaderguide-buffer

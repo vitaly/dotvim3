@@ -1,22 +1,25 @@
 desc <<END
-With this "on", every time you yank in vim it will be immediately available in
-the system clipboard, as if you did '"+y'.
+allow toggling of "clipboard" setting in vim, allowing sharing of
+clipboard content b/w  vim and OS
 
-I admit, it sounds like a terrific idea, I was all to tired to '"+yy' and
-stuff. But since I turned this on, I was having a different kind of problem.
+initial clipboard is in an 'internal' mode (e.g. not shared)
 
-Before the switch I'd copy something from a web page, and then do e.g.
-'cib<Apple>V' to replace content of a block with whatever I copied.  Now it no
-longer works. As soon as you 'cib' the content of the block replaces your
-clipboard content, so you end up pasting it all back, duh! :)
+see bindings.
 
-And to add insult to the injury, whatever you copied is not on the yank ring history.
-
-Oh, and basting blocks of text no longer work either.
-
-So... I'm still trying to make use of this as I'm all to tired of '"+y', but I
-decided to make this configurable, as not everyone might want to invest the time
-to rewire muscle memory ;)
+Note: if you chose "splus" and it doesn't seem to work, try "star"
 END
 
-ask_bool system_clipboard '"merge" vim and system clipboards?'
+# ask_bool system_clipboard '"merge" vim and system clipboards?'
+# false
+
+enum off '      - disable clipboard toggle'
+enum star '     - yank uses register * (clipboard=unnamed)'
+enum plus '     - yank uses register + (clipboard=unnamed plus)'
+ask enum clipboard "Which clipboard mode should be used fror toggling" star
+
+if test "off" != "$clipboard"; then
+  ask bool clipboard_shared "Should clipboard start in shared mode?" y
+  true
+else
+  false
+fi

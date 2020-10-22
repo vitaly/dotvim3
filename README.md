@@ -1,6 +1,59 @@
 # Dotvim3
 
-> **WARNING**: Work in progress, do not use yet ;)
+> **WARNING: MAJOR CHANGES MERGED (2020-10-22)**
+>
+> **BACKUP before you run configure or install**
+>
+> I have a confession to make... for more then 2 years I was running the `ide`
+> branch of `dotvim3`. Initially I wanted to make a lot of changes and I didn't
+> want everyone dealing with breaking changes every week.
+>
+> I moved fast and broke things... The plan was to clean everything up and
+> merge back into master once it becomes stable. Problem is, it did become
+> stable long time ago but I really had no time to spend on a major cleanup and
+> documentation effort.
+>
+> So there it was, much better then the current `master`,
+> but with a ton of undocumented changes and with my personal local
+> customizations.
+>
+> I still have no time for the full cleanup ;). But I decided to merge it
+> anyway, only removing my own personal local changes.
+>
+> I'll start working on documenting the changes, if you spot any disparency
+> between code and doc, please let me know.
+>
+> Some of the changes:
+> - `leader-guide` replaced with `which-key`. `leader-guide` still exists as a
+>   configuration option, but it will be removed soon.
+> - multiple cursors support
+> - one of the biggest changes is the new completion engine `COC`.
+>   `YouCompleteMe` was removed, `deoplete` still remains as an option, but
+>   since I don't use it, it might start breaking apart after a while. Let me
+>   know of any problems. `COC` is the biggest part of the `ide` the branch was
+>   about. in addition to completion it also provides language server
+>   integration, refactorings, linting, etc.
+> - `CtrlP` is no longer used by default. might be removed soon.
+> - `syntastic` removed.
+> - added `endwise` from `Tim Pope`.
+> - `base16` support including shell integration (loading of
+>   `~/.vimrc_background` from `base16-shell`). Old colorschemes were removed.
+> - started working on `Dockerfile` to pack it all into an image.
+> - a generic manifest of generated files is stored in `.files`. They are all
+>   removed before each re-generation, starting from clean. Also, if the config
+>   changes and the file is no longer generated, it won't be lingering around.
+> - configuration choices are now available from inside vim.
+>   e.g. `if get(g:, 'dotvim#completion_engine', '') == 'coc'`
+> - local customizations moved from home directory into `local` subdirectory in
+>   `.vim`
+> - the loading order was simplified. all `gvimrc` files were removed.
+> - `ruby`, `python`, and `nodejs` versioning and dependencies support.
+>   required packages will be installed during `make install`.
+> - autoformat toggle
+> - major binding cleanup. the goal is to have most of the bindings to have
+>   labels in similar format.
+> - A ton of toggles. try `<SPACE>T`.
+
 
 ## What?
 
@@ -45,6 +98,19 @@ with Vim8 but I do not test it. If it doesn't work, please let me know.
 
 Dein was replaced with [Plug](https://github.com/junegunn/vim-plug).
 
+### local customization files handling
+
+instead of sourcing `~/.vimrc.after`, `~/.vimrc.plugins`, etc., we now source
+`~/.vim/local/X` at the end of `~/.vimrc/X` for each of `vimrc`,
+`vimrc.after`, `vimrc.plugins`, and `vimrc.bindings`.
+
+`~/local/*` files are created but not managed, you can modify them to your
+liking, they will not be overwritten during the installation.
+
+If you want to restore the old functionality, you can manually source `~/.vimrc.after` from `~/.vim/local/vimrc.after`, etc.
+
+> Note gvim.* files are no longer used, you can restore functionality manyally using `if has('gui_running') ...`
+
 ### TBD
 
 <a name=installation>
@@ -78,17 +144,20 @@ information relevant to current configuration chocies.
 
 # Load order
 
+First the following scripts are sourced:
+
 * vimrc
     * vimrc.plugins
-        * ~/.vimrc.plugins
-        * gvimrc.plugins
-            * ~/.gvimrc.plugins
-    * << here all plugins are actually loaded >>
-    * after/plugin/after.vim
-        * vimrc.after
-            * ~/.vimrc.after
-            * gvimrc.after
-                * ~/.gvimrc.after
+        * local/vimrc.plugins
+    * local/vimrc
+
+Then, after plugins were loaded, the following scripts are sourced:
+
+* after/plugin/after.vim
+    * vimrc.bindings
+        * local/vimrc.bindings
+    * vimrc.after
+        * local/vimrc.after
 
 
 # Contributing
@@ -175,6 +244,7 @@ The plugins are loaded according to their sort order.
     *   TBD: vimbits
 
 *   [General Plugins](#general)
+    *   [vim-diminactive](#diminactive)
     *   [greplace.vim](#greplace.vim)
     *   [nerdtree](#nerdtree)
     *   [nerdtree-git](#nerdtree-git)
@@ -182,24 +252,24 @@ The plugins are loaded according to their sort order.
     *   [nerdcommenter](#nerdcommenter)
     *   [vim-repeat](http://github.com/tpope/vim-repeat)
         Use the repeat command "." with supported plugins
-    *   [vim-session](#vim-session)
-        Extended session management for Vim (:mksession on steroids)
     *   [vim-switch](#vim-switch)
         Simple Vim plugin to switch segments of text with predefined replacements.
+    *   [tmux-navigator](#tmux-navigator)
     *   [UndoTree](#undotree)
     *   [Utl.vim](#utl.vim)
         url based hyperlinks for text files
     *   [xterm-color-table](#xterm-color-table)
 
 *   [Completion](#completion)
-    *   [YouCompleteMe](#youcompleteme)
+    TBD
+    *   [vim-fugitive](#vim-fugitive)
+    *   [vim-merginal](#vim-merginal)
 
 *   [fuzzy search tools](#fuzzy-search)
     *   [unite.vim](#unite.vim)
         *   TBD: other Unite plugins
         *   [unite outline](#unite-outline)
         *   [unite-colorscheme](#unite-colorscheme)
-    *   [CtrlP](#ctrlp)
     *   [FZF](#fzf)
     *   [File search](#fuzzy-files)
     *   [Buffer search](#fuzzy-buffers)
@@ -218,12 +288,7 @@ The plugins are loaded according to their sort order.
 
     *   [editorconfig](#editorconfig)
     *   [vim-endwise](#vim-endwise)
-    *   [vim-fugitive](#vim-fugitive)
-    *   [vim-merginal](#vim-merginal)
-    *   [vim-gitgutter](#gitgutter)
-        git diff in the gutter (sign column) and stages/reverts hunks
     *   [vim-surround](#vim-surround)
-    *   [tmux-navigator](#tmux-navigator)
 
 *   [Development languages and syntax support](#languages)
 
@@ -234,7 +299,7 @@ The plugins are loaded according to their sort order.
             *   [vim-i18n](#i18n) Rails i18n extraction plugin
 
     *   [Vimscript](#vimscript)
-    *   [Themes](#themes)
+    *   [Base16](#base16)
 
 
 <a name=installation>
@@ -260,6 +325,18 @@ TBD
 <a name=general>
 ## "General" Plugins:
 
+*   <a name=diminactive>[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
+
+    Vim plugin to dim inactive windows.
+
+    Diminactive uses 2 methods for dimming: color column highlight, and syntax.
+
+    A simple toggle is provided to **globally** cycle through those 2 methods and and 'off' state: `<plug>cycle(diminactive)`
+
+    It is bound to `<leader>Td`.
+
+    Diminactive does provide methods to manage it on a window or buffer level. See [documentation](http://github.com/blueyed/vim-diminactive).
+
 *   <a name=greplace.vim>[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
 
     Replace a pattern across multiple files interactively
@@ -272,6 +349,10 @@ TBD
     * `:Gbuffersearch` - Search for a given pattern in all the buffers in the Vim buffer list.
     * `:Greplace` - Incorporate the modifications from the replace buffer into
       the corresponding files.
+
+*   <a name=multi-cursors>[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
+
+    TBD: document and provide basic examples
 
 *   <a name=nerdtree>[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
 
@@ -316,18 +397,6 @@ TBD
     * `<leader>cu` - Uncomment
     * check docs for more
 
-*   <a name=vim-session>[vim-session](https://github.com/xolox/vim-session) ([top](#top))
-
-    Extended session management for Vim (`:mksession` on steroids)
-
-    * `<leader>SS` - `:SaveSession`
-    * `<leader>SO` - `:OpenSession`
-
-
-    When runnin in a graphical vim:
-
-    * `:RestartVim<CR>` - This command saves your current editing session, restarts Vim and restores your editing session.
-
 *   <a name=vim-switch>[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
 
     Simple Vim plugin to switch segments of text with predefined replacements.
@@ -336,6 +405,22 @@ TBD
     etc. See `:h switch` for more.
 
     * `\`` - `:Switch<cr>`
+
+*   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
+
+    tmux + vim = love
+
+    to change default mappings define:
+
+        let g:tmux_navigator_no_mappings = 1
+
+    The default mappings are:
+
+    *   `Ctrl-h` - `:TmuxNavigateLeft<cr>`
+    *   `Ctrl-j` - `:TmuxNavigateDown<cr>`
+    *   `Ctrl-k` - `:TmuxNavigateUp<cr>`
+    *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
+    *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
 *   <a name=undotree>[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
 
@@ -366,109 +451,6 @@ TBD
 
 <a name=completion>
 ## Completion
-
-
-<a name=fuzzy-search>
-## Fuzzy search tools
-
-[unite]: https://github.com/Shougo/unite.vim
-*   <a name=unite.vim>[unite.vim][unite] ([top](#top))
-
-    Search and display information from arbitrary sources like files, buffers,
-    recently used files or registers.
-
-    This plugins is too powerful to present here, read the [documentation][unite].
-
-    See [unite-colorscheme](#unite-colorschema) for example command to use
-    Unite to choose a colorscheme.
-
-
-    *   <a name=unite-outline>[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
-
-        Unite source to display outline of the current file.
-
-        * `<leader>O` - `:Unite outline` - show file outline
-
-    *   <a name=unite-colorscheme>[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
-
-        A [unite.vim](#unite.vim) plugin. Privides source to choose color schemes.
-
-        Try:
-
-        `:Unite -no-start-insert -auto-preview colorscheme`
-
-        Then try to navigate up and down and see what happens ;)
-
-        > Note: actually this command aliased as `:THEME`
-
-
-*   <a name=ctrlp>[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) ([top](#top))
-
-    Fuzzy file, buffer, mru, tag, etc finder.
-
-    This plugin has lots of options, see `:h ctrlp` for more.
-
-*   <a name=fzf>[FZF](https://github.com/junegunn/fzf) ([top](#top))
-
-
-*   <a name=fuzzy-files>File search ([top](#top))
-
-    * `<leader>ff` - `:Files` - fuzzy find files using FZF
-
-
-*   <a name=fuzzy-buffers>Buffer search ([top](#top))
-
-    * `<leader>bb` - `:Unite buffer` - fuzzy search open buffers
-
-*   <a name=fuzzy-quickfix>Quickfix search ([top](#top))
-
-    * `<leader>sq` - `:CtrlPQuickfix` - fuzzy find within quickfix buffer
-
-*   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
-
-    The Silver Searcher (ag) is a code-searching tool similar to ack, but faster..
-
-    The actual vim integration is provided by [FZF](#fzf)
-
-    * `<leader>/` - `:Ag ` - open prompt for entering search term
-
-
-*   <a name=fuzzy-lines>Line search ([top](#top))
-
-    * `<leader>sl` - `:Lines` - fuzzy search lines in all opened buffers using FZF
-
-*   <a name=fuzzy-tags>Tags search ([top](#top))
-
-    * `<leader>t` - `:Tags` - fuzzy find tag with FZF
-    * `<leader>t` - `:Btags` - fuzzy find buffer tag with FZF
-
-*   <a name=fuzzy-yank>Yank history search ([top](#top))
-
-    [YankRing.vim](http://github.com/vim-scripts/YankRing.vim) Maintains a history of previous yanks, changes and deletes
-
-    * `<leader>sy` to show the yankring
-    * `<leader>[`/`,]` - to cycle the just-pasted text though the yankring.
-    * `:h yankring.txt` and `:h yankring-tutorial` for more
-
-
-<a name=devplugins>
-## Plugins for Developers:
-
-*   <a name=delimitMate>[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
-
-    auto-completion for quotes, parens, brackets, etc. in insert mode.
-
-*   <a name=EasyAlign>[EasyAlign](https://github.com/junegunn/vim-easy-align) ([top](#top))
-
-    Press `ENTER` in visual selection mode to start interactive EasyAlign session. See docs for details.
-
-*   <a name=editorconfig>[editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) ([top](#top))
-
-    [.editorconfig](http://editorconfig.org) file support.
-
-*   <a name=vim-endwise>[vim-endwise](http://github.com/tpope/vim-endwise) ([top](#top))
-
-    Wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 
 *   <a name=vim-fugitive>[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
@@ -519,41 +501,101 @@ TBD
 
     * `:h merginal` - to see the complete help
 
-*   <a name=gitgutter>[Vim Git Gutter](https://github.com/airblade/vim-gitgutter) ([top](#top))
 
-    A Vim plugin which shows a git diff in the 'gutter' (sign column).
-    It shows whether each line has been added, modified, and where lines have been removed.
+<a name=fuzzy-search>
+## Fuzzy search tools
 
-    ![screenshot](https://raw.github.com/airblade/vim-gitgutter/master/screenshot.png)
+[unite]: https://github.com/Shougo/unite.vim
+*   <a name=unite.vim>[unite.vim][unite] ([top](#top))
 
-    In the screenshot above you can see:
+    Search and display information from arbitrary sources like files, buffers,
+    recently used files or registers.
 
-    * Line 15 has been modified.
-    * Lines 21-24 are new.
-    * A line or lines were removed between lines 25 and 26.
+    This plugins is too powerful to present here, read the [documentation][unite].
 
-    Commands:
+    See [unite-colorscheme](#unite-colorschema) for example command to use
+    Unite to choose a colorscheme.
 
-    * `:GitGutterDisable`
-    * `:GitGutterEnable`
-    * `:GitGutterToggle`
-    * `:GitGutterSignsEnable`
-    * `:GitGutterSignsDisable`
-    * `:GitGutterSignsToggle`
-    * `:GitGutterLineHighlightsEnable`
-    * `:GitGutterLineHighlightsDisable`
-    * `:GitGutterLineHighlightsToggle`
 
-    Bindings:
+    *   <a name=unite-outline>[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
 
-    * `]c` - jump to next hunk
-    * `<localleader>n` - jump to next hunk
-    * `[c` - jump to previous hunk
-    * `<localleader>p` - jump to previous hunk
-    * `<leader>hs` - stage hunk
-    * `<leader>hr` - revert hunk
+        Unite source to display outline of the current file.
 
-    There are quite some customization options. see help.
+        * `<leader>O` - `:Unite outline` - show file outline
+
+    *   <a name=unite-colorscheme>[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
+
+        A [unite.vim](#unite.vim) plugin. Privides source to choose color schemes.
+
+        Try:
+
+        `:Unite -no-start-insert -auto-preview colorscheme`
+
+        Then try to navigate up and down and see what happens ;)
+
+        > Note: actually this command aliased as `:THEME`
+
+*   <a name=fzf>[FZF](https://github.com/junegunn/fzf) ([top](#top))
+    * `<leader>ff` - `:Files` - fuzzy find files using FZF
+
+
+*   <a name=fuzzy-files>File search ([top](#top))
+
+
+
+*   <a name=fuzzy-buffers>Buffer search ([top](#top))
+
+    * `<leader>bb` - `:Unite buffer` - fuzzy search open buffers
+
+*   <a name=fuzzy-quickfix>Quickfix search ([top](#top))
+
+    * `<leader>sq` - `<Plug>(Search/Quickfix)` - fuzzy find within quickfix buffer
+
+*   <a name=vim-ag>[The Silver Searcher](https://github.com/ggreer/the_silver_searcher) ([top](#top))
+
+    The Silver Searcher (ag) is a code-searching tool similar to ack, but faster..
+
+    The actual vim integration is provided by [FZF](#fzf)
+
+    * `<leader>/` - `:Ag ` - open prompt for entering search term
+
+
+*   <a name=fuzzy-lines>Line search ([top](#top))
+
+    * `<leader>sl` - `<plug>(Search/Lines)` - fuzzy search lines in all opened buffers using FZF
+
+*   <a name=fuzzy-tags>Tags search ([top](#top))
+
+    * `<leader>t` - `:Tags` - fuzzy find tag with FZF
+    * `<leader>t` - `:Btags` - fuzzy find buffer tag with FZF
+
+*   <a name=fuzzy-yank>Yank history search ([top](#top))
+
+    [YankRing.vim](http://github.com/vim-scripts/YankRing.vim) Maintains a history of previous yanks, changes and deletes
+
+    * `<leader>sy` to show the yankring
+    * `<leader>[`/`,]` - to cycle the just-pasted text though the yankring.
+    * `:h yankring.txt` and `:h yankring-tutorial` for more
+
+
+<a name=devplugins>
+## Plugins for Developers:
+
+*   <a name=delimitMate>[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
+
+    auto-completion for quotes, parens, brackets, etc. in insert mode.
+
+*   <a name=EasyAlign>[EasyAlign](https://github.com/junegunn/vim-easy-align) ([top](#top))
+
+    Press `ENTER` in visual selection mode to start interactive EasyAlign session. See docs for details.
+
+*   <a name=editorconfig>[editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) ([top](#top))
+
+    [.editorconfig](http://editorconfig.org) file support.
+
+*   <a name=vim-endwise>[vim-endwise](http://github.com/tpope/vim-endwise) ([top](#top))
+
+    Wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 
 *   <a name=vim-surround>[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
 
@@ -565,22 +607,6 @@ TBD
     * `ysMovementX` - surround movement with X
 
     You should REALLY read the docs if you want to use this one
-
-*   <a name=tmux-navigator>[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
-
-    tmux + vim = love
-
-    to change default mappings define:
-
-        let g:tmux_navigator_no_mappings = 1
-
-    The default mappings are:
-
-    *   `Ctrl-h` - `:TmuxNavigateLeft<cr>`
-    *   `Ctrl-j` - `:TmuxNavigateDown<cr>`
-    *   `Ctrl-k` - `:TmuxNavigateUp<cr>`
-    *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
-    *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
 
 <a name=languages>
@@ -636,11 +662,10 @@ TBD
 
     *   `,x` - to execute the current line of vimscript
 
-*   <a name=themes>Themes ([top](#top))
+*   <a name=base16>Base16 ([top](#top))
 
-    The following colorschemes are available:
+    Base16 color themes are supported
 
-    * solarized
-    * tomorrow
-    * vividchalk
-    * TBD
+    File `~/.vimrc_background` will be sourced if found. It can be created by
+    using <https://github.com/chriskempson/base16-shell> with your shell.
+

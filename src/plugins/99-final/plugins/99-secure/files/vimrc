@@ -1,0 +1,2 @@
+" prevent .vimrc files from issuing unsecure commands
+set secure

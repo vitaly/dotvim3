@@ -1,0 +1,21 @@
+" FIXME: can we make this active only in a Ruby ftype?
+
+nnoremap <localleader>Rap  :RAddParameter<cr>
+nnoremap <localleader>Rcpc :RConvertPostConditional<cr>
+nnoremap <localleader>Rel  :RExtractLet<cr>
+vnoremap <localleader>Rec  :RExtractConstant<cr>
+vnoremap <localleader>Relv :RExtractLocalVariable<cr>
+nnoremap <localleader>Rit  :RInlineTemp<cr>
+vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
+vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
+vnoremap <localleader>Rem  :RExtractMethod<cr>
+
+call my#keymap#localleader('R',   '+Ruby Refactoring')
+call my#keymap#localleader('Ra',  '+Add')
+call my#keymap#localleader('Rc',  '+Convert')
+call my#keymap#localleader('Rcp', '+Post')
+call my#keymap#localleader('Re',  '+Extract')
+call my#keymap#localleader('Ri',  '+Inline')
+call my#keymap#localleader('Rr',  '+Rename')
+call my#keymap#localleader('Rrl', '+Local')
+call my#keymap#localleader('Rri', '+Instance')

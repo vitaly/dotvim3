@@ -1,8 +1,20 @@
 
-# plugins/10-init/files/.gitignore -------------------
+# src/plugins/10-init/files/.gitignore -------------------
 
-dein
-.config.new
-sessions
+/.config.new
+/session/
+/sessions/
 tags
-bundle/*
+/bundle/
+/.done
+.ruby-version
+tags.temp
+/scratch.vim
+.session.vim
+.netrwhist
+yarn-error.log
+node_modules/
+/package.json
+/Gemfile.lock
+/.env.vim
+/.tool-versions

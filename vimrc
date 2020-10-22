@@ -1,19 +1,20 @@
 
-" plugins/10-init/files/vimrc -------------------
+" src/plugins/10-init/files/vimrc -------------------
 
 scriptencoding utf8
 
-" if &compatible
-  " set nocompatible
-" endif
+" this file mirrors all the variavles from .conf
+runtime .config.vim
 
-call plug#begin('~/.vim/bundle')
+" this  can be used to setup environment.
+" e.g node/ruby/python providers etc
+runtime .env.vim
 
-source ~/.vim/vimrc.plugins
+" src/plugins/20-settings/files/vimrc -------------------
 
-call plug#end()
-
-" plugins/20-settings/files/vimrc -------------------
+if ! has('nvim')
+  set nocompatible
+endif
 
 syntax on
 
@@ -37,6 +38,7 @@ set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set visualbell          " use visual bell instead of beeping
+set listchars=tab:→⋅,trail:·,nbsp:+
 set list
 
 " highlight spell errors
@@ -50,7 +52,7 @@ set shell=/bin/bash     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set guioptions-=T       " disable toolbar"
-set completeopt=menuone,preview
+set completeopt=menuone,preview,noinsert
 let bash_is_sh=1        " syntax shell files as bash scripts
 set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
 set modelines=5         " number of lines to check for vim: directives at the start/end of file
@@ -61,6 +63,10 @@ set sw=4                " number of spaces for indent
 set et                  " expand tabs into spaces
 
 set ttimeoutlen=50      " fast Esc to normal mode
+set updatetime=300
+
+let g:mapleader = " "
+let g:maplocalleader = ","
 set timeoutlen=5000     " give 5s to complete mapping sequence
 
 " mouse settings
@@ -97,29 +103,6 @@ set conceallevel=2
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-" [T]oggle [W]hitespace highlight
-map <plug>toggle(whitespace) :set nolist!<CR>
-nmap <silent> <leader>Tw <plug>toggle(whitespace)
-
-" [T]oggle [S]earch highlight
-noremap <plug>toggle(search-highlight) :silent noh<CR>
-nmap <silent> <leader>Ts <plug>toggle(search-highlight)
-
-" switch between 2 last buffers
-noremap <plug>buffer(last) :b#<CR>
-nmap <leader><Tab> <plug>buffer(last)
-
-" Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
-
-" [N]ext
-nmap <leader>n :cn<CR>
-" [P]revious
-nmap <leader>p :cp<CR>
-
-noremap <plug>diff-mode(toggle)  :set diff!<cr>
-
 " driving me insane this thing
 command Q q
 command Qa qa
@@ -127,17 +110,13 @@ command QA qa
 command -nargs=* -complete=file W w <args>
 command -nargs=* -complete=file E e <args>
 
-" plugins/20-settings/plugins/clipboard/files/vimrc -------------------
+call plug#begin('~/.vim/bundle')
 
-" Writes to the unnamed register also writes to the * and + registers. This
-" makes it easy to interact with the system clipboard
-if has ('unnamedplus')
-  set clipboard=unnamedplus
-else
-  set clipboard=unnamed
-endif
+source ~/.vim/vimrc.plugins
 
-" plugins/20-settings/plugins/indent-level-navigation/files/vimrc -------------------
+call plug#end()
+
+" src/plugins/20-settings/plugins/indent-level-navigation/files/vimrc -------------------
 
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
@@ -186,50 +165,26 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>^
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
 
-" plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
+" src/plugins/20-settings/plugins/interpreters/files/vimrc -------------------
+
+let $PYTHONWARNINGS="ignore:DEPRECATION"
+
+" src/plugins/20-settings/plugins/termguicolors/files/vimrc -------------------
 
 if has('termguicolors')
   set termguicolors
 end
 
-" plugins/20-settings/plugins/vimbits/files/vimrc -------------------
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
-" awesome stuff from vimbits.com
+source ~/.vim/local/vimrc
 
-" keep selection after in/outdent
-vnoremap < <gv
-vnoremap > >gv
+" src/plugins/99-final/plugins/98-exrc/files/vimrc -------------------
 
-" better navigation of wrapped lines
-nnoremap j gj
-nnoremap k gk
+" autoload local project .vimrc files
+set exrc
 
-" easier increment/decrement
-nnoremap + <C-a>
-nnoremap - <C-x>
+" src/plugins/99-final/plugins/99-secure/files/vimrc -------------------
 
-" center display after searching
-nnoremap n   nzz
-nnoremap N   Nzz
-nnoremap *   *zz
-nnoremap #   #zz
-nnoremap g*  g*zz
-nnoremap g#  g#z
-
-" disable paste mode when leaving Insert Mode
-au InsertLeave * set nopaste
-
-" fast expand current file's directory in command mode
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
-
-" te[X]t [D]elete [W]hitespace
-noremap <plug>text(delete-whitespace) :%s/\s\+$//<cr>:let @/=''<cr>
-nmap     <leader>xdw                  <plug>text(delete-whitespace)
-
-" Copy current buffer path relative to root of VIM session to system clipboard
-nnoremap <leader>Yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
-" Copy current filename to system clipboard
-nnoremap <leader>Yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
-" Copy current buffer path without filename to system clipboard
-nnoremap <leader>Yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+" prevent .vimrc files from issuing unsecure commands
+set secure

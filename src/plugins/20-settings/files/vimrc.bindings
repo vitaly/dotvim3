@@ -1,0 +1,65 @@
+call my#keymap#leader('T', '+Toggle')
+
+noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
+nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
+
+noremap <silent>                       <plug>(Toggle/Read-Only) :set ro!<cr>
+nmap    <leader>TR                     <plug>(Toggle/Read-Only)
+
+map                                    <plug>(Toggle/White-Space)       :set nolist!<CR>
+nmap    <silent> <leader>Tw            <plug>(Toggle/White-Space)
+
+noremap                                <plug>(Toggle/Search-Highlight) :silent noh<CR>
+nmap    <silent> <leader>Ts            <plug>(Toggle/Search-Highlight)
+
+set concealcursor=
+fu! Toggle_concealcursor()
+  if '' == &concealcursor
+    set concealcursor=n
+  else
+    set concealcursor=
+  endif
+endfu
+
+set conceallevel=2
+fu! Toggle_conceallevel()
+  if 0 == &conceallevel
+    set conceallevel=2
+  else
+    set conceallevel=0
+  endif
+endfu
+
+call my#keymap#leader('Tc', '+Conceal')
+
+noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
+nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)
+
+noremap <plug>(Toggle/Conceal/Level)  :call Toggle_conceallevel()<cr>
+nmap <leader>Tcl <plug>(Toggle/Conceal/Level)
+
+
+" switch between 2 last buffers
+noremap <plug>(Last-Buffer) :b#<CR>
+nmap    <leader><Tab>       <plug>(Last-Buffer)
+
+" Make shift-insert work like in Xterm
+map  <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+noremap <plug>(Next) :cn<CR>
+nmap    <leader>n    <plug>(Next)
+
+noremap <plug>(Prev) :cn<CR>
+nmap    <leader>p    <plug>(Prev)
+
+noremap <plug>diff-mode(toggle) :set diff! cursorbind! scrollbind!<cr>
+nmap    <leader>TD              <plug>diff-mode(toggle)
+
+" completion mappings
+inoremap <expr> <Tab>   pumvisible() ? "\<Down>"      : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>"        : "\<S-Tab>"
+
+" we want to preserve mappings that we done before this point, e.g. endwise
+" and delimitmate
+exec 'imap <expr> <cr>    pumvisible() ? "\<C-y>"       : "'.maparg('<cr>', 'i').'"'

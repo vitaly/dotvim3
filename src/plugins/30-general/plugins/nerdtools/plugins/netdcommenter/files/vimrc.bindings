@@ -1,0 +1,5 @@
+call my#keymap#leader('c', '+Comment')
+
+map                        <plug>(Toggle-Comment) <Plug>NERDCommenterToggle
+nmap <leader>;             <plug>(Toggle-Comment)
+vmap <leader>;             <plug>(Toggle-Comment)

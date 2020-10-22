@@ -1,0 +1,5 @@
+" nerdtree without tqbs
+noremap <plug>(Toggle/File-Tree) :NERDTreeToggle<CR>
+
+" show current file in the tree
+noremap <plug>(Tree-Find-File) :NERDTreeFind<CR>

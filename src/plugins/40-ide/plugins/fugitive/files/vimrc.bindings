@@ -1,0 +1,16 @@
+call my#keymap#leader('g', '+Git')
+
+noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
+nmap    <leader>gg                <plug>(Git/Grep)
+
+noremap                           <plug>(Git/Grep-Word-Under-Cursor)      :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+nmap    <leader>gw                <plug>(Git/Grep-Word-Under-Cursor)
+
+noremap                           <plug>(Git/Grep-Selection)              y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+vmap    <leader>g                 <plug>(Git/Grep-Selection)
+
+noremap                           <plug>(Git/Status)                      :Gstatus<CR>
+nmap    <leader>gs                <plug>(Git/Status)
+
+noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
+nmap    <leader>gd                <plug>(Git/Diff)

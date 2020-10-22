@@ -1,60 +1,82 @@
 
-" plugins/20-settings/files/vimrc.after -------------------
+" src/plugins/20-settings/files/vimrc.after -------------------
 
 " make Y consistent with C and D
 " must be in 'after' to prevent yankring overriding it
 nnoremap Y y$
 
-" plugins/30-general/plugins/nerdtools/plugins/nerdtree/files/vimrc.after -------------------
+" src/plugins/20-settings/plugins/keymap/files/vimrc.after -------------------
 
-if maparg('<plug>file-tree(toggle)') != ''
-  " display the [F]ile browser [T]ree
-  nmap <leader>ft <plug>file-tree(toggle)
-endif
-if maparg('<plug>file-tree(find)') != ''
-  " show current file in the tree
-  nmap <leader>0 <plug>file-tree(find)
-endif
+set timeoutlen=500
 
-" plugins/30-general/plugins/statusline/files/vimrc.after -------------------
+" src/plugins/20-settings/plugins/keymap/engine/which_key/files/vimrc.after -------------------
 
-if maparg('<plug>toggle(statusline)') != ''
-  nmap <leader>TS  <plug>toggle(statusline)
-endif
-set noshowmode
+let g:WhichKeyFormatFunc = function('my#keymap#format')
 
-" plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
+augroup RegisterKeyMap
+  autocmd!
+  autocmd   User    vim-which-key     call which_key#register(' ', 'g:my#keymap#leader#map')
+  autocmd   User    vim-which-key     call which_key#register(',', 'g:my#keymap#localleader#map')
+augroup END
+
+nnoremap <silent> <leader>      :<c-u>WhichKey       ' '<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey       ','<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual ' '<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>
+
+let g:which_key_sep = "|"
+
+" src/plugins/30-general/plugins/multiple-cursors/files/vimrc.after -------------------
+
+hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
+hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
+let g:multi_cursor_exit_from_insert_mode = 0
+
+" src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.after -------------------
+
+" hi CocHighlightText cterm=underline gui=underline
+hi CocHighlightText cterm=inverse gui=inverse
+" autocmd CursorHold * silent call CocActionAsync('doHover')
+
+fun! HoverAction()
+  call CocActionAsync('highlight')
+  call CocActionAsync('showSignatureHelp')
+endf
+
+" we have auto-insert on entering a terminal buffer
+" so if we first execute the click, we'll be in insert modee for :call ...
+" so we start hover action first, then click
+" it will work on the new location, not old
+nnoremap <silent><LeftMouse> :call HoverAction()<cr><LeftMouse>
+
+let g:hover_on_hold = get(g:, "hover_on_hold", 1)
+fun! HoverActionOnHold()
+  if g:hover_on_hold
+    call HoverAction()
+  endif
+endf
+
+augroup HoldHoverActions
+  au!
+  au CursorHold * silent call HoverActionOnHold()
+augroup END
+
+fu! Toggle_hover_on_hold()
+  let g:hover_on_hold = ! g:hover_on_hold
+  echo g:hover_on_hold
+endfu
+
+noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
+nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)
+
+" src/plugins/40-ide/plugins/tags/files/vimrc.after -------------------
+
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
+
+" src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" plugins/50-fuzzy-tools/plugins/10-fuzzy-files/files/vimrc.after -------------------
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
-if maparg('<plug>fuzzy-file(find)') != ''
-  nmap <leader>ff <plug>fuzzy-file(find)
-endif
-if maparg('<plug>fuzzy-file(no-cache)') != ''
-  nmap <leader>fF <plug>fuzzy-file(no-cache)
-endif
-
-" plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.after -------------------
-
-if maparg('<plug>search-tags') != ''
-  nmap <leader>stt <plug>search-tags
-  nmap <leader>tt <plug>search-tags
-endif
-if maparg('<plug>search-buffer-tags') != ''
-  nmap <leader>stb <plug>search-buffer-tags
-  nmap <leader>tb <plug>search-buffer-tags
-endif
-
-" plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
-
-if filereadable(expand("~/.vimrc.after"))
-    source ~/.vimrc.after
-endif
-
-" plugins/99-final/plugins/20-gvim-configs/files/vimrc.after -------------------
-
-if has('gui_running')
-  source ~/.vim/gvimrc.after
-end
+source ~/.vim/local/vimrc.after

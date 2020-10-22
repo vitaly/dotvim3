@@ -1,1 +1,1 @@
-Plug 'vim-scripts/greplace.vim'
+Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }

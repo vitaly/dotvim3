@@ -1,0 +1,642 @@
+
+" src/plugins/20-settings/files/vimrc.bindings -------------------
+
+call my#keymap#leader('T', '+Toggle')
+
+noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
+nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
+
+noremap <silent>                       <plug>(Toggle/Read-Only) :set ro!<cr>
+nmap    <leader>TR                     <plug>(Toggle/Read-Only)
+
+map                                    <plug>(Toggle/White-Space)       :set nolist!<CR>
+nmap    <silent> <leader>Tw            <plug>(Toggle/White-Space)
+
+noremap                                <plug>(Toggle/Search-Highlight) :silent noh<CR>
+nmap    <silent> <leader>Ts            <plug>(Toggle/Search-Highlight)
+
+set concealcursor=
+fu! Toggle_concealcursor()
+  if '' == &concealcursor
+    set concealcursor=n
+  else
+    set concealcursor=
+  endif
+endfu
+
+set conceallevel=2
+fu! Toggle_conceallevel()
+  if 0 == &conceallevel
+    set conceallevel=2
+  else
+    set conceallevel=0
+  endif
+endfu
+
+call my#keymap#leader('Tc', '+Conceal')
+
+noremap <plug>(Toggle/Conceal/Cursor)  :call Toggle_concealcursor()<cr>
+nmap <leader>Tcc <plug>(Toggle/Conceal/Cursor)
+
+noremap <plug>(Toggle/Conceal/Level)  :call Toggle_conceallevel()<cr>
+nmap <leader>Tcl <plug>(Toggle/Conceal/Level)
+
+
+" switch between 2 last buffers
+noremap <plug>(Last-Buffer) :b#<CR>
+nmap    <leader><Tab>       <plug>(Last-Buffer)
+
+" Make shift-insert work like in Xterm
+map  <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+noremap <plug>(Next) :cn<CR>
+nmap    <leader>n    <plug>(Next)
+
+noremap <plug>(Prev) :cn<CR>
+nmap    <leader>p    <plug>(Prev)
+
+noremap <plug>diff-mode(toggle) :set diff! cursorbind! scrollbind!<cr>
+nmap    <leader>TD              <plug>diff-mode(toggle)
+
+" completion mappings
+inoremap <expr> <Tab>   pumvisible() ? "\<Down>"      : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>"        : "\<S-Tab>"
+
+" we want to preserve mappings that we done before this point, e.g. endwise
+" and delimitmate
+exec 'imap <expr> <cr>    pumvisible() ? "\<C-y>"       : "'.maparg('<cr>', 'i').'"'
+
+" src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
+
+fu! Toggle_clipboard()
+  if g:clipboard_toggle_mode == &clipboard
+    set clipboard=
+  else
+    let &clipboard=g:clipboard_toggle_mode
+  endif
+endfu
+
+noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
+nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
+
+" src/plugins/20-settings/plugins/clipboard/install.sh -------------------
+
+let g:clipboard_toggle_mode='unnamed'
+let &clipboard=g:clipboard_toggle_mode
+
+" src/plugins/20-settings/plugins/keymap/files/vimrc.bindings -------------------
+
+nnoremap <leader><space>        :
+
+call my#keymap#leader('a', '+App')
+
+call my#keymap#leader('v', '+Vim')
+
+noremap                         <plug>(Vim/Redraw)                            :redraw!<cr>
+nmap     <leader>vr             <plug>(Vim/Redraw)
+
+
+call my#keymap#leader('t', '+Tab')
+
+noremap                         <plug>(Tab/New)                               :tabnew<cr>
+nmap     <leader>tn             <plug>(Tab/New)
+
+map                             <plug>(Tab/New-File)                          <plug>(Tab/New)<plug>(File/Fuzzy-Find)
+nmap     <leader>tf             <plug>(Tab/New-File)
+
+
+call my#keymap#leader('b', '+Buffer')
+
+noremap                         <plug>(Buffer/Next)                           :bn<cr>
+nmap     <leader>bn             <plug>(Buffer/Next)
+
+noremap                         <plug>(Buffer/Prev)                           :bp<cr>
+nmap     <leader>bp             <plug>(Buffer/Prev)
+
+noremap                         <plug>(Buffer/Delete)                         :bd<cr>
+nmap     <leader>bd             <plug>(Buffer/Delete)
+
+
+call my#keymap#leader('f', '+File')
+
+noremap                         <plug>(File/Save)                             :w<cr>
+nmap     <leader>fs             <plug>(File/Save)
+
+noremap                         <plug>(File/Save-All)                         :wa<cr>
+nmap     <leader>fa             <plug>(File/Save-All)
+
+noremap                         <plug>(File/Make-Executable)                  :!chmod +x %<cr>
+nmap     <leader>fx             <plug>(File/Make-Executable)
+
+
+call my#keymap#leader('ft', '+Toggle')
+call my#keymap#leader('fe', '+Edit')
+
+noremap                         <plug>(File/Edit/.vim)                        :e ~/.vim/<cr>
+nmap     <leader>fev            <plug>(File/Edit/.vim)
+
+noremap                         <plug>(File/Edit/scratch.vim)                 :e ~/.vim/scratch.vim<cr>
+nmap     <leader>fes            <plug>(File/Edit/scratch.vim)
+
+call my#keymap#leader('fel', '+Local')
+
+noremap                         <plug>(File/Edit/Local/directory)             :e ~/.vim/local<cr>
+nmap     <leader>fell           <plug>(File/Edit/Local/directory)
+
+noremap                         <plug>(File/Edit/Local/vimrc.after)           :e ~/.vim/local/vimrc.after<cr>
+nmap     <leader>fela           <plug>(File/Edit/Local/vimrc.after)
+" used to this  alias ;)
+nmap     <leader>fed            <plug>(File/Edit/Local/vimrc.after)
+
+noremap                         <plug>(File/Edit/Local/vimrc.plugins)         :e ~/.vim/local/vimrc.plugins<cr>
+nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
+
+noremap                         <plug>(File/Edit/Local/vimrc.bindings)        :e ~/.vim/local/vimrc.bindings<cr>
+nmap     <leader>felb           <plug>(File/Edit/Local/vimrc.bindings)
+
+call my#keymap#leader('q', '+Quit')
+
+noremap                         <plug>(Quit/All)                              :qa<cr>
+nmap     <leader>qq             <plug>(Quit/All)
+
+call my#keymap#leader('w', '+Window' )
+
+noremap                         <plug>(Window/Max-Width)                      <C-w><bar>
+nmap     <leader>w<bar>         <plug>(Window/Max-Width)
+
+noremap                         <plug>(Window/Max-Height)                     <C-w>_
+nmap     <leader>w_             <plug>(Window/Max-Height)
+
+noremap                         <plug>(Window/Rebalance)                      <C-w>=
+nmap     <leader>w=             <plug>(Window/Rebalance)
+
+noremap                         <plug>(Window/Swap)                           <C-w>x
+nmap     <leader>wx             <plug>(Window/Swap)
+
+nmap     <leader>w_             <C-w>_
+nmap     <leader>w<bar>        <C-w><bar>
+
+nmap                            <plug>(Window/Move-Up)                        <c-w>K
+nmap     <leader>wK             <plug>(Window/Move-Up)
+
+nmap                            <plug>(Window/Move-Down)                      <c-w>J
+nmap     <leader>wJ             <plug>(Window/Move-Down)
+
+nmap                            <plug>(Window/Move-Left)                      <c-w>H
+nmap     <leader>wH             <plug>(Window/Move-Left)
+
+nmap                            <plug>(Window/Move-Right)                     <c-w>L
+nmap     <leader>wL             <plug>(Window/Move-Right)
+
+noremap                         <plug>(Window/Split)                          :split<cr><c-w>j
+nmap     <leader>ws             <plug>(Window/Split)
+nmap     <leader>w-             <plug>(Window/Split)
+
+noremap                         <plug>(Window/VSplit)                         :vsplit<cr><c-w>l
+nmap     <leader>wv             <plug>(Window/VSplit)
+nmap     <leader>w<Bslash>      <plug>(Window/VSplit)
+
+noremap                         <plug>(Window/Quit)                           :q<cr>
+nmap     <leader>wq             <plug>(Window/Quit)
+nmap     <leader>wd             <plug>(Window/Quit)
+
+" alias
+map                             <plug>(Quit/Window)                           <plug>(Window/Quit)
+nmap     <leader>qw             <plug>(Quit/Window)
+
+noremap                         <plug>(Window/Only)                           <C-w>o
+nmap     <leader>wo             <plug>(Window/Only)
+
+" src/plugins/20-settings/plugins/vimbits/files/vimrc.bindings -------------------
+
+" awesome stuff from vimbits.com
+
+" keep selection after in/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" better navigation of wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+" easier increment/decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" center display after searching
+nnoremap n   nzz
+nnoremap N   Nzz
+nnoremap *   *zz
+nnoremap #   #zz
+nnoremap g*  g*zz
+nnoremap g#  g#z
+
+" disable paste mode when leaving Insert Mode
+au InsertLeave * set nopaste
+
+" fast expand current file's directory in command mode
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %^ <C-R>=expand('%:p:h').'/'<cr>
+
+call my#keymap#leader('x', '+Text')
+call my#keymap#leader('xd', '+Delete')
+
+noremap                     <plug>(Text/Delete/Whitespace)    :%s/\s\+$//<cr>:let @/=''<cr>
+nmap     <leader>xdw        <plug>(Text/Delete/Whitespace)
+
+
+call my#keymap#leader('Y', '+Yank')
+
+noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
+nmap     <leader>Yp         <plug>(Yank/File-Path)
+
+noremap                      <plug>(Yank/File-Name)           :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+nmap     <leader>Yf         <plug>(Yank/File-Name)
+
+noremap                     <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+nmap     <leader>Yd         <plug>(Yank/File-Directory)
+
+" src/plugins/30-general/plugins/diminactive/files/vimrc.bindings -------------------
+
+" 0 - disabled
+" 1 - use syntax
+" 2 - use colorcolumns
+fu s:updateDiminactive()
+  if g:diminactive_mode == 1
+
+    let g:diminactive_use_colorcolumn = 0
+    let g:diminactive_use_syntax = 1
+    exe "DimInactiveOn"
+
+  elseif g:diminactive_mode == 2
+
+    let g:diminactive_use_colorcolumn = 1
+    let g:diminactive_use_syntax = 0
+    exe "DimInactiveOn"
+
+  else
+
+    let g:diminactive_use_colorcolumn = 0
+    let g:diminactive_use_syntax = 0
+    exe "DimInactiveOff"
+
+  endif
+endfu
+
+if (!exists("g:diminactive_mode"))
+  let g:diminactive_mode = 1
+endif
+call s:updateDiminactive()
+
+" cycle 0, 1, 2
+fu s:cycleDiminitive()
+
+  let g:diminactive_mode = max([0, g:diminactive_mode + 1])
+  echo g:diminactive_mode
+
+  if g:diminactive_mode > 2
+    let g:diminactive_mode = 0
+  endif
+
+  call s:updateDiminactive()
+endfu
+
+noremap              <plug>(Toggle/Diminactive) :call <SID>cycleDiminitive()<cr>
+nmap     <leader>Td  <plug>(Toggle/Diminactive)
+
+" src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/20-nerdtree-tabs/files/vimrc.bindings -------------------
+
+" nerdtree with tabs
+" display the [F]ile browser [T]ree
+noremap <plug>(Toggle/File-Tree) :NERDTreeTabsToggle<CR>
+
+" show current file in the tree
+noremap <plug>(Tree-Find-File) :NERDTreeFind<CR>
+
+" src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
+
+if maparg('<plug>(Toggle/File-Tree)') != ''
+  nmap <leader>Tt  <plug>(Toggle/File-Tree)
+
+  " alias in file menu
+  map <plug>(File/Toggle/File-Tree)   <plug>(Toggle/File-Tree)
+  nmap <leader>ftt <plug>(File/Toggle/File-Tree)
+endif
+
+if maparg('<plug>(Tree-Find-File)') != ''
+  " show current file in the tree
+  nmap <leader>0 <plug>(Tree-Find-File)
+endif
+" vim: ft=vim
+
+" src/plugins/30-general/plugins/nerdtools/plugins/netdcommenter/files/vimrc.bindings -------------------
+
+call my#keymap#leader('c', '+Comment')
+
+map                        <plug>(Toggle-Comment) <Plug>NERDCommenterToggle
+nmap <leader>;             <plug>(Toggle-Comment)
+vmap <leader>;             <plug>(Toggle-Comment)
+
+" src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
+
+noremap <silent> <plug>(Window/Up)    :TmuxNavigateUp<CR>
+noremap <silent> <plug>(Window/Down)  :TmuxNavigateDown<CR>
+noremap <silent> <plug>(Window/Left)  :TmuxNavigateLeft<CR>
+noremap <silent> <plug>(Window/Right) :TmuxNavigateRight<CR>
+
+nmap <leader>wk <plug>(Window/Up)
+nmap <leader>wj <plug>(Window/Down)
+nmap <leader>wh <plug>(Window/Left)
+nmap <leader>wl <plug>(Window/Right)
+
+cmap <silent> <m-k> :<C-U>TmuxNavigateUp<CR>
+cmap <silent> <m-j> :<C-U>TmuxNavigateDown<CR>
+cmap <silent> <m-h> :<C-U>TmuxNavigateLeft<CR>
+cmap <silent> <m-l> :<C-U>TmuxNavigateRight<CR>
+
+if has("nvim")
+  tmap <m-k> <C-\><C-n><plug>(Window/Up)
+  tmap <m-j> <C-\><C-n><plug>(Window/Down)
+  tmap <m-h> <C-\><C-n><plug>(Window/Left)
+  tmap <m-l> <C-\><C-n><plug>(Window/Right)
+endif
+
+" src/plugins/30-general/plugins/undotree/files/vimrc.bindings -------------------
+
+noremap             <plug>(Toggle/Unfo-Tree) :UndotreeToggle<CR>
+nmap    <leader>Tu  <plug>(Toggle/Unfo-Tree)
+
+" alias for quick access
+map                 <plug>(Toggle-Unfo-Tree) <plug>(Toggle/Unfo-Tree)
+nmap <leader>u      <plug>(Toggle-Unfo-Tree)
+
+nmap g= :later<cr>
+
+" src/plugins/30-general/plugins/vim-sneak/files/vimrc.bindings -------------------
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+" src/plugins/30-general/plugins/vimwiki/files/vimrc.bindings -------------------
+
+call my#keymap#leader('W', '+Wiki')
+call my#keymap#leader('W ', '+Wiki Make')
+call my#keymap#localleader('t', '+Task')
+
+nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
+nma <leader>aw     <plug>(App/Wiki)
+
+nnoremap           <plug>(Search/Wiki-Tags)   :VimwikiSearchTags<space>
+nmap <leader>sw    <plug>(Search/Wiki-Tags)
+
+" src/plugins/30-general/plugins/zoomwintab/files/vimrc.bindings -------------------
+
+map                       <plug>(Toggle/Window-Zoom)          :ZoomWinTabToggle<CR>
+nmap     <leader>Tz       <plug>(Toggle/Window-Zoom)
+
+map                       <plug>(Window/Toggle-Zoom)          <plug>(Toggle/Window-Zoom)
+nmap     <leader>wz       <plug>(Window/Toggle-Zoom)
+
+" src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.bindings -------------------
+
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
+inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
+
+vmap <tab> <Plug>(coc-snippets-select)
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+
+call my#keymap#leader('fec', '+COC')
+
+noremap                       <plug>(File/Edit/COC/Config)          :CocConf<cr>
+nmap    <leader>fecc          <plug>(File/Edit/COC/Config)
+
+call my#keymap#leader('ac', '+COC')
+
+noremap                       <plug>(App/COC/Restart)               :CocRestart<cr>
+nmap    <leader>acR           <plug>(App/COC/Restart)
+
+noremap                       <plug>(App/COC/Update)                :CocUpdate<cr>
+nmap    <leader>acu           <plug>(App/COC/Update)
+
+
+" call my#keymap#leader('acg', 'Go-To')
+" call my#keymap#leader('acr', 'Refactoring')
+" call my#keymap#localleader('g', '+Go-To')
+
+
+nmap <silent> gd             <Plug>(coc-definition)
+nmap <silent> gy             <Plug>(coc-type-definition)
+nmap <silent> gi             <Plug>(coc-implementation)
+nmap <silent> gr             <Plug>(coc-references)
+
+nmap <silent> <localleader>p <Plug>(coc-diagnostic-prev)
+nmap <silent> <localleader>n <Plug>(coc-diagnostic-next)
+nmap <silent> <localleader>? <Plug>(coc-diagnostic-info)
+
+nmap    <localleader>a        <Plug>(coc-codeaction)
+vmap    <localleader>a        <Plug>(coc-codeaction-selected)
+
+noremap                       <Plug>(COC-Command)   :CocCommand<cr>
+nmap    <localleader>c        <Plug>(COC-Command)
+
+call my#keymap#localleader('r', '+Refactoring')
+
+nmap    <localleader>rr       <Plug>(coc-rename)
+
+noremap                       <plug>(Hover)                         :call CocActionAsync('doHover')<cr>
+nmap    K                     <plug>(Hover)
+
+noremap                       <plug>(Outline)                       :CocList outline<cr>
+nmap    <localleader>o        <plug>(Outline)
+
+noremap                       <plug>(Show-Signature)                :call CocActionAsync('showSignatureHelp')<cr>
+nmap    <localleader>s        <plug>(Show-Signature)
+
+noremap                       <plug>(COC-List)                      :CocList <space>
+nmap    <localleader>l        <plug>(COC-List)
+
+
+noremap                       <plug>(COC/Fix)                       :CocFix<cr>
+nmap    <localleader>F        <plug>(COC/Fix)
+
+map                           <plug>(COC/Fix-Current)               <Plug>(coc-fix-current)
+nmap    <localleader>f        <plug>(COC/Fix-Current)
+
+
+
+" src/plugins/40-ide/plugins/fugitive/files/vimrc.bindings -------------------
+
+call my#keymap#leader('g', '+Git')
+
+noremap                           <plug>(Git/Grep)                        :silent Ggrep<space>
+nmap    <leader>gg                <plug>(Git/Grep)
+
+noremap                           <plug>(Git/Grep-Word-Under-Cursor)      :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+nmap    <leader>gw                <plug>(Git/Grep-Word-Under-Cursor)
+
+noremap                           <plug>(Git/Grep-Selection)              y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+vmap    <leader>g                 <plug>(Git/Grep-Selection)
+
+noremap                           <plug>(Git/Status)                      :Gstatus<CR>
+nmap    <leader>gs                <plug>(Git/Status)
+
+noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
+nmap    <leader>gd                <plug>(Git/Diff)
+
+" src/plugins/40-ide/plugins/linting/files/vimrc.bindings -------------------
+
+call my#keymap#leader('aa', '+ALE')
+
+nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
+nmap <leader>aaF      <plug>(App/ALE/Fix)
+
+nmap                  <plug>(App/ALE/First)       <plug>(ale_first)
+nmap <leader>aaf      <plug>(App/ALE/First)
+
+nmap                  <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
+nmap <leader>aan      <plug>(App/ALE/Next)
+
+nmap                  <plug>(App/ALE/Detail)      <plug>(ale_detail)
+nmap <leader>aad      <plug>(App/ALE/Detail)
+
+" src/plugins/40-ide/plugins/statusline/files/vimrc.bindings -------------------
+
+if maparg('<plug>(Toggle/Status-Line)') != ''
+  nmap <leader>TS  <plug>(Toggle/Status-Line)
+endif
+set noshowmode
+
+" src/plugins/50-fuzzy-tools/files/vimrc.bindings -------------------
+
+call my#keymap#leader('s', '+Search')
+
+" src/plugins/50-fuzzy-tools/plugins/02-fzf/files/vimrc.bindings -------------------
+
+command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)
+command! -bar -bang OMaps call fzf#vim#maps("o", <bang>0)
+command! -bar -bang VMaps call fzf#vim#maps("x", <bang>0)
+command! -bar -bang CMaps call fzf#vim#maps("c", <bang>0)
+
+nmap <leader>?  <plug>(fzf-maps-n)
+xmap <leader>?  <plug>(fzf-maps-x)
+omap <leader>?  <plug>(fzf-maps-o)
+imap <c-x><tab> <plug>(fzf-maps-i)
+
+" src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/fzf/vimrc.bindings -------------------
+
+noremap <plug>(File/Fuzzy-Find) :Files<cr>
+
+" src/plugins/50-fuzzy-tools/plugins/10-fuzzy-files/common/vimrc.bindings -------------------
+
+if maparg('<plug>(File/Fuzzy-Find)') != ''
+  nmap <leader>ff <plug>(File/Fuzzy-Find)
+  nmap ,,         <Plug>(File/Fuzzy-Find)
+endif
+
+if maparg('<plug>fuzzy-file(no-cache)') != ''
+  nmap <leader>fF <plug>fuzzy-file(no-cache)
+endif
+
+" src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/files/vimrc.bindings -------------------
+
+nmap <leader>sq <plug>(Search/Quickfix)
+
+" src/plugins/50-fuzzy-tools/plugins/40-fuzzy-lines/fzf/vimrc.bindings -------------------
+
+noremap              <plug>(Search/Lines)     :Lines<cr>
+nmap     <leader>sl  <plug>(Search/Lines)
+
+" src/plugins/50-fuzzy-tools/plugins/50-fuzzy-tags/files/vimrc.bindings -------------------
+
+if maparg('<plug>(Search/Tags)') != ''
+  nmap <leader>st  <plug>(Search/Tags)
+endif
+
+if maparg('<plug>(Search/Buffer/Tags)') != ''
+  call my#keymap#leader('sb', '+Buffer')
+  nmap <leader>sbt <plug>(Search/Buffer/Tags)
+
+  map <plug>(Buffer/Tags) <plug>(Search/Buffer/Tags)
+  nmap <leader>bt <plug>(Buffer/Tags)
+endif
+
+" src/plugins/50-fuzzy-tools/plugins/60-fuzzy-yank/yankring/vimrc.bindings -------------------
+
+noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
+nmap     <leader>sy             <plug>(Search/YankRing)
+
+" src/plugins/60-development/plugins/neoformat/files/vimrc.bindings -------------------
+
+command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> Neoformat" | augroup END
+command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>
+
+let b:autoformat = 0
+fun! ToggleAutoFormat()
+  if b:autoformat
+    echo "autoformat off"
+    NoAutoFormat
+  else
+    echo "autoformat on"
+    AutoFormat
+  endif
+  " code
+endf
+
+map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
+nmap    <silent> <leader>Ta            <plug>(Toggle/AutoFormat)
+
+" src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
+
+" FIXME: can we make this active only in a Ruby ftype?
+
+nnoremap <localleader>Rap  :RAddParameter<cr>
+nnoremap <localleader>Rcpc :RConvertPostConditional<cr>
+nnoremap <localleader>Rel  :RExtractLet<cr>
+vnoremap <localleader>Rec  :RExtractConstant<cr>
+vnoremap <localleader>Relv :RExtractLocalVariable<cr>
+nnoremap <localleader>Rit  :RInlineTemp<cr>
+vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
+vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
+vnoremap <localleader>Rem  :RExtractMethod<cr>
+
+call my#keymap#localleader('R',   '+Ruby Refactoring')
+call my#keymap#localleader('Ra',  '+Add')
+call my#keymap#localleader('Rc',  '+Convert')
+call my#keymap#localleader('Rcp', '+Post')
+call my#keymap#localleader('Re',  '+Extract')
+call my#keymap#localleader('Ri',  '+Inline')
+call my#keymap#localleader('Rr',  '+Rename')
+call my#keymap#localleader('Rrl', '+Local')
+call my#keymap#localleader('Rri', '+Instance')
+
+" src/plugins/80-base16/files/vimrc.bindings -------------------
+
+" including in vimrc.bindings to setup colors early, and
+" allow other plugins to override in vimrc.after
+if !exists('g:skip_vimrc_background')
+  if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+  endif
+endif
+
+" src/plugins/99-final/plugins/10-local-configs/files/vimrc.bindings -------------------
+
+source ~/.vim/local/vimrc.bindings

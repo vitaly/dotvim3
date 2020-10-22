@@ -35,7 +35,6 @@ function finish()
 
 # SUPPORT FUNCTIONS
 
-DESC=
 function desc()
 {
   if [ -n "$*" ]; then
@@ -54,8 +53,14 @@ function desc_add()
   fi
 }
 
-ENUM_VALUES=()
-ENUM_DESCRIPTIONS=()
+
+function _reset() {
+  DESC=
+  ENUM_VALUES=()
+  ENUM_DESCRIPTIONS=()
+}
+_reset
+
 # enum VALUE DESCRIPTION
 function enum()
 {
@@ -66,11 +71,6 @@ function enum()
 function enum_size()
 {
   echo ${#ENUM_VALUES[@]}
-}
-
-function multi_enum()
-{
-  [ "$(enum_size)" -gt 1 ]
 }
 
 function dump_enum_values()
@@ -215,6 +215,9 @@ function ask()
         echo "$a"
       fi
 
+    elif [ "enum" == "$kind" -a 1 == "$(enum_size)" ]; then
+      # just a single enum option. no need to prompt
+      a="$(enum_value 1)"
     else
       if [ -n "$current" ]; then
         v="$current"
@@ -253,7 +256,5 @@ function ask()
     fi
   done
 
-  DESC=
-  ENUM_VALUES=()
-  ENUM_DESCRIPTIONS=()
+  _reset
 }

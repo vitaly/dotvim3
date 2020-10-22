@@ -1,3 +1,7 @@
+if ! has('nvim')
+  set nocompatible
+endif
+
 syntax on
 
 " prevent vim from adding that stupid empty line at the end of every file
@@ -20,6 +24,7 @@ set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set visualbell          " use visual bell instead of beeping
+set listchars=tab:→⋅,trail:·,nbsp:+
 set list
 
 " highlight spell errors
@@ -33,7 +38,7 @@ set shell=/bin/bash     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set guioptions-=T       " disable toolbar"
-set completeopt=menuone,preview
+set completeopt=menuone,preview,noinsert
 let bash_is_sh=1        " syntax shell files as bash scripts
 set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
 set modelines=5         " number of lines to check for vim: directives at the start/end of file
@@ -44,6 +49,10 @@ set sw=4                " number of spaces for indent
 set et                  " expand tabs into spaces
 
 set ttimeoutlen=50      " fast Esc to normal mode
+set updatetime=300
+
+let g:mapleader = " "
+let g:maplocalleader = ","
 set timeoutlen=5000     " give 5s to complete mapping sequence
 
 " mouse settings
@@ -80,32 +89,15 @@ set conceallevel=2
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-" [T]oggle [W]hitespace highlight
-map <plug>toggle(whitespace) :set nolist!<CR>
-nmap <silent> <leader>Tw <plug>toggle(whitespace)
-
-" [T]oggle [S]earch highlight
-noremap <plug>toggle(search-highlight) :silent noh<CR>
-nmap <silent> <leader>Ts <plug>toggle(search-highlight)
-
-" switch between 2 last buffers
-noremap <plug>buffer(last) :b#<CR>
-nmap <leader><Tab> <plug>buffer(last)
-
-" Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
-
-" [N]ext
-nmap <leader>n :cn<CR>
-" [P]revious
-nmap <leader>p :cp<CR>
-
-noremap <plug>diff-mode(toggle)  :set diff!<cr>
-
 " driving me insane this thing
 command Q q
 command Qa qa
 command QA qa
 command -nargs=* -complete=file W w <args>
 command -nargs=* -complete=file E e <args>
+
+call plug#begin('~/.vim/bundle')
+
+source ~/.vim/vimrc.plugins
+
+call plug#end()

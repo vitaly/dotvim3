@@ -1,3 +1,0 @@
-
-*   [Completion](#completion)
-    *   [YouCompleteMe](#youcompleteme)

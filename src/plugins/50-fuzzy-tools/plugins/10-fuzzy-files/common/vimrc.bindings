@@ -1,0 +1,8 @@
+if maparg('<plug>(File/Fuzzy-Find)') != ''
+  nmap <leader>ff <plug>(File/Fuzzy-Find)
+  nmap ,,         <Plug>(File/Fuzzy-Find)
+endif
+
+if maparg('<plug>fuzzy-file(no-cache)') != ''
+  nmap <leader>fF <plug>fuzzy-file(no-cache)
+endif

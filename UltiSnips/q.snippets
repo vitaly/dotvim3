@@ -1,0 +1,52 @@
+
+priority -50
+
+
+snippet desc "describe test context"
+describe["${1:context}"] {
+    $0
+    };
+endsnippet
+
+snippet desca "describe test context with with arguments"
+describe["${1:context}"] { [args]
+    $0
+    }[args];
+endsnippet
+
+snippet it "test"
+it["${1:context}"] {
+    $0
+    };
+endsnippet
+
+snippet ita "test with arguments"
+it["${1:context}"] { [args; x]
+    $0
+    }[args; ];
+endsnippet
+
+snippet xit "disabledf test"
+xit["${1:context}"] {
+    $0
+    };
+endsnippet
+
+snippet xita "test with arguments"
+xit["${1:context}"] { [args; x]
+    $0
+    }[args; ];
+endsnippet
+
+snippet fit "focused test"
+fit["${1:context}"] {
+    $0
+    };
+endsnippet
+
+snippet fita "test with arguments"
+fit["${1:context}"] { [args; x]
+    $0
+    }[args; ];
+endsnippet
+

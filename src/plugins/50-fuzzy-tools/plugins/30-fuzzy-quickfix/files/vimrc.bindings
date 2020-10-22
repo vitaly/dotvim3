@@ -1,0 +1,1 @@
+nmap <leader>sq <plug>(Search/Quickfix)
