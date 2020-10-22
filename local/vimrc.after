@@ -312,5 +312,6 @@ let g:which_key_use_floating_win = 0
 let g:which_key_align_by_seperator = 1
 
 
-let g:NERDTreeQuitOnOpen = 0
+let g:NERDTreeQuitOnOpen = 1
+let g:EditorConfig_max_line_indicator = 'line'
 
