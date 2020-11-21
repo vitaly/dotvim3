@@ -32,9 +32,33 @@ edit: ${VIM_DIR}/.config
 	vim ${VIM_DIR}/.config
 .PHONY: edit
 
-deps:
-	bash deps/install.sh
+deps/nodejs:
+	bash deps/nodejs
+.PHONY: deps/nodejs
+
+deps/ruby:
+	bash deps/ruby
+.PHONY: deps/ruby
+
+export PYTHONWARNINGS="ignore:DEPRECATION"
+
+deps/python2:
+	bash deps/python2
+.PHONY: deps/python2
+
+deps/python3:
+	bash deps/python3
+.PHONY: deps/python3
+
+deps/coc:
+	bash deps/coc
+.PHONY: deps/coc
+
+deps: deps/nodejs deps/ruby deps/python2 deps/python3
 .PHONY: deps
+
+extensions: deps/coc
+.PHONY: extensions
 
 install:
 	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa

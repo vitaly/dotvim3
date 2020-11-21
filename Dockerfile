@@ -41,7 +41,6 @@ WORKDIR /root/.vim
 RUN mkdir /root/.config
 RUN ln -sfn /root/.vim /root/.config/nvim
 
-
 COPY . .
 
 RUN echo ruby_solargraph=n >> .config
