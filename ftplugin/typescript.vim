@@ -1,8 +1,4 @@
 
-" src/plugins/60-development/plugins/neoformat/files/ftplugin/javascript.vim -------------------
+" src/plugins/60-development/plugins/neoformat/files/ftplugin/typescript.vim -------------------
 
-set sw=2
-augroup TsNeoformatOnSave
-  au! * <buffer>
-  :AutoFormat
-augroup END
+AutoFormat

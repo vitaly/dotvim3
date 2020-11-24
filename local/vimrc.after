@@ -262,7 +262,10 @@ source ~/.vim/local/my/vimrc.preview
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neoformat_enabled_javascript = ['prettier']
+" let g:neoformat_enabled_typescript = ['prettier']
+" let g:neoformat_enabled_typescryptreact = ['prettier']
+
+" let g:neoformat_verbose = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 func! MotionJoinOperator(submode)
   '[,']join

@@ -1,4 +1,4 @@
-command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> Neoformat" | augroup END
+command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> undojoin | Neoformat" | augroup END
 command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>
 
 let b:autoformat = 0
@@ -15,3 +15,18 @@ endf
 
 map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
 nmap    <silent> <leader>Ta            <plug>(Toggle/AutoFormat)
+
+" it is better to run prettier from the project directory
+" TODO: integrate 'project-root' here
+
+let g:neoformat_typescript_prettier = {
+      \ 'exe': './node_modules/.bin/prettier',
+      \ 'args': ['--stdin-filepath', '"%:p"', '--parser', 'typescript'],
+      \ 'stdin': 1
+      \ }
+
+let g:neoformat_typescriptreact_prettier = {
+      \ 'exe': './node_modules/.bin/prettier',
+      \ 'args': ['--stdin-filepath', '"%:p"', '--parser', 'typescript'],
+      \ 'stdin': 1
+      \ }

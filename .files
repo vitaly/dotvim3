@@ -23,4 +23,6 @@ deps/coc-extensions.txt
 deps/coc
 status/lightline.vim
 ftplugin/javascript.vim
+ftplugin/typescript.vim
+ftplugin/typescriptreact.vim
 ftplugin/vim.vim
