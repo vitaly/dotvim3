@@ -1,3 +1,4 @@
+coc-eslint
 coc-git
 coc-go
 coc-highlight
