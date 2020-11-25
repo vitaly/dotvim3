@@ -59,14 +59,6 @@ nmap    <leader>p    <plug>(Prev)
 noremap <plug>diff-mode(toggle) :set diff! cursorbind! scrollbind!<cr>
 nmap    <leader>TD              <plug>diff-mode(toggle)
 
-" completion mappings
-inoremap <expr> <Tab>   pumvisible() ? "\<Down>"      : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<Up>"        : "\<S-Tab>"
-
-" we want to preserve mappings that we done before this point, e.g. endwise
-" and delimitmate
-exec 'imap <expr> <cr>    pumvisible() ? "\<C-y>"       : "'.maparg('<cr>', 'i').'"'
-
 " src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
 
 fu! Toggle_clipboard()
