@@ -1,0 +1,80 @@
+#!/bin/bash -eE
+set -o pipefail
+
+ASK_VERBOSE=
+ASK_FORSE=
+SKIP_CHECK=
+while getopts :vnf OPT; do
+  case $OPT in
+    v) ASK_VERBOSE=1;;
+    f) ASK_FORSE=1;;
+    n) SKIP_CHECK=1;;
+    *) cat <<-END
+Unknown option: -$OPTARG
+
+Usage:
+
+   dotvim [-v] [-f] [-n]
+
+   -v     be verbose
+   -f     ignore existing choices. ask again
+   -n     skip currnt dir sanity check
+END
+       exit 1;;
+  esac
+done
+
+
+if [[ $1 == -v ]]; then
+  shift
+  VERBOSE=1
+fi
+ASK_VERBOSE="$VERBOSE"
+
+if [[ $1 = -n ]]; then
+  shift
+else
+  # sanity check
+  if ! [[ $PWD = */.vim || $PWD = */vim || $PWD = */nvim || -s vimrc || -s init.vim  ]]; then
+    echo "You are running dotvim generate in directory $PWD."
+    echo "It doesn't looks like a vim directory"
+    echo "re-run passing '-n' parameter to disable this check"
+    exit 1
+  fi
+fi
+
+source "$(dirname "${BASH_SOURCE}")/../vendor/ask.sh/lib/ask.sh"
+
+clean_manifest() {
+  if [ -f "${MANIFEST}" ]; then
+    cat ${MANIFEST} | ( cd "${VIM_DIR}" && xargs rm -f )
+  fi
+  rm -f "${MANIFEST}"
+  (set -x; touch "${MANIFEST}")
+}
+
+init_vimdir() {
+  [ -n "$VIM_DIR" ] || die "please define VIM_DIR"
+
+  mkdir -pv "$VIM_DIR"
+
+  VIM_DIR="$(cd "$VIM_DIR"; pwd)"
+
+  init ${VIM_DIR}/.config
+
+  clean_manifest
+}
+
+MANIFEST="${VIM_DIR}/.files"
+
+init_vimdir
+
+source lib/common.sh
+
+load .
+
+finish
+cat ${VIM_DIR}/.config  | grep '^[^#]' | sed -E -e "s/^([^=]+)=(.*)$/let g:dotvim#\1 = '\2'/" > ${VIM_DIR}/.config.vim
+
+bold
+info -e "\nDONE: $VIM_DIR"

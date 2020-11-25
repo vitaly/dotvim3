@@ -4,9 +4,6 @@ DEFAULT ?= configure
 default: ${DEFAULT}
 .PHONY: default
 
-export VIM_DIR ?= $(shell /bin/pwd  -P)
-SRC := cd src &&
-
 GENERATE_OPTS ?=
 
 docs:
@@ -14,7 +11,7 @@ docs:
 .PHONY: docs
 
 generate:
-	${SRC} bin/generate.sh ${GENERATE_OPTS}
+	src/bin/dotvim ${GENERATE_OPTS}
 .PHONY: generate
 
 configure: generate docs
@@ -28,8 +25,8 @@ reconfigure: GENERATE_OPTS=-f
 reconfigure: generate docs
 .PHONY: reconfigure
 
-edit: ${VIM_DIR}/.config
-	vim ${VIM_DIR}/.config
+edit: .config
+	vim .config
 .PHONY: edit
 
 deps/nodejs:
