@@ -397,22 +397,38 @@ nmap     <leader>wz       <plug>(Window/Toggle-Zoom)
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
-inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
-inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
-
-vmap <tab> <Plug>(coc-snippets-select)
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" vmap <tab> <Plug>(coc-snippets-select)
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<Down>"     : "\<Tab>"
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ pumvisible() ? "\<Down>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>"         : "\<S-Tab>"
+
+" inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
+" inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
+
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+
+inoremap <C-H> <Left>
+inoremap <C-L> <Right>
+
+cnoremap <C-K> <Up>
+cnoremap <C-J> <Down>
 
 call my#keymap#leader('fec', '+COC')
 
