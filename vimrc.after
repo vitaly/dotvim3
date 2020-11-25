@@ -62,6 +62,7 @@ endf
 augroup HoldHoverActions
   au!
   au CursorHold * silent call HoverActionOnHold()
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
 fu! Toggle_hover_on_hold()

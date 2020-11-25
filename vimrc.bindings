@@ -472,8 +472,16 @@ call my#keymap#localleader('r', '+Refactoring')
 
 nmap    <localleader>rr       <Plug>(coc-rename)
 
-noremap                       <plug>(Hover)                         :call CocActionAsync('doHover')<cr>
-nmap    K                     <plug>(Hover)
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+nnoremap <silent> K           :call <SID>show_documentation()<CR>
 
 noremap                       <plug>(Outline)                       :CocList outline<cr>
 nmap    <localleader>o        <plug>(Outline)
@@ -491,7 +499,14 @@ nmap    <localleader>F        <plug>(COC/Fix)
 map                           <plug>(COC/Fix-Current)               <Plug>(coc-fix-current)
 nmap    <localleader>f        <plug>(COC/Fix-Current)
 
-
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " src/plugins/40-ide/plugins/20-fugitive/files/vimrc.bindings -------------------
 
