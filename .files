@@ -26,3 +26,4 @@ ftplugin/javascript.vim
 ftplugin/typescript.vim
 ftplugin/typescriptreact.vim
 ftplugin/vim.vim
+README.md

@@ -65,9 +65,7 @@ update:
 	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
 .PHONY: update
 
-# TODO: generate list by make configure
-GENERATED := $(shell cat src/plugins/00-cleanup/lists/managed-files)
-
+GENERATED := $(shell cat .files)
 clean:
 	rm -f ${GENERATED}
 .PHONY: clean

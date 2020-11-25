@@ -68,7 +68,7 @@ MANIFEST=.files
 
 init_vimdir
 
-load "$(dirname "$BASH_SOURCE")/.."
+load $(clean_path "$(dirname "$BASH_SOURCE")/..")
 
 finish
 cat .config  | grep '^[^#]' | sed -E -e "s/^([^=]+)=(.*)$/let g:dotvim#\1 = '\2'/" > .config.vim
