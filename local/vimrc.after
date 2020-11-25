@@ -331,3 +331,16 @@ endf
 
 noremap <silent>                       <plug>(Toggle/Verbose-Log) :call Toggle_verbose_log()<CR>
 nmap    <leader>Tv                     <plug>(Toggle/Verbose-Log)
+
+
+
+
+" Tell vim to remember certain things when we exit
+" !     :  remember ALL_CAPS_VARIABLES
+"  '100 :  marks will be remembered for up to 10 previously edited files
+"  <500 :  upto 50 lines saved per register
+"  "100 :  will save up to 100 lines for each register
+"  s100 :  saves upto 100K per item
+"  h    :  disable hlsearch on load
+"  %    :  saves and restores the buffer list
+" set shada=!,'100,<500,s100,h
