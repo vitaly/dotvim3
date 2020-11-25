@@ -37,9 +37,9 @@ function finish()
 function desc()
 {
   if [ -n "$*" ]; then
-    DESC="$*"
+    DESC=$*
   else
-    DESC="`cat`"
+    DESC=`cat`
   fi
 }
 
@@ -87,9 +87,9 @@ function enum_value
 # _prompt KIND PROMPT DEFAULT
 function _prompt()
 {
-  local kind="$1"
-  local prompt="$2"
-  local default="$3"
+  local kind=$1
+  local prompt=$2
+  local default=$3
 
   if [ -n "$DESC" ]; then
     bold
@@ -148,9 +148,9 @@ function _canonic()
 
 function _save()
 {
-  local name="$1"
+  local name=$1
   local escaped_value=$(printf %q "$2")
-  local comment="$( echo -e "$3"; echo ": $4" )"
+  local comment=$( echo -e "$3"; echo ": $4" )
 
   if [ -n "$comment" ]; then
     echo -e "$comment" | sed -e 's/^/# /' >> "$TMPOUT"
@@ -178,15 +178,15 @@ function ask()
 
   usage="ask TYPE NAME PROMPT [DEFAULT]"
   [ -n "$1" ] || raise $usage
-  local kind="$1"; shift
+  local kind=$1; shift
 
   [ -n "$1" ] || raise $usage
-  local name="$1"; shift
+  local name=$1; shift
 
   [ -n "$1" ] || raise $usage
-  local prompt="$1"; shift
+  local prompt=$1; shift
 
-  local default="${1:-}"
+  local default=${1:-}
   local current=$(value "$name")
 
   local silent=
@@ -208,21 +208,21 @@ function ask()
     yellow
 
     if [ -z "$ASK_FORCE" -a -n "$current" ]; then
-      a="$current"; unset current
+      a=$current; unset current
       if [ -z "$silent" ]; then
         _prompt "$kind" "$prompt" "$a"
         echo "$a"
       fi
 
-    elif [ "enum" == "$kind" -a 1 == "$(enum_size)" ]; then
+    elif [[ enum == $kind && 1 == $(enum_size) ]]; then
       # just a single enum option. no need to prompt
-      a="$(enum_value 1)"
+      a=$(enum_value 1)
     else
       if [ -n "$current" ]; then
-        v="$current"
+        v=$current
       else
         if [ -n "$default" ]; then
-          v="$default"
+          v=$default
         else
           v=
         fi
@@ -232,7 +232,7 @@ function ask()
       read a
 
       if [ -z "$a" ]; then
-        a="$v"
+        a=$v
         if [ -n "$current" ]; then
           unset current
         else
@@ -243,11 +243,11 @@ function ask()
     nc
 
     if [ "enum" == "$kind" ] && _validate number "$a" && [ "$a" -ge 1 -a "$a" -le "$(enum_size)" ]; then
-      a="$(enum_value $a)"
+      a=$(enum_value $a)
     fi
 
     if _validate "$kind" "$a"; then
-      local canonic="$(_canonic "$kind" "$a")"
+      local canonic=$(_canonic "$kind" "$a")
       _save "$name" "$canonic" "${DESC}$(enum_desc_values)" "$prompt"
       break
     else

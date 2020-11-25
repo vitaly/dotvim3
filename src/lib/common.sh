@@ -60,11 +60,11 @@ append_to_file() {
 
   mkdir -pv "$(dirname "$dst")"
 
-  if ! grep -Fxq "$file" "${MANIFEST}"; then
+  if ! grep -Fxq "$file" "$MANIFEST"; then
     # first time writing into this file during this run
     rm -f "$dst"
     touch "$dst"
-    echo "$file" >> "${MANIFEST}"
+    echo "$file" >> "$MANIFEST"
     local empty=1
   else
     local empty=
@@ -89,7 +89,7 @@ copy_files() {
   v blue $base
 
   for f in $(cd "$base" && find . -type f); do
-    f="${f#./}"
+    f=${f#./}
 
     append_to_file "$base" "$f"
   done

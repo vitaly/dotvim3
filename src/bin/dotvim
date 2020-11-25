@@ -47,15 +47,15 @@ if [[ -z $SKIP_CHECK ]]; then
   fi
 fi
 
-source "$(dirname "${BASH_SOURCE}")/../vendor/ask.sh/lib/ask.sh"
-source "$(dirname "${BASH_SOURCE}")/../lib/common.sh"
+source "$(dirname "$BASH_SOURCE")/../vendor/ask.sh/lib/ask.sh"
+source "$(dirname "$BASH_SOURCE")/../lib/common.sh"
 
 clean_manifest() {
   if [[ -f $MANIFEST ]]; then
-    cat "${MANIFEST}" | xargs rm -f
+    cat "$MANIFEST" | xargs rm -f
   fi
-  rm -f "${MANIFEST}"
-  touch "${MANIFEST}"
+  rm -f "$MANIFEST"
+  touch "$MANIFEST"
 }
 
 init_vimdir() {
