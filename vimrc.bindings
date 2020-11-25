@@ -475,6 +475,7 @@ nmap <silent> <localleader>n <Plug>(coc-diagnostic-next)
 nmap <silent> <localleader>? <Plug>(coc-diagnostic-info)
 
 nmap    <localleader>a        <Plug>(coc-codeaction)
+xmap    <localleader>a        <Plug>(coc-codeaction-selected)
 vmap    <localleader>a        <Plug>(coc-codeaction-selected)
 
 noremap                       <Plug>(COC-Command)   :CocCommand<cr>

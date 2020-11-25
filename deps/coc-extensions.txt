@@ -4,6 +4,7 @@ coc-go
 coc-highlight
 coc-json
 coc-lists
+coc-react-refactor
 coc-rls
 coc-snippets
 coc-solargraph
