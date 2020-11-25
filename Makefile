@@ -29,36 +29,24 @@ edit: .config
 	vim .config
 .PHONY: edit
 
-deps/nodejs:
-	bash deps/nodejs
-.PHONY: deps/nodejs
-
-deps/ruby:
-	bash deps/ruby
-.PHONY: deps/ruby
-
 export PYTHONWARNINGS="ignore:DEPRECATION"
 
-deps/python2:
-	bash deps/python2
-.PHONY: deps/python2
-
-deps/python3:
-	bash deps/python3
-.PHONY: deps/python3
-
-deps/coc:
-	bash deps/coc
-.PHONY: deps/coc
-
-deps: deps/nodejs deps/ruby deps/python2 deps/python3
+deps:
+	@[[ -n $$SKIP_NODEJS_DEPS ]] || bash deps/nodejs
+	@[[ -n $$SKIP_RUBY_DEPS ]] || bash deps/ruby
+	@[[ -n $$SKIP_PYTHON_DEPS || -n $$SKIP_PYTHON2_DEPS ]] || bash deps/python2
+	@[[ -n $$SKIP_PYTHON_DEPS || -n $$SKIP_PYTHON3_DEPS ]] || bash deps/python3
 .PHONY: deps
 
-extensions: deps/coc
+plugins:
+	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
+.PHONY: plugins
+
+extensions:
+	bash deps/coc
 .PHONY: extensions
 
-install:
-	VIMRC_SKIP_AFTER_CONFIGS=y vim +PlugInstall +UpdateRemotePlugins +qa
+install: deps plugins extensions
 .PHONY: install
 
 update:
