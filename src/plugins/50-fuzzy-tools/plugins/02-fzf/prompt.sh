@@ -1,5 +1,5 @@
 desc <<END
-Fzf
+FZF
 
 A command-line fuzzy finder written in Go + vim configuration.
 END

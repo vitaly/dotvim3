@@ -4,8 +4,8 @@ source "$(dirname "$BASH_SOURCE")/utils.sh"
 # check for '-f' parameter
 # if arguments already checked by the caller
 # simply define set ASK_FORCE, even if empty
-if [[ x = ${ASK_FORCE+x} ]]; then
-  if [[ "-f" == "$1"  ]]; then
+if [[ x != ${ASK_FORCE+x} ]]; then
+  if [[ "-f" == "${1:-}"  ]]; then
     shift
     ASK_FORCE=1
   else
@@ -186,7 +186,7 @@ function ask()
   [ -n "$1" ] || raise $usage
   local prompt="$1"; shift
 
-  local default="$1"
+  local default="${1:-}"
   local current=$(value "$name")
 
   local silent=

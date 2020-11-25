@@ -1,4 +1,4 @@
-#!/bin/bash -eE
+#!/bin/bash -eEu
 set -o pipefail
 
 export ASK_FORCE=
