@@ -318,3 +318,16 @@ let g:which_key_align_by_seperator = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:EditorConfig_max_line_indicator = 'line'
 
+command! LogOn set verbosefile=~/.vim/log | set verbose=9
+command! LogOff set verbose=0 | set verbosefile=
+
+fu! Toggle_verbose_log() abort
+  if 0 == &verbose
+    LogOn
+  else
+    LogOff
+  endif
+endf
+
+noremap <silent>                       <plug>(Toggle/Verbose-Log) :call Toggle_verbose_log()<CR>
+nmap    <leader>Tv                     <plug>(Toggle/Verbose-Log)
