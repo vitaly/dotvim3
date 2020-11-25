@@ -1,12 +1,12 @@
 #!/bin/bash -eE
 set -o pipefail
 
-ASK_VERBOSE=
-ASK_FORSE=
+export ASK_FORCE=
+export VERBOSE=
 SKIP_CHECK=
 while getopts :vnf OPT; do
   case $OPT in
-    v) ASK_VERBOSE=1;;
+    v) VERBOSE=1;;
     f) ASK_FORSE=1;;
     n) SKIP_CHECK=1;;
     *) cat <<-END
@@ -23,17 +23,21 @@ END
        exit 1;;
   esac
 done
+shift $((OPTIND-1))
+
+export ASK_VERBOSE=$VERBOSE
+
+on_trap() {
+  echo ERROR >&2
+  caller 0 >&2
+  caller 1 >&2
+  caller 2 >&2
+  exit 1
+}
+trap on_trap ERR
 
 
-if [[ $1 == -v ]]; then
-  shift
-  VERBOSE=1
-fi
-ASK_VERBOSE="$VERBOSE"
-
-if [[ $1 = -n ]]; then
-  shift
-else
+if [[ -z $SKIP_CHECK ]]; then
   # sanity check
   if ! [[ $PWD = */.vim || $PWD = */vim || $PWD = */nvim || -s vimrc || -s init.vim  ]]; then
     echo "You are running dotvim generate in directory $PWD."
@@ -44,37 +48,30 @@ else
 fi
 
 source "$(dirname "${BASH_SOURCE}")/../vendor/ask.sh/lib/ask.sh"
+source "$(dirname "${BASH_SOURCE}")/../lib/common.sh"
 
 clean_manifest() {
-  if [ -f "${MANIFEST}" ]; then
-    cat ${MANIFEST} | ( cd "${VIM_DIR}" && xargs rm -f )
+  if [[ -f $MANIFEST ]]; then
+    cat "${MANIFEST}" | xargs rm -f
   fi
   rm -f "${MANIFEST}"
-  (set -x; touch "${MANIFEST}")
+  touch "${MANIFEST}"
 }
 
 init_vimdir() {
-  [ -n "$VIM_DIR" ] || die "please define VIM_DIR"
-
-  mkdir -pv "$VIM_DIR"
-
-  VIM_DIR="$(cd "$VIM_DIR"; pwd)"
-
-  init ${VIM_DIR}/.config
+  init .config
 
   clean_manifest
 }
 
-MANIFEST="${VIM_DIR}/.files"
+MANIFEST=.files
 
 init_vimdir
 
-source lib/common.sh
-
-load .
+load "$(dirname "$BASH_SOURCE")/.."
 
 finish
-cat ${VIM_DIR}/.config  | grep '^[^#]' | sed -E -e "s/^([^=]+)=(.*)$/let g:dotvim#\1 = '\2'/" > ${VIM_DIR}/.config.vim
+cat .config  | grep '^[^#]' | sed -E -e "s/^([^=]+)=(.*)$/let g:dotvim#\1 = '\2'/" > .config.vim
 
 bold
-info -e "\nDONE: $VIM_DIR"
+info -e "\nDONE"

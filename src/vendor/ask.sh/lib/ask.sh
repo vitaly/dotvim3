@@ -1,11 +1,10 @@
-# this script directory
-ASK_LIB=$(cd "`dirname ${BASH_SOURCE[0]}`"; pwd)
-
-source "$ASK_LIB/colors.sh"
-source "$ASK_LIB/utils.sh"
+source "$(dirname "$BASH_SOURCE")/colors.sh"
+source "$(dirname "$BASH_SOURCE")/utils.sh"
 
 # check for '-f' parameter
-if [ -z "$DO_NOT_PARSE_FORCE" ]; then
+# if arguments already checked by the caller
+# simply define set ASK_FORCE, even if empty
+if [[ x = ${ASK_FORCE+x} ]]; then
   if [[ "-f" == "$1"  ]]; then
     shift
     ASK_FORCE=1
@@ -18,14 +17,14 @@ fi
 function init()
 {
   [ -n "$1" ] || raise "missing output file name"
-  OUT="$1"
+  OUT=$1
 
   # loading results of the previous run
   [ -e "$OUT" ] && source "$OUT"
 
-  TMPOUT="${OUT}.new"
+  TMPOUT=${OUT}.new
   rm -f "$TMPOUT"
-  touch "${TMPOUT}"
+  touch "$TMPOUT"
 }
 
 function finish()

@@ -6,4 +6,4 @@ enum - "     - none"
 
 ask enum visual_indent "indentation plugin?" 2
 
-_copy_files "$(this_dir)/$visual_indent"
+[[ - = $visual_indent ]] || copy_files "$(this_dir)/$visual_indent"

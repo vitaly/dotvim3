@@ -1,4 +1,4 @@
-cat "$VIM_DIR/README.index.md" >> "$VIM_DIR/README.md"
-cat "$VIM_DIR/README.content.md" >> "$VIM_DIR/README.md"
+cat README.index.md >> README.md
+cat README.content.md >> README.md
 
-rm "$VIM_DIR/README.index.md" "$VIM_DIR/README.content.md"
+rm README.index.md README.content.md

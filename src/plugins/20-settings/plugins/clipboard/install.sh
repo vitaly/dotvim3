@@ -1,5 +1,5 @@
 {
-  vim_banner "src/$(this_file)"
+  vim_banner "$(this_file)"
 
 
   case $clipboard in
@@ -12,4 +12,4 @@
     echo "let &clipboard=g:clipboard_toggle_mode"
   fi
 
-} >> "${VIM_DIR}/vimrc.bindings"
+} >> vimrc.bindings

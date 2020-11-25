@@ -12,13 +12,17 @@ v() {
   fi
 }
 
+clean_path() {
+  realpath --relative-base . "$1"
+}
+
 
 this_file() {
-  echo "${BASH_SOURCE[1]}"
+  clean_path "${BASH_SOURCE[1]}"
 }
 
 this_dir() {
-  dirname "${BASH_SOURCE[1]}"
+  clean_path "$(dirname "${BASH_SOURCE[1]}")"
 }
 
 ruby_banner() {
@@ -37,7 +41,7 @@ vim_banner() {
 # banner FILE LABEL
 # 'FILE' is used to determin type of banner
 banner() {
-  local file="$1"
+  local file=$(clean_path "$1")
 
   case "$file" in
     *.md) ;;
@@ -52,7 +56,7 @@ append_to_file() {
   local file="$2"
 
   local src="$base/$file"
-  local dst="${VIM_DIR}/${file}"
+  local dst=$file
 
   mkdir -pv "$(dirname "$dst")"
 
@@ -69,7 +73,7 @@ append_to_file() {
   v cyan "-- $file -> $dst"
 
   if [ ! -x "$src" -o -z "$empty"  ]; then
-    banner "src/$src" >> "$dst"
+    banner $(realpath --relative-base . "$src") >> "$dst"
   fi
 
   cat "$src" >> "$dst"
@@ -79,19 +83,8 @@ append_to_file() {
 # will fail if directory doesn't exist
 copy_files() {
   local base="$1"
-  [ -d "$base" ] || die "directory $base not found"
 
-  _copy_files "$@"
-}
-
-# copy files from directory into target
-# will ignore if directory doesn't exist
-_copy_files() {
-  local base="$1"
-
-  if [ ! -d "$base" ]; then
-    return
-  fi
+  [[ -d $1 ]] || die "directory '$1' not found"
 
   v blue $base
 
@@ -105,17 +98,23 @@ _copy_files() {
 load() {
   v yellow "$1"
 
-  [ -e "$1" ] || die "'$1' not found"
+  [[ -d $1 ]] || die "'$1' not found"
 
   if [ -f "$1/prompt.sh" ]; then
-    if ! eval "$(cat "$1/prompt.sh")"; then
-      return
-    fi
-  fi
 
-  if [ -d "$1/files" ]; then copy_files "$1/files"; fi
-  if [ -d "$1/plugins" ]; then load_all "$1/plugins/"*; fi
-  if [ -f "$1/install.sh" ]; then source "$1/install.sh"; fi
+    local prompt=""
+
+    # we are runnign with -eE here
+    # can't just eval or failure in the code
+    # will trip the ERR trap
+    # so we compile it into a func
+    # this way our `if` will prevent ERR trap
+    eval "should_install_plugin() { $(cat "$1/prompt.sh"); }"
+    should_install_plugin || return 0
+  fi
+  if [[ -d $1/files ]]; then copy_files "$1/files"; fi
+  if [[ -d $1/plugins ]]; then load_all "$1/plugins/"*; fi
+  if [[ -f $1/install.sh ]]; then source "$1/install.sh"; fi
 }
 
 load_all() {
