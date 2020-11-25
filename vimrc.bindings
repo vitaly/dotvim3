@@ -422,6 +422,18 @@ inoremap <silent><expr> <TAB>
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<Up>"         : "\<S-Tab>"
 
+" for some reason we have a buffer local imap for CR at this point
+" and maparg below returns it
+" but it is incomplete, the global map has more it in, so it get's lost
+iunmap <buffer><cr>
+
+" inoremap <expr> <Plug>(CustomCocCR) pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <Plug>(CustomCocCR) pumvisible() ? "" : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" exec 'imap <expr> <cr>    pumvisible() ? "\<CR>"       : "\<Plug>(CustomCocCR)'.maparg('<cr>', 'i').'"'
+" imap <cr>     <Plug>(CustomCocCR)<Plug>delimitMateCR<Plug>DiscretionaryEnd
+exec 'imap <cr>    <Plug>(CustomCocCR)'.maparg('<cr>', 'i')
+
 " inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
 " inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
 

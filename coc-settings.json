@@ -1,8 +1,10 @@
 {
   "coc.preferences.hoverTarget": "float",
+  "coc.preferences.formatOnType": false,
 
   "suggest.timeout": 5000,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
+  "suggest.enablePreview": true,
 
   "suggest.snippetIndicator": "\t", // "\t", "\t",   "ﲖ" "",
 
@@ -48,8 +50,6 @@
   "typescript.implementationsCodeLens.enable": true,
 
   "json.format.enable": true,
-
-  "suggest.enablePreview": true,
 
   "yank.list.maxsize": 1000,
   "yank.highlight.duration": 200,
