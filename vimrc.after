@@ -17,10 +17,13 @@ augroup RegisterKeyMap
   autocmd!
   autocmd   User    vim-which-key     call which_key#register(' ', 'g:my#keymap#leader#map')
   autocmd   User    vim-which-key     call which_key#register(',', 'g:my#keymap#localleader#map')
+  autocmd   User    vim-which-key     call which_key#register('g', 'g:my#keymap#g#map')
 augroup END
 
 nnoremap <silent> <leader>      :<c-u>WhichKey       ' '<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey       ','<CR>
+nnoremap <silent> g?            :<c-u>WhichKey       'g'<CR>
+
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual ' '<CR>
 vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>
 
