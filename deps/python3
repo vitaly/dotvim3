@@ -1,5 +1,4 @@
 #!/bin/bash
 
-# python
 export PYTHONWARNINGS="ignore:DEPRECATION"
 pip3 install -r deps/pip3.txt

@@ -2,4 +2,3 @@
 
 export PYTHONWARNINGS="ignore:DEPRECATION"
 pip2 install -r deps/pip2.txt
-
