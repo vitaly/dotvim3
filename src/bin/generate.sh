@@ -1,6 +1,8 @@
 #!/bin/bash -eE
 set -o pipefail
 
+: ${VIM_DIR?Please provide VIM_DIR}
+
 if [[ "-v" == "$1"  ]]; then
   shift
   VERBOSE=1
@@ -8,8 +10,6 @@ fi
 ASK_VERBOSE="$VERBOSE"
 
 source vendor/ask.sh/lib/ask.sh
-
-: ${VIM_DIR:=$(pwd -P)}
 
 clean_manifest() {
   if [ -f "${MANIFEST}" ]; then
