@@ -87,8 +87,8 @@ set directory=~/.backup,~/tmp,. " list of directory names for the swap file
 set nobackup            " do not write backup files
 set backupskip+=~/tmp/*,/private/tmp/* " skip backups on OSX temp dir, for crontab -e to properly work
 set noswapfile          " do not write .swp files
-set undofile
 set undodir=~/.backup/undo/,~/tmp,.
+set undofile
 
 " folding
 set foldcolumn=0        " columns for folding
