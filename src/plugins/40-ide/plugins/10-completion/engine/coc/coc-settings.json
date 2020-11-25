@@ -1,6 +1,7 @@
 {
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.formatOnType": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
 
   "suggest.timeout": 5000,
   "suggest.noselect": true,

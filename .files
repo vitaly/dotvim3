@@ -17,7 +17,6 @@ deps/node.txt
 deps/ruby
 autoload/my/keymap.vim
 ftplugin/vimwiki.vim
-coc-settings.json
 ftdetect/coc-settings.vim
 deps/coc-extensions.txt
 deps/coc
