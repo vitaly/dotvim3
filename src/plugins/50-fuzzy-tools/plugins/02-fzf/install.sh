@@ -5,7 +5,7 @@ if [[ -z "${FZF_DEFAULT_COMMAND:-}" ]]; then
     FZF_SUGGEST="export FZF_DEFAULT_COMMAND=\"ag --follow --nocolor --nogroup -g ''\""
   fi
 
-  if [[ $FZF_SUGGEST ]]; then
+  if [[ ${FZF_SUGGEST:-} ]]; then
   yellow
   cat <<END
 
