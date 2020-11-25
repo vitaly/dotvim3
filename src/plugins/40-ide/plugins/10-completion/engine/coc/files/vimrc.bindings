@@ -14,8 +14,12 @@ endfunction
 "       \ coc#refresh()
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
 " inoremap <expr> <Tab>   pumvisible() ? "\<Down>"     : "\<Tab>"
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<Down>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<Down>" :
+      \ pumvisible() ? coc#_select_confirm() :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
