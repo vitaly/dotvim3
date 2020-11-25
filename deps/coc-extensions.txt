@@ -13,4 +13,3 @@ coc-tsserver
 coc-vimlsp
 coc-yank
 coc-elixir
-coc-graphql
