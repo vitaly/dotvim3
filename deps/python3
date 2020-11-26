@@ -1,4 +1,6 @@
 #!/bin/bash
 
-export PYTHONWARNINGS="ignore:DEPRECATION"
-pip3 install --upgrade -r deps/pip3.txt
+if [[ -z ${SKIP_PYTHON_DEPS:-} || -z ${SKIP_PYTHON3_DEPS:-} ]]; then
+  export PYTHONWARNINGS="ignore:DEPRECATION"
+  pip3 install --upgrade -r deps/pip3.txt
+fi

@@ -32,19 +32,19 @@ edit: .config
 export PYTHONWARNINGS="ignore:DEPRECATION"
 
 deps/nodejs:
-	@[[ -n $$SKIP_NODEJS_DEPS ]] || bash deps/nodejs
+	@bash deps/nodejs
 .PHONY: deps/nodejs
 
 deps/ruby:
-	@[[ -n $$SKIP_RUBY_DEPS ]] || bash deps/ruby
+	@bash deps/ruby
 .PHONY: deps/ruby
 
 deps/python2:
-	@[[ -n $$SKIP_PYTHON_DEPS || -n $$SKIP_PYTHON2_DEPS ]] || bash deps/python2
+	@bash deps/python2
 .PHONY: deps/python2
 
 deps/python3:
-	@[[ -n $$SKIP_PYTHON_DEPS || -n $$SKIP_PYTHON3_DEPS ]] || bash deps/python3
+	@bash deps/python3
 .PHONY: deps/python3
 
 deps: deps/nodejs deps/ruby deps/python2 deps/python3
