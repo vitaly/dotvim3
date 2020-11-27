@@ -1,0 +1,3 @@
+Plug 'blindFS/vim-taskwarrior'
+let g:taskwiki_maplocalleader = ",t"
+call my#keymap#localleader('t', '+Task')

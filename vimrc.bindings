@@ -381,7 +381,6 @@ map T <Plug>Sneak_T
 
 call my#keymap#leader('W', '+Wiki')
 call my#keymap#leader('W ', '+Wiki Make')
-call my#keymap#localleader('t', '+Task')
 
 nmap               <plug>(App/Wiki)           <Plug>VimwikiIndex
 nma <leader>aw     <plug>(App/Wiki)

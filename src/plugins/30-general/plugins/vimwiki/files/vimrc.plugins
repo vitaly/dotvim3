@@ -2,10 +2,8 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 let g:vimwiki_folding = "list"
 let g:vimwiki_map_prefix = '<leader>W'
 
-let g:taskwiki_maplocalleader = ",t"
 let g:taskwiki_disable_concealcursor = 1
 Plug 'tbabej/taskwiki'
 
 let g:no_cecutil_maps = 1
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'blindFS/vim-taskwarrior'
