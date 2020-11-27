@@ -218,7 +218,7 @@ noremap <plug>fuzzy(buffer) :Unite -start-insert -no-split -buffer-name=buffer b
 " src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/fzf/vimrc.plugins -------------------
 
 Plug 'fszymanski/fzf-quickfix', {'on': '<Plug>(fzf-quickfix)'}
-nmap <plug>(Search/Quickfix) <plug>(fzf-quickfix)
+map <plug>(Search/Quickfix) <plug>(fzf-quickfix)
 
 " src/plugins/50-fuzzy-tools/plugins/40-ag/files/vimrc.plugins -------------------
 

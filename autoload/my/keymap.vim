@@ -38,8 +38,6 @@ fu! my#keymap#set(map, path, name)
   endif
 endfu
 
-let g:my#keymap#g#map = get(g:, 'my#keymap#g#map', {})
-
 let g:my#keymap#leader#map = get(g:, 'my#keymap#leader#map', {})
 fu! my#keymap#leader(path, name)
   call my#keymap#set(g:my#keymap#leader#map, a:path, a:name)
