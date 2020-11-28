@@ -14,7 +14,7 @@ set foldcolumn=2
 
 set relativenumber!
 
-inoremap kj <esc>l
+" inoremap kj <esc>l
 
 " highlight helper
 
