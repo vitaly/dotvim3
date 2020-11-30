@@ -36,16 +36,17 @@ endf
 let g:lightline.component_function.fugitive = 'status#lightline#fugitive'
 
 " FULL COC STATUS
-fun! status#lightline#full_coc_status()
+fun! status#lightline#coc_status_full()
   return coc#status()
 endf
-let g:lightline.component_function.full_coc_status = 'status#lightline#full_coc_status'
+let g:lightline.component_function.coc_status_full = 'status#lightline#coc_status_full'
 
 " COC STATUS
 fun! status#lightline#coc_status()
   return get(g:, 'coc_status', '')
 endf
 let g:lightline.component_function.coc_status = 'status#lightline#coc_status'
+let g:lightline.component_type.coc_warnings = 'right'
 
 " COC DIAGNOSTIC
 fun! status#lightline#coc_diagnostic(kind, symbol) abort
@@ -57,18 +58,37 @@ fun! status#lightline#coc_diagnostic(kind, symbol) abort
   endif
 endf
 
+" ✗ ﲅ    
 fun! status#lightline#coc_errors() abort
-  return status#lightline#coc_diagnostic('error', '✗')
+  return status#lightline#coc_diagnostic('error', '✗ ')
 endf
 let g:lightline.component_expand.coc_errors  = 'status#lightline#coc_errors'
 let g:lightline.component_type.coc_errors = 'error'
 
+
+"  ⚠️
 fun! status#lightline#coc_warnings() abort
-  return status#lightline#coc_diagnostic('hint', '') . " " .
-        \ status#lightline#coc_diagnostic('information', 'i') . " " .
-        \ status#lightline#coc_diagnostic('warning', '!')
+  return status#lightline#coc_diagnostic('warning', ' ')
 endf
 let g:lightline.component_expand.coc_warnings  = 'status#lightline#coc_warnings'
+let g:lightline.component_type.coc_warnings = 'warning'
+
+
+"   ﯦ  ﯧ
+fun! status#lightline#coc_hints() abort
+  return status#lightline#coc_diagnostic('hint', ' ')
+endf
+let g:lightline.component_expand.coc_hints  = 'status#lightline#coc_hints'
+let g:lightline.component_type.coc_hints = 'right'
+
+
+"    כֿ 
+fun! status#lightline#coc_infos() abort
+  return status#lightline#coc_diagnostic('error', ' ')
+endf
+let g:lightline.component_expand.coc_infos  = 'status#lightline#coc_infos'
+let g:lightline.component_type.coc_infos = 'right'
+
 
 " GUTENTAGS
 fun! status#lightline#tags_cb(mods) abort
@@ -81,15 +101,15 @@ let g:lightline.component_expand.gutentags = 'status#lightline#gutentags'
 let g:lightline.component_type.gutentags   = 'error'
 
 " ALE
-let g:ale_sign_error = "✗"
-let g:ale_sign_warning = "!"
-let g:ale_sign_info = "i"
-let g:ale_sign_style_error = ""
-let g:ale_sign_style_warning = ""
+let g:ale_sign_error = "A✗"
+let g:ale_sign_warning = "A!"
+let g:ale_sign_info = "Ai"
+let g:ale_sign_style_error = "A"
+let g:ale_sign_style_warning = "A"
 let g:lightline#ale#indicator_checking = '...'
-let g:lightline#ale#indicator_errors = ''
-let g:lightline#ale#indicator_warnings = ''
-let g:lightline#ale#indicator_ok = '✓'
+let g:lightline#ale#indicator_errors = 'A'
+let g:lightline#ale#indicator_warnings = 'A'
+let g:lightline#ale#indicator_ok = 'A✓'
 
 let g:lightline.component_expand.ale_checking = 'lightline#ale#checking'
 let g:lightline.component_type.ale_checking   = 'left'
@@ -100,6 +120,9 @@ let g:lightline.component_type.ale_errors     = 'error'
 let g:lightline.component_expand.ale_warnings = 'lightline#ale#warnings'
 let g:lightline.component_type.ale_warnings   = 'warning'
 
+let g:lightline.component_expand.ale_infos    = 'lightline#ale#infos'
+let g:lightline.component_type.ale_infos      = 'right'
+
 let g:lightline.component_expand.ale_ok       = 'lightline#ale#ok'
 let g:lightline.component_type.ale_ok         = 'left'
 
@@ -108,10 +131,10 @@ let g:lightline.active.left  = [ [ 'mode', 'paste' ], ['fugitive'], [ 'ro', 'fil
 let g:lightline.active.right = [ [ 'hex', 'lineinfo' ], ['filetype'], ['fileformat', 'fileencoding'] ]
 
 if get(g:, 'dotvim#completion_engine', '') == 'coc'
-  let g:lightline.active.right += [[ 'coc_status', 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_ok' ]]
-else
-  let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_ok' ]]
+  let g:lightline.active.right += [[ 'coc_status', 'coc_errors', 'coc_warnings', 'coc_hints', 'coc_infos' ]]
 endif
+
+let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_ok' ]]
 
 
 let g:lightline.inactive.left  = [ [ 'filename' ] ]
@@ -150,5 +173,5 @@ let g:lightline.colorscheme = 'Tomorrow'
 
 augroup AuStatusLightline
   au!
-  au User CocStatusChange, CocDiagnosticChange, GutentagsUpdating, GutentagsUpdated call lightline#update()
+  au User CocStatusChange,CocDiagnosticChange,GutentagsUpdating,GutentagsUpdated call lightline#update()
 augroup END
