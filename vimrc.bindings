@@ -465,6 +465,18 @@ noremap                       <plug>(App/COC/Update)                :CocUpdate<c
 nmap    <leader>acu           <plug>(App/COC/Update)
 
 
+map     <silent>              <plug>(App/COC/First)      gg<Plug>(coc-diagnostic-next)
+nmap    <leader>acf           <plug>(App/COC/First)
+
+map     <silent>              <plug>(App/COC/Next)       <Plug>(coc-diagnostic-next)
+map     <leader>acn           <plug>(App/COC/Next)
+
+map     <silent>              <plug>(App/COC/Prev)       <Plug>(coc-diagnostic-prev)
+nmap    <leader>acp           <plug>(App/COC/Prev)
+
+map     <silent>              <plug>(App/COC/Info)       <Plug>(coc-diagnostic-info)
+nmap    <leader>aci           <plug>(App/COC/Info)
+
 " call my#keymap#leader('acg', 'Go-To')
 " call my#keymap#leader('acr', 'Refactoring')
 " call my#keymap#localleader('g', '+Go-To')
@@ -475,16 +487,37 @@ nmap <silent> gy             <Plug>(coc-type-definition)
 nmap <silent> gi             <Plug>(coc-implementation)
 nmap <silent> gr             <Plug>(coc-references)
 
-nmap <silent> <localleader>p <Plug>(coc-diagnostic-prev)
-nmap <silent> <localleader>n <Plug>(coc-diagnostic-next)
-nmap <silent> <localleader>? <Plug>(coc-diagnostic-info)
+call my#keymap#localleader('c',  '+COC')
+call my#keymap#localleader('cd', '+Diagnostic')
+
+" NOTE: we can't call the getConfig here, as COC has'nt started yet
+function! s:diagnostic_map(ale_map, coc_map) abort
+  if coc#rpc#request('getConfig', ['diagnostic'])['displayByAle']
+    nmap <silent> <localleader>f <Plug>(App/ALE/First)
+    nmap <silent> <localleader>n <Plug>(App/ALE/Next)
+    nmap <silent> <localleader>p <plug>(App/ALE/Prev)
+    nmap <silent> <localleader>? <Plug>(App/ALE/Detail)
+    exe "normal " . a:ale_map
+  else
+    nmap <silent> <localleader>f <Plug>(App/COC/First)
+    nmap <silent> <localleader>n <Plug>(App/COC/Next)
+    nmap <silent> <localleader>p <Plug>(App/COC/Prev)
+    nmap <silent> <localleader>? <Plug>(App/COC/Info)
+    exe "normal " . a:coc_map
+  endif
+endfunction
+
+nmap <silent> <localleader>f :call <SID>diagnostic_map("\<Plug>(App/ALE/First)",  "\<Plug>(App/COC/First)")<CR>
+nmap <silent> <localleader>n :call <SID>diagnostic_map("\<Plug>(App/ALE/Next)",   "\<Plug>(App/COC/Next)")<CR>
+nmap <silent> <localleader>p :call <SID>diagnostic_map("\<Plug>(App/ALE/Prev)",   "\<Plug>(App/COC/Prev)")<CR>
+nmap <silent> <localleader>? :call <SID>diagnostic_map("\<Plug>(App/ALE/Detail)", "\<Plug>(App/COC/Info)")<CR>
 
 nmap    <localleader>a        <Plug>(coc-codeaction)
 xmap    <localleader>a        <Plug>(coc-codeaction-selected)
 vmap    <localleader>a        <Plug>(coc-codeaction-selected)
 
-noremap                       <Plug>(COC-Command)   :CocCommand<cr>
-nmap    <localleader>c        <Plug>(COC-Command)
+noremap                       <Plug>(COC/Command)   :CocCommand<cr>
+nmap    <localleader>cc       <Plug>(COC/Command)
 
 call my#keymap#localleader('r', '+Refactoring')
 
@@ -507,15 +540,19 @@ nmap    <localleader>o        <plug>(Outline)
 noremap                       <plug>(Show-Signature)                :call CocActionAsync('showSignatureHelp')<cr>
 nmap    <localleader>s        <plug>(Show-Signature)
 
-noremap                       <plug>(COC-List)                      :CocList <space>
-nmap    <localleader>l        <plug>(COC-List)
+noremap                       <plug>(COC/List)                      :CocList <space>
+nmap    <localleader>l        <plug>(COC/List)
+nmap    <localleader>cl       <plug>(COC/List)
 
 
 noremap                       <plug>(COC/Fix)                       :CocFix<cr>
 nmap    <localleader>F        <plug>(COC/Fix)
+nmap    <localleader>cF       <plug>(COC/Fix)
+
 
 map                           <plug>(COC/Fix-Current)               <Plug>(coc-fix-current)
 nmap    <localleader>f        <plug>(COC/Fix-Current)
+nmap    <localleader>cf       <plug>(COC/Fix-Current)
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -549,16 +586,19 @@ nmap    <leader>gd                <plug>(Git/Diff)
 
 call my#keymap#leader('aa', '+ALE')
 
-nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
+map                   <plug>(App/ALE/Fix)         <plug>(ale_fix)
 nmap <leader>aaF      <plug>(App/ALE/Fix)
 
-nmap                  <plug>(App/ALE/First)       <plug>(ale_first)
+map                   <plug>(App/ALE/First)       <plug>(ale_first)
 nmap <leader>aaf      <plug>(App/ALE/First)
 
-nmap                  <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
+map                   <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
 nmap <leader>aan      <plug>(App/ALE/Next)
 
-nmap                  <plug>(App/ALE/Detail)      <plug>(ale_detail)
+map                   <plug>(App/ALE/Prev)        <plug>(ale_previous_wrap)
+nmap <leader>aap      <plug>(App/ALE/Prev)
+
+map                   <plug>(App/ALE/Detail)      <plug>(ale_detail)
 nmap <leader>aad      <plug>(App/ALE/Detail)
 
 " src/plugins/40-ide/plugins/40-statusline/files/vimrc.bindings -------------------

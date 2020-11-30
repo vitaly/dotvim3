@@ -1,13 +1,16 @@
 call my#keymap#leader('aa', '+ALE')
 
-nmap                  <plug>(App/ALE/Fix)         <plug>(ale_fix)
+map                   <plug>(App/ALE/Fix)         <plug>(ale_fix)
 nmap <leader>aaF      <plug>(App/ALE/Fix)
 
-nmap                  <plug>(App/ALE/First)       <plug>(ale_first)
+map                   <plug>(App/ALE/First)       <plug>(ale_first)
 nmap <leader>aaf      <plug>(App/ALE/First)
 
-nmap                  <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
+map                   <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
 nmap <leader>aan      <plug>(App/ALE/Next)
 
-nmap                  <plug>(App/ALE/Detail)      <plug>(ale_detail)
+map                   <plug>(App/ALE/Prev)        <plug>(ale_previous_wrap)
+nmap <leader>aap      <plug>(App/ALE/Prev)
+
+map                   <plug>(App/ALE/Detail)      <plug>(ale_detail)
 nmap <leader>aad      <plug>(App/ALE/Detail)
