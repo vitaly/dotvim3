@@ -92,13 +92,13 @@
   "diagnostic.level": "hint",
   "diagnostic.virtualText": false,
   "diagnostic.messageTarget": "float",
-  "diagnostic.displayByAle": false,
+  "diagnostic.displayByAle": true,
 
 
   "diagnostic.errorSign":   "✗", //  
-  "diagnostic.warningSign": "!", //  
-  "diagnostic.infoSign":    "i", //  
-  "diagnostic.hintSign":    "", //  ﯦﯧ
+  "diagnostic.warningSign": "", //  
+  "diagnostic.infoSign":    "", //  
+  "diagnostic.hintSign":    "", //  ﯦﯧ
 
 
   "tsserver.enableJavascript": true,

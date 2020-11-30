@@ -52,39 +52,52 @@ let g:lightline.component_type.coc_warnings = 'right'
 fun! status#lightline#coc_diagnostic(kind, symbol) abort
   let info = get(b:, 'coc_diagnostic_info', {})
   if get(info, a:kind, 0)
-    return info[a:kind] . a:symbol
+    return a:symbol . info[a:kind]
   else
     return ""
   endif
 endf
 
 " ✗ ﲅ    
+let s:error_sign = get(g:, 'dotvim#statusline#sign:error', '✗')
+let s:style_error_sign = get(g:, 'dotvim#statusline#sign:style_error', '')
+
+"  ⚠️
+let s:warning_sign = get(g:, 'dotvim#statusline#sign:warning', '')
+let s:style_warning_sign = get(g:, 'dotvim#statusline#sign:style_warning', '⚠️')
+
+"   ﯦ  ﯧ
+let s:hint_sign = get(g:, 'dotvim#statusline#sign:hint', '')
+
+"    כֿ 
+let s:info_sign = get(g:, 'dotvim#statusline#sign:info', '')
+
+let s:ok_sign = get(g:, 'dotvim#statusline#sign:ok', '✓')
+
+
 fun! status#lightline#coc_errors() abort
-  return status#lightline#coc_diagnostic('error', '✗ ')
+  return status#lightline#coc_diagnostic('error', s:error_sign)
 endf
 let g:lightline.component_expand.coc_errors  = 'status#lightline#coc_errors'
 let g:lightline.component_type.coc_errors = 'error'
 
 
-"  ⚠️
 fun! status#lightline#coc_warnings() abort
-  return status#lightline#coc_diagnostic('warning', ' ')
+  return status#lightline#coc_diagnostic('warning', s:warning_sign)
 endf
 let g:lightline.component_expand.coc_warnings  = 'status#lightline#coc_warnings'
 let g:lightline.component_type.coc_warnings = 'warning'
 
 
-"   ﯦ  ﯧ
 fun! status#lightline#coc_hints() abort
-  return status#lightline#coc_diagnostic('hint', ' ')
+  return status#lightline#coc_diagnostic('hint', s:hint_sign)
 endf
 let g:lightline.component_expand.coc_hints  = 'status#lightline#coc_hints'
 let g:lightline.component_type.coc_hints = 'right'
 
 
-"    כֿ 
 fun! status#lightline#coc_infos() abort
-  return status#lightline#coc_diagnostic('error', ' ')
+  return status#lightline#coc_diagnostic('information', s:info_sign)
 endf
 let g:lightline.component_expand.coc_infos  = 'status#lightline#coc_infos'
 let g:lightline.component_type.coc_infos = 'right'
@@ -101,15 +114,16 @@ let g:lightline.component_expand.gutentags = 'status#lightline#gutentags'
 let g:lightline.component_type.gutentags   = 'error'
 
 " ALE
-let g:ale_sign_error = "A✗"
-let g:ale_sign_warning = "A!"
-let g:ale_sign_info = "Ai"
-let g:ale_sign_style_error = "A"
-let g:ale_sign_style_warning = "A"
+let g:ale_sign_error = s:error_sign
+let g:ale_sign_warning = s:warning_sign
+let g:ale_sign_info = s:info_sign
+let g:ale_sign_style_error = s:style_error_sign
+let g:ale_sign_style_warning = s:style_warning_sign
 let g:lightline#ale#indicator_checking = '...'
-let g:lightline#ale#indicator_errors = 'A'
-let g:lightline#ale#indicator_warnings = 'A'
-let g:lightline#ale#indicator_ok = 'A✓'
+let g:lightline#ale#indicator_errors = s:error_sign
+let g:lightline#ale#indicator_warnings = s:warning_sign
+let g:lightline#ale#indicator_infos = s:info_sign
+let g:lightline#ale#indicator_ok = s:ok_sign
 
 let g:lightline.component_expand.ale_checking = 'lightline#ale#checking'
 let g:lightline.component_type.ale_checking   = 'left'

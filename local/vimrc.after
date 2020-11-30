@@ -346,3 +346,9 @@ nmap    <leader>Tv                     <plug>(Toggle/Verbose-Log)
 "  h    :  disable hlsearch on load
 "  %    :  saves and restores the buffer list
 " set shada=!,'100,<500,s100,h
+let g:ale_popup_menu_enabled = 1
+" let g:ale_cursor_detail = 1
+let g:ale_echo_cursor = 1
+" echo g:ale_cursor_detail
+" echo g:ale_echo_cursor
+" echo g:ale_set_balloons
