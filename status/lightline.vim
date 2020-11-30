@@ -134,7 +134,7 @@ if get(g:, 'dotvim#completion_engine', '') == 'coc'
   let g:lightline.active.right += [[ 'coc_status', 'coc_errors', 'coc_warnings', 'coc_hints', 'coc_infos' ]]
 endif
 
-let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_ok' ]]
+let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_infos', 'ale_ok' ]]
 
 
 let g:lightline.inactive.left  = [ [ 'filename' ] ]
