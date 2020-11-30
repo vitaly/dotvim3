@@ -47,8 +47,8 @@ inoremap <C-K> <Up>
 inoremap <C-H> <Left>
 inoremap <C-L> <Right>
 
-cnoremap <C-K> <Up>
-cnoremap <C-J> <Down>
+cnoremap <C-K> <C-P>
+cnoremap <C-J> <C-N>
 
 call my#keymap#leader('fec', '+COC')
 
