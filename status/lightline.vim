@@ -44,8 +44,8 @@ let g:lightline.component_function.full_coc_status = 'status#lightline#full_coc_
 " COC STATUS
 fun! status#lightline#coc_status()
   return get(g:, 'coc_status', '')
-let g:lightline.component_function.coc_status = 'status#lightline#coc_status'
 endf
+let g:lightline.component_function.coc_status = 'status#lightline#coc_status'
 
 " COC DIAGNOSTIC
 fun! status#lightline#coc_diagnostic(kind, symbol) abort
@@ -150,7 +150,5 @@ let g:lightline.colorscheme = 'Tomorrow'
 
 augroup AuStatusLightline
   au!
-  au User CocDiagnosticChange call lightline#update()
-  au User GutentagsUpdating   call lightline#update()
-  au User GutentagsUpdated    call lightline#update()
+  au User CocStatusChange, CocDiagnosticChange, GutentagsUpdating, GutentagsUpdated call lightline#update()
 augroup END
