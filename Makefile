@@ -32,19 +32,19 @@ edit: .config
 export PYTHONWARNINGS="ignore:DEPRECATION"
 
 deps/nodejs:
-	@bash deps/nodejs
+	@test -e deps/nodejs && bash deps/nodejs
 .PHONY: deps/nodejs
 
 deps/ruby:
-	@bash deps/ruby
+	@test -e deps/ruby && bash deps/ruby
 .PHONY: deps/ruby
 
 deps/python2:
-	@bash deps/python2
+	@test -e deps/python2 && bash deps/python2
 .PHONY: deps/python2
 
 deps/python3:
-	@bash deps/python3
+	@test -e deps/python3 && bash deps/python3
 .PHONY: deps/python3
 
 deps: deps/nodejs deps/ruby deps/python2 deps/python3
@@ -55,10 +55,14 @@ plugins:
 .PHONY: plugins
 
 extensions:
-	bash deps/coc
+	test -e deps/coc && bash deps/coc
 .PHONY: extensions
 
-install: deps plugins extensions
+misc:
+	test -e deps/misc.sh && bash deps/misc.sh
+.PHONY: misc
+
+install: deps plugins extensions misc
 .PHONY: install
 
 update:
