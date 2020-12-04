@@ -125,27 +125,36 @@ nmap     <leader>fx             <plug>(File/Make-Executable)
 call my#keymap#leader('ft', '+Toggle')
 call my#keymap#leader('fe', '+Edit')
 
-noremap                         <plug>(File/Edit/.vim)                        :e ~/.vim/<cr>
-nmap     <leader>fev            <plug>(File/Edit/.vim)
-
 noremap                         <plug>(File/Edit/scratch.vim)                 :e ~/.vim/scratch.vim<cr>
 nmap     <leader>fes            <plug>(File/Edit/scratch.vim)
 
+call my#keymap#leader('fev', '+Vim')
+
+noremap                         <plug>(File/Edit/Vim/Directory)               :e ~/.vim/<cr>
+nmap     <leader>fevd           <plug>(File/Edit/Vim/Directory)
+
+noremap                         <plug>(File/Edit/Vim/After)                   :e ~/.vim/vimrc.after<cr>
+nmap     <leader>feva           <plug>(File/Edit/Vim/After)
+
+noremap                         <plug>(File/Edit/Vim/Plugins)                 :e ~/.vim/vimrc.plugins<cr>
+nmap     <leader>fevp           <plug>(File/Edit/Vim/Plugins)
+
+noremap                         <plug>(File/Edit/Vim/Bindings)                :e ~/.vim/vimrc.bindings<cr>
+nmap     <leader>fevb           <plug>(File/Edit/Vim/Bindings)
+
 call my#keymap#leader('fel', '+Local')
 
-noremap                         <plug>(File/Edit/Local/directory)             :e ~/.vim/local<cr>
-nmap     <leader>fell           <plug>(File/Edit/Local/directory)
+noremap                         <plug>(File/Edit/Local/Directory)             :e ~/.vim/local<cr>
+nmap     <leader>fell           <plug>(File/Edit/Local/Directory)
 
-noremap                         <plug>(File/Edit/Local/vimrc.after)           :e ~/.vim/local/vimrc.after<cr>
-nmap     <leader>fela           <plug>(File/Edit/Local/vimrc.after)
-" used to this  alias ;)
-nmap     <leader>fed            <plug>(File/Edit/Local/vimrc.after)
+noremap                         <plug>(File/Edit/Local/After)                 :e ~/.vim/local/vimrc.after<cr>
+nmap     <leader>fela           <plug>(File/Edit/Local/After)
 
-noremap                         <plug>(File/Edit/Local/vimrc.plugins)         :e ~/.vim/local/vimrc.plugins<cr>
-nmap     <leader>felp           <plug>(File/Edit/Local/vimrc.plugins)
+noremap                         <plug>(File/Edit/Local/Plugins)               :e ~/.vim/local/vimrc.plugins<cr>
+nmap     <leader>felp           <plug>(File/Edit/Local/Plugins)
 
-noremap                         <plug>(File/Edit/Local/vimrc.bindings)        :e ~/.vim/local/vimrc.bindings<cr>
-nmap     <leader>felb           <plug>(File/Edit/Local/vimrc.bindings)
+noremap                         <plug>(File/Edit/Local/Bindings)              :e ~/.vim/local/vimrc.bindings<cr>
+nmap     <leader>felb           <plug>(File/Edit/Local/Bindings)
 
 call my#keymap#leader('q', '+Quit')
 
@@ -243,11 +252,14 @@ call my#keymap#leader('Y', '+Yank')
 noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
 nmap     <leader>Yp         <plug>(Yank/File-Path)
 
-noremap                      <plug>(Yank/File-Name)           :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+noremap                     <plug>(Yank/File-Name)            :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 nmap     <leader>Yf         <plug>(Yank/File-Name)
 
 noremap                     <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
 nmap     <leader>Yd         <plug>(Yank/File-Directory)
+
+noremap                     <plug>(Yank/Current-Directory)    :let @*=$PWD<cr>
+nmap     <leader>Y.         <plug>(Yank/Current-Directory)
 
 " go to last position in a file when opening it
 augroup rememberPosition

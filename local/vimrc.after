@@ -346,3 +346,8 @@ let g:ale_echo_cursor = 1
 " echo g:ale_cursor_detail
 " echo g:ale_echo_cursor
 " echo g:ale_set_balloons
+nmap     <leader>fed            <plug>(File/Edit/Local/After)
+
+call my#keymap#leader('fez', '+Zsh')
+noremap                         <plug>(File/Edit/Zsh/Host)              :e ~/.zsh/modules/local//host/<c-r>=get(environ(), 'PLEASE_HOST', trim(system('hostname -s')))<cr>.zsh<cr>
+nmap     <leader>fezh           <plug>(File/Edit/Zsh/Host)

@@ -39,11 +39,14 @@ call my#keymap#leader('Y', '+Yank')
 noremap                     <plug>(Yank/File-Path)            :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
 nmap     <leader>Yp         <plug>(Yank/File-Path)
 
-noremap                      <plug>(Yank/File-Name)           :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+noremap                     <plug>(Yank/File-Name)            :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 nmap     <leader>Yf         <plug>(Yank/File-Name)
 
 noremap                     <plug>(Yank/File-Directory)       :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
 nmap     <leader>Yd         <plug>(Yank/File-Directory)
+
+noremap                     <plug>(Yank/Current-Directory)    :let @*=$PWD<cr>
+nmap     <leader>Y.         <plug>(Yank/Current-Directory)
 
 " go to last position in a file when opening it
 augroup rememberPosition
