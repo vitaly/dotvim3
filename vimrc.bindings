@@ -56,7 +56,22 @@ nmap    <leader>n    <plug>(Next)
 noremap <plug>(Prev) :cn<CR>
 nmap    <leader>p    <plug>(Prev)
 
-noremap <plug>diff-mode(toggle) :set diff! cursorbind! scrollbind!<cr>
+fu! Toggle_diffMode()
+  if &diff == 1
+    " unset diff
+    set nodiff nocursorbind noscrollbind
+    if 1 == b:undiff_wrap
+      set wrap
+    endif
+  else
+    " set diff
+    let b:undiff_wrap = &wrap
+    set diff cursorbind scrollbind nowrap
+  endif
+
+endfu
+
+noremap <plug>diff-mode(toggle) :call Toggle_diffMode()<cr>
 nmap    <leader>TD              <plug>diff-mode(toggle)
 
 " src/plugins/20-settings/plugins/clipboard/files/vimrc.bindings -------------------
