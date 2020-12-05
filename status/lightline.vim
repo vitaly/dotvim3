@@ -169,11 +169,12 @@ endf
 
 " TBD: FIXME: TODO: cleanup!
 "
+let g:lightline.colorscheme =  get(g:lightline, 'colorscheme', 'Tomorrow')
 " let g:lightline.colorscheme = 'wombat'
 " let g:lightline.colorscheme = 'solarized'
 " let g:lightline.colorscheme = 'powerline'
 " let g:lightline.colorscheme = 'jellybeans'
-let g:lightline.colorscheme = 'Tomorrow'
+" let g:lightline.colorscheme = 'Tomorrow'
 " let g:lightline.colorscheme = 'Tomorrow_Night'
 " let g:lightline.colorscheme = 'Tomorrow_Night_Blue'
 " let g:lightline.colorscheme = 'Tomorrow_Night_Eighties'
