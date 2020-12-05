@@ -45,6 +45,12 @@ endf
 let g:lightline.component_function.coc_status = 'status#lightline#coc_status'
 let g:lightline.component_type.coc_warnings = 'right'
 
+
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? expand('%') : '[No Name]'
+endfunction
+let g:lightline.component_function.filename = 'LightlineFilename'
+
 " COC DIAGNOSTIC
 fun! status#lightline#coc_diagnostic(kind, symbol) abort
   let info = get(b:, 'coc_diagnostic_info', {})
