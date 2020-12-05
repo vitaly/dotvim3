@@ -59,7 +59,7 @@ fu! my#keymap#format(name)
   let l:name = substitute(l:name, '^\c<Plug>', '', '')
 
   " remove "folders", e.g. (Foo/Bar-Baz/Boom) -> Boom
-  " let l:name = substitute(l:name, '^(\(\w[0-9A-Za-z_-]*/\)*\(.*\))$', '\2', '')
+  let l:name = substitute(l:name, '^(\(\w[0-9A-Za-z_-]*/\)*\(.*\))$', '\2', '')
 
   " remove parens (foo) -> foo
   let l:name = substitute(l:name, '^(\(.*\))$', '\1', '')
