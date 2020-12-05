@@ -64,7 +64,7 @@ nmap     <leader>fevb           <plug>(File/Edit/Vim/Bindings)
 call my#keymap#leader('fel', '+Local')
 
 noremap                         <plug>(File/Edit/Local/Directory)             :e ~/.vim/local<cr>
-nmap     <leader>fell           <plug>(File/Edit/Local/Directory)
+nmap     <leader>feld           <plug>(File/Edit/Local/Directory)
 
 noremap                         <plug>(File/Edit/Local/After)                 :e ~/.vim/local/vimrc.after<cr>
 nmap     <leader>fela           <plug>(File/Edit/Local/After)
