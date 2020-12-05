@@ -351,3 +351,5 @@ nmap     <leader>fed            <plug>(File/Edit/Local/After)
 call my#keymap#leader('fez', '+Zsh')
 noremap                         <plug>(File/Edit/Zsh/Host)              :e ~/.zsh/modules/local//host/<c-r>=get(environ(), 'PLEASE_HOST', trim(system('hostname -s')))<cr>.zsh<cr>
 nmap     <leader>fezh           <plug>(File/Edit/Zsh/Host)
+
+nmap     <leader>ww            <plug>(File/Save)
