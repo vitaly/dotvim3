@@ -31,7 +31,7 @@ let g:lightline.component_function.coc_git = 'status#lightline#coc_git'
 " FUGITIVE
 fun! status#lightline#fugitive()
   let branch = fugitive#head()
-  return branch !=# '' ? '⭠ ' . branch : ''
+  return branch !=# '' ? '' . branch : ''
 endf
 let g:lightline.component_function.fugitive = 'status#lightline#fugitive'
 
