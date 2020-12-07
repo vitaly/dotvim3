@@ -10,6 +10,38 @@ scriptencoding utf8
 
 
 
+" let g:lightline.colorscheme = 'molokai'
+" let g:lightline.colorscheme = 'hypsteria_alter'
+
+" call lightline#init()
+" call lightline#colorscheme()
+" call lightline#update()
+"
+" call LightlineColorscheme('wombat')
+" call LightlineColorscheme('solarized')
+" call LightlineColorscheme('powerline')
+" call LightlineColorscheme('jellybeans')
+" call LightlineColorscheme('Tomorrow')
+" call LightlineColorscheme('Tomorrow_Night')
+" call LightlineColorscheme('Tomorrow_Night_Blue')
+" call LightlineColorscheme('Tomorrow_Night_Eighties')
+" call LightlineColorscheme('PaperColor')
+" call LightlineColorscheme('seoul256')
+" call LightlineColorscheme('landscape')
+" call LightlineColorscheme('one')
+" call LightlineColorscheme('darcula')
+" call LightlineColorscheme('molokai')
+" call LightlineColorscheme('materia')
+" call LightlineColorscheme('material')
+" call LightlineColorscheme('OldHope')
+" call LightlineColorscheme('nord')
+" call LightlineColorscheme('16color')
+" call LightlineColorscheme('deus')
+
+" call LightlineColorscheme('molokai')
+" call LightlineColorscheme('hypsteria_alter')
+" call LightlineColorscheme('neodark_alter')
+
 
 
 
@@ -34,7 +66,7 @@ set cursorcolumn
 
 set foldcolumn=2
 
-set relativenumber!
+" set relativenumber!
 
 " inoremap kj <esc>l
 
@@ -168,6 +200,7 @@ let g:over#command_line#search#enable_move_cursor = 1
 
 
 nmap <leader>bm :messages<cr>
+nmap <leader>bM :messages clear<cr>
 
 
 
@@ -379,4 +412,9 @@ call my#keymap#leader('fez', '+Zsh')
 noremap                         <plug>(File/Edit/Zsh/Host)              :e ~/.zsh/modules/local//host/<c-r>=get(environ(), 'PLEASE_HOST', trim(system('hostname -s')))<cr>.zsh<cr>
 nmap     <leader>fezh           <plug>(File/Edit/Zsh/Host)
 
-nmap     <leader>ww            <plug>(File/Save)
+
+nmap     <leader><localleader>    <Plug>(File/Toggle/File-Tree)
+nmap     <localleader><leader>    <plug>(File/Save)
+nmap     <leader>ww               <plug>(File/Save)
+
+

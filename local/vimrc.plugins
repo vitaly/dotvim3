@@ -224,33 +224,7 @@ nmap    <localleader>ef <plug>(Repl/Eval/File)
 
 
 
+Plug 'sainnhe/lightline_foobar.vim'
+" let g:lightline.colorscheme = 'hypsteria_alter'
 
-
-echom "in local/plugins: " . g:lightline.colorscheme
-let g:lightline.colorscheme = 'molokai'
-
-  " call lightline#init()
-  " call lightline#colorscheme()
-  " call lightline#update()
-" call LightlineColorscheme('wombat')
-" call LightlineColorscheme('solarized')
-" call LightlineColorscheme('powerline')
-" call LightlineColorscheme('jellybeans')
-" call LightlineColorscheme('Tomorrow')
-" call LightlineColorscheme('Tomorrow_Night')
-" call LightlineColorscheme('Tomorrow_Night_Blue')
-" call LightlineColorscheme('Tomorrow_Night_Eighties')
-" call LightlineColorscheme('PaperColor')
-" call LightlineColorscheme('seoul256')
-" call LightlineColorscheme('landscape')
-" call LightlineColorscheme('one')
-" call LightlineColorscheme('darcula')
-" call LightlineColorscheme('molokai')
-" call LightlineColorscheme('materia')
-" call LightlineColorscheme('material')
-" call LightlineColorscheme('OldHope')
-" call LightlineColorscheme('nord')
-" call LightlineColorscheme('16color')
-" call LightlineColorscheme('deus')
-
-
+Plug 'sakhnik/nvim-gdb'
