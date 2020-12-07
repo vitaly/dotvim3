@@ -90,27 +90,38 @@ nmap <silent> gr             <Plug>(coc-references)
 call my#keymap#localleader('c',  '+COC')
 call my#keymap#localleader('cd', '+Diagnostic')
 
-" NOTE: we can't call the getConfig here, as COC has'nt started yet
-function! s:diagnostic_map(ale_map, coc_map) abort
+" NOTE: we can't call the getConfig now, as COC has'nt started yet
+" so we will remap on first use
+function! s:remap_diagnostic(op)
+  let l:map = {
+        \ 'first': "(First-Diagnostic)",
+        \ 'next':  "(Next-Diagnostic)",
+        \ 'prev':  "(Prev-Diagnostic)",
+        \ 'info':  "(Diagnostic-Info)"
+        \ }[a:op]
   if coc#rpc#request('getConfig', ['diagnostic'])['displayByAle']
-    nmap <silent> <localleader>f <Plug>(App/ALE/First)
-    nmap <silent> <localleader>n <Plug>(App/ALE/Next)
-    nmap <silent> <localleader>p <plug>(App/ALE/Prev)
-    nmap <silent> <localleader>? <Plug>(App/ALE/Detail)
-    exe "normal " . a:ale_map
+    nmap <silent> <plug>(First-Diagnostic) <Plug>(App/ALE/First)
+    nmap <silent> <plug>(Next-Diagnostic)  <Plug>(App/ALE/Next)
+    nmap <silent> <plug>(Prev-Diagnostic)  <plug>(App/ALE/Prev)
+    nmap <silent> <plug>(Diagnostic-Info)  <Plug>(App/ALE/Detail)
   else
-    nmap <silent> <localleader>f <Plug>(App/COC/First)
-    nmap <silent> <localleader>n <Plug>(App/COC/Next)
-    nmap <silent> <localleader>p <Plug>(App/COC/Prev)
-    nmap <silent> <localleader>? <Plug>(App/COC/Info)
-    exe "normal " . a:coc_map
+    nmap <silent> <plug>(First-Diagnostic) <Plug>(App/COC/First)
+    nmap <silent> <plug>(Next-Diagnostic)  <Plug>(App/COC/Next)
+    nmap <silent> <plug>(Prev-Diagnostic)  <Plug>(App/COC/Prev)
+    nmap <silent> <plug>(Diagnostic-Info)  <Plug>(App/COC/Info)
   endif
+  exe "normal \<plug>" . l:map
 endfunction
 
-nmap <silent> <localleader>f :call <SID>diagnostic_map("\<Plug>(App/ALE/First)",  "\<Plug>(App/COC/First)")<CR>
-nmap <silent> <localleader>n :call <SID>diagnostic_map("\<Plug>(App/ALE/Next)",   "\<Plug>(App/COC/Next)")<CR>
-nmap <silent> <localleader>p :call <SID>diagnostic_map("\<Plug>(App/ALE/Prev)",   "\<Plug>(App/COC/Prev)")<CR>
-nmap <silent> <localleader>? :call <SID>diagnostic_map("\<Plug>(App/ALE/Detail)", "\<Plug>(App/COC/Info)")<CR>
+nnoremap <plug>(First-Diagnostic) :call <SID>remap_diagnostic('first')<CR>
+nnoremap <plug>(Next-Diagnostic)  :call <SID>remap_diagnostic('next')<CR>
+nnoremap <plug>(Prev-Diagnostic)  :call <SID>remap_diagnostic('prev')<CR>
+nnoremap <plug>(Diagnostic-Info)  :call <SID>remap_diagnostic('info')<CR>
+
+nmap <silent> <localleader>1 <plug>(First-Diagnostic)
+nmap <silent> <localleader>n <plug>(Next-Diagnostic)
+nmap <silent> <localleader>p <plug>(Prev-Diagnostic)
+nmap <silent> <localleader>? <plug>(Diagnostic-Info)
 
 nmap    <localleader>a        <Plug>(coc-codeaction)
 xmap    <localleader>a        <Plug>(coc-codeaction-selected)
