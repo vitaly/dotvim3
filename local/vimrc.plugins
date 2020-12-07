@@ -225,6 +225,7 @@ nmap    <localleader>ef <plug>(Repl/Eval/File)
 
 
 Plug 'sainnhe/lightline_foobar.vim'
-" let g:lightline.colorscheme = 'hypsteria_alter'
+let g:lightline.colorscheme = 'hypsteria_alter'
+" let g:lightline.colorscheme = 'molokai'
 
 Plug 'sakhnik/nvim-gdb'

@@ -2,7 +2,6 @@ scriptencoding utf8
 
 let g:lightline = {}
 let g:lightline.active = {}
-let g:lightline.inactive = {}
 let g:lightline.component = {}
 let g:lightline.component_function = {}
 let g:lightline.component_expand = {}
@@ -148,9 +147,7 @@ endif
 
 let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_infos', 'ale_ok' ]]
 
-
-let g:lightline.inactive.left  = [ [ 'absolutepath' ] ]
-let g:lightline.inactive.right = [ ]
+let g:lightline.inactive = { 'left': [[], [],  [ 'relativepath' ]], 'right': [] }
 
 fun! LightlineColorscheme(name)
   let g:lightline.colorscheme = a:name
@@ -158,6 +155,18 @@ fun! LightlineColorscheme(name)
   call lightline#colorscheme()
   call lightline#update()
 endf
+
+" minimal
+let g:lightline.separator    = { 'left': "", 'right': "" }
+let g:lightline.subseparator = { 'left': "|", 'right': "|" }
+
+" spiked
+" let g:lightline.separator    = { 'left': "\ue0b0", 'right': "\ue0b2" }
+" let g:lightline.subseparator = { 'left': "\ue0b1", 'right': "\ue0b3" }
+
+" slanted
+" let g:lightline.separator    = { 'left': "\ue0bc", 'right': "\ue0ba" }
+" let g:lightline.subseparator = { 'left': "\u2571", 'right': "\u2571" }
 
 " TBD: FIXME: TODO: cleanup!
 "
