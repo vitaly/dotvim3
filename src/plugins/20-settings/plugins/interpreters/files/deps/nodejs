@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [[ -z ${SKIP_RUBY_DEPS:-} ]]; then
-  yarn global add $(cat deps/node.txt)
-fi

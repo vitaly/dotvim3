@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [[ -z ${SKIP_PYTHON_DEPS:-} && -z ${SKIP_PYTHON2_DEPS:-} ]]; then
-  export PYTHONWARNINGS="ignore:DEPRECATION"
-  pip2 install --upgrade -r deps/pip2.txt
-fi

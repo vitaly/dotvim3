@@ -1,7 +1,7 @@
 FROM alpine
 
 RUN apk add --no-cache g++ openssl-dev git make
-RUN apk add --no-cache python2 python3 py2-pip python2-dev python3-dev
+RUN apk add --no-cache python3 python3-dev
 RUN pip2 install neovim
 RUN pip3 install neovim
 RUN pip3 install six git+git://github.com/robgolding63/tasklib@develop
@@ -25,7 +25,7 @@ RUN apk add --no-cache \
       fzf \
       bash \
       ruby \
-      python2 python3 py2-pip \
+      python3 \
       coreutils grep \
       neovim
 

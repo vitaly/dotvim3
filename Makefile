@@ -31,23 +31,10 @@ edit: .config
 
 export PYTHONWARNINGS="ignore:DEPRECATION"
 
-deps/nodejs:
-	@test -e deps/nodejs && bash deps/nodejs
-.PHONY: deps/nodejs
-
-deps/ruby:
-	@test -e deps/ruby && bash deps/ruby
-.PHONY: deps/ruby
-
-deps/python2:
-	@test -e deps/python2 && bash deps/python2
-.PHONY: deps/python2
-
-deps/python3:
-	@test -e deps/python3 && bash deps/python3
-.PHONY: deps/python3
-
-deps: deps/nodejs deps/ruby deps/python2 deps/python3
+deps:
+ifeq (${DOTVIM_SKIP_DEPS},)
+	@test -e ./scripts/install-dependencies.sh && bash ./scripts/install-dependencies.sh
+endif
 .PHONY: deps
 
 plugins:
@@ -55,14 +42,10 @@ plugins:
 .PHONY: plugins
 
 extensions:
-	test -e deps/coc && bash deps/coc
+	@test -e ./scripts/install-extensions.sh && bash ./scripts/install-extensions.sh
 .PHONY: extensions
 
-misc:
-	test -e deps/misc.sh && bash deps/misc.sh
-.PHONY: misc
-
-install: deps plugins extensions misc
+install: deps plugins extensions
 .PHONY: install
 
 update:
@@ -82,7 +65,6 @@ clean-all: clean clean-bundle
 .PHONY: clean-all
 
 upgrade:
-	bash ./deps/upgrade.sh
 	vim +'PlugUpgrade' +'PlugUpdate'
 .PHONY: upgrade
 
