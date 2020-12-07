@@ -65,7 +65,6 @@ fu! Toggle_diffMode()
     let b:undiff_wrap = &wrap
     set diff cursorbind scrollbind nowrap
   endif
-
 endfu
 
 noremap <plug>diff-mode(toggle) :call Toggle_diffMode()<cr>

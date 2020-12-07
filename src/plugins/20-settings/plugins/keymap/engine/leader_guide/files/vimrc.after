@@ -12,8 +12,8 @@ call leaderGuide#register_prefix_descriptions("", "g:topdict")
 
 nnoremap <silent> <leader>      :<c-u>LeaderGuide       ' '<CR>
 nnoremap <silent> <localleader> :<c-u>LeaderGuide       ','<CR>
-vnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
-vnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
+xnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
+xnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
 
 map  <leader>.      <Plug>leaderguide-global
 map  <localleader>. <Plug>leaderguide-buffer

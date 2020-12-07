@@ -68,7 +68,6 @@ fu! Toggle_diffMode()
     let b:undiff_wrap = &wrap
     set diff cursorbind scrollbind nowrap
   endif
-
 endfu
 
 noremap <plug>diff-mode(toggle) :call Toggle_diffMode()<cr>
@@ -229,8 +228,8 @@ nmap     <leader>wo             <plug>(Window/Only)
 " awesome stuff from vimbits.com
 
 " keep selection after in/outdent
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " better navigation of wrapped lines
 nnoremap j gj
@@ -360,7 +359,7 @@ call my#keymap#leader('c', '+Comment')
 
 map                        <plug>(Toggle-Comment) <Plug>NERDCommenterToggle
 nmap <leader>;             <plug>(Toggle-Comment)
-vmap <leader>;             <plug>(Toggle-Comment)
+xmap <leader>;             <plug>(Toggle-Comment)
 
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.bindings -------------------
 
@@ -433,7 +432,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" vmap <tab> <Plug>(coc-snippets-select)
+" xmap <tab> <Plug>(coc-snippets-select)
 " inoremap <silent><expr> <TAB>
 "       \ pumvisible() ? coc#_select_confirm() :
 "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -612,7 +611,7 @@ noremap                           <plug>(Git/Grep-Word-Under-Cursor)      :let @
 nmap    <leader>gw                <plug>(Git/Grep-Word-Under-Cursor)
 
 noremap                           <plug>(Git/Grep-Selection)              y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
-vmap    <leader>g                 <plug>(Git/Grep-Selection)
+xmap    <leader>g                 <plug>(Git/Grep-Selection)
 
 noremap                           <plug>(Git/Status)                      :Gstatus<CR>
 nmap    <leader>gs                <plug>(Git/Status)
@@ -747,12 +746,12 @@ let g:neoformat_typescriptreact_prettier = {
 nnoremap <localleader>Rap  :RAddParameter<cr>
 nnoremap <localleader>Rcpc :RConvertPostConditional<cr>
 nnoremap <localleader>Rel  :RExtractLet<cr>
-vnoremap <localleader>Rec  :RExtractConstant<cr>
-vnoremap <localleader>Relv :RExtractLocalVariable<cr>
+xnoremap <localleader>Rec  :RExtractConstant<cr>
+xnoremap <localleader>Relv :RExtractLocalVariable<cr>
 nnoremap <localleader>Rit  :RInlineTemp<cr>
-vnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
-vnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
-vnoremap <localleader>Rem  :RExtractMethod<cr>
+xnoremap <localleader>Rrlv :RRenameLocalVariable<cr>
+xnoremap <localleader>Rriv :RRenameInstanceVariable<cr>
+xnoremap <localleader>Rem  :RExtractMethod<cr>
 
 call my#keymap#localleader('R',   '+Ruby Refactoring')
 call my#keymap#localleader('Ra',  '+Add')

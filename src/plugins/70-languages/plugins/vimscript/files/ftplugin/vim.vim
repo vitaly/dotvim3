@@ -7,4 +7,4 @@ noremap <buffer>                 <plug>(Eval/File)    :so %<cr>
 nmap    <buffer> <localleader>ef <plug>(Eval/File)
 
 noremap <buffer>                 <plug>(Eval/Selection) y:@"<cr>
-vmap    <buffer> <localleader>es <plug>(Eval/Selection)
+xmap    <buffer> <localleader>e  <plug>(Eval/Selection)

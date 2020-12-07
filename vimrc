@@ -154,19 +154,19 @@ endfunction
 " Moving back and forth between lines of same or lower indentation.
 nnoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>^
 onoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>^
-vnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>^m'gv''
+xnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>^m'gv''
 
 nnoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
 onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>^
-vnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>^^m'gv''m'gv''
+xnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>^^m'gv''m'gv''
 
 nnoremap <silent> [L :call NextIndent(0, 0, 1, 1)<CR>^
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>^
-vnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>^m'gv''
+xnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>^m'gv''
 
 nnoremap <silent> ]L :call NextIndent(0, 1, 1, 1)<CR>^
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>^
-vnoremap <silent> ]L <Esc>:call NextIndent(0, 1, 1, 1)<CR>^m'gv''
+xnoremap <silent> ]L <Esc>:call NextIndent(0, 1, 1, 1)<CR>^m'gv''
 
 
 " src/plugins/20-settings/plugins/interpreters/files/vimrc -------------------

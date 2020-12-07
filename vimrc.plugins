@@ -260,7 +260,7 @@ let g:delimitMate_expand_cr = 1
 Plug 'junegunn/vim-easy-align'
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(LiveEasyAlign)
+xmap <Enter> <Plug>(LiveEasyAlign)
 
 " src/plugins/60-development/plugins/editorconfig/files/vimrc.plugins -------------------
 

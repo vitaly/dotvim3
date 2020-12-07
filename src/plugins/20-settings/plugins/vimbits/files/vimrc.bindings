@@ -1,8 +1,8 @@
 " awesome stuff from vimbits.com
 
 " keep selection after in/outdent
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " better navigation of wrapped lines
 nnoremap j gj
