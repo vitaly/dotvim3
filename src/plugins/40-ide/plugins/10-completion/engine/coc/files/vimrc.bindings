@@ -123,9 +123,9 @@ nmap <silent> <localleader>n <plug>(Next-Diagnostic)
 nmap <silent> <localleader>p <plug>(Prev-Diagnostic)
 nmap <silent> <localleader>? <plug>(Diagnostic-Info)
 
-nmap    <localleader>a        <Plug>(coc-codeaction)
-xmap    <localleader>a        <Plug>(coc-codeaction-selected)
-vmap    <localleader>a        <Plug>(coc-codeaction-selected)
+nmap    <localleader>ca       <Plug>(coc-codeaction)
+nmap    <localleader>cL       <Plug>(coc-codeaction-line)
+xmap    <localleader>ca       <Plug>(coc-codeaction-selected)
 
 noremap                       <Plug>(COC/Command)   :CocCommand<cr>
 nmap    <localleader>cc       <Plug>(COC/Command)
