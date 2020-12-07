@@ -46,11 +46,6 @@ let g:lightline.component_function.coc_status = 'status#lightline#coc_status'
 let g:lightline.component_type.coc_warnings = 'right'
 
 
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? expand('%') : '[No Name]'
-endfunction
-let g:lightline.component_function.filename = 'LightlineFilename'
-
 " COC DIAGNOSTIC
 fun! status#lightline#coc_diagnostic(kind, symbol) abort
   let info = get(b:, 'coc_diagnostic_info', {})
@@ -144,7 +139,7 @@ let g:lightline.component_expand.ale_ok       = 'lightline#ale#ok'
 let g:lightline.component_type.ale_ok         = 'left'
 
 
-let g:lightline.active.left  = [ [ 'mode', 'paste' ], ['fugitive'], [ 'ro', 'filename', 'modified', 'gutentags' ] ]
+let g:lightline.active.left  = [ [ 'mode', 'paste' ], ['fugitive'], [ 'ro', 'relativepath', 'modified', 'gutentags' ] ]
 let g:lightline.active.right = [ [ 'hex', 'lineinfo' ], ['filetype'], ['fileformat', 'fileencoding'] ]
 
 if get(g:, 'dotvim#completion_engine', '') == 'coc'
@@ -154,7 +149,7 @@ endif
 let g:lightline.active.right += [[ 'ale_checking', 'ale_errors', 'ale_warnings', 'ale_infos', 'ale_ok' ]]
 
 
-let g:lightline.inactive.left  = [ [ 'filename' ] ]
+let g:lightline.inactive.left  = [ [ 'absolutepath' ] ]
 let g:lightline.inactive.right = [ ]
 
 fun! LightlineColorscheme(name)
