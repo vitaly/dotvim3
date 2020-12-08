@@ -591,6 +591,19 @@ map                           <plug>(COC/Fix-Current)               <Plug>(coc-f
 nmap    <localleader>f        <plug>(COC/Fix-Current)
 nmap    <localleader>cf       <plug>(COC/Fix-Current)
 
+call my#keymap#localleader('cg',  '+GoTo')
+
+nmap <silent> <plug>(COC/Goto/Definition)     <Plug>(coc-definition)
+nmap <silent> <plug>(COC/Goto/Type)           <Plug>(coc-type-definition)
+nmap <silent> <plug>(COC/Goto/Implementation) <Plug>(coc-implementation)
+nmap <silent> <plug>(COC/Goto/Reference)      <Plug>(coc-references)
+
+nmap <localleader>cgd <plug>(COC/Goto/Definition)
+nmap <localleader>cgt <plug>(COC/Goto/Type)
+nmap <localleader>cgi <plug>(COC/Goto/Implementation)
+nmap <localleader>cgr <plug>(COC/Goto/Reference)
+
+
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)

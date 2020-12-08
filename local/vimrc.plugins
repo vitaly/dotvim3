@@ -229,3 +229,14 @@ let g:lightline.colorscheme = 'hypsteria_alter'
 " let g:lightline.colorscheme = 'molokai'
 
 Plug 'sakhnik/nvim-gdb'
+let g:nvimgdb_disable_start_keymaps = 1
+" nnoremap <leader>dd :GdbStart gdb -q a.out
+" nnoremap <leader>dl :GdbStartLLDB lldb a.out
+" nnoremap <leader>dp :GdbStartPDB python -m pdb main.py
+" nnoremap <leader>db :GdbStartBashDB bashdb main.sh
+
+
+Plug 'puremourning/vimspector'
+" let g:vimspector_enable_mappings = 'HUMAN'
+
+source ~/.vim/local/my/debugger.vim
