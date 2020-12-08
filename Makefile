@@ -1,5 +1,9 @@
 include .config
 
+ifneq (,$(wildcard ./.env))
+  include .env
+endif
+
 DEFAULT ?= configure
 default: ${DEFAULT}
 .PHONY: default
