@@ -9,8 +9,8 @@ vimrc.bindings
 vimrc.after
 scripts/install-dependencies.sh
 Gemfile
-deps/pip.txt
-deps/node.txt
+deps/python.txt
+deps/nodejs.txt
 autoload/my/keymap.vim
 ftplugin/vimwiki.vim
 ftdetect/coc-settings.vim
