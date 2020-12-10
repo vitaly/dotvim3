@@ -30,12 +30,6 @@ nmap <leader>sw                 <plug>(Search/Keys)
 
 let g:which_key_sep = "|"
 
-" src/plugins/30-general/plugins/multiple-cursors/files/vimrc.after -------------------
-
-hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
-hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-let g:multi_cursor_exit_from_insert_mode = 0
-
 " src/plugins/40-ide/plugins/10-completion/engine/coc/files/vimrc.after -------------------
 
 " hi CocHighlightText cterm=underline gui=underline

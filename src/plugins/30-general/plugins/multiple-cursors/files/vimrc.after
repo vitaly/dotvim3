@@ -1,3 +1,0 @@
-hi multiple_cursors_cursor ctermbg=red ctermfg=blue guibg=red guifg=blue
-hi multiple_cursors_visual ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-let g:multi_cursor_exit_from_insert_mode = 0

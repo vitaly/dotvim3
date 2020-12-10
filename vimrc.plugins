@@ -29,7 +29,7 @@ Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }
 
 " src/plugins/30-general/plugins/multiple-cursors/files/vimrc.plugins -------------------
 
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/10-nerdtree-git/files/vimrc.plugins -------------------
 
