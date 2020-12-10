@@ -175,6 +175,8 @@ if has("nvim")
   tnoremap <Esc><space> <C-\><C-n>
 endif
 
+set shell=$SHELL
+
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " inoremap <expr><tab> pumvisible() ? "\<c-y>" : "\<tab>"
@@ -417,4 +419,4 @@ nmap     <leader><localleader>    <Plug>(File/Toggle/File-Tree)
 nmap     <localleader><leader>    <plug>(File/Save)
 nmap     <leader>ww               <plug>(File/Save)
 
-
+set noequalalways
