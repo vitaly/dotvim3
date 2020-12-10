@@ -2,3 +2,4 @@ bash-language-server
 dockerfile-language-server-nodejs
 javascript-typescript-langserver
 typescript-language-server
+vim-language-server
