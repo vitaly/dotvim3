@@ -97,6 +97,30 @@ nnoremap <leader><space>        :
 
 call my#keymap#leader('a', '+App')
 
+call my#keymap#leader('ap', '+Plug')
+
+nnoremap             <plug>plug(Clean)    :PlugClean<cr>
+nmap     <leader>apc <plug>plug(Clean)
+
+nnoremap             <plug>plug(Diff)     :PlugDiff<cr>
+nmap     <leader>apd <plug>plug(Diff)
+
+nnoremap             <plug>plug(Install)  :PlugInstall<cr>
+nmap     <leader>api <plug>plug(Install)
+
+nnoremap             <plug>plug(Snapshot) :PlugSnapshot<cr>
+nmap     <leader>apt <plug>plug(Snapshot)
+
+nnoremap             <plug>plug(Status)   :PlugStatus<cr>
+nmap     <leader>aps <plug>plug(Status)
+
+nnoremap             <plug>plug(Update)   :PlugUpdate<cr>
+nmap     <leader>apu <plug>plug(Update)
+
+nnoremap             <plug>plug(Upgrade)  :PlugUpgrade<cr>
+nmap     <leader>apg <plug>plug(Upgrade)
+
+
 call my#keymap#leader('v', '+Vim')
 
 noremap                         <plug>(Vim/Redraw)                            :redraw!<cr>
