@@ -334,3 +334,11 @@ Plug 'chriskempson/base16-vim'
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.plugins -------------------
 
 source ~/.vim/local/vimrc.plugins
+
+" local/plugins/terminal/vimrc.plugins -------------------
+
+Plug 'kassio/neoterm'
+
+" let g:neoterm_default_mod = 'belowright'
+let g:neoterm_default_mod = 'rightbelow'
+

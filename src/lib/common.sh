@@ -95,13 +95,24 @@ copy_files() {
   done
 }
 
+# there are 2 kinds of plugins:
+# 1 - simple. only have files to copy
+# and 2 - complex, have more 'structure', or scripts to run
+complex() {
+  [[ -e "$1/prompt.sh" || -e "$1/install.sh" || -d "$1/plugins" || -d "$1/files" ]]
+}
+
 load() {
   v yellow "$1"
 
   [[ -d $1 ]] || die "'$1' not found"
 
-  if [ -f "$1/prompt.sh" ]; then
+  if ! complex "$1"; then
+    copy_files "$1"
+    return
+  fi
 
+  if [ -f "$1/prompt.sh" ]; then
     local prompt=""
 
     # we are runnign with -eE here
@@ -112,6 +123,7 @@ load() {
     eval "should_install_plugin() { $(cat "$1/prompt.sh"); }"
     should_install_plugin || return 0
   fi
+
   if [[ -d $1/files ]]; then copy_files "$1/files"; fi
   if [[ -d $1/plugins ]]; then load_all "$1/plugins/"*; fi
   if [[ -f $1/install.sh ]]; then source "$1/install.sh"; fi

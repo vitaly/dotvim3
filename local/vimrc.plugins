@@ -208,20 +208,6 @@ Plug 'vim-scripts/calendar.vim--Matsumoto'
 " Plug 'Shougo/deol.nvim'
 
 
-Plug 'kassio/neoterm'
-" let g:neoterm_default_mod = 'belowright'
-let g:neoterm_default_mod = 'rightbelow'
-
-call my#keymap#localleader('e', '+Eval')
-
-map     <silent>        <plug>(Repl/Eval/Line)      <Plug>(neoterm-repl-send-line)
-nmap    <localleader>ee <plug>(Repl/Eval/Line)
-
-map                     <plug>(Repl/Eval)           <Plug>(neoterm-repl-send)
-xmap    <localleader>e  <plug>(Repl/Eval)
-
-nmap    <silent>        <plug>(Repl/Eval/File)      :TREPLSendFile<cr>
-nmap    <localleader>ef <plug>(Repl/Eval/File)
 
 
 
