@@ -254,9 +254,9 @@ endfu
 call s:visual_multi_config()
 
 
-
 let g:NERDTreeHijackNetrw = 1
-
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 
 " set inccommand=nosplit
 Plug 'markonm/traces.vim'

@@ -339,7 +339,6 @@ let g:which_key_use_floating_win = 0
 let g:which_key_align_by_seperator = 1
 
 
-let g:NERDTreeQuitOnOpen = 1
 let g:EditorConfig_max_line_indicator = 'line'
 
 command! LogOn set verbosefile=./vim.log | set verbose=9
@@ -403,18 +402,18 @@ fu! BrowseWithDefx()
   nmap              <plug>(Toggle/File-Tree)          <plug>(Defx/Toggle)
   nmap              <plug>(Tree-Find-File)            <plug>(Defx/Find-File)
 endfu
-nnoremap  <silent>  <plug>(Toggle/Filer/Defx)         :<C-U>call BrowseWithDefx()()<CR>
+nnoremap  <silent>  <plug>(Toggle/Filer/Defx)         :<C-U>call BrowseWithDefx()<CR>
 
 fu! BrowseWithLuaTree()
   nmap              <plug>(Toggle/File-Tree)          <plug>(LuaTree/Toggle)
   nmap              <plug>(Tree-Find-File)            <plug>(LuaTree/Find-File)
 endfu
-nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :<C-U>call BrowseWithLuaTree()()<CR>
+nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :<C-U>call BrowseWithLuaTree()<CR>
 
 nmap                <leader>TFN                       <plug>(Toggle/Filer/NerdTree)
 nmap                <leader>TFD                       <plug>(Toggle/Filer/Defx)
 nmap                <leader>TFL                       <plug>(Toggle/Filer/LuaTree)
 
-" call BrowseWithNerdTree()
+call BrowseWithNerdTree()
 " call BrowseWithDefx()
-call BrowseWithLuaTree()
+" call BrowseWithLuaTree()

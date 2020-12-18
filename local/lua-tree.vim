@@ -7,6 +7,9 @@ let g:lua_tree_bindings = {
       \ 'edit_split': ['s', 'i'],
       \ 'edit_vsplit': 'v',
       \ 'toggle_dotfiles': '.',
+      \ 'cut': 'm',
+      \ 'edit': '<CR>',
+      \ 'cd': ['<C-]>', 'o'],
       \ }
 
 let g:lua_tree_follow = 1
@@ -33,10 +36,23 @@ let g:lua_tree_icons = {
       \   }
       \ }
 
+function! s:toggleZoom()
+  if exists('b:LuaTreeZoomed') && b:LuaTreeZoomed
+    exec "silent vertical resize " . get(g:, 'lua_tree_width', 30)
+    let b:LuaTreeZoomed = 0
+  else
+    exec 'vertical resize '. get(g:, 'lua_tree_width_max', '')
+    let b:LuaTreeZoomed = 1
+  endif
+endfunction
+
 autocmd FileType LuaTree call s:lua_tree_settings()
 
 function! s:lua_tree_settings() abort
-  nnoremap <buffer> q :<C-U>LuaTreeToggle<CR>
+
+  nnoremap <buffer>     q       :<C-U>LuaTreeClose<CR>
+  nnoremap <buffer>     A       :<C-U>call <SID>toggleZoom()<CR>
+
   highlight LuaTreeFolderIcon guifg=yellow
 endfunction
 
@@ -47,3 +63,6 @@ nmap                \]                          <plug>(LuaTree/Toggle)
 nnoremap  <silent>  <plug>(LuaTree/Find-File)   :<C-U>LuaTreeFindFile<CR>
 nmap                \0                          <plug>(LuaTree/Find-File)
 
+
+let g:lua_tree_width_allow_resize = 0
+let g:lua_tree_width_max = 80

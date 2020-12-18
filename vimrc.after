@@ -7,7 +7,7 @@ nnoremap Y y$
 
 " src/plugins/20-settings/plugins/keymap/files/vimrc.after -------------------
 
-set timeoutlen=500
+set timeoutlen=1000
 
 " src/plugins/20-settings/plugins/keymap/engine/which_key/files/vimrc.after -------------------
 

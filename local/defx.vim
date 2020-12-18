@@ -13,13 +13,26 @@ augroup DefXMappings
   autocmd FileType defx call s:defx_my_settings()
 augroup end
 
+function! s:toggleZoom()
+  if exists('b:DefxZoomed') && b:DefxZoomed
+    exec "silent vertical resize " . get(g:, 'defx_tree_width', 30)
+    let b:DefxZoomed = 0
+  else
+    exec 'vertical resize '. get(g:, 'defx_tree_width_max', '')
+    let b:DefxZoomed = 1
+  endif
+endfunction
+
 function! s:defx_my_settings() abort
   set nonumber
 
+  " call defx#custom#column('indent', {
+  "       \ 'indent': '|',
+  "       \ })
   call defx#custom#column('icon', {
         \ 'directory_icon': '▸',
         \ 'opened_icon': '▾',
-        \ 'root_icon': ' ',
+        \ 'root_icon': 'R',
         \ })
   call defx#custom#column('mark', {
         \ 'readonly_icon': '',
@@ -93,24 +106,32 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr>   <Space>      defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr>   *            defx#do_action('toggle_select_all')
 
-  nnoremap <silent><buffer><expr>   d           defx#do_action('remove')
-  nnoremap <silent><buffer><expr>   r           defx#do_action('rename')
-  nnoremap <silent><buffer><expr>   m           defx#do_action('multi', ['move', 'redraw'])
-  nnoremap <silent><buffer><expr>   c           defx#do_action('multi', ['copy', 'redraw'])
-  nnoremap <silent><buffer><expr>   p           defx#do_action('paste')
-  nnoremap <silent><buffer><expr>   a           defx#do_action('new_file')
+  nnoremap <silent><buffer><expr>   d            defx#do_action('remove')
+  nnoremap <silent><buffer><expr>   r            defx#do_action('rename')
+  nnoremap <silent><buffer><expr>   m            defx#do_action('multi', ['move', 'redraw'])
+  nnoremap <silent><buffer><expr>   c            defx#do_action('multi', ['copy', 'redraw'])
+  nnoremap <silent><buffer><expr>   p            defx#do_action('paste')
+  nnoremap <silent><buffer><expr>   a            defx#do_action('new_file')
 
   nnoremap <silent><buffer><expr>   C            defx#do_action('toggle_columns', 'mark:git:indent:icons:filename:type:size:time')
+
   nnoremap <silent><buffer><expr>   <C-l>        defx#do_action('redraw')
+  nnoremap <silent><buffer><expr>   R            defx#do_action('redraw')
 
   nnoremap <silent><buffer><expr>   yy           defx#do_action('yank_path')
+
+  nnoremap         <buffer><expr>   <T           defx#do_action("multi", [['toggle_sort', 'time'], "redraw"])
+  nnoremap         <buffer><expr>   <S           defx#do_action("multi", [['toggle_sort', 'size'], "redraw"])
+  nnoremap         <buffer><expr>   <N           defx#do_action("multi", [['toggle_sort', 'filename'], "redraw"])
+
+  nnoremap <silent><buffer><expr>   A            <SID>toggleZoom()
 
   " nnoremap <silent><buffer><expr>   ;            defx#do_action('repeat')
 
   " nnoremap <silent><buffer><expr>   A           defx#do_action('new_directory')
   " nnoremap <silent><buffer><expr>   l            defx#do_action('open')
   " nnoremap <silent><buffer><expr>   M            defx#do_action('new_multiple_files')
-  " nnoremap <silent><buffer><expr>   S            defx#do_action('toggle_sort', 'time')
+
   " nnoremap <silent><buffer><expr>   !            defx#do_action('execute_command')
   " nnoremap <silent><buffer><expr>   x            defx#do_action('execute_system')
   " nnoremap <silent><buffer><expr>   j            line('.') == line('$') ? 'gg' : 'j'
