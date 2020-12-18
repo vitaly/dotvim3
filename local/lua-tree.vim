@@ -7,7 +7,9 @@ nnoremap \] :<C-U>LuaTreeToggle<CR>
 nnoremap \0 :<C-U>LuaTreeFindFile<CR>
 
 let g:lua_tree_bindings = {
-      \ 'close':          'q',
+      \ 'edit_split': 's',
+      \ 'edit_vsplit': 'v',
+      \ 'toggle_dotfiles': '.',
       \ }
 
 let g:lua_tree_follow = 1
@@ -20,12 +22,12 @@ let g:lua_tree_icons = {
       \ 'default': '',
       \ 'symlink': '',
       \ 'git': {
-      \   'unstaged': "✗",
+      \   'unstaged': "",
       \   'staged': "✓",
       \   'unmerged': "",
       \   'renamed': "➜",
       \   'untracked': "?",
-      \   'deleted': "✖"
+      \   'deleted': "✗"
       \   },
       \ 'folder': {
       \   'default': "",
@@ -38,4 +40,6 @@ autocmd FileType LuaTree call s:lua_tree_settings()
 
 function! s:lua_tree_settings() abort
   nnoremap <buffer> q :<C-U>LuaTreeToggle<CR>
+  highlight LuaTreeFolderIcon guifg=yellow
 endfunction
+

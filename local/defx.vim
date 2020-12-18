@@ -32,7 +32,7 @@ function! s:defx_my_settings() abort
         \ 'Renamed'   : '➜',
         \ 'Unmerged'  : '',
         \ 'Ignored'   : 'i',
-        \ 'Deleted'   : '✖',
+        \ 'Deleted'   : '✗',
         \ 'Unknown'   : '~'
         \ })
 
@@ -65,6 +65,11 @@ function! s:defx_my_settings() abort
   "       \ defx#do_action('multi', ['drop', 'quit'])
 
   nnoremap <silent><buffer><expr>   o
+        \ defx#is_directory() ?
+        \ defx#do_action('open') :
+        \ defx#do_action('multi', ['quit', 'open'])
+
+  nnoremap <silent><buffer><expr>   <C-]>
         \ defx#is_directory() ?
         \ defx#do_action('open') :
         \ defx#do_action('multi', ['quit', 'open'])
