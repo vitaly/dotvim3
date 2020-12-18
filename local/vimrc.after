@@ -387,11 +387,10 @@ nmap     <leader>,                <Plug>(File/Toggle/File-Tree)
 nmap     <localleader><leader>    <plug>(File/Save)
 nmap     <leader>ww               <plug>(File/Save)
 
+
 set noequalalways
-
-
-
-
+nnoremap        <plug>(Toggle/Equal-Windows)    :<C-U>set equalalways!<CR>
+nmap            <leader>TQ                      <plug>(Toggle/Equal-Windows)
 
 
 fu! BrowseWithNerdTree()
