@@ -43,12 +43,12 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 Plug 'scrooloose/nerdtree'
 
-" Tells the NERD tree to respect 'wildignore'.
-let NERDTreeRespectWildIgnore=1
-let NERDTreeCascadeSingleChildDir=0
+let g:NERDTreeRespectWildIgnore     = 1
+let g:NERDTreeCascadeSingleChildDir = 0
 
-let g:NERDTreeHijackNetrw = 1
-let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeHijackNetrw           = 1
+let g:NERDTreeQuitOnOpen            = 1
+let g:NERDTreeNaturalSort           = 1
 
 " src/plugins/30-general/plugins/nerdtools/plugins/netdcommenter/files/vimrc.plugins -------------------
 

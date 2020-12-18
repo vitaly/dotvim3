@@ -38,22 +38,6 @@ Plug 'tpope/vim-liquid', { 'for': 'liquid' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" NOTE: had a problem with pasting into a search command line when this plugin
-" was running
-"
-" Plug 'haya14busa/incsearch.vim'
-" Plug 'haya14busa/incsearch-fuzzy.vim'
-" map /   <Plug>(incsearch-forward)
-" map ?   <Plug>(incsearch-backward)
-" map g/  <Plug>(incsearch-stay)
-" map z/  <Plug>(incsearch-fuzzy-/)
-" map z?  <Plug>(incsearch-fuzzy-?)
-" map zg/ <Plug>(incsearch-fuzzy-stay)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Plug 'osyo-manga/vim-over'
-let g:over#command_line#paste_escape_chars = '/.*$^~['
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -205,7 +189,6 @@ Plug 'tpope/vim-obsession'
 
 Plug 'vim-scripts/calendar.vim--Matsumoto'
 
-" Plug 'Shougo/deol.nvim'
 
 
 
@@ -230,20 +213,12 @@ source ~/.vim/local/my/debug/vimspector.vim
 
 
 
-
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 source ~/.vim/local/defx.vim
 
 Plug 'Shougo/vimfiler.vim'
+" Plug 'Shougo/deol.nvim'
 
-let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_as_default_explorer = 0
 
 Plug 'ryanoasis/vim-devicons'
 let g:NERDTreeGitStatusUseNerdFonts = 0
@@ -273,3 +248,12 @@ let g:VM_maps["Visual Find"]           = visual.'f'
 let g:VM_maps["Visual Cursors"]        = visual.'c'
 
 let g:VM_theme = 'neon'
+
+
+
+let g:NERDTreeHijackNetrw = 1
+
+
+" set inccommand=nosplit
+Plug 'markonm/traces.vim'
+let g:traces_num_range_preview = 1

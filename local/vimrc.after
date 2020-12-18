@@ -108,8 +108,6 @@ set modeline
 " endif
 
 
-let NERDTreeSortOrder=['*']
-
 noremap             <plug>(Paste-Mode-Insert) :set paste<cr>o
 nmap    <leader>i   <plug>(Paste-Mode-Insert)
 
@@ -385,8 +383,9 @@ noremap                         <plug>(File/Edit/Zsh/Host)              :e ~/.zs
 nmap     <leader>fezh           <plug>(File/Edit/Zsh/Host)
 
 
-nmap     <leader><localleader>    <Plug>(File/Toggle/File-Tree)
+nmap     <leader>,                <Plug>(File/Toggle/File-Tree)
 nmap     <localleader><leader>    <plug>(File/Save)
 nmap     <leader>ww               <plug>(File/Save)
 
 set noequalalways
+

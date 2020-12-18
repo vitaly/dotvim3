@@ -1,11 +1,5 @@
 scriptencoding utf8
 
-
-
-
-
-
-
 fu! ToggleBg()
   if 'light' == &bg
     echom 'dark'
