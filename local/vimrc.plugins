@@ -227,28 +227,31 @@ let g:NERDTreeGitStatusUseNerdFonts = 0
 Plug 'tpope/vim-scriptease'
 
 " VM - visual Multi Cursors
-" I use C-ARROWS for desktop navigation
-" and S-ARROWS for tmux
-let leader = '\\'
-let visual = '\\'
-let g:VM_maps = {}
+fu! s:visual_multi_config()
+  " I use C-ARROWS for desktop navigation
+  " and S-ARROWS for tmux
+  let leader = '\\'
+  let visual = '\\'
+  let g:VM_maps = {}
 
-let g:VM_default_mappings = 0
-let g:VM_maps["Reselect Last"]         = leader.'gS'
-let g:VM_maps["Add Cursor At Pos"]     = leader.'\'
-let g:VM_maps["Start Regex Search"]    = leader.'/'
-let g:VM_maps["Select All"]            = leader.'A'
-let g:VM_maps['Add Cursor Down']       = '<C-S-Down>'
-let g:VM_maps['Add Cursor Up']         = '<C-S-Up>'
-let g:VM_maps["Select l"]              = '<C-S-Right>'
-let g:VM_maps["Select h"]              = '<C-S-Left>'
-let g:VM_maps["Visual Regex"]          = visual.'/'
-let g:VM_maps["Visual All"]            = visual.'A'
-let g:VM_maps["Visual Add"]            = visual.'a'
-let g:VM_maps["Visual Find"]           = visual.'f'
-let g:VM_maps["Visual Cursors"]        = visual.'c'
+  let g:VM_default_mappings = 0
+  let g:VM_maps["Reselect Last"]         = leader.'gS'
+  let g:VM_maps["Add Cursor At Pos"]     = leader.'\'
+  let g:VM_maps["Start Regex Search"]    = leader.'/'
+  let g:VM_maps["Select All"]            = leader.'A'
+  let g:VM_maps['Add Cursor Down']       = '<C-S-Down>'
+  let g:VM_maps['Add Cursor Up']         = '<C-S-Up>'
+  let g:VM_maps["Select l"]              = '<C-S-Right>'
+  let g:VM_maps["Select h"]              = '<C-S-Left>'
+  let g:VM_maps["Visual Regex"]          = visual.'/'
+  let g:VM_maps["Visual All"]            = visual.'A'
+  let g:VM_maps["Visual Add"]            = visual.'a'
+  let g:VM_maps["Visual Find"]           = visual.'f'
+  let g:VM_maps["Visual Cursors"]        = visual.'c'
 
-let g:VM_theme = 'neon'
+  let g:VM_theme = 'neon'
+endfu
+call s:visual_multi_config()
 
 
 
