@@ -214,6 +214,7 @@ source ~/.vim/local/my/debug/vimspector.vim
 
 
 source ~/.vim/local/defx.vim
+source ~/.vim/local/lua-tree.vim
 
 Plug 'Shougo/vimfiler.vim'
 " Plug 'Shougo/deol.nvim'

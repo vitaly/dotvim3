@@ -30,7 +30,7 @@ function! s:defx_my_settings() abort
         \ 'Staged'    : '✚',
         \ 'Untracked' : '?',
         \ 'Renamed'   : '➜',
-        \ 'Unmerged'  : '═',
+        \ 'Unmerged'  : '',
         \ 'Ignored'   : 'i',
         \ 'Deleted'   : '✖',
         \ 'Unknown'   : '~'
