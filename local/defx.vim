@@ -76,11 +76,10 @@ function! s:defx_my_settings() abort
 
   nnoremap <silent><buffer><expr>   <tab>        defx#do_action('preview')
 
-  nnoremap <silent><buffer><expr>   -            defx#do_action('multi', ['quit', ['open', 'split']])
   nnoremap <silent><buffer><expr>   s            defx#do_action('multi', ['quit', ['open', 'bo split']])
+  nnoremap <silent><buffer><expr>   i            defx#do_action('multi', ['quit', ['open', 'bo split']])
 
 
-  nnoremap <silent><buffer><expr>   \            defx#do_action('multi', ['quit', ['open', 'vsplit']])
   nnoremap <silent><buffer><expr>   v            defx#do_action('multi', ['quit', ['open', 'bo vsplit']])
 
   nnoremap <silent><buffer><expr>   q            defx#do_action('quit')
@@ -120,16 +119,20 @@ function! s:defx_my_settings() abort
   " nnoremap <silent><buffer><expr>   cd           defx#do_action('change_vim_cwd')
 endfunction
 
-nmap  <silent> <leader>.  :<c-u>Defx
+nnoremap  <silent>    <plug>(Defx/Toggle)       :<c-u>Defx
       \ -split=vertical
       \ -direction=topleft
       \ -winwidth=30
       \ -toggle
       \ -columns=mark:git:indent:icons:filename<cr>
 
-nmap  <localleader>0  :<c-u>Defx
+nmap                  <leader>.                 <plug>(Defx/Toggle)
+
+nnoremap  <silent>    <plug>(Defx/Find-File)    :<c-u>Defx
       \ -split=vertical
       \ -direction=topleft
       \ -winwidth=30
       \ -search=<c-r>=expand('%:p')<cr>
       \ -columns=mark:git:indent:icons:filename<cr>
+
+nmap                  <localleader>0            <plug>(Defx/Find-File)

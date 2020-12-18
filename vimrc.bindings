@@ -356,10 +356,10 @@ nmap     <leader>Td  <plug>(Toggle/Diminactive)
 
 " nerdtree with tabs
 " display the [F]ile browser [T]ree
-noremap <plug>(Toggle/File-Tree) :NERDTreeTabsToggle<CR>
+noremap <silent> <plug>(Toggle/File-Tree) :NERDTreeTabsToggle<CR>
 
 " show current file in the tree
-noremap <plug>(Tree-Find-File) :NERDTreeFind<CR>
+noremap <silent> <plug>(Tree-Find-File) :NERDTreeFind<CR>
 
 " src/plugins/30-general/plugins/nerdtools/plugins/nerdtree/plugins/99-common/files/vimrc.bindings -------------------
 

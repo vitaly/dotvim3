@@ -389,3 +389,33 @@ nmap     <leader>ww               <plug>(File/Save)
 
 set noequalalways
 
+
+
+
+
+
+fu! BrowseWithNerdTree()
+  noremap <silent>  <plug>(Toggle/File-Tree)          :<C-U>NERDTreeTabsToggle<CR>
+  noremap <silent>  <plug>(Tree-Find-File)            :<C-U>NERDTreeFind<CR>
+endfu
+nnoremap  <silent>  <plug>(Toggle/Filer/NerdTree)     :<C-U>call BrowseWithNerdTree()<CR>
+
+fu! BrowseWithDefx()
+  nmap              <plug>(Toggle/File-Tree)          <plug>(Defx/Toggle)
+  nmap              <plug>(Tree-Find-File)            <plug>(Defx/Find-File)
+endfu
+nnoremap  <silent>  <plug>(Toggle/Filer/Defx)         :<C-U>call BrowseWithDefx()()<CR>
+
+fu! BrowseWithLuaTree()
+  nmap              <plug>(Toggle/File-Tree)          <plug>(LuaTree/Toggle)
+  nmap              <plug>(Tree-Find-File)            <plug>(LuaTree/Find-File)
+endfu
+nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :<C-U>call BrowseWithLuaTree()()<CR>
+
+nmap                <leader>TFN                       <plug>(Toggle/Filer/NerdTree)
+nmap                <leader>TFD                       <plug>(Toggle/Filer/Defx)
+nmap                <leader>TFL                       <plug>(Toggle/Filer/LuaTree)
+
+" call BrowseWithNerdTree()
+" call BrowseWithDefx()
+call BrowseWithLuaTree()
