@@ -1,15 +1,1 @@
 scriptencoding utf8
-
-fu! ToggleBg()
-  if 'light' == &bg
-    echom 'dark'
-    set bg=dark
-  else
-    echom 'light'
-    set bg=light
-  endif
-  source ~/.vim/local/my/theme/vimrc.theme
-endfu
-
-nnoremap <plug>toggle(bg) :call ToggleBg()<cr>
-nmap <leader>Tb <plug>toggle(bg)
