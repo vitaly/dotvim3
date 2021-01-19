@@ -1,5 +1,5 @@
 
-*   <a name="vim-session">[vim-session](https://github.com/xolox/vim-session) ([top](#top))
+*   <a name="vim-session" />[vim-session](https://github.com/xolox/vim-session) ([top](#top))
 
     Extended session management for Vim (`:mksession` on steroids)
 

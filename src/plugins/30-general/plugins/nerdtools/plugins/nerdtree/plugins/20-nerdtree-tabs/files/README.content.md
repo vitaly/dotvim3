@@ -1,5 +1,5 @@
 
-*   <a name="nerdtreetabs">[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
+*   <a name="nerdtreetabs" />[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
 
     NERDTree and tabs together in Vim, painlessly
 

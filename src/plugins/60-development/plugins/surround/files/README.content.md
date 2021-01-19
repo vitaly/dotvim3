@@ -1,5 +1,5 @@
 
-*   <a name="vim-surround">[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
+*   <a name="vim-surround" />[vim-surround](http://github.com/tpope/vim-surround) ([top](#top))
 
     Delete/change/add parentheses/quotes/XML-tags/much more with ease
 

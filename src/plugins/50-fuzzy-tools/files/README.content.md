@@ -1,4 +1,4 @@
 
 
-<a name="fuzzy-search">
+<a name="fuzzy-search" />
 ## Fuzzy search tools

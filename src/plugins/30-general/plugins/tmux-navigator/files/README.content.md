@@ -1,5 +1,5 @@
 
-*   <a name="tmux-navigator">[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
+*   <a name="tmux-navigator" />[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
 
     tmux + vim = love
 

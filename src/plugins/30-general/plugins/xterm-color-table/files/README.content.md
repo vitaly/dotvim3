@@ -1,5 +1,5 @@
 
-*   <a name="xterm-color-table">[xterm-color-table](https://github.com/guns/xterm-color-table.vim) ([top](#top))
+*   <a name="xterm-color-table" />[xterm-color-table](https://github.com/guns/xterm-color-table.vim) ([top](#top))
 
     `:XtermColorTable` to create a new buffer with xterm colors
 

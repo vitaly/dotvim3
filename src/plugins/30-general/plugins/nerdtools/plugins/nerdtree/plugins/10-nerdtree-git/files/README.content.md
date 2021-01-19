@@ -1,5 +1,5 @@
 
-*   <a name="nerdtree-git">[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
+*   <a name="nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
 
     A plugin of NERDTree showing git status flags. Works with the LATEST
     version of NERDTree.

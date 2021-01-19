@@ -1,5 +1,5 @@
 
-*   <a name="vim-switch">[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
+*   <a name="vim-switch" />[vim-switch](https://github.com/AndrewRadev/switch.vim) ([top](#top))
 
     Simple Vim plugin to switch segments of text with predefined replacements.
 

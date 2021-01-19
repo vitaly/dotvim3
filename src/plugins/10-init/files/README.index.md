@@ -113,7 +113,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
 
 ### TBD
 
-<a name="installation">
+<a name="installation" />
 
 ## Installation
 
@@ -232,7 +232,7 @@ TBD
 
 The plugins are loaded according to their sort order.
 
-<a name="top">
+<a name="top" />
 ## Contents
 
 *   [Installation](#installation)

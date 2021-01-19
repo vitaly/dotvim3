@@ -1,14 +1,14 @@
 
 
-<a name="installation">
+<a name="installation" />
 ### Installation
 
 TBD
 
 
-<a name="core">
+<a name="core" />
 ### "Core" Plugins:
 
-*   <a name="vimproc">vimproc
+*   <a name="vimproc" />vimproc
 
     TBD
