@@ -1,5 +1,9 @@
 
-*   <a name="toc-vim-fugitive" />[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+<a name="tic-git-integration" />
+
+### Git Integration
+
+*   [vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
     A Git wrapper so awesome, it should be illegal
 
@@ -34,7 +38,7 @@
 
     Much more in the plugin's doc
 
-*   <a name="toc-vim-merginal" />[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+*   [Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
 
     * `:Merginal` - open branch list window
 

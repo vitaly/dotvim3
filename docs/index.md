@@ -125,8 +125,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
         url based hyperlinks for text files
     *   [xterm-color-table](#xterm-color-table)
 *   [Completion](#completion)
-    *   [vim-fugitive](#toc-vim-fugitive)
-    *   [vim-merginal](#toc-vim-merginal)
+*   [Git Intergration](#toc-git-integration)
 *   [fuzzy search tools](#toc-fuzzy-search)
     *   [unite.vim](#toc-unite)
         *   TBD: other Unite plugins
@@ -421,7 +420,13 @@ TBD
 
 ### Completion
 
-*   <a name="toc-vim-fugitive" />[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+TBD
+
+<a name="tic-git-integration" />
+
+### Git Integration
+
+*   [vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
     A Git wrapper so awesome, it should be illegal
 
@@ -456,7 +461,7 @@ TBD
 
     Much more in the plugin's doc
 
-*   <a name="toc-vim-merginal" />[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+*   [Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
 
     * `:Merginal` - open branch list window
 
