@@ -9,7 +9,7 @@ The installation is already configured with my default choices, you can review t
 
 Run `make install`
 
-<a name="toc-comfiguration" />
+<a name="toc-configuration" />
 
 ### Configuration ([top](#top))
 
