@@ -3,24 +3,9 @@
 >
 > **BACKUP before you run configure or install**
 >
-> I have a confession to make... for more then 2 years I was running the `ide`
-> branch of `dotvim3`. Initially I wanted to make a lot of changes and I didn't
-> want everyone dealing with breaking changes every week.
->
-> I moved fast and broke things... The plan was to clean everything up and
-> merge back into master once it becomes stable. Problem is, it did become
-> stable long time ago but I really had no time to spend on a major cleanup and
-> documentation effort.
->
-> So there it was, much better then the current `master`,
-> but with a ton of undocumented changes and with my personal local
-> customizations.
->
-> I still have no time for the full cleanup ;). But I decided to merge it
-> anyway, only removing my own personal local changes.
->
-> I'll start working on documenting the changes, if you spot any disparency
-> between code and doc, please let me know.
+> Quite a bit of the changes are not yet documented, as I just merged my local
+> development version that I've been using for the last 2 years. I'll  work on
+> docs but it will take some time.
 >
 > Some of the changes:
 > - `leader-guide` replaced with `which-key`. `leader-guide` still exists as a
@@ -77,13 +62,13 @@ hierarchical mnemonic key bindings.
 I did find <https://spacevim.org> and <http://vim.liuchengxu.org> but didn't
 like it enough to use as-is, thought I did re-use some of the ideas they had.
 
-## My goals for this v3 release are:
+### My goals for this v3 release are:
 
 * easier installation. just clone into ~/.vim and `make install`
 * spacemacs-like bindings with discoverable menu
 * easier local modifications using a git branch
 
-## Status
+### Status
 
 dotvim3 is in the middle of development, I'm using it for a long time now, but big parts of my current config are not yet commited here.
 If you **really** want to try it out, you'll need my local vim override files from here: <https://github.com/vitaly/dotfiles/tree/vitaly/home>
@@ -110,11 +95,71 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
 
 > Note gvim.* files are no longer used, you can restore functionality manyally using `if has('gui_running') ...`
 
-### TBD
 
-<a name="installation" />
+<a name="top" />
 
-## Installation
+## Contents
+
+*   [Installation](#toc-installation)
+*   [Configuration](#toc-configuration)
+*   [Load Order](#toc-load-order)
+*   [Dotvim Plugins](#toc-dotvim-plugins)
+*   [Global settings](#toc-globals)
+    *   [WhichKey](#toc-which-key)
+    *   TBD: vimbits
+*   [General Plugins](#general)
+    *   [vim-diminactive](#toc-diminactive)
+    *   [greplace.vim](#toc-greplace)
+    *   [nerdtree](#toc-nerdtree)
+    *   [nerdtree-git](#toc-nerdtree-git)
+    *   [nerdtreetabs](#toc-nerdtreetabs)
+    *   [nerdcommenter](#nerdcommenter)
+    *   [vim-repeat](http://github.com/tpope/vim-repeat)
+        Use the repeat command "." with supported plugins
+    *   [vim-switch](#vim-switch)
+        Simple Vim plugin to switch segments of text with predefined replacements.
+    *   [tmux-navigator](#toc-tmux-navigator)
+    *   [UndoTree](#toc-undotree)
+    *   [Utl.vim](#toc-utl)
+        url based hyperlinks for text files
+    *   [xterm-color-table](#xterm-color-table)
+*   [Completion](#completion)
+    *   [vim-fugitive](#toc-vim-fugitive)
+    *   [vim-merginal](#toc-vim-merginal)
+*   [fuzzy search tools](#toc-fuzzy-search)
+    *   [unite.vim](#toc-unite)
+        *   TBD: other Unite plugins
+        *   [unite outline](#toc-unite-outline)
+        *   [unite-colorscheme](#toc-unite-colorscheme)
+    *   [FZF](#fzf)
+    *   [File search](#toc-fuzzy-files)
+    *   [Buffer search](#fuzzy-buffers)
+    *   [Quickfix search](#fuzzy-quickfix)
+    *   [The Silver Search](#vim-ag)
+        `ag` searching integration
+    *   [Line search](#fuzzy-lines)
+*   [Tags search](#fuzzy-tags)
+    *   [Yank history search](#fuzzy-yank)
+*   [Plugins for Developers](#devplugins)
+    *   [delimitMate](#delimitMate)
+        automatic closing of quotes, parenthesis, brackets, etc.
+    *   [EasyAlign](#EasyAlign)
+        A simple, easy-to-use Vim alignment plugin.
+    *   [editorconfig](#editorconfig)
+    *   [vim-endwise](#vim-endwise)
+    *   [vim-surround](#vim-surround)
+*   [Development languages and syntax support](#languages)
+    *   [Ruby on Rails Support](#rails)
+        *   [vim-rails](#vim-rails)
+        *   [vim-rspec](#vim-rspec) lightweight Rspec runner for Vim
+        *   [apidock.vim](#apidock.vim) apidock.com docs integration
+        *   [vim-i18n](#i18n) Rails i18n extraction plugin
+    *   [Vimscript](#vimscript)
+    *   [Base16](#base16)
+
+<a name="toc-installation" />
+
+### Installation ([top](#top))
 
 Clone this repository into `~/.vim`.
 
@@ -122,7 +167,9 @@ The installation is already configured with my default choices, you can review t
 
 Run `make install`
 
-### Configuration
+<a name="toc-comfiguration" />
+
+### Configuration ([top](#top))
 
 Your configuration choices are stored in `.config` file. You can edit it
 directly or just run `make edit`.
@@ -136,12 +183,9 @@ choices used as defaults.
 During the installation this `README.md` file is re-generated with just the
 information relevant to current configuration chocies.
 
-###  DEOPLETE
+<a name="toc-load-order" />
 
-## TBD
-
-
-# Load order
+### Load order ([top](#top))
 
 First the following scripts are sourced:
 
@@ -159,12 +203,9 @@ Then, after plugins were loaded, the following scripts are sourced:
         * local/vimrc.after
 
 
-# Contributing
+<a name="toc-dotvim-plugins" />
 
-## TBD
-
-
-## HOW-TO
+### Dotvim Plugings ([top](#top))
 
 Each plugin can add content to files in the target vim directory by simply
 having the corresponding files present in the `plugin/files` directory
@@ -201,13 +242,11 @@ The logic flow is as follows:
 - load all plugins in the `plugins` directory
 - run `install.sh` if exists
 
-TBD.
+#### plugin ordering
 
-# examples
+The plugins are loaded according to their sort order.
 
-TBD
-
-## example files structure
+#### example file structure
 
 - `plugins`
     - `simple_directory_plugin`
@@ -227,102 +266,13 @@ TBD
             - `sub-plugin1`
               ...
 
-## plugin ordering
+<a name="toc-globals" />
 
-The plugins are loaded according to their sort order.
-
-<a name="top" />
-## Contents
-
-*   [Installation](#installation)
-
-*   [Core Plugins](#core)
-    *   [vimproc](#vimproc)
-
-*   [Global settings](#globals)
-
-    *   [WhichKey](#which-key)
-    *   TBD: vimbits
-
-*   [General Plugins](#general)
-    *   [vim-diminactive](#diminactive)
-    *   [greplace.vim](#greplace.vim)
-    *   [nerdtree](#nerdtree)
-    *   [nerdtree-git](#nerdtree-git)
-    *   [nerdtreetabs](#nerdtreetabs)
-    *   [nerdcommenter](#nerdcommenter)
-    *   [vim-repeat](http://github.com/tpope/vim-repeat)
-        Use the repeat command "." with supported plugins
-    *   [vim-switch](#vim-switch)
-        Simple Vim plugin to switch segments of text with predefined replacements.
-    *   [tmux-navigator](#tmux-navigator)
-    *   [UndoTree](#undotree)
-    *   [Utl.vim](#utl.vim)
-        url based hyperlinks for text files
-    *   [xterm-color-table](#xterm-color-table)
-
-*   [Completion](#completion)
-    TBD
-    *   [vim-fugitive](#vim-fugitive)
-    *   [vim-merginal](#vim-merginal)
-
-*   [fuzzy search tools](#fuzzy-search)
-    *   [unite.vim](#unite.vim)
-        *   TBD: other Unite plugins
-        *   [unite outline](#unite-outline)
-        *   [unite-colorscheme](#unite-colorscheme)
-    *   [FZF](#fzf)
-    *   [File search](#fuzzy-files)
-    *   [Buffer search](#fuzzy-buffers)
-    *   [Quickfix search](#fuzzy-quickfix)
-    *   [The Silver Search](#vim-ag)
-        `ag` searching integration
-    *   [Line search](#fuzzy-lines)
-*   [Tags search](#fuzzy-tags)
-    *   [Yank history search](#fuzzy-yank)
-
-*   [Plugins for Developers](#devplugins)
-    *   [delimitMate](#delimitMate)
-        automatic closing of quotes, parenthesis, brackets, etc.
-    *   [EasyAlign](#EasyAlign)
-        A simple, easy-to-use Vim alignment plugin.
-
-    *   [editorconfig](#editorconfig)
-    *   [vim-endwise](#vim-endwise)
-    *   [vim-surround](#vim-surround)
-
-*   [Development languages and syntax support](#languages)
-
-        *   [Ruby on Rails Support](#rails)
-            *   [vim-rails](#vim-rails)
-            *   [vim-rspec](#vim-rspec) lightweight Rspec runner for Vim
-            *   [apidock.vim](#apidock.vim) apidock.com docs integration
-            *   [vim-i18n](#i18n) Rails i18n extraction plugin
-
-    *   [Vimscript](#vimscript)
-    *   [Base16](#base16)
-
-
-<a name="installation" />
-### Installation
+### Global settings
 
 TBD
 
-
-<a name="core" />
-### "Core" Plugins:
-
-*   <a name="vimproc" />vimproc
-
-    TBD
-
-
-<a name="globals" />
-## Global settings
-
-TBD
-
-*   <a name="which-key" />[vim-which-key](http://github.com/liuchengxu/vim-which-key) ([top](#top))
+*   <a name="toc-which-key" />[vim-which-key](http://github.com/liuchengxu/vim-which-key) ([top](#top))
 
     This plugin is the core of the discoverable key bindings of this setup.
 
@@ -340,11 +290,11 @@ TBD
     `Which Key`, as there is no way to pass `<c-w>` as the next key press to
     the menu.
 
-
 <a name="general" />
-## "General" Plugins:
 
-*   <a name="diminactive" />[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
+### "General" Plugins:
+
+*   <a name="toc-diminactive" />[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
 
     Vim plugin to dim inactive windows.
 
@@ -356,7 +306,7 @@ TBD
 
     Diminactive does provide methods to manage it on a window or buffer level. See [documentation](http://github.com/blueyed/vim-diminactive).
 
-*   <a name="greplace.vim" />[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
+*   <a name="toc-greplace" />[greplace.vim](http://github.com/vim-scripts/greplace.vim) ([top](#top))
 
     Replace a pattern across multiple files interactively
 
@@ -373,12 +323,11 @@ TBD
 
     TBD: document and provide basic examples
 
-*   <a name="nerdtree" />[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
+*   <a name="toc-nerdtree" />[nerdtree](http://github.com/scrooloose/nerdtree) ([top](#top))
 
     vim script to give you a tree explorer
 
-    * `<leader>ft` - toggle directory browser (**Note:** this is now handled by
-      [nerdtree-tabs](#nerdtreetabs) (see below))
+    * `<leader>ft` - toggle directory browser (**Note:** this is now handled by [nerdtree-tabs](#toc-nerdtreetabs) (see below))
     * `<leader>0` - to find and highlight the currently open file in the tree
 
 *   <a name="nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
@@ -423,9 +372,9 @@ TBD
     It will switch `"foo"` to `'foo'` to `:foo`. or `{:foo => bar}` to `{foo: bar}`,
     etc. See `:h switch` for more.
 
-    * `\`` - `:Switch<cr>`
+    * `` ` `` - `:Switch<cr>`
 
-*   <a name="tmux-navigator" />[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
+*   <a name="toc-tmux-navigator" />[tmux-navigator](http://github.com/christoomey/vim-tmux-navigator) ([top](#top))
 
     tmux + vim = love
 
@@ -441,7 +390,7 @@ TBD
     *   `Ctrl-l` - `:TmuxNavigateRight<cr>`
     *   `Ctrl-\` - `:TmuxNavigatePrevious<cr>`
 
-*   <a name="undotree" />[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
+*   <a name="toc-undotree" />[Undo Tree](https://github.com/mbbill/undotree) ([top](#top))
 
     Graphs your vim undo tree in a side window.
 
@@ -449,7 +398,7 @@ TBD
 
     * `:h undotree.txt` - more help
 
-*   <a name="utl.vim" />[utl.vim](https://github.com/vim-scripts/utl.vim) ([top](#top))
+*   <a name="toc-utl" />[utl.vim](https://github.com/vim-scripts/utl.vim) ([top](#top))
 
     Utl.vim brings the benefits of URL-based hyperlinking to plain text,
 
@@ -467,11 +416,11 @@ TBD
 
     `:h xterm-color-table.txt` for more help.
 
-
 <a name="completion" />
-## Completion
 
-*   <a name="vim-fugitive" />[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+### Completion
+
+*   <a name="toc-vim-fugitive" />[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
     A Git wrapper so awesome, it should be illegal
 
@@ -506,7 +455,7 @@ TBD
 
     Much more in the plugin's doc
 
-*   <a name="vim-merginal" />[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+*   <a name="toc-vim-merginal" />[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
 
     * `:Merginal` - open branch list window
 
@@ -520,29 +469,29 @@ TBD
 
     * `:h merginal` - to see the complete help
 
+<a name="toc-fuzzy-search" />
 
-<a name="fuzzy-search" />
-## Fuzzy search tools
+### Fuzzy search tools
 
 [unite]: https://github.com/Shougo/unite.vim
-*   <a name="unite.vim" />[unite.vim][unite] ([top](#top))
+*   <a name="toc-unite" />[unite.vim][unite] ([top](#top))
 
     Search and display information from arbitrary sources like files, buffers,
     recently used files or registers.
 
     This plugins is too powerful to present here, read the [documentation][unite].
 
-    See [unite-colorscheme](#unite-colorschema) for example command to use
+    See [unite-colorscheme](#toc-unite-colorschema) for example command to use
     Unite to choose a colorscheme.
 
 
-    *   <a name="unite-outline" />[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
+    *   <a name="toc-unite-outline" />[unite outline](https://github.com/Shougo/unite-outline) ([top](#top))
 
         Unite source to display outline of the current file.
 
         * `<leader>O` - `:Unite outline` - show file outline
 
-    *   <a name="unite-colorscheme" />[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
+    *   <a name="toc-unite-colorscheme" />[unite-colorscheme](https://github.com/ujihisa/unite-colorscheme) ([top](#top))
 
         A [unite.vim](#unite.vim) plugin. Privides source to choose color schemes.
 
@@ -555,11 +504,10 @@ TBD
         > Note: actually this command aliased as `:THEME`
 
 *   <a name="fzf" />[FZF](https://github.com/junegunn/fzf) ([top](#top))
+
     * `<leader>ff` - `:Files` - fuzzy find files using FZF
 
-
-*   <a name="fuzzy-files" />File search ([top](#top))
-
+*   <a name="toc-fuzzy-files" />File search ([top](#top))
 
 
 *   <a name="fuzzy-buffers" />Buffer search ([top](#top))
@@ -596,9 +544,9 @@ TBD
     * `<leader>[`/`,]` - to cycle the just-pasted text though the yankring.
     * `:h yankring.txt` and `:h yankring-tutorial` for more
 
-
 <a name="devplugins" />
-## Plugins for Developers:
+
+### Plugins for Developers:
 
 *   <a name="delimitMate" />[delimitMate](http://github.com/Raimondi/delimitMate) ([top](#top))
 
@@ -627,11 +575,12 @@ TBD
 
     You should REALLY read the docs if you want to use this one
 
-
 <a name="languages" />
-## Development languages and syntax support
+
+### Development languages and syntax support
 
 <a name="rails" />
+
 #### Ruby on Rails Support
 
 *   <a name="vim-rails" />[vim-rails](http://github.com/tpope/vim-rails) ([top](#top))
@@ -687,4 +636,3 @@ TBD
 
     File `~/.vimrc_background` will be sourced if found. It can be created by
     using <https://github.com/chriskempson/base16-shell> with your shell.
-

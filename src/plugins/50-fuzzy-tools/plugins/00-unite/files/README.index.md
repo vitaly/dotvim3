@@ -1,3 +1,3 @@
-    *   [unite.vim](#unite.vim)
+    *   [unite.vim](#toc-unite)
         *   TBD: other Unite plugins
-        *   [unite outline](#unite-outline)
+        *   [unite outline](#toc-unite-outline)

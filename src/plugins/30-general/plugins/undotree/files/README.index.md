@@ -1,1 +1,1 @@
-    *   [UndoTree](#undotree)
+    *   [UndoTree](#toc-undotree)

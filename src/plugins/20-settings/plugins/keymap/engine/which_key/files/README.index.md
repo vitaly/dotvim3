@@ -1,2 +1,1 @@
-
-    *   [WhichKey](#which-key)
+    *   [WhichKey](#toc-which-key)

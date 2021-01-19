@@ -1,6 +1,6 @@
 
+<a name="toc-globals" />
 
-<a name="globals" />
-## Global settings
+### Global settings
 
 TBD

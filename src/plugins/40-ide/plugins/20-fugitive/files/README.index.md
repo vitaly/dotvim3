@@ -1,2 +1,2 @@
-    *   [vim-fugitive](#vim-fugitive)
-    *   [vim-merginal](#vim-merginal)
+    *   [vim-fugitive](#toc-vim-fugitive)
+    *   [vim-merginal](#toc-vim-merginal)

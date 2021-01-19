@@ -1,4 +1,4 @@
 
+<a name="toc-fuzzy-search" />
 
-<a name="fuzzy-search" />
-## Fuzzy search tools
+### Fuzzy search tools

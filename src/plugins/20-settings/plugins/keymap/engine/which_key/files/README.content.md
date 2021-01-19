@@ -1,5 +1,5 @@
 
-*   <a name="which-key" />[vim-which-key](http://github.com/liuchengxu/vim-which-key) ([top](#top))
+*   <a name="toc-which-key" />[vim-which-key](http://github.com/liuchengxu/vim-which-key) ([top](#top))
 
     This plugin is the core of the discoverable key bindings of this setup.
 

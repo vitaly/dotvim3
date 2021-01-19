@@ -1,4 +1,2 @@
 
-
-*   <a name="fuzzy-files" />File search ([top](#top))
-
+*   <a name="toc-fuzzy-files" />File search ([top](#top))

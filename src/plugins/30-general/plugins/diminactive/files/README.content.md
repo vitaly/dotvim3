@@ -1,5 +1,5 @@
 
-*   <a name="diminactive" />[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
+*   <a name="toc-diminactive" />[vim-diminactive](http://github.com/blueyed/vim-diminactive) ([top](#top))
 
     Vim plugin to dim inactive windows.
 

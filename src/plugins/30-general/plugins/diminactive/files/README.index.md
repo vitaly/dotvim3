@@ -1,1 +1,1 @@
-    *   [vim-diminactive](#diminactive)
+    *   [vim-diminactive](#toc-diminactive)

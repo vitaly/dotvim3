@@ -1,1 +1,1 @@
-    *   [File search](#fuzzy-files)
+    *   [File search](#toc-fuzzy-files)

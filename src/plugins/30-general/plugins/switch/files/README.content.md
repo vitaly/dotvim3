@@ -6,4 +6,4 @@
     It will switch `"foo"` to `'foo'` to `:foo`. or `{:foo => bar}` to `{foo: bar}`,
     etc. See `:h switch` for more.
 
-    * `\`` - `:Switch<cr>`
+    * `` ` `` - `:Switch<cr>`

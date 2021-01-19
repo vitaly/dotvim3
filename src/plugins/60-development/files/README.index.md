@@ -1,2 +1,1 @@
-
 *   [Plugins for Developers](#devplugins)
