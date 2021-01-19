@@ -423,7 +423,7 @@ TBD
 
 TBD
 
-<a name="tic-git-integration" />
+<a name="toc-git-integration" />
 
 ### Git Integration
 
