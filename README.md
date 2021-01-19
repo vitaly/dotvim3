@@ -111,6 +111,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
 *   [General Plugins](#general)
     *   [vim-diminactive](#toc-diminactive)
     *   [greplace.vim](#toc-greplace)
+    *   [vim-multiple-cursors](#toc-multi-cursors)
     *   [nerdtree](#toc-nerdtree)
     *   [nerdtree-git](#toc-nerdtree-git)
     *   [nerdtreetabs](#toc-nerdtreetabs)
@@ -168,7 +169,7 @@ The installation is already configured with my default choices, you can review t
 
 Run `make install`
 
-<a name="toc-comfiguration" />
+<a name="toc-configuration" />
 
 ### Configuration ([top](#top))
 
@@ -320,7 +321,7 @@ TBD
     * `:Greplace` - Incorporate the modifications from the replace buffer into
       the corresponding files.
 
-*   <a name="multi-cursors" />[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
+*   <a name="toc-multi-cursors" />[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
 
     TBD: document and provide basic examples
 
@@ -331,7 +332,7 @@ TBD
     * `<leader>ft` - toggle directory browser (**Note:** this is now handled by [nerdtree-tabs](#toc-nerdtreetabs) (see below))
     * `<leader>0` - to find and highlight the currently open file in the tree
 
-*   <a name="nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
+*   <a name="toc-nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
 
     A plugin of NERDTree showing git status flags. Works with the LATEST
     version of NERDTree.
@@ -350,7 +351,7 @@ TBD
             \ "Unknown"   : "?"
             \ }
 
-*   <a name="nerdtreetabs" />[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
+*   <a name="toc-nerdtreetabs" />[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
 
     NERDTree and tabs together in Vim, painlessly
 

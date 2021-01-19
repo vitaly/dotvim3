@@ -13,4 +13,3 @@ coc-tag
 coc-tsserver
 coc-vimlsp
 coc-yank
-coc-elixir

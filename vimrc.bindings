@@ -814,47 +814,6 @@ endif
 
 source ~/.vim/local/vimrc.bindings
 
-" local/plugins/terminal/vimrc.bindings -------------------
+" local/vimrc.bindings -------------------
 
-set shell=$SHELL
-
-" nvim-only config
-if has("nvim")
-  call my#keymap#leader('z', '+Terminal')
-
-  noremap  <silent> <Plug>(Terminal/zsh) :term zsh<cr>
-  nmap     <leader>zz   <Plug>(Terminal/zsh)
-
-  noremap  <silent> <Plug>(Terminal/bash) :term bash<cr>
-  nmap     <leader>zb   <Plug>(Terminal/bash)
-
-  noremap  <silent> <Plug>(Terminal/fish) :term fish<cr>
-  nmap     <leader>zf   <Plug>(Terminal/fish)
-
-  noremap  <silent> <Plug>(Terminal/sh) :term sh<cr>
-  nmap     <leader>zs   <Plug>(Terminal/sh)
-
-  highlight TermCursor ctermfg=red guifg=red
-
-  augroup TerminalInsertHandling
-    au!
-    " for some reason clicking in a terminal buffer exists insert mode
-    au TermOpen                 *  nnoremap <buffer><LeftRelease> <LeftRelease>i
-    " start in insert more
-    au TermOpen,BufEnter,FocusGained term://*  startinsert
-  augroup END
-
-  tnoremap <Esc><space> <C-\><C-n>
-endif
-
-call my#keymap#localleader('e', '+Eval')
-
-map     <silent>        <plug>(Repl/Eval/Line)      <Plug>(neoterm-repl-send-line)
-nmap    <localleader>ee <plug>(Repl/Eval/Line)
-
-map                     <plug>(Repl/Eval)           <Plug>(neoterm-repl-send)
-xmap    <localleader>e  <plug>(Repl/Eval)
-
-nmap    <silent>        <plug>(Repl/Eval/File)      :TREPLSendFile<cr>
-nmap    <localleader>ef <plug>(Repl/Eval/File)
-
+scriptencoding utf8

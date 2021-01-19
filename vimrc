@@ -183,6 +183,10 @@ end
 
 source ~/.vim/local/vimrc
 
+" local/vimrc -------------------
+
+scriptencoding utf8
+
 " src/plugins/99-final/plugins/98-exrc/files/vimrc -------------------
 
 " autoload local project .vimrc files

@@ -86,3 +86,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
 source ~/.vim/local/vimrc.after
+
+" local/vimrc.after -------------------
+
+scriptencoding utf8
