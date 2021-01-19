@@ -1,2 +1,1 @@
-    *   [vim-fugitive](#toc-vim-fugitive)
-    *   [vim-merginal](#toc-vim-merginal)
+*   [Git Intergration](#toc-git-integration)

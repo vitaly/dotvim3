@@ -72,7 +72,7 @@ like it enough to use as-is, thought I did re-use some of the ideas they had.
 ### Status
 
 dotvim3 is in the middle of development, I'm using it for a long time now, but big parts of my current config are not yet commited here.
-If you **really** want to try it out, you'll need my local vim override files from here: <https://github.com/vitaly/dotfiles/tree/vitaly/home>
+If you **really** want to try out the latest with my own local overrides: <https://github.com/vitaly/dotvim3/tree/dev>
 
 Also I switched to Nvim. I do try to configure it in a way that it should work
 with Vim8 but I do not test it. If it doesn't work, please let me know.
@@ -111,6 +111,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
 *   [General Plugins](#general)
     *   [vim-diminactive](#toc-diminactive)
     *   [greplace.vim](#toc-greplace)
+    *   [vim-multiple-cursors](#toc-multi-cursors)
     *   [nerdtree](#toc-nerdtree)
     *   [nerdtree-git](#toc-nerdtree-git)
     *   [nerdtreetabs](#toc-nerdtreetabs)
@@ -125,8 +126,7 @@ If you want to restore the old functionality, you can manually source `~/.vimrc.
         url based hyperlinks for text files
     *   [xterm-color-table](#xterm-color-table)
 *   [Completion](#completion)
-    *   [vim-fugitive](#toc-vim-fugitive)
-    *   [vim-merginal](#toc-vim-merginal)
+*   [Git Intergration](#toc-git-integration)
 *   [fuzzy search tools](#toc-fuzzy-search)
     *   [unite.vim](#toc-unite)
         *   TBD: other Unite plugins
@@ -168,7 +168,7 @@ The installation is already configured with my default choices, you can review t
 
 Run `make install`
 
-<a name="toc-comfiguration" />
+<a name="toc-configuration" />
 
 ### Configuration ([top](#top))
 
@@ -320,7 +320,7 @@ TBD
     * `:Greplace` - Incorporate the modifications from the replace buffer into
       the corresponding files.
 
-*   <a name="multi-cursors" />[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
+*   <a name="toc-multi-cursors" />[vim-multiple-cursors](http://github.com/terryma/vim-multiple-cursors) ([top](#top))
 
     TBD: document and provide basic examples
 
@@ -331,7 +331,7 @@ TBD
     * `<leader>ft` - toggle directory browser (**Note:** this is now handled by [nerdtree-tabs](#toc-nerdtreetabs) (see below))
     * `<leader>0` - to find and highlight the currently open file in the tree
 
-*   <a name="nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
+*   <a name="toc-nerdtree-git" />[nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) ([top](#top))
 
     A plugin of NERDTree showing git status flags. Works with the LATEST
     version of NERDTree.
@@ -350,7 +350,7 @@ TBD
             \ "Unknown"   : "?"
             \ }
 
-*   <a name="nerdtreetabs" />[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
+*   <a name="toc-nerdtreetabs" />[nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs) ([top](#top))
 
     NERDTree and tabs together in Vim, painlessly
 
@@ -421,7 +421,13 @@ TBD
 
 ### Completion
 
-*   <a name="toc-vim-fugitive" />[vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
+TBD
+
+<a name="toc-git-integration" />
+
+### Git Integration
+
+*   [vim-fugitive](http://github.com/tpope/vim-fugitive) ([top](#top))
 
     A Git wrapper so awesome, it should be illegal
 
@@ -456,7 +462,7 @@ TBD
 
     Much more in the plugin's doc
 
-*   <a name="toc-vim-merginal" />[Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
+*   [Merginal](http://github.com/vim-scripts/Merginal) ([top](#top))
 
     * `:Merginal` - open branch list window
 
