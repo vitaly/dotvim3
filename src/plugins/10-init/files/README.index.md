@@ -72,7 +72,7 @@ like it enough to use as-is, thought I did re-use some of the ideas they had.
 ### Status
 
 dotvim3 is in the middle of development, I'm using it for a long time now, but big parts of my current config are not yet commited here.
-If you **really** want to try it out, you'll need my local vim override files from here: <https://github.com/vitaly/dotfiles/tree/vitaly/home>
+If you **really** want to try out the latest with my own local overrides: <https://github.com/vitaly/dotvim3/tree/dev>
 
 Also I switched to Nvim. I do try to configure it in a way that it should work
 with Vim8 but I do not test it. If it doesn't work, please let me know.
