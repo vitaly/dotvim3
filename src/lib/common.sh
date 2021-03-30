@@ -42,10 +42,9 @@ vim_banner() {
 # 'FILE' is used to determin type of banner
 banner() {
   local file=$(clean_path "$1")
-
   case "$file" in
     *.md) ;;
-    *.rb|*.sh|*.gitignore) ruby_banner "$1";;
+    *.rb|*.sh|*.gitignore|*/Gemfile*) ruby_banner "$1";;
     *vimrc|*vimrc.*|*.vim) vim_banner "$1";;
     *) ;;
   esac
