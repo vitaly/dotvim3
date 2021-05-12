@@ -119,8 +119,5 @@
   "solargraph.completion": true,
   "solargraph.definitions": true,
   "solargraph.references": true,
-  "solargraph.checkGemVersion": false,
-
-
-  "list.maxHeight": 40
+  "solargraph.checkGemVersion": false
 }
