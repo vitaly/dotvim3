@@ -4,7 +4,8 @@ fu! Toggle_clipboard()
   else
     let &clipboard=g:clipboard_toggle_mode
   endif
+  echo 'clipboard='.&clipboard
 endfu
 
-noremap                     <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
+noremap <silent>            <plug>(Toggle/Clipboard) :call Toggle_clipboard()<cr>
 nmap    <silent> <leader>TC <plug>(Toggle/Clipboard)
