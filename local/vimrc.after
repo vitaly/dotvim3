@@ -417,3 +417,5 @@ nmap                <leader>TFL                       <plug>(Toggle/Filer/LuaTre
 call BrowseWithNerdTree()
 " call BrowseWithDefx()
 " call BrowseWithLuaTree()
+
+let g:ruby_indent_hanging_elements = 0
