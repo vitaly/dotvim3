@@ -23,6 +23,10 @@ Plug 'blueyed/vim-diminactive'
 
 let g:diminactive_mode = 0
 
+" src/plugins/30-general/plugins/foldtext/files/vimrc.plugins -------------------
+
+Plug 'jrudess/vim-foldtext'
+
 " src/plugins/30-general/plugins/greplace/files/vimrc.plugins -------------------
 
 Plug 'vim-scripts/greplace.vim', { 'on': ['Gsearch', 'Gbuffersearch'] }
