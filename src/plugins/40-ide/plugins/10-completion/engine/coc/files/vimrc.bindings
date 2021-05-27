@@ -42,14 +42,14 @@ exec 'imap <cr>    <Plug>(CustomCocCR)'.maparg('<cr>', 'i')
 " inoremap <expr> <C-J>   pumvisible() ? "\<C-N>"         : "\<C-J>"
 " inoremap <expr> <C-K>   pumvisible() ? "\<C-P>"         : "\<C-K>"
 
-inoremap <C-J> <Down>
 inoremap <C-K> <Up>
+inoremap <C-J> <Down>
 
 inoremap <C-H> <Left>
 inoremap <C-L> <Right>
 
-cnoremap <C-K> <C-P>
-cnoremap <C-J> <C-N>
+cnoremap <C-K> <Up>
+cnoremap <C-J> <Down>
 
 call my#keymap#leader('fec', '+COC')
 
