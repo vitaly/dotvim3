@@ -179,6 +179,14 @@ if has('termguicolors')
   set termguicolors
 end
 
+" src/plugins/20-settings/plugins/vimbits/files/vimrc -------------------
+
+" go to last position in a file when opening it
+augroup RestoreLastFilePosition
+  au!
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
+
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc -------------------
 
 source ~/.vim/local/vimrc
