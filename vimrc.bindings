@@ -53,7 +53,7 @@ map! <S-Insert> <MiddleMouse>
 noremap <plug>(Next) :cn<CR>
 nmap    <leader>n    <plug>(Next)
 
-noremap <plug>(Prev) :cn<CR>
+noremap <plug>(Prev) :cp<CR>
 nmap    <leader>p    <plug>(Prev)
 
 fu! Toggle_diffMode()

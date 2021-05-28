@@ -138,7 +138,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:gutentags_project_root += [ '.ctags.d', 'tags' ]
 " echo g:gutentags_project_root
 
-set mouse=nvc
+" set mouse=nvc
 
 " :GutentagsToggleTrace
 let g:gutentags_generate_on_new = 0
@@ -419,3 +419,40 @@ call BrowseWithNerdTree()
 " call BrowseWithLuaTree()
 
 let g:ruby_indent_hanging_elements = 0
+
+
+
+function! s:railsMoveToCanonicPath()
+  let n = line('.')
+
+  let output = system("ruby ~/.vim/local/ruby/rails/canonic-path.rb '" . expand('%') . "' " . n)
+
+  echo output
+
+  echo 'ok'
+endfunction
+
+command! RMoveToCanonicPath call s:railsMoveToCanonicPath()
+
+call my#keymap#localleader('Rm',  '+Move')
+nnoremap <silent> <localleader>Rmc  :RMoveToCanonicPath<CR>
+
+" nnoremap <silent> <localleader>A :<C-U>Neoformat<CR>
+nmap <silent> <localleader>A :<C-U>!rubocop -A %<CR>
+
+command! Rubo !rubocop -A %
+
+
+let g:wrap_module_name = get(g:, 'wrap_module_name', 'Fb')
+function! s:RWrapModule()
+  exe "normal! ggOmodule ". g:wrap_module_name . "\<Esc>"
+  exe "normal! Goend\<Esc>gg"
+endfunction
+
+command! -bar RWrapModule call s:RWrapModule()
+
+:command! -bar -range -nargs=1 -complete=file MoveSelection  <line1>,<line2>write<bang> <args> | <line1>,<line2>delete | write | edit <args> | RWrapModule | silent Neoformat | silent write
+
+map                    <plug>(Refactoring/Extract-Selection)   :MoveSelection %%
+vmap  <localleader>re  <plug>(Refactoring/Extract-Selection)
+
