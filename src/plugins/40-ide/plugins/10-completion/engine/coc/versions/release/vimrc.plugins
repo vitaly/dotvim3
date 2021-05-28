@@ -1,0 +1,2 @@
+" RELEASE version
+Plug 'neoclide/coc.nvim', {'branch': 'release'}

@@ -12,6 +12,3 @@ let g:coc_status_warning_sign = "!"
 
 " Or build from source code
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
