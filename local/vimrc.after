@@ -441,16 +441,82 @@ nmap <silent> <localleader>A :<C-U>!rubocop -A %<CR>
 command! Rubo !rubocop -A %
 
 
-let g:wrap_module_name = get(g:, 'wrap_module_name', 'Fb')
-function! s:RWrapModule()
-  exe "normal! ggOmodule ". g:wrap_module_name . "\<Esc>"
-  exe "normal! Goend\<Esc>gg"
+
+
+
+
+
+function! s:MoveSelection(line1, line2, target)
+  exe 'normal! ' . a:line1  . 'G'
+  " echom 'starting at line ' . a:line1
+
+  " silent exe "normal! 1/^\\v\\s*module\\s+\<cr>"
+  silent exe '$/\v\s*module\s+'
+
+  " echom 'after search at line ' . line('.')
+
+  let l:n  = -1
+  let l:count = 0
+
+  if a:line1 > 1
+    while line('.') > l:n && line('.') < a:line1
+      let l:n  = line('.')
+      " echom 'found ' l:n . ': ' . getline('.')
+
+      if l:count == 0
+        silent exe '.write! ' . a:target
+      else
+        silent exe '.write! >>' . a:target
+      endif
+
+      let l:count += 1
+
+      silent normal! n
+    endwhile
+  endif
+
+  " echom 'done'
+
+  " copy range into new file
+  silent exe a:line1 ',' a:line2 'write! >>' a:target
+
+  " delete the range from this file
+  silent exe a:line1 ',' a:line2 'delete'
+  silent write
+
+  exe 'normal! ' . a:line1  . 'G'
+  normal! zz
+
+  silent exe 'edit ' a:target
+
+  while l:count > 0
+    " echom 'count=' . l:count
+    normal! Goend
+    let l:count -= 1
+  endwhile
+
+  silent Neoformat
+  write
 endfunction
 
-command! -bar RWrapModule call s:RWrapModule()
-
-:command! -bar -range -nargs=1 -complete=file MoveSelection  <line1>,<line2>write<bang> <args> | <line1>,<line2>delete | write | edit <args> | RWrapModule | silent Neoformat | silent write
+:command!   -bar -range -nargs=1 -complete=file      MoveSelection       call s:MoveSelection(<line1>, <line2>, '<args>')
 
 map                    <plug>(Refactoring/Extract-Selection)   :MoveSelection %%
 vmap  <localleader>re  <plug>(Refactoring/Extract-Selection)
 
+" nnoremap  <localleader>re  :3,5MoveSelection ./bar.rb<cr>
+
+" nmap  <localleader>re  <plug>(Refactoring/Extract-Selection)
+" map                    <plug>(Refactoring/Extract-Selection)   :10,22MoveSelection ./bar.rb<cr>
+" map                    <plug>(Refactoring/Extract-Selection)   :3,5MoveSelection ./bar.rb<cr>
+" <line1>,<line2>write<bang> <args> | <line1>,<line2>delete | write | edit <args> | RWrapModule | silent Neoformat | silent write
+"
+" let g:wrap_module_name = get(g:, 'wrap_module_name', 'Fb')
+" function! s:RWrapModule()
+"   exe "normal! ggOmodule ". g:wrap_module_name . "\<Esc>"
+"   exe "normal! Goend\<Esc>gg"
+" endfunction
+
+" command! -bar RWrapModule call s:RWrapModule()
+
+" :command! -bar -range -nargs=1 -complete=file MoveSelection  <line1>,<line2>write<bang> <args> | <line1>,<line2>delete | write | edit <args> | RWrapModule | silent Neoformat | silent write
