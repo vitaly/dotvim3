@@ -264,8 +264,6 @@ let g:SuperTabDefaultCompletionType = "context"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ~/.vim/local/my/theme/vimrc.theme
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 source ~/.vim/local/my/vimrc.preview
