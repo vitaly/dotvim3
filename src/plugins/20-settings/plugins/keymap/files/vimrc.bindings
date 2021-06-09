@@ -118,8 +118,11 @@ nmap     <leader>w=             <plug>(Window/Rebalance)
 noremap                         <plug>(Window/Swap)                           <C-w>x
 nmap     <leader>wx             <plug>(Window/Swap)
 
-nmap     <leader>w_             <C-w>_
-nmap     <leader>w<bar>        <C-w><bar>
+noremap                         <plug>(Window/Horizontal-Split)               <C-w>_
+nmap     <leader>w_             <plug>(Window/Horizontal-Split)
+
+noremap                         <plug>(Window/Vertical-Split)                 <C-w><bar>
+nmap     <leader>w<bar>         <plug>(Window/Vertical-Split)
 
 nmap                            <plug>(Window/Move-Up)                        <c-w>K
 nmap     <leader>wK             <plug>(Window/Move-Up)
@@ -132,6 +135,9 @@ nmap     <leader>wH             <plug>(Window/Move-Left)
 
 nmap                            <plug>(Window/Move-Right)                     <c-w>L
 nmap     <leader>wL             <plug>(Window/Move-Right)
+
+nmap                            <plug>(Window/Move-To-New-Tab)                <c-w>T
+nmap     <leader>wt             <plug>(Window/Move-To-New-Tab)
 
 noremap                         <plug>(Window/Split)                          :split<cr><c-w>j
 nmap     <leader>ws             <plug>(Window/Split)
