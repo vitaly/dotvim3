@@ -537,3 +537,5 @@ if has('nvim') || has('terminal')
           \ endif
   augroup END
 end
+
+set modelines=2
