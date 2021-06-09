@@ -318,7 +318,7 @@ xnoremap <C-k> :m '<-2<CR>gv=gv
 cnoreabbrev h vert bo h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:is_bash = 1
-map <silent><esc> :silent noh<cr>
+nmap <silent><esc> :silent noh<cr>
 set ic
 
 let g:taskwiki_sort_order = "pri-"
