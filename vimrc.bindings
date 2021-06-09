@@ -747,16 +747,14 @@ nmap     <leader>sy             <plug>(Search/YankRing)
 command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> undojoin | Neoformat" | augroup END
 command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>
 
-let b:autoformat = 0
 fun! ToggleAutoFormat()
-  if b:autoformat
+  if get(b:, 'autoformat', 0)
     echo "autoformat off"
     NoAutoFormat
   else
     echo "autoformat on"
     AutoFormat
   endif
-  " code
 endf
 
 map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
