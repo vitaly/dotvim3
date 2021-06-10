@@ -7,7 +7,7 @@
 
     A Git wrapper so awesome, it should be illegal
 
-    *    `:Gstatus`
+    *    `:G`
 
          Bring up the output of git-status in the preview
          window.  Press `-` to stage or unstage the file on the
