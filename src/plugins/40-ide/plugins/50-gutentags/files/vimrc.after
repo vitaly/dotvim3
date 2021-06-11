@@ -1,0 +1,28 @@
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
+
+let g:gutentags_file_list_command = {
+   \ 'markers': {
+      \ '.git': 'git ls-files',
+      \ '.hg': 'hg files',
+      \ },
+   \ }
+
+" function to dump all gutentags variables
+fu! s:gutentag_dump() abort
+  for l:v in sort(filter(keys(g:), 'v:val =~ "gutentags"'))
+    echon 'g:' . l:v . ' = '
+    echon get(g:, l:v)
+    echo ''
+  endfor
+
+  for l:v in sort(filter(keys(b:), 'v:val =~ "gutentags"'))
+    echon 'b:' . l:v . ' = '
+    echon get(b:, l:v)
+    echo ''
+  endfor
+endfu
+command! GutentagDump call s:gutentag_dump()
+
+call my#keymap#leader('ag', '+Gutentags')
+
+nnoremap  <leader>agd       :<c-u>GutentagDump<cr>

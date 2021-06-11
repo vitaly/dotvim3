@@ -174,7 +174,7 @@ let g:status_line_plugin = 'lightline'
 
 runtime status/lightline.vim
 
-" src/plugins/40-ide/plugins/50-tags/files/vimrc.plugins -------------------
+" src/plugins/40-ide/plugins/50-gutentags/files/vimrc.plugins -------------------
 
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_generate_on_new = 0

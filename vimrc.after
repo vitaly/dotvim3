@@ -68,7 +68,7 @@ endfu
 noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
 nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)
 
-" src/plugins/40-ide/plugins/50-tags/files/vimrc.after -------------------
+" src/plugins/40-ide/plugins/50-gutentags/files/vimrc.after -------------------
 
 call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
 
@@ -78,6 +78,26 @@ let g:gutentags_file_list_command = {
       \ '.hg': 'hg files',
       \ },
    \ }
+
+" function to dump all gutentags variables
+fu! s:gutentag_dump() abort
+  for l:v in sort(filter(keys(g:), 'v:val =~ "gutentags"'))
+    echon 'g:' . l:v . ' = '
+    echon get(g:, l:v)
+    echo ''
+  endfor
+
+  for l:v in sort(filter(keys(b:), 'v:val =~ "gutentags"'))
+    echon 'b:' . l:v . ' = '
+    echon get(b:, l:v)
+    echo ''
+  endfor
+endfu
+command! GutentagDump call s:gutentag_dump()
+
+call my#keymap#leader('ag', '+Gutentags')
+
+nnoremap  <leader>agd       :<c-u>GutentagDump<cr>
 
 " src/plugins/50-fuzzy-tools/plugins/00-unite/files/vimrc.after -------------------
 
