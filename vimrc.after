@@ -34,38 +34,39 @@ let g:which_key_sep = "|"
 
 " hi CocHighlightText cterm=underline gui=underline
 hi CocHighlightText cterm=inverse gui=inverse
-" autocmd CursorHold * silent call CocActionAsync('doHover')
-
-fun! HoverAction()
-  call CocActionAsync('highlight')
-  call CocActionAsync('showSignatureHelp')
-endf
-
-" we have auto-insert on entering a terminal buffer
-" so if we first execute the click, we'll be in insert modee for :call ...
-" so we start hover action first, then click
-" it will work on the new location, not old
-nnoremap <silent><LeftMouse> :call HoverAction()<cr><LeftMouse>
 
 let g:hover_on_hold = get(g:, "hover_on_hold", 1)
-fun! HoverActionOnHold()
+fun! MyHoverActions()
   if g:hover_on_hold
-    call HoverAction()
+    call CocActionAsync('highlight')
   endif
 endf
 
+fun! MyClickActions()
+  call CocActionAsync('highlight')
+endfun
+
+fun! MyMClickActions()
+  if CocAction('ensureDocument')
+    call CocActionAsync('doHover')
+  end
+endfun
+
+nnoremap <silent><LeftMouse> :call MyClickActions()<CR><LeftMouse>
+nnoremap <silent><M-LeftMouse> :call MyMClickActions()<CR><M-LeftMouse>
+
 augroup HoldHoverActions
   au!
-  au CursorHold * silent call HoverActionOnHold()
+  au CursorHold * silent call MyHoverActions()
   au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
-fu! Toggle_hover_on_hold()
+fu! s:toggle_hover_on_hold()
   let g:hover_on_hold = ! g:hover_on_hold
   echo g:hover_on_hold
 endfu
 
-noremap                     <plug>(Toggle/Hover-On-Hold) :call Toggle_hover_on_hold()<cr>
+noremap                     <plug>(Toggle/Hover-On-Hold) :call <SID>s:toggle_hover_on_hold()<cr>
 nmap    <silent> <leader>Th <plug>(Toggle/Hover-On-Hold)
 
 " src/plugins/40-ide/plugins/50-gutentags/files/vimrc.after -------------------
