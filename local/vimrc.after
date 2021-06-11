@@ -138,12 +138,12 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:gutentags_project_root += [ '.ctags.d', 'tags' ]
 " echo g:gutentags_project_root
 
-" set mouse=nvc
 
 " :GutentagsToggleTrace
 let g:gutentags_generate_on_new = 0
 let g:gutentags_generate_on_missing = 0
 
+" set mouse=nvc
 
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
@@ -447,15 +447,41 @@ command! Rubo !rubocop -A %
 
 
 function! s:MoveSelection(line1, line2, target)
-  if a:target == expand('%')
+  " go to line `line1`
+  exe 'normal! ' . a:line1  . 'G0'
+
+  " echo 'starting at line ' . a:line1
+
+  " echo 'target: ' . a:target
+  " echo 'isdir: ' . isdirectory(a:target)
+
+  let path = a:target
+
+  if isdirectory(path)
+    if path[len(path) - 1] != '/'
+      let path .= '/'
+    end
+    " echo 'first line: ' . getline('.')
+    let entity = substitute(getline('.'), '\v\s*(module|class)\s+(\w+).*$', '\2', '')
+    " echo 'entity: ' . entity
+    echom entity
+
+    let filename = system("ruby -r active_support/core_ext/string -e 'puts \"" . entity .  ".rb\".underscore'")
+    " echo 'path: ' . filename
+    let path .= trim(filename)
+  end
+
+  echom path
+
+  if path == expand('%')
     echo "SAME PATH"
     return
   endif
 
-  exe 'normal! ' . a:line1  . 'G'
-  " echom 'starting at line ' . a:line1
+  " echo 'path: ' . path
+  " echo 'isdir: ' . isdirectory(path)
 
-  " silent exe "normal! 1/^\\v\\s*module\\s+\<cr>"
+  " search from the end of the file, so that it wraps to beginning
   silent exe '$/\v\s*module\s+'
 
   " echom 'after search at line ' . line('.')
@@ -469,9 +495,9 @@ function! s:MoveSelection(line1, line2, target)
       " echom 'found ' l:n . ': ' . getline('.')
 
       if l:count == 0
-        silent exe '.write! ' . a:target
+        silent exe '.write! ' . path
       else
-        silent exe '.write! >>' . a:target
+        silent exe '.write! >>' . path
       endif
 
       let l:count += 1
@@ -483,7 +509,7 @@ function! s:MoveSelection(line1, line2, target)
   " echom 'done'
 
   " copy range into new file
-  silent exe a:line1 ',' a:line2 'write! >>' a:target
+  silent exe a:line1 ',' a:line2 'write! >>' path
 
   " delete the range from this file
   silent exe a:line1 ',' a:line2 'delete'
@@ -492,7 +518,7 @@ function! s:MoveSelection(line1, line2, target)
   exe 'normal! ' . a:line1  . 'G'
   normal! zz
 
-  silent exe 'edit ' a:target
+  silent exe 'edit ' path
 
   while l:count > 0
     " echom 'count=' . l:count
@@ -509,7 +535,7 @@ endfunction
 map                    <plug>(Refactoring/Extract-Selection)   :MoveSelection %%
 vmap  <localleader>re  <plug>(Refactoring/Extract-Selection)
 
-" nnoremap  <localleader>re  :3,5MoveSelection ./bar.rb<cr>
+nmap  <localleader>re  ^V%:MoveSelection %%<cr>
 
 " nmap  <localleader>re  <plug>(Refactoring/Extract-Selection)
 " map                    <plug>(Refactoring/Extract-Selection)   :10,22MoveSelection ./bar.rb<cr>
