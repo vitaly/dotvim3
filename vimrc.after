@@ -106,3 +106,25 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " src/plugins/99-final/plugins/10-local-configs/files/vimrc.after -------------------
 
 source ~/.vim/local/vimrc.after
+
+" local/plugins/fileinfotoggle/vimrc.after -------------------
+
+" disable intro message
+set shortmess+=I
+" enable fileinfo
+set shortmess-=F
+" echom &shortmess
+
+fu! s:toggleFileinfoMessages()
+  if &shortmess =~# 'F'
+    set shortmess-=F
+    echo 'fileinfo messages enabled'
+  else
+    set shortmess+=F
+    echo 'fileinfo messages disabled'
+  endif
+endfu
+
+call my#keymap#leader('Tf', '+File')
+noremap                <plug>(Toggle/Fileinfo-Messages)   :<C-U>call <SID>toggleFileinfoMessages()<CR>
+nmap      <leader>Tfi  <plug>(Toggle/Fileinfo-Messages)

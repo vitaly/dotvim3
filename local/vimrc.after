@@ -121,9 +121,6 @@ set cc=+1
 
 let g:ycm_filepath_completion_use_working_dir = 1
 
-" disable intro message
-set shortmess+=I
-
 nmap ,Q :qa<cr>
 
 set virtualedit=all
@@ -408,6 +405,7 @@ fu! BrowseWithLuaTree()
 endfu
 nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :<C-U>call BrowseWithLuaTree()<CR>
 
+call my#keymap#leader('TF', '+Filer')
 nmap                <leader>TFN                       <plug>(Toggle/Filer/NerdTree)
 nmap                <leader>TFD                       <plug>(Toggle/Filer/Defx)
 nmap                <leader>TFL                       <plug>(Toggle/Filer/LuaTree)
