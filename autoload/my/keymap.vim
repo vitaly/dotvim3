@@ -52,6 +52,9 @@ fu! my#keymap#format(name)
   " remove <CR> at the end
   let l:name = substitute(a:name, '\c<cr>$', '', '')
 
+  " remove leading :
+  let l:name = substitute(l:name, '^:', '', '')
+
   " remove leading <c-u>
   let l:name = substitute(l:name, '^\c<c-u>', '', '')
 
