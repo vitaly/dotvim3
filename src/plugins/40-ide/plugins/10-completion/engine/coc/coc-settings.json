@@ -46,10 +46,12 @@
   "signature.preferShownAbove": true,
   "signature.maxWindowHeight": 20,
 
-  "codeLens.enable": false,
+  "codeLens.enable": true,
 
-  "typescript.referencesCodeLens.enable": true,
   "typescript.implementationsCodeLens.enable": true,
+  "typescript.referencesCodeLens.enable": true,
+  "javascript.implementationsCodeLens.enable": true,
+  "javascript.referencesCodeLens.enable": true,
 
   "json.format.enable": true,
 
