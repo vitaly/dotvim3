@@ -97,9 +97,9 @@
 
   "diagnostic.enable": true,
   "diagnostic.level": "hint",
-  "diagnostic.virtualText": false,
-  "diagnostic.messageTarget": "float",
-  "diagnostic.displayByAle": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.displayByAle": false,
 
 
   "diagnostic.errorSign":   "✗", //  
