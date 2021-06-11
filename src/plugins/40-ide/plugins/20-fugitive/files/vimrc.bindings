@@ -12,5 +12,8 @@ xmap    <leader>g                 <plug>(Git/Grep-Selection)
 noremap                           <plug>(Git/Status)                      :G<CR>
 nmap    <leader>gs                <plug>(Git/Status)
 
+noremap                           <plug>(Git/Only-Status)                 :G<CR><c-W>o
+nmap    <leader>go                <plug>(Git/Only-Status)
+
 noremap                           <plug>(Git/Diff)                        :Gdiff<CR>
 nmap    <leader>gd                <plug>(Git/Diff)
