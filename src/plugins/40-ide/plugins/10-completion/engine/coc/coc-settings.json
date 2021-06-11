@@ -1,5 +1,4 @@
 {
-  "coc.preferences.hoverTarget": "float",
   "coc.preferences.formatOnType": false,
   "coc.preferences.extensionUpdateCheck": "daily",
 
@@ -37,13 +36,15 @@
     "variable":      ""    // ""
   },
 
+  // hover
+  "hover.target": "float",
+  "hover.autoHide": true,
 
   // signature
   "signature.target": "float",
   "signature.hideOnTextChange": true,
   "signature.preferShownAbove": true,
   "signature.maxWindowHeight": 20,
-  "signature.triggerSignatureWait": 50,
 
   "codeLens.enable": false,
 
