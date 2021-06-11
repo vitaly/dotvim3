@@ -76,7 +76,7 @@ fu! ShowHighlight()
   echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 endfu
 map ,L :call ShowHighlight()<cr>
-command! HI call ShowHighlight()<cr>
+command! HI call ShowHighlight()
 
 set modeline
 
