@@ -25,4 +25,4 @@ command! GutentagDump call s:gutentag_dump()
 
 call my#keymap#leader('ag', '+Gutentags')
 
-nnoremap  <leader>agd       :<c-u>GutentagDump<cr>
+nnoremap  <leader>agd       :GutentagDump<cr>

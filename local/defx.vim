@@ -140,7 +140,7 @@ function! s:defx_my_settings() abort
   " nnoremap <silent><buffer><expr>   cd           defx#do_action('change_vim_cwd')
 endfunction
 
-nnoremap  <silent>    <plug>(Defx/Toggle)       :<c-u>Defx
+nnoremap  <silent>    <plug>(Defx/Toggle)       :Defx
       \ -split=vertical
       \ -direction=topleft
       \ -winwidth=30
@@ -149,7 +149,7 @@ nnoremap  <silent>    <plug>(Defx/Toggle)       :<c-u>Defx
 
 nmap                  <leader>.                 <plug>(Defx/Toggle)
 
-nnoremap  <silent>    <plug>(Defx/Find-File)    :<c-u>Defx
+nnoremap  <silent>    <plug>(Defx/Find-File)    :Defx
       \ -split=vertical
       \ -direction=topleft
       \ -winwidth=30

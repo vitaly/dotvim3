@@ -10,8 +10,8 @@ let g:topdict[','] = g:my#keymap#localleader#map
 let g:topdict[',']['name'] = '<localleader>'
 call leaderGuide#register_prefix_descriptions("", "g:topdict")
 
-nnoremap <silent> <leader>      :<c-u>LeaderGuide       ' '<CR>
-nnoremap <silent> <localleader> :<c-u>LeaderGuide       ','<CR>
+nnoremap <silent> <leader>      :LeaderGuide       ' '<CR>
+nnoremap <silent> <localleader> :LeaderGuide       ','<CR>
 xnoremap <silent> <leader>      :<c-u>LeaderGuideVisual ' '<CR>
 xnoremap <silent> <localleader> :<c-u>LeaderGuideVisual ','<CR>
 

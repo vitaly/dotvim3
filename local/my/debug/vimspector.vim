@@ -41,11 +41,11 @@ function! GetCurrentSelection()
   endtry
 endfunction
 
-nnoremap                          <plug>(Debugger/Enter)                    :<C-U>call <SID>enterDebugger()<cr>
-nnoremap                          <plug>(Debugger/Launch)                   :<C-U>call vimspector#Launch()<cr>
+nnoremap                          <plug>(Debugger/Enter)                    :call <SID>enterDebugger()<cr>
+nnoremap                          <plug>(Debugger/Launch)                   :call vimspector#Launch()<cr>
 
-nnoremap                          <plug>(Debugger/Leave)                    :<C-U>call <SID>leaveDebugger()<cr>
-nnoremap                          <plug>(Debugger/Reset)                    :<C-U>call vimspector#Reset()<cr>
+nnoremap                          <plug>(Debugger/Leave)                    :call <SID>leaveDebugger()<cr>
+nnoremap                          <plug>(Debugger/Reset)                    :call vimspector#Reset()<cr>
 
 
 nmap                              <plug>(Debugger/Start)                    <plug>(Debugger/Enter)<plug>(Debugger/Launch)
@@ -66,7 +66,7 @@ map                               <plug>(Debugger/Toggle-Breakpoint)        <Plu
 nmap        <leader>db            <plug>(Debugger/Toggle-Breakpoint)
 nmap        <leader>d<space>      <plug>(Debugger/Toggle-Breakpoint)
 
-nnoremap                          <plug>(Debugger/Clear-All-Breakpoints)    :<C-U>call vimspector#ClearBreakpoints()<cr>
+nnoremap                          <plug>(Debugger/Clear-All-Breakpoints)    :call vimspector#ClearBreakpoints()<cr>
 nmap        <leader>dB            <plug>(Debugger/Clear-All-Breakpoints)
 
 map                               <plug>(Debugger/Step-Over)                <plug>(Debugger/Enter)<Plug>VimspectorStepOver
@@ -89,18 +89,18 @@ nmap        <leader>d<esc>        <plug>(Debugger/Stop)
 
 call my#keymap#leader('dW', '+Window')
 
-nnoremap                          <plug>(Debugger/Window/Console)           :<C-U>VimspectorShowOutput Console<cr>
+nnoremap                          <plug>(Debugger/Window/Console)           :VimspectorShowOutput Console<cr>
 nmap        <leader>dWc           <plug>(Debugger/Window/Console)
 
-nnoremap                          <plug>(Debugger/Window/Breakpoints)       :<C-U>call vimspector#ListBreakpoints()<cr>
+nnoremap                          <plug>(Debugger/Window/Breakpoints)       :call vimspector#ListBreakpoints()<cr>
 nmap        <leader>dWb           <plug>(Debugger/Window/Breakpoints)
 
-nnoremap                          <plug>(Debugger/Window/Log)               :<C-U>VimspectorToggleLog<cr>
+nnoremap                          <plug>(Debugger/Window/Log)               :VimspectorToggleLog<cr>
 nmap        <leader>dWl           <plug>(Debugger/Window/Log)
 
 
 call my#keymap#leader('dw', '+Watch')
-nnoremap                          <plug>(Debugger/Watch/Word-Under-Cursor)  :<C-U>VimspectorWatch<space><C-R><C-W><CR>
+nnoremap                          <plug>(Debugger/Watch/Word-Under-Cursor)  :VimspectorWatch<space><C-R><C-W><CR>
 nmap        <leader>dww           <plug>(Debugger/Watch/Word-Under-Cursor)
 
 xnoremap                          <plug>(Debugger/Watch-Selection)          :<C-U>VimspectorWatch<space><C-R>=GetCurrentSelection()<CR><CR>
@@ -108,7 +108,7 @@ xmap        <leader>dw            <plug>(Debugger/Watch-Selection)
 
 
 call my#keymap#leader('dl', '+Eval')
-nnoremap                          <plug>(Debugger/Eval/Word-Under-Cursor)  :<C-U>VimspectorEval<space><C-R><C-W><CR>
+nnoremap                          <plug>(Debugger/Eval/Word-Under-Cursor)  :VimspectorEval<space><C-R><C-W><CR>
 nmap        <leader>dee           <plug>(Debugger/Eval/Word-Under-Cursor)
 
 xnoremap                          <plug>(Debugger/Eval/Selection)          :<C-U>VimspectorEval<space><C-R>=GetCurrentSelection()<CR><CR>

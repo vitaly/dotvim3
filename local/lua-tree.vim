@@ -50,17 +50,17 @@ autocmd FileType LuaTree call s:lua_tree_settings()
 
 function! s:lua_tree_settings() abort
 
-  nnoremap <buffer>     q       :<C-U>LuaTreeClose<CR>
-  nnoremap <buffer>     A       :<C-U>call <SID>toggleZoom()<CR>
+  nnoremap <buffer>     q       :LuaTreeClose<CR>
+  nnoremap <buffer>     A       :call <SID>toggleZoom()<CR>
 
   highlight LuaTreeFolderIcon guifg=yellow
 endfunction
 
 
-nnoremap  <silent>  <plug>(LuaTree/Toggle)      :<C-U>LuaTreeToggle<CR>
+nnoremap  <silent>  <plug>(LuaTree/Toggle)      :LuaTreeToggle<CR>
 nmap                \]                          <plug>(LuaTree/Toggle)
 
-nnoremap  <silent>  <plug>(LuaTree/Find-File)   :<C-U>LuaTreeFindFile<CR>
+nnoremap  <silent>  <plug>(LuaTree/Find-File)   :LuaTreeFindFile<CR>
 nmap                \0                          <plug>(LuaTree/Find-File)
 
 

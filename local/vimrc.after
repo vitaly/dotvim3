@@ -378,7 +378,7 @@ nmap     <leader>ww               <plug>(File/Save)
 
 
 set noequalalways
-nnoremap        <plug>(Toggle/Equal-Windows)    :<C-U>set equalalways!<CR>
+nnoremap        <plug>(Toggle/Equal-Windows)    :<set equalalways!<CR>
 nmap            <leader>TQ                      <plug>(Toggle/Equal-Windows)
 
 
@@ -386,19 +386,19 @@ fu! BrowseWithNerdTree()
   noremap <silent>  <plug>(Toggle/File-Tree)          :<C-U>NERDTreeTabsToggle<CR>
   noremap <silent>  <plug>(Tree-Find-File)            :<C-U>NERDTreeFind<CR>
 endfu
-nnoremap  <silent>  <plug>(Toggle/Filer/NerdTree)     :<C-U>call BrowseWithNerdTree()<CR>
+nnoremap  <silent>  <plug>(Toggle/Filer/NerdTree)     :call BrowseWithNerdTree()<CR>
 
 fu! BrowseWithDefx()
   nmap              <plug>(Toggle/File-Tree)          <plug>(Defx/Toggle)
   nmap              <plug>(Tree-Find-File)            <plug>(Defx/Find-File)
 endfu
-nnoremap  <silent>  <plug>(Toggle/Filer/Defx)         :<C-U>call BrowseWithDefx()<CR>
+nnoremap  <silent>  <plug>(Toggle/Filer/Defx)         :call BrowseWithDefx()<CR>
 
 fu! BrowseWithLuaTree()
   nmap              <plug>(Toggle/File-Tree)          <plug>(LuaTree/Toggle)
   nmap              <plug>(Tree-Find-File)            <plug>(LuaTree/Find-File)
 endfu
-nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :<C-U>call BrowseWithLuaTree()<CR>
+nnoremap  <silent>  <plug>(Toggle/Filer/LuaTree)      :call BrowseWithLuaTree()<CR>
 
 call my#keymap#leader('TF', '+Filer')
 nmap                <leader>TFN                       <plug>(Toggle/Filer/NerdTree)
@@ -428,8 +428,8 @@ command! RMoveToCanonicPath call s:railsMoveToCanonicPath()
 call my#keymap#localleader('Rm',  '+Move')
 nnoremap <silent> <localleader>Rmc  :RMoveToCanonicPath<CR>
 
-" nnoremap <silent> <localleader>A :<C-U>Neoformat<CR>
-nmap <silent> <localleader>A :<C-U>!rubocop -A %<CR>
+" nnoremap <silent> <localleader>A :Neoformat<CR>
+nmap <silent> <localleader>A :!rubocop -A %<CR>
 
 command! Rubo !rubocop -A %
 
