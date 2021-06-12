@@ -61,8 +61,6 @@ Plug 'tpope/vim-projectionist'
 
 " Plug 'joshdick/onedark.vim'
 
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
 " Plug 'rafi/awesome-vim-colorschemes'
 " Plug 'flazz/vim-colorschemes'
 
