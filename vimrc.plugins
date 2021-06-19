@@ -215,9 +215,9 @@ endif
 
 nmap <leader>bb <plug>fuzzy(buffer)
 
-" src/plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/unite/vimrc.plugins -------------------
+" src/plugins/50-fuzzy-tools/plugins/20-fuzzy-buffers/fzf/vimrc.plugins -------------------
 
-noremap <plug>fuzzy(buffer) :Unite -start-insert -no-split -buffer-name=buffer buffer<cr>
+noremap <plug>fuzzy(buffer) :Buffers<cr>
 
 " src/plugins/50-fuzzy-tools/plugins/30-fuzzy-quickfix/fzf/vimrc.plugins -------------------
 

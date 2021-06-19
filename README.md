@@ -519,7 +519,7 @@ TBD
 
 *   <a name="fuzzy-buffers" />Buffer search ([top](#top))
 
-    * `<leader>bb` - `:Unite buffer` - fuzzy search open buffers
+    * `<leader>bb` - `:Buffers` - fuzzy search open buffers with [FSF](#fsf)
 
 *   <a name="fuzzy-quickfix" />Quickfix search ([top](#top))
 
