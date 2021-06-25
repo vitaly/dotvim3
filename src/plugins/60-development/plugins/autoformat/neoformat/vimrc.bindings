@@ -1,21 +1,6 @@
-command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> undojoin | Neoformat" | augroup END
-command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>
-
-fun! ToggleAutoFormat()
-  if get(b:, 'autoformat', 0)
-    echo "autoformat off"
-    NoAutoFormat
-  else
-    echo "autoformat on"
-    AutoFormat
-  endif
-endf
-
-map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
-nmap    <silent> <leader>Ta            <plug>(Toggle/AutoFormat)
-
 " it is better to run prettier from the project directory
 " TODO: integrate 'project-root' here
+command! Autoformat Neoformat
 
 if executable('node_modules/.bin/prettier')
   let g:neoformat_typescript_prettier = {

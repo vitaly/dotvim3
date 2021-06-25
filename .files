@@ -17,8 +17,5 @@ ftdetect/coc-settings.vim
 scripts/install-extensions.sh
 deps/coc-extensions.txt
 status/lightline.vim
-ftplugin/javascript.vim
-ftplugin/typescript.vim
-ftplugin/typescriptreact.vim
 ftplugin/vim.vim
 README.md

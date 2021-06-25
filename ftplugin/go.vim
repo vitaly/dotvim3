@@ -1,5 +1,5 @@
-augroup JsNeoformatOnSave
-  au! * <buffer>
-  :AutoFormat
-augroup END
+" augroup JsNeoformatOnSave
+"   au! * <buffer>
+"   :AutoformatOn
+" augroup END
 setlocal nolist
