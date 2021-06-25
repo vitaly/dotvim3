@@ -757,7 +757,7 @@ endif
 noremap                         <plug>(Search/YankRing)                              :YRShow<cr>
 nmap     <leader>sy             <plug>(Search/YankRing)
 
-" src/plugins/60-development/plugins/neoformat/files/vimrc.bindings -------------------
+" src/plugins/60-development/plugins/autoformat/neoformat/vimrc.bindings -------------------
 
 command! AutoFormat   let b:autoformat = 1| augroup AutoFormat | exe "au! * <buffer>" | exe "au BufWritePre <buffer> undojoin | Neoformat" | augroup END
 command! NoAutoFormat let b:autoformat = 0| au! AutoFormat * <buffer>

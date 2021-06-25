@@ -1,4 +1,4 @@
 
-" src/plugins/60-development/plugins/neoformat/files/ftplugin/typescriptreact.vim -------------------
+" src/plugins/60-development/plugins/autoformat/neoformat/ftplugin/typescriptreact.vim -------------------
 
 AutoFormat

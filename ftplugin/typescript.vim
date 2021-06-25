@@ -1,4 +1,4 @@
 
-" src/plugins/60-development/plugins/neoformat/files/ftplugin/typescript.vim -------------------
+" src/plugins/60-development/plugins/autoformat/neoformat/ftplugin/typescript.vim -------------------
 
 AutoFormat

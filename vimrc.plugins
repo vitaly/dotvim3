@@ -251,6 +251,10 @@ let g:yankring_window_height = 20
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 
+" src/plugins/60-development/plugins/autoformat/neoformat/vimrc.plugins -------------------
+
+Plug 'sbdchd/neoformat'
+
 " src/plugins/60-development/plugins/delimitmate/files/vimrc.plugins -------------------
 
 Plug 'Raimondi/delimitMate'
@@ -281,10 +285,6 @@ Plug 'tpope/vim-endwise'
 
 " hide .gitignore-d files from vim
 Plug 'vitaly/vim-gitignore'
-
-" src/plugins/60-development/plugins/neoformat/files/vimrc.plugins -------------------
-
-Plug 'sbdchd/neoformat'
 
 " src/plugins/60-development/plugins/surround/files/vimrc.plugins -------------------
 
