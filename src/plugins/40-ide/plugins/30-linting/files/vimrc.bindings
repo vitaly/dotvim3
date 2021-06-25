@@ -1,16 +1,28 @@
 call my#keymap#leader('aa', '+ALE')
 
-map                   <plug>(App/ALE/Fix)         <plug>(ale_fix)
+map                   <plug>(App/ALE/Fix)               <plug>(ale_fix)
 nmap <leader>aaF      <plug>(App/ALE/Fix)
 
-map                   <plug>(App/ALE/First)       <plug>(ale_first)
+map                   <plug>(App/ALE/First)             <plug>(ale_first)
 nmap <leader>aaf      <plug>(App/ALE/First)
 
-map                   <plug>(App/ALE/Next)        <plug>(ale_next_wrap)
+map                   <plug>(App/ALE/Next)              <plug>(ale_next_wrap)
 nmap <leader>aan      <plug>(App/ALE/Next)
 
-map                   <plug>(App/ALE/Prev)        <plug>(ale_previous_wrap)
+map                   <plug>(App/ALE/Prev)              <plug>(ale_previous_wrap)
 nmap <leader>aap      <plug>(App/ALE/Prev)
 
-map                   <plug>(App/ALE/Detail)      <plug>(ale_detail)
+map                   <plug>(App/ALE/Detail)            <plug>(ale_detail)
 nmap <leader>aad      <plug>(App/ALE/Detail)
+
+nnoremap              <plug>(App/ALE/Enable)            :ALEEnable<CR>
+nmap <leader>aaE      <plug>(App/ALE/Enable)
+
+nnoremap              <plug>(App/ALE/Enable-Buffer)     :ALEEnableBuffer<CR>
+nmap <leader>aaEb     <plug>(App/ALE/Enable-Buffer)
+
+nnoremap              <plug>(App/ALE/Disable)           :ALEDisable<CR>
+nmap <leader>aaD      <plug>(App/ALE/Disable)
+
+nnoremap              <plug>(App/ALE/Disable-Buffer)    :ALEDisableBuffer<CR>
+nmap <leader>aaDb     <plug>(App/ALE/Disable-Buffer)
