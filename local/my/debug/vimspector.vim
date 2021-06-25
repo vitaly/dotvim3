@@ -2,34 +2,6 @@ Plug 'puremourning/vimspector'
 
 call my#keymap#leader('d', '+Debug')
 
-let s:started = 0
-fu! s:enterDebugger()
-  if 0 == s:started
-    let s:signcolumn  = &signcolumn
-    set signcolumn=yes:4
-
-    let s:equalalways = &equalalways
-    set noequalalways
-
-    let s:started = 1
-  endif
-endfu
-
-fu! s:leaveDebugger()
-  echom 'leaving...'
-  if 1 == s:started
-    let &signcolumn  = s:signcolumn
-    unlet s:signcolumn
-
-    let &equalalways = s:equalalways
-    unlet s:equalalways
-
-    let s:started = 0
-  else
-    echom "WARNING: exiting debugger while not in debugging state"
-  endif
-endfu
-
 " function! my#visual#selection()
 function! GetCurrentSelection()
   try
@@ -41,49 +13,118 @@ function! GetCurrentSelection()
   endtry
 endfunction
 
-nnoremap                          <plug>(Debugger/Enter)                    :call <SID>enterDebugger()<cr>
+function! DisableBufferDiagnostic()
+  let b:coc_diagnostic_disable = 1
+  ALEDisableBuffer
+endfunction
+command! DisableBufferDiagnostic call DisableBufferDiagnostic()
+
+function! EnableBufferDiagnostic()
+  let b:coc_diagnostic_disable = 0
+  unlet b:coc_diagnostic_disable
+  ALEEnableBuffer
+endfunction
+command! EnableBufferDiagnostic call EnableBufferDiagnostic()
+
+function! ToggleBufferDiagnostic()
+  if get(b:, 'coc_diagnostic_disable', 0)
+    call EnableBufferDiagnostic()
+    echo 'enabled'
+  else
+    call DisableBufferDiagnostic()
+    echo 'disabled'
+  end
+endfunction
+command! ToggleBufferDiagnostic call ToggleBufferDiagnostic()
+
+let s:started = 0
+fu! s:enterDebugger()
+  if 0 == s:started
+    echo 'starting debugger'
+    let s:signcolumn  = &signcolumn
+    set signcolumn=yes:4
+
+    let s:equalalways = &equalalways
+    set noequalalways
+
+    DisableBufferDiagnostic
+
+    let s:started = 1
+  endif
+endfu
+
+fu! s:leaveDebugger()
+  if 1 == s:started
+    echom 'leaving debugger'
+
+    let &signcolumn  = s:signcolumn
+    unlet s:signcolumn
+
+    let &equalalways = s:equalalways
+    unlet s:equalalways
+
+    EnableBufferDiagnostic
+
+    let s:started = 0
+  else
+    echom "WARNING: exiting debugger while not in debugging state"
+  endif
+endfu
+
+
+nnoremap                          <plug>(Toggle/Diagnostic)                 :ToggleBufferDiagnostic<cr>
+nmap        <leader>Tbd           <plug>(Toggle/Diagnostic)
+
+nnoremap                          <plug>(Buffer/Diagnostic/Enable)          :EnableBufferDiagnostic<cr>
+nnoremap                          <plug>(Buffer/Diagnostic/Disable)         :DisableBufferDiagnostic<cr>
+
+nmap                              <plug>(Debugger/Enter)                    :call <SID>enterDebugger()<cr>
 nnoremap                          <plug>(Debugger/Launch)                   :call vimspector#Launch()<cr>
 
-nnoremap                          <plug>(Debugger/Leave)                    :call <SID>leaveDebugger()<cr>
+nmap                              <plug>(Debugger/Leave)                    :call <SID>leaveDebugger()<cr>
 nnoremap                          <plug>(Debugger/Reset)                    :call vimspector#Reset()<cr>
+
 
 
 nmap                              <plug>(Debugger/Start)                    <plug>(Debugger/Enter)<plug>(Debugger/Launch)
 nmap        <leader>ds            <plug>(Debugger/Start)
 
-nmap                              <plug>(Debugger/Terminate)                <plug>(Debugger/Leave)<plug>(Debugger/Reset)
+nmap                              <plug>(Debugger/Terminate)                <plug>(Debugger/Reset)<plug>(Debugger/Leave)
 nmap        <leader>dx            <plug>(Debugger/Terminate)
 
 
-map                               <plug>(Debugger/Continue)                 <plug>(Debugger/Enter)<Plug>VimspectorContinue
+nmap                              <plug>(Debugger/Continue)                 <plug>(Debugger/Enter)<Plug>VimspectorContinue
 nmap        <leader>d<cr>         <plug>(Debugger/Continue)
 
-map                               <plug>(Debugger/Run-To-Cursor)            <plug>(Debugger/Enter)<Plug>VimspectorRunToCursor
+nmap                              <plug>(Debugger/Run-To-Cursor)            <plug>(Debugger/Enter)<Plug>VimspectorRunToCursor
 nmap        <leader>dr            <plug>(Debugger/Run-To-Cursor)
 
 
-map                               <plug>(Debugger/Toggle-Breakpoint)        <Plug>VimspectorToggleBreakpoint
+nmap                              <plug>(Debugger/Toggle-Breakpoint)        <Plug>VimspectorToggleBreakpoint
 nmap        <leader>db            <plug>(Debugger/Toggle-Breakpoint)
 nmap        <leader>d<space>      <plug>(Debugger/Toggle-Breakpoint)
 
 nnoremap                          <plug>(Debugger/Clear-All-Breakpoints)    :call vimspector#ClearBreakpoints()<cr>
 nmap        <leader>dB            <plug>(Debugger/Clear-All-Breakpoints)
 
-map                               <plug>(Debugger/Step-Over)                <plug>(Debugger/Enter)<Plug>VimspectorStepOver
+nmap                              <plug>(Debugger/Step-Over)                <plug>(Debugger/Enter)<Plug>VimspectorStepOver
 nmap        <leader>do            <plug>(Debugger/Step-Over)
 nmap        <leader>d;            <plug>(Debugger/Step-Over)
 nmap        <leader>d<right>      <plug>(Debugger/Step-Over)
+nmap        <leader><right>      <plug>(Debugger/Step-Over)
 
-map                               <plug>(Debugger/Step-Into)                <plug>(Debugger/Enter)<Plug>VimspectorStepInto
+nmap                              <plug>(Debugger/Step-Into)                <plug>(Debugger/Enter)<Plug>VimspectorStepInto
 nmap        <leader>di            <plug>(Debugger/Step-Into)
 nmap        <leader>d.            <plug>(Debugger/Step-Into)
 nmap        <leader>d<down>       <plug>(Debugger/Step-Into)
+nmap        <leader><down>       <plug>(Debugger/Step-Into)
 
-map                               <plug>(Debugger/Step-Out)                 <plug>(Debugger/Enter)<Plug>VimspectorStepOut
+nmap                              <plug>(Debugger/Step-Out)                 <plug>(Debugger/Enter)<Plug>VimspectorStepOut
 nmap        <leader>dO            <plug>(Debugger/Step-Out)
 nmap        <leader>d<up>         <plug>(Debugger/Step-Out)
+nmap        <leader><up>         <plug>(Debugger/Step-Out)
 
-map                               <plug>(Debugger/Stop)                     <Plug>VimspectorStop
+nmap                              <plug>(Debugger/Stop)                     <Plug>VimspectorStop
 nmap        <leader>d<esc>        <plug>(Debugger/Stop)
 
 
@@ -99,18 +140,16 @@ nnoremap                          <plug>(Debugger/Window/Log)               :Vim
 nmap        <leader>dWl           <plug>(Debugger/Window/Log)
 
 
-call my#keymap#leader('dw', '+Watch')
-nnoremap                          <plug>(Debugger/Watch/Word-Under-Cursor)  :VimspectorWatch<space><C-R><C-W><CR>
-nmap        <leader>dww           <plug>(Debugger/Watch/Word-Under-Cursor)
+nnoremap                          <plug>(Debugger/Watch-Word-Under-Cursor)  :VimspectorWatch<space><C-R><C-W><CR>
+nmap        <leader>dw            <plug>(Debugger/Watch-Word-Under-Cursor)
 
 xnoremap                          <plug>(Debugger/Watch-Selection)          :<C-U>VimspectorWatch<space><C-R>=GetCurrentSelection()<CR><CR>
 xmap        <leader>dw            <plug>(Debugger/Watch-Selection)
 
 
-call my#keymap#leader('dl', '+Eval')
-nnoremap                          <plug>(Debugger/Eval/Word-Under-Cursor)  :VimspectorEval<space><C-R><C-W><CR>
-nmap        <leader>dee           <plug>(Debugger/Eval/Word-Under-Cursor)
+nnoremap                          <plug>(Debugger/Eval-Word-Under-Cursor)  :VimspectorEval<space><C-R><C-W><CR>
+nmap        <leader>de            <plug>(Debugger/Eval-Word-Under-Cursor)
 
-xnoremap                          <plug>(Debugger/Eval/Selection)          :<C-U>VimspectorEval<space><C-R>=GetCurrentSelection()<CR><CR>
-xmap        <leader>de            <plug>(Debugger/Eval/Selection)
+xnoremap                          <plug>(Debugger/Eval-Selection)          :<C-U>VimspectorEval<space><C-R>=GetCurrentSelection()<CR><CR>
+xmap        <leader>de            <plug>(Debugger/Eval-Selection)
 

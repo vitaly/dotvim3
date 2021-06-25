@@ -1,0 +1,13 @@
+
+{
+  "configurations": {
+    "launch current file": {
+      "adapter": "cust_vscode-ruby",
+      "configuration": {
+        "request": "launch",
+        "program": "${file}",
+        "args": [ "*${args}" ]
+      }
+    }
+  }
+}
