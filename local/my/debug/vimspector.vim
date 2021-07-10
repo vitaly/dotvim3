@@ -14,12 +14,14 @@ function! GetCurrentSelection()
 endfunction
 
 function! DisableBufferDiagnostic()
+  echom 'disabling diagnostic'
   let b:coc_diagnostic_disable = 1
   ALEDisableBuffer
 endfunction
 command! DisableBufferDiagnostic call DisableBufferDiagnostic()
 
 function! EnableBufferDiagnostic()
+  echom 'enabling diagnostic'
   let b:coc_diagnostic_disable = 0
   unlet b:coc_diagnostic_disable
   ALEEnableBuffer
@@ -29,20 +31,19 @@ command! EnableBufferDiagnostic call EnableBufferDiagnostic()
 function! ToggleBufferDiagnostic()
   if get(b:, 'coc_diagnostic_disable', 0)
     call EnableBufferDiagnostic()
-    echo 'enabled'
+    echom 'bufffer diagnosting enabled'
   else
     call DisableBufferDiagnostic()
-    echo 'disabled'
+    echom 'buffer diagnostic disabled'
   end
 endfunction
 command! ToggleBufferDiagnostic call ToggleBufferDiagnostic()
 
 let s:started = 0
 fu! s:enterDebugger()
+  echom "enterDebugger: s:started=" . s:started
   if 0 == s:started
-    echo 'starting debugger'
-    let s:signcolumn  = &signcolumn
-    set signcolumn=yes:4
+    echom 'starting debugger'
 
     let s:equalalways = &equalalways
     set noequalalways
@@ -53,12 +54,14 @@ fu! s:enterDebugger()
   endif
 endfu
 
+fu! s:onEnterDebugger()
+  set signcolumn=yes:4
+endfu
+
 fu! s:leaveDebugger()
+  echom "leaveDebugger: s:started=" . s:started
   if 1 == s:started
     echom 'leaving debugger'
-
-    let &signcolumn  = s:signcolumn
-    unlet s:signcolumn
 
     let &equalalways = s:equalalways
     unlet s:equalalways
@@ -79,6 +82,7 @@ nnoremap                          <plug>(Buffer/Diagnostic/Enable)          :Ena
 nnoremap                          <plug>(Buffer/Diagnostic/Disable)         :DisableBufferDiagnostic<cr>
 
 nmap                              <plug>(Debugger/Enter)                    :call <SID>enterDebugger()<cr>
+nmap                              <plug>(Debugger/OnEnter)                    :call <SID>onEnterDebugger()<cr>
 nnoremap                          <plug>(Debugger/Launch)                   :call vimspector#Launch()<cr>
 
 nmap                              <plug>(Debugger/Leave)                    :call <SID>leaveDebugger()<cr>
@@ -86,7 +90,7 @@ nnoremap                          <plug>(Debugger/Reset)                    :cal
 
 
 
-nmap                              <plug>(Debugger/Start)                    <plug>(Debugger/Enter)<plug>(Debugger/Launch)
+nmap                              <plug>(Debugger/Start)                    <plug>(Debugger/Enter)<plug>(Debugger/Launch)<plug>(Debugger/OnEnter)
 nmap        <leader>ds            <plug>(Debugger/Start)
 
 nmap                              <plug>(Debugger/Terminate)                <plug>(Debugger/Reset)<plug>(Debugger/Leave)
