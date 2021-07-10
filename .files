@@ -18,4 +18,12 @@ scripts/install-extensions.sh
 deps/coc-extensions.txt
 status/lightline.vim
 ftplugin/vim.vim
+ftplugin/javascript.vim
+ftplugin/dockerfile.vim
+ftplugin/ruby.vim
+ftplugin/json.vim
+ftplugin/typescript.vim
+ftplugin/yaml.vim
+ftdetect/fileflow.vim
+after/ftplugin/typescript.vim
 README.md
