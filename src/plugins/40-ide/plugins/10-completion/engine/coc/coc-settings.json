@@ -5,9 +5,8 @@
   "suggest.timeout": 5000,
   "suggest.noselect": true,
   "suggest.enablePreview": true,
-
+  "suggest.floatEnable": true,
   "suggest.snippetIndicator": "\t", // "\t", "\t",   "ﲖ" "",
-
   "suggest.completionItemKindLabels": {
     "class": "", // "",
     "color": "", // "",
@@ -50,6 +49,7 @@
 
   "typescript.implementationsCodeLens.enable": true,
   "typescript.referencesCodeLens.enable": true,
+  "typescript.suggest.enabled": true,
   "javascript.implementationsCodeLens.enable": true,
   "javascript.referencesCodeLens.enable": true,
 
@@ -116,5 +116,8 @@
   "solargraph.completion": true,
   "solargraph.definitions": true,
   "solargraph.references": true,
-  "solargraph.checkGemVersion": false
+  "solargraph.checkGemVersion": false,
+  "solargraph.useBundler": true,
+  "solargraph.trace.server": "verbose",
+  "solargraph.logLevel": "debug"
 }
