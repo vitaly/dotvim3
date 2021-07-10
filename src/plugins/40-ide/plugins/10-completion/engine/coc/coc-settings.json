@@ -9,31 +9,31 @@
   "suggest.snippetIndicator": "\t", // "\t", "\t",   "ﲖ" "",
 
   "suggest.completionItemKindLabels": {
-    "class":         "",   // "",
-    "color":         "",   // "",
-    "constant":      "",   // "",
-    "default":       "",   // "",
-    "enum":          "",   // "",
-    "enumMember":    "",   // "",
-    "event":         "",   //
-    "field":         "",   //
-    "file":          "",   // "",
-    "folder":        "",   // "",
-    "function":      "ƒ",   // "",
-    "interface":     "",   //
-    "keyword":       "",   // "",
-    "method":        "",   // "",
-    "module":        "",   // "",
-    "operator":      "Ψ",   //
-    "property":      "",   //
-    "reference":     "",   // "",
-    "snippet":       "",   // "",
-    "struct":        "פּ",   // "פּ",
-    "text":          "",   // "",
-    "typeParameter": "",   // "",
-    "unit":          "",   // "",
-    "value":         "",   // "",
-    "variable":      ""    // ""
+    "class": "", // "",
+    "color": "", // "",
+    "constant": "", // "",
+    "default": "", // "",
+    "enum": "", // "",
+    "enumMember": "", // "",
+    "event": "", //
+    "field": "", //
+    "file": "", // "",
+    "folder": "", // "",
+    "function": "ƒ", // "",
+    "interface": "", //
+    "keyword": "", // "",
+    "method": "", // "",
+    "module": "", // "",
+    "operator": "Ψ", //
+    "property": "", //
+    "reference": "", // "",
+    "snippet": "", // "",
+    "struct": "פּ", // "פּ",
+    "text": "", // "",
+    "typeParameter": "", // "",
+    "unit": "", // "",
+    "value": "", // "",
+    "variable": "" // ""
   },
 
   // hover
@@ -57,7 +57,6 @@
 
   "yank.list.maxsize": 1000,
   "yank.highlight.duration": 200,
-
 
   "git.enableGutters": true,
   "git.realtimeGutters": true,
@@ -96,23 +95,18 @@
     // }
   },
 
-
   "diagnostic.enable": true,
   "diagnostic.level": "hint",
   "diagnostic.virtualText": true,
   "diagnostic.messageTarget": "echo",
   "diagnostic.displayByAle": false,
 
-
-  "diagnostic.errorSign":   "✗", //  
+  "diagnostic.errorSign": "✗", //  
   "diagnostic.warningSign": "", //  
-  "diagnostic.infoSign":    "", //  
-  "diagnostic.hintSign":    "", //  ﯦﯧ
-
+  "diagnostic.infoSign": "", //  
+  "diagnostic.hintSign": "", //  ﯦﯧ
 
   "tsserver.enableJavascript": true,
-
-
 
   "solargraph.rename": true,
   "solargraph.hover": true,
