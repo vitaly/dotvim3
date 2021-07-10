@@ -165,6 +165,10 @@ map                           <plug>(COC/Fix-Current)               <Plug>(coc-f
 nmap    <localleader>f        <plug>(COC/Fix-Current)
 nmap    <localleader>cf       <plug>(COC/Fix-Current)
 
+xmap    <localleader>=        <Plug>(coc-format-selected)
+nmap    <localleader>=        V<Plug>(coc-format-selected)
+nmap    <localleader>c=       <Plug>(coc-format)
+
 call my#keymap#localleader('cg',  '+GoTo')
 
 nmap <silent> <plug>(COC/Goto/Definition)     <Plug>(coc-definition)
