@@ -2,6 +2,7 @@
 " src/plugins/20-settings/files/vimrc.bindings -------------------
 
 call my#keymap#leader('T', '+Toggle')
+call my#keymap#leader('Tb', '+Buffer')
 
 noremap <silent>                       <plug>(Toggle/Relative-Number) :set relativenumber!<cr>
 nmap    <leader>Tr                     <plug>(Toggle/Relative-Number)
