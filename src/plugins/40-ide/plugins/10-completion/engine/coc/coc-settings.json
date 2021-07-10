@@ -67,7 +67,7 @@
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": ["Dockerfile"],
+      "filetypes": ["Dockerfile", "dockerfile"],
       "args": ["--stdio"]
     },
 
