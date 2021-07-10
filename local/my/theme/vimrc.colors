@@ -124,6 +124,19 @@ endfu
 fu! s:base16_3024()
   hi CursorLine guibg=#224477
   hi QuickFixLine  guibg=#ffffff
+  hi CocCodeLens guifg=#8800aa
+endfu
+
+fu! s:base16_flat()
+  " hi CursorLine guibg=#34495E
+  hi CursorLine guibg=#203040
+  hi CursorColumn guibg=#283848
+
+  " hi QuickFixLine  guibg=#34495E
+  hi QuickFixLine  guibg=#000088
+
+  " hi CocCodeLens guifg=#999999
+  " hi CocCodeLens guifg=#999999
 endfu
 
 " hi IndentGuidesOdd
