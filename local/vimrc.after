@@ -519,7 +519,7 @@ function! s:MoveSelection(line1, line2, target)
     let l:count -= 1
   endwhile
 
-  silent Neoformat
+  silent Autoformat
   write
 endfunction
 
@@ -558,3 +558,25 @@ if has('nvim') || has('terminal')
 end
 
 set modelines=2
+
+
+
+fu! DumpVars(match) abort
+  for l:v in sort(filter(keys(g:), 'v:val =~ "' . a:match . '"'))
+    echon 'g:' . l:v . ' = '
+    echon get(g:, l:v)
+    echo ''
+  endfor
+
+  for l:v in sort(filter(keys(b:), 'v:val =~ "' . a:match . '"'))
+    echon 'b:' . l:v . ' = '
+    echon get(b:, l:v)
+    echo ''
+  endfor
+endfu
+command! -nargs=1 DumpVars call DumpVars('<args>')
+
+let g:tagbar_position='topleft vertical'
+
+let g:formatdef_rubocop = substitute(g:formatdef_rubocop, 'rubocop', 'bin/rubocop', '')
+let g:formatters_ruby = ['rubocop']
