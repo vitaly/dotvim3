@@ -97,6 +97,8 @@ Plug 'majutsushi/tagbar'
 map <plug>toggle(tagbar) :TagbarToggle<CR>
 nmap <leader>TT <plug>toggle(tagbar)
 
+let g:typescript_use_builtin_tagbar_defs = 0
+
 " let g:tagbar_type_typescript = {
 "   \ 'ctagsbin' : 'tstags',
 "   \ 'ctagsargs' : '-f-',
@@ -117,7 +119,7 @@ nmap <leader>TT <plug>toggle(tagbar)
 "   \ 'sort' : 0
 " \ }
 
-let g:tagbar_autopreview=1
+let g:tagbar_autopreview=0
 
 
 " let g:tagbar_type_typescript = {
@@ -212,7 +214,7 @@ source ~/.vim/local/my/debug/vimspector.vim
 
 
 source ~/.vim/local/defx.vim
-source ~/.vim/local/lua-tree.vim
+" source ~/.vim/local/lua-tree.vim
 
 Plug 'Shougo/vimfiler.vim'
 " Plug 'Shougo/deol.nvim'

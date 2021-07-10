@@ -12,4 +12,4 @@ fu! ToggleBg()
 endfu
 
 nnoremap <plug>toggle(bg) :call ToggleBg()<cr>
-nmap <leader>Tb <plug>toggle(bg)
+nmap <leader>Tbb <plug>toggle(bg)
