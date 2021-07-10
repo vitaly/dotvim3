@@ -580,3 +580,4 @@ let g:tagbar_position='topleft vertical'
 
 let g:formatdef_rubocop = substitute(g:formatdef_rubocop, 'rubocop', 'bin/rubocop', '')
 let g:formatters_ruby = ['rubocop']
+let g:formatters_jsonc = ["prettier"]
