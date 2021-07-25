@@ -81,6 +81,11 @@ autocmd FileType haml let b:switch_definitions =
 
 nnoremap ` :Switch<cr>
 
+" src/plugins/30-general/plugins/textobj-user/vimrc.plugins -------------------
+
+" user-defined vim textobj support
+Plug 'kana/vim-textobj-user'
+
 " src/plugins/30-general/plugins/tmux-navigator/files/vimrc.plugins -------------------
 
 Plug 'vitaly/vim-tmux-navigator'
@@ -333,6 +338,8 @@ Plug 'stefanoverna/vim-i18n', {'for': 'ruby'}
 let g:ruby_refactoring_map_keys=0
 Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
 
+" ruby-block text object support
+Plug 'nelstrom/vim-textobj-rubyblock'
 
 " src/plugins/80-base16/files/vimrc.plugins -------------------
 

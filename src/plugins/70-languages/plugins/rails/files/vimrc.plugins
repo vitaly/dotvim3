@@ -16,3 +16,5 @@ Plug 'stefanoverna/vim-i18n', {'for': 'ruby'}
 let g:ruby_refactoring_map_keys=0
 Plug 'ecomba/vim-ruby-refactoring', {'for': 'ruby'}
 
+" ruby-block text object support
+Plug 'nelstrom/vim-textobj-rubyblock'
