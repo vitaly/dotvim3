@@ -6,6 +6,7 @@ coc-json
 coc-lists
 coc-react-refactor
 coc-rls
+coc-sh
 coc-snippets
 coc-solargraph
 coc-syntax

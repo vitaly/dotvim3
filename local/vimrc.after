@@ -307,7 +307,7 @@ xnoremap <C-k> :m '<-2<CR>gv=gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-cnoreabbrev h vert bo h
+" cnoreabbrev h vert bo h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:is_bash = 1
 nmap <silent><esc> :silent noh<cr>
@@ -580,4 +580,12 @@ let g:tagbar_position='topleft vertical'
 
 let g:formatdef_rubocop = substitute(g:formatdef_rubocop, 'rubocop', 'bin/rubocop', '')
 let g:formatters_ruby = ['rubocop']
+
+let g:formatdef_tsfmt = substitute(g:formatdef_tsfmt, 'tsfmt', 'npx typescript-formatter', '')
+let g:formatdef_prettier = substitute(g:formatdef_prettier, 'prettier', 'npx prettier', '')
 let g:formatters_jsonc = ["prettier"]
+let g:formatters_json = ["prettier"]
+let g:formatters_javascript = ["prettier"]
+let g:formatters_javascriptreact = ["prettier"]
+let g:formatters_typescript = ["prettier"]
+let g:formatters_typescriptreact = ["prettier"]
