@@ -64,6 +64,7 @@
   "git.addGBlameToBufferVar": false,
 
   "languageserver": {
+
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["Dockerfile", "dockerfile"],
@@ -74,6 +75,17 @@
       "command": "ocaml-language-server",
       "args": ["--stdio"],
       "filetypes": ["ocaml", "reason"]
+    },
+
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     },
 
     "vim": {
