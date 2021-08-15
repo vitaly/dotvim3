@@ -61,7 +61,7 @@ extensions: ## install extensions
 	@test -e ./scripts/install-extensions.sh && bash ./scripts/install-extensions.sh
 .PHONY: extensions
 
-install: deps plugins extensions ## install dependencies, plugins, and extensions
+install: configure deps plugins extensions ## install dependencies, plugins, and extensions
 .PHONY: install
 
 ##@ CLEANUP
