@@ -1,1 +1,2 @@
 coc-elixir
+coc-lua
