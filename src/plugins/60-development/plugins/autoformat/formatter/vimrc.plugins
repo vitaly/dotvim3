@@ -1,0 +1,1 @@
+Plug 'mhartington/formatter.nvim'
