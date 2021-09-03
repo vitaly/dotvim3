@@ -780,10 +780,6 @@ endf
 map                                    <plug>(Toggle/AutoFormat)       :call ToggleAutoFormat()<CR>
 nmap    <silent> <leader>Ta            <plug>(Toggle/AutoFormat)
 
-" src/plugins/60-development/plugins/autoformat/formatter/vimrc.bindings -------------------
-
-command! Autoformat FormatWrite
-
 " src/plugins/70-languages/plugins/rails/files/vimrc.bindings -------------------
 
 " FIXME: can we make this active only in a Ruby ftype?

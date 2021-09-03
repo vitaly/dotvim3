@@ -256,9 +256,10 @@ let g:yankring_window_height = 20
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 
-" src/plugins/60-development/plugins/autoformat/formatter/vimrc.plugins -------------------
+" src/plugins/60-development/plugins/autoformat/vim-autoformat/vimrc.plugins -------------------
 
-Plug 'mhartington/formatter.nvim'
+let g:autoformat_verbosemode=0
+Plug 'Chiel92/vim-autoformat'
 
 " src/plugins/60-development/plugins/delimitmate/files/vimrc.plugins -------------------
 

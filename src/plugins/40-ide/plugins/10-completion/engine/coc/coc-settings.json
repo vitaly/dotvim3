@@ -112,6 +112,9 @@
   "diagnostic.hintSign": "", //  ﯦﯧ
 
   "tsserver.enableJavascript": true,
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "tsserver.implicitProjectConfig.checkJs": true,
 
   "solargraph.rename": true,
   "solargraph.hover": true,
@@ -122,7 +125,8 @@
   "solargraph.definitions": true,
   "solargraph.references": true,
   "solargraph.checkGemVersion": false,
-  "solargraph.useBundler": true,
+  "solargraph.commandPath": "/Users/vitaly/.asdf/installs/ruby/2.6.0/bin/solargraph",
+  // "solargraph.useBundler": true,
   "solargraph.trace.server": "verbose",
   "solargraph.logLevel": "debug"
 }
