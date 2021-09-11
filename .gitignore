@@ -21,3 +21,4 @@ node_modules/
 /pages/
 .notags
 .env
+/spell/
