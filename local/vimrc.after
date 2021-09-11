@@ -2,6 +2,20 @@ scriptencoding utf8
 
 
 
+fu! SetupMyMacros()
+  echom " @s - enclose selection in double * (bold in markdown)"
+  let @s="S*gvS*"
+
+  echom " @p - format paragraph"
+  let @p="V}kQ"
+
+  echom " @u - surround current letter with [] and upcase it, e.g. foo -> [F]oo"
+  let @u="vS]v%U"
+
+  echom " @l - adds line of ------ up to column 80 at the end of the current line"
+  let @l="$2lv079lr-"
+endfu
+
 
 
 
