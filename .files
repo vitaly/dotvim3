@@ -22,8 +22,10 @@ ftplugin/javascript.vim
 ftplugin/dockerfile.vim
 ftplugin/ruby.vim
 ftplugin/json.vim
+ftplugin/terraform.vim
 ftplugin/typescript.vim
 ftplugin/yaml.vim
+ftdetect/envrc.vim
 ftdetect/fileflow.vim
 after/ftplugin/typescript.vim
 README.md
