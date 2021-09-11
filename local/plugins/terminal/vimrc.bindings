@@ -26,7 +26,11 @@ if has("nvim")
     au TermOpen,BufEnter,FocusGained term://*  startinsert
   augroup END
 
-  tnoremap <Esc><space> <C-\><C-n>
+  " the previous mapping of <esc><space> was making the <Esc> very slow in
+  " terminal, which is especially annoying in FZF :Files command window
+  " in vim Esc is the same as C-[
+  " so we'll use A-[ to get out to normal mode in terminal
+  tnoremap <A-[> <C-\><C-n>
 endif
 
 call my#keymap#localleader('e', '+Eval')
